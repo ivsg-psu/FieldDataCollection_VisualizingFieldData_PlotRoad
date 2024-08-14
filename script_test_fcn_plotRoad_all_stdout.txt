@@ -1,0 +1,219 @@
+<strong> </strong><strong>Testing script: 1 of 14, test_fcn_plotRoad_breakArrayByNans
+
+</strong>Running script_test_fcn_plotRoad_breakArrayByNans
+.........
+
+Comparison of fcn_plotRoad_breakArrayByNans without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00023
+Slow mode fastest speed over all calls (seconds): 0.00003
+Fast mode average speed per call (seconds): 0.00016
+Fast mode fastest speed over all calls (seconds): 0.00002
+Average ratio of fast mode to slow mode (unitless): 1.449
+.
+Done script_test_fcn_plotRoad_breakArrayByNans
+__________
+
+<strong> </strong><strong>Testing script: 2 of 14, test_fcn_plotRoad_calcRectangleXYZ
+
+</strong>Running script_test_fcn_plotRoad_calcRectangleXYZ
+......
+
+Comparison of fcn_plotRoad_calcRectangleXYZ without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00071
+Slow mode fastest speed over all calls (seconds): 0.00008
+Fast mode average speed per call (seconds): 0.00052
+Fast mode fastest speed over all calls (seconds): 0.00003
+Average ratio of fast mode to slow mode (unitless): 1.373
+Fastest ratio of fast mode to slow mode (unitless): 2.289
+.
+Done script_test_fcn_plotRoad_calcRectangleXYZ
+__________
+
+<strong> </strong><strong>Testing script: 3 of 14, test_fcn_plotRoad_extractFormatFromString
+
+</strong>Running script_test_fcn_plotRoad_extractFormatFromString
+..
+
+RESULTS:
+	Input string: 	r.-
+	Color: 	1 0 0
+	Marker: 	.
+	LineStyle: 	-
+.
+
+RESULTS:
+	Input string: 	g
+	Color: 	0 1 0
+.
+
+Comparison of fcn_plotRoad_extractFormatFromString without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00140
+Slow mode fastest speed over all calls (seconds): 0.00034
+Fast mode average speed per call (seconds): 0.00084
+Fast mode fastest speed over all calls (seconds): 0.00018
+Average ratio of fast mode to slow mode (unitless): 1.666
+Fastest ratio of fast mode to slow mode (unitless): 1.839
+.
+Done script_test_fcn_plotRoad_extractFormatFromString
+__________
+
+<strong> </strong><strong>Testing script: 4 of 14, test_fcn_plotRoad_plotHeadTailLL
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailLL
+........
+Done script_test_fcn_plotRoad_plotHeadTailLL
+__________
+
+<strong> </strong><strong>Testing script: 5 of 14, test_fcn_plotRoad_plotHeadTailXY
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailXY
+.......
+Done script_test_fcn_plotRoad_plotHeadTailXY
+__________
+
+<strong> </strong><strong>Testing script: 6 of 14, test_fcn_plotRoad_plotLL
+
+</strong>Running script_test_fcn_plotRoad_plotLL
+.........
+
+Comparison of fcn_plotRoad_plotLL without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.45958
+Slow mode fastest speed over all calls (seconds): 0.38763
+Fast mode average speed per call (seconds): 0.36635
+Fast mode fastest speed over all calls (seconds): 0.26269
+Average ratio of fast mode to slow mode (unitless): 1.254
+Fastest ratio of fast mode to slow mode (unitless): 1.476
+.
+Done script_test_fcn_plotRoad_plotLL
+__________
+
+<strong> </strong><strong>Testing script: 7 of 14, test_fcn_plotRoad_plotLLI
+
+</strong>Running script_test_fcn_plotRoad_plotLLI
+.......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00216
+Slow mode fastest speed over all calls (seconds): 0.00088
+Fast mode average speed per call (seconds): 0.00665
+Fast mode fastest speed over all calls (seconds): 0.00023
+Average ratio of fast mode to slow mode (unitless): 0.324
+Fastest ratio of fast mode to slow mode (unitless): 3.873
+.
+Done script_test_fcn_plotRoad_plotLLI
+__________
+
+<strong> </strong><strong>Testing script: 8 of 14, test_fcn_plotRoad_plotTraceLL
+
+</strong>Running script_test_fcn_plotRoad_plotTraceLL
+........
+Done script_test_fcn_plotRoad_plotTraceLL
+__________
+
+<strong> </strong><strong>Testing script: 9 of 14, test_fcn_plotRoad_plotTraceXY
+
+</strong>Running script_test_fcn_plotRoad_plotTraceXY
+........
+Done script_test_fcn_plotRoad_plotTraceXY
+__________
+
+<strong> </strong><strong>Testing script: 10 of 14, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+.......... ....
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+<strong> </strong><strong>Testing script: 11 of 14, test_fcn_plotRoad_plotXY
+
+</strong>Running script_test_fcn_plotRoad_plotXY
+......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00048
+Slow mode fastest speed over all calls (seconds): 0.00004
+Fast mode average speed per call (seconds): 0.00100
+Fast mode fastest speed over all calls (seconds): 0.00008
+Average ratio of fast mode to slow mode (unitless): 0.475
+Fastest ratio of fast mode to slow mode (unitless): 0.502
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotXY/testingSpeedOfFunction and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:assertion:failed'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('assert')" style="font-weight:bold">assert</a>
+    Assertion failed.
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_plotXY', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotXY.m', 154)" style="font-weight:bold">script_test_fcn_plotRoad_plotXY</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotXY.m',154,0)">line 154</a>)
+    assert(averageTimeFast<2*averageTimeSlow);
+================================================================================
+.
+Done script_test_fcn_plotRoad_plotXY
+__________
+
+Failure Summary:
+
+     Name                                                    Failed  Incomplete  Reason(s)
+    =======================================================================================
+     script_test_fcn_plotRoad_plotXY/testingSpeedOfFunction    X         X       Errored.
+<strong> </strong><strong>Testing script: 12 of 14, test_fcn_plotRoad_plotXYI
+
+</strong>Running script_test_fcn_plotRoad_plotXYI
+.......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00182
+Slow mode fastest speed over all calls (seconds): 0.00075
+Fast mode average speed per call (seconds): 0.00119
+Fast mode fastest speed over all calls (seconds): 0.00049
+Average ratio of fast mode to slow mode (unitless): 1.528
+Fastest ratio of fast mode to slow mode (unitless): 1.520
+.
+Done script_test_fcn_plotRoad_plotXYI
+__________
+
+<strong> </strong><strong>Testing script: 13 of 14, test_fcn_plotRoad_plotXYZ
+
+</strong>Running script_test_fcn_plotRoad_plotXYZ
+......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00043
+Slow mode fastest speed over all calls (seconds): 0.00003
+Fast mode average speed per call (seconds): 0.00024
+Fast mode fastest speed over all calls (seconds): 0.00002
+Average ratio of fast mode to slow mode (unitless): 1.805
+Fastest ratio of fast mode to slow mode (unitless): 2.134
+.
+Done script_test_fcn_plotRoad_plotXYZ
+__________
+
+<strong> </strong><strong>Testing script: 14 of 14, test_fcn_plotRoad_plotXYZI
+
+</strong>Running script_test_fcn_plotRoad_plotXYZI
+........
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00118
+Slow mode fastest speed over all calls (seconds): 0.00045
+Fast mode average speed per call (seconds): 0.00091
+Fast mode fastest speed over all calls (seconds): 0.00042
+Average ratio of fast mode to slow mode (unitless): 1.298
+Fastest ratio of fast mode to slow mode (unitless): 1.096
+.
+Done script_test_fcn_plotRoad_plotXYZI
+__________
+
