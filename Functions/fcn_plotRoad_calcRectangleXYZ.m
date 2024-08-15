@@ -1,5 +1,5 @@
 function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargin)
-%fcn_plotRoad_calcRectangleXYZ  finds the XY(Z) coordinates of a rectangle
+%fcn_plotRoad_calcRectangleXYZ  finds the XY(Z) corners of a rectangle
 %
 % FORMAT:
 %

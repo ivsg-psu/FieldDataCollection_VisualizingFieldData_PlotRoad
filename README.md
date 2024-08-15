@@ -60,11 +60,11 @@ Search for this, and you will find!
         </ul>
         <li><a href="#supporting-functions">Supporting Functions</li>
         <ul>
-          <li><a href="#fcn_plotroad_plotxy">fcn_plotRoad_calcRectangleXYZ - finds the XY(Z) coordinates of a rectangle</li>
-          <li><a href="#fcn_plotRoad_breakArrayByNans">fcn_plotRoad_breakArrayByNans - breaks data separated by nan into subdata</li>
-          <li><a href="#fcn_plotRoad_plotTraceXY">fcn_plotRoad_plotTraceXY - plots EN components of ENU data as a trace</li>
-          <li><a href="#fcn_plotRoad_plotTraceLL">fcn_plotRoad_plotTraceLL - plots LL components of LLA data as a trace</li>
-          <li><a href="#fcn_plotRoad_plotTraces">fcn_plotRoad_plotTraces - plots traces in LLA, ENU, and/or STH coords</li>
+          <li><a href="#fcn_plotroad_calcrectanglexyz">fcn_plotRoad_calcRectangleXYZ - finds the XY(Z) coordinates of a rectangle</li>
+          <li><a href="#fcn_plotroad_breakarraybynans">fcn_plotRoad_breakArrayByNans - breaks data separated by nan into subdata</li>
+          <li><a href="#fcn_plotroad_plottracexy">fcn_plotRoad_plotTraceXY - plots EN components of ENU data as a trace</li>
+          <li><a href="#fcn_plotroad_plottracell">fcn_plotRoad_plotTraceLL - plots LL components of LLA data as a trace</li>
+          <li><a href="#fcn_plotroad_plottraces">fcn_plotRoad_plotTraces - plots traces in LLA, ENU, and/or STH coords</li>
         </ul>
       </ul>
     <li><a href="#usage">Usage Examples</a></li>

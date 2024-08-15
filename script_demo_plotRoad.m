@@ -103,13 +103,29 @@ end
 hard_coded_reference_unit_tangent_vector_outer_lanes   = [0.793033249943519   0.609178351949592];
 hard_coded_reference_unit_tangent_vector_LC_south_lane = [0.794630317120972   0.607093616431785];
 
+%% Set environment flags that define the ENU origin
+% This sets the "center" of the ENU coordinate system for all plotting
+% functions
+setenv('MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE','40.86368573');
+setenv('MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE','-77.83592832');
+setenv('MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE','344.189');
+
+
 %% Set environment flags for plotting
 % These are values to set if we are forcing image alignment via Lat and Lon
 % shifting, when doing geoplot. This is added because the geoplot images
 % are very, very slightly off at the test track, which is confusing when
 % plotting data above them.
-setenv('MATLABFLAG_LOADWZ_ALIGNMATLABLLAPLOTTINGIMAGES_LAT','-0.0000008');
-setenv('MATLABFLAG_LOADWZ_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
+setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LAT','-0.0000008');
+setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
+
+
+%% Set environment flags for input checking
+% These are values to set if we want to check inputs or do debugging
+% setenv('MATLABFLAG_FINDEDGE_FLAG_CHECK_INPUTS','1');
+% setenv('MATLABFLAG_FINDEDGE_FLAG_DO_DEBUG','1');
+setenv('MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS','1');
+setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
 
 
 %% Core Functions
@@ -307,7 +323,7 @@ assert(all(ishandle(h_plot(good_indicies,1))));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
 %% fcn_plotRoad_calcRectangleXYZ in 2D
-% finds the XY(Z) coordinates of a rectangle
+% finds the XY(Z) corners of a rectangle
 % cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num))
 fig_num = 11;
 figure(fig_num);
