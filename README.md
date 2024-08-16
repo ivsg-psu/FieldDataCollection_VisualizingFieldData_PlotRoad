@@ -64,7 +64,9 @@ Search for this, and you will find!
           <li><a href="#fcn_plotroad_breakarraybynans">fcn_plotRoad_breakArrayByNans - breaks data separated by nan into subdata</li>
           <li><a href="#fcn_plotroad_plottracexy">fcn_plotRoad_plotTraceXY - plots EN components of ENU data as a trace</li>
           <li><a href="#fcn_plotroad_plottracell">fcn_plotRoad_plotTraceLL - plots LL components of LLA data as a trace</li>
-          <li><a href="#fcn_plotroad_plottraces">fcn_plotRoad_plotTraces - plots traces in LLA, ENU, and/or STH coords</li>
+          <li><a href="#fcn_plotroad_plottraces">fcn_plotRoad_plotTraces - plots traces in LLA, ENU, and/or STH coords given one of three formats, returning all formats</li>
+          <li><a href="#fcn_plotroad_calclaneboundaries">fcn_plotRoad_calcLaneBoundaries - calculates left and right lane boundaries by projecting a fixed distance from XYdata</li>
+          <li><a href="#fcn_plotroad_calclaneboundingbox">fcn_plotRoad_calcLaneBoundingBox - generates polyshape bounding box of lane</li>                    
         </ul>
       </ul>
     <li><a href="#usage">Usage Examples</a></li>
@@ -346,12 +348,12 @@ plots LL components of LLA data as a trace
 
 #### **fcn_plotRoad_plotTraces**
 
-plots LL components of LLA data as a trace
+plots traces in LLA, ENU, and/or STH coords given one of three formats, returning all formats
 
  **FORMAT:**
 
   ```Matlab
-          fcn_plotRoad_plotTraces(...
+         [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
          Trace_coordinates, input_coordinates_type,...
          (plotFormat),...
          (reference_unit_tangent_vector),...
@@ -362,6 +364,45 @@ plots LL components of LLA data as a trace
 <pre align="center">
   <img src=".\Images\fcn_plotRoad_plotTraces.jpg" alt="fcn_plotRoad_plotTraces picture" width="500" height="400">
   <figcaption>Example of fcn_plotRoad_plotTraces</figcaption>
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
+#### **fcn_plotRoad_calcLaneBoundaries**
+
+calculates left and right lane boundaries by projecting a fixed distance from XYdata
+
+ **FORMAT:**
+
+  ```Matlab
+  [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_calcLaneBoundaries.jpg" alt="fcn_plotRoad_calcLaneBoundaries picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_calcLaneBoundaries</figcaption>
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
+
+#### **fcn_plotRoad_calcLaneBoundingBox**
+
+generates polyshape bounding box of lane
+
+ **FORMAT:**
+
+  ```Matlab
+  boundingBoxXY = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_calcLaneBoundingBox.jpg" alt="fcn_plotRoad_calcLaneBoundingBox picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_calcLaneBoundingBox</figcaption>
 </pre>
 
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>

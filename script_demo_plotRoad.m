@@ -71,7 +71,7 @@ library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_Da
 
 
 %% Clear paths and folders, if needed
-if 1==0
+if 1==1
     clear flag_plotRoad_Folders_Initialized;
     fcn_INTERNAL_clearUtilitiesFromPathAndFolders;
 
@@ -660,8 +660,9 @@ title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Inter
 assert(all(ishandle(h_plot)));
 
 %% fcn_plotRoad_plotTraces
-% plots traces in LLA, ENU, and/or STH coords
-%       fcn_plotRoad_plotTraces(...
+% plots traces in LLA, ENU, and/or STH coords given one of three formats,
+% returning all formats
+%       [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %          Trace_coordinates, input_coordinates_type,...
 %          (plotFormat),...
 %          (reference_unit_tangent_vector),...
@@ -706,6 +707,75 @@ fcn_plotRoad_plotTraces(...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+
+
+%% fcn_plotRoad_calcLaneBoundaries
+% calculates left and right lane boundaries by projecting a fixed distance from XYdata
+% [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num))
+
+
+fig_num = 900;
+figure(fig_num);
+clf;
+
+% Load data (from the following, in the plotCV2X library)
+% csvFile = 'TestTrack_PendulumRSU_InstallTest_OuterLane1_2024_08_09.csv'; % Path to your CSV file
+% [XYdata, tENU] = fcn_plotCV2X_loadDataFromFile(csvFile, (-1));
+% disp(tENU(:,2:3))
+
+load(cat(2,'Data',filesep,'SampleCV2XData.mat'),'XYdata');
+
+% Test the function
+csvFile = 'TestTrack_PendulumRSU_InstallTest_OuterLane1_2024_08_09.csv'; % Path to your CSV file
+projectionDistance = [];
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+title(sprintf('Example of fcn_plotRoad_calcLaneBoundaries'), 'Interpreter','none','FontSize',12);
+subtitle(sprintf('File: %s',csvFile), 'Interpreter','none','FontSize',12);
+
+% Does the data have 2 columns?
+assert(length(leftLaneBoundary_XY(1,:))== 2)
+assert(length(rightLaneBoundary_XY(1,:))== 2)
+
+% Do both have same number of rows?
+assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
+
+% Do both have same number of rows as input data?
+assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
+
+% Check that a figure was created
+assert(ishandle(fig_num));
+
+%% fcn_plotRoad_calcLaneBoundingBox
+% generates polyshape bounding box of lane
+% boundingBoxXY = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num))
+
+fig_num = 901;
+figure(fig_num);
+
+% Create data
+xData = linspace(-2,20,100)';
+yData = 2*xData+4;
+XYdata = [xData yData];
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
+
+% Test the function
+boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num));
+title(sprintf('Example of fcn_plotRoad_calcLaneBoundingBox'), 'Interpreter','none','FontSize',12);
+
+% Was a figure was created?
+assert(ishandle(fig_num));
+
+% Does the boundingBoxPolyshape.Verticies have 2 columns?
+assert(length(boundingBoxPolyshape.Vertices(1,:))== 2);
+
+% Does boundingBoxPolyshape.Verticies have same number of rows?
+assert(length(boundingBoxPolyshape.Vertices(:,1))==2*length(XYdata(:,1)));
+
+% Does boundingBoxPolyshape.NumRegions have 1 region and 0 holes?
+assert(1 == boundingBoxPolyshape.NumRegions)
+assert(0 == boundingBoxPolyshape.NumHoles)
+
+
 
 %% Functions follow
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
