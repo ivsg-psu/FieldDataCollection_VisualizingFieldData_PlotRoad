@@ -52,7 +52,8 @@ function h_geoplot = fcn_plotRoad_plotLL(varargin)
 % 2024_08_13 by S. Brennan
 % -- Created function by copying out of load script in Geometry library and
 % merging with similar code in PlotTestTrack library
-
+% 2024_08_16 - S. Brennan
+% -- fixed bug where plot would not initialize due to gcf, changed to gca.
 
 %% Debugging and Input checks
 
@@ -230,7 +231,7 @@ h_geoplot = 0;
 if flag_do_plots == 1
     % check whether the figure already has data
     figure(fig_num);
-    temp_fig_handle = gcf;
+    temp_fig_handle = gca;
     if isempty(temp_fig_handle.Children)
         flag_make_new_plot = 1;
     end
