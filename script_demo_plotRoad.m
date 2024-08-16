@@ -12,7 +12,7 @@
 %   https://github.com/ivsg-psu/FieldDataCollection_VisualizingFieldData_PlotRoad
 %
 % If you have questions or comments, please contact Sean Brennan at
-% sbrennan@psu.edu or Vaishnavi Wagh, vbw5054@psu.edu
+% sbrennan@psu.edu
 
 
 
