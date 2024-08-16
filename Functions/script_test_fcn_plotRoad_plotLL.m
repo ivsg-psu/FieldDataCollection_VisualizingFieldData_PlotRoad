@@ -254,6 +254,34 @@ title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpr
 assert(ishandle(h_geoplot));
 
 
+%% Basic example 7 - Start of the PennDOT site 1 area
+
+fig_num = 7;
+figure(fig_num);
+clf;
+
+% Fill in data
+LLdata = [
+    40.4305,-79.873,0
+];
+
+
+% Test the function
+clear plotFormat
+plotFormat.Color = [0 0.7 0];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+set(gca,'MapCenter',LLdata(1,1:2));
+
+title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_geoplot));
+
+
 %% testing speed of function
 
 
