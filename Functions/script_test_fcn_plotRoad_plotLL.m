@@ -274,7 +274,7 @@ plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
 h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-set(gca,'MapCenter',LLdata(1,1:2));
+% set(gca,'MapCenter',LLdata(1,1:2));
 
 title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpreter','none');
 

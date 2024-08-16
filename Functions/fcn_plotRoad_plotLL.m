@@ -54,6 +54,9 @@ function h_geoplot = fcn_plotRoad_plotLL(varargin)
 % merging with similar code in PlotTestTrack library
 % 2024_08_16 - S. Brennan
 % -- fixed bug where plot would not initialize due to gcf, changed to gca.
+% -- fixed bug where plot is not centered on plotted data when sites away
+% from the test track are plotted. Fixed this via:
+%         set(gca,'MapCenter',dataToPlot(end,1:2));
 
 %% Debugging and Input checks
 
@@ -300,6 +303,7 @@ if flag_do_plots == 1
 
         % Do plot
         h_plot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+        set(gca,'MapCenter',dataToPlot(end,1:2));
 
         % Fix attributes
         list_fieldNames = fieldnames(finalPlotFormat);
