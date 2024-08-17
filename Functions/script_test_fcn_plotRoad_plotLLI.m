@@ -226,7 +226,7 @@ for i=1:REPS
     minTimeSlow=min(telapsed,minTimeSlow);
 end
 averageTimeSlow=toc/REPS;
-%slow mode END
+% Slow mode END
 
 close all;
 
@@ -241,6 +241,7 @@ for i=1:REPS
     minTimeFast = min(telapsed,minTimeFast);
 end
 averageTimeFast = toc/REPS;
+% Fast mode END
 
 % Display Console Comparison
 if 1==1

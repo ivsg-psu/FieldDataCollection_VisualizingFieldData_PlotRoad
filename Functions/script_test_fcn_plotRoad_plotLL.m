@@ -30,7 +30,7 @@ h_geoplot = fcn_plotRoad_plotLL;
 
 % Check results
 assert(ishandle(h_geoplot));
-close(gcf);
+
 
 %% BASIC example 1 - all defaults, no data. Also opens and initializes plot
 fig_num = 1;
@@ -47,7 +47,26 @@ title(sprintf('Example %.0d: showing initializing plot to figure number',fig_num
 
 % Check results
 assert(ishandle(h_geoplot));
-close(gcf);
+
+
+%% BASIC example 1.1 - ppens and inializes plot to the data point
+fig_num = 11;
+figure(fig_num);
+clf;
+
+LLdata = [40.43073, -79.87261, 0];
+
+% Test the function
+plotFormat = [];
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+
+title(sprintf('Example %.0d: showing initializing plot to figure number',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_geoplot));
+
+
+
 
 %% BASIC example 2
 % Plot data onto an empty figure. This will force the code to check to see

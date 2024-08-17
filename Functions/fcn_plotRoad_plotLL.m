@@ -135,6 +135,7 @@ end
 
 % Check the data input
 flag_plot_data = 0; % Default is not to plot the data
+dataToPlot = [];
 if 1 <= nargin
     temp = varargin{1};
 
@@ -259,22 +260,27 @@ if flag_do_plots == 1
 
         % Plot the base station with a green star. This sets up the figure for
         % the first time, including the zoom into the test track area.
+        if isempty(dataToPlot) || length(dataToPlot(:,1))>1
+            reference_latitude = 40.86368573;
+            reference_longitude = -77.83592832;
+            reference_altitude = 344.189;
+            MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE");
+            MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE");
+            MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE");
+            if ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE)
+                reference_latitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE);
+                reference_longitude = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE);
+                reference_altitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE);
+            end
 
-        reference_latitude = 40.86368573;
-        reference_longitude = -77.83592832;
-        reference_altitude = 344.189;
-        MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE");
-        MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE");
-        MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE");
-        if ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE)
-            reference_latitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE);
-            reference_longitude = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE);
-            reference_altitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE);            
+            h_tempGeoplot = geoplot(reference_latitude+offset_Lat, reference_longitude+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
+        else
+            % h_tempGeoplot = geoplot(dataToPlot(1,1)+offset_Lat, dataToPlot(1,2)+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
+            h_tempGeoplot = geoplot(nan, nan, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
+            set(gca,'MapCenter',dataToPlot(1,1:2));
         end
 
-
-        h_geoplot = geoplot(reference_latitude+offset_Lat, reference_longitude+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
-        h_parent =  get(h_geoplot,'Parent');
+        h_parent =  get(h_tempGeoplot,'Parent');
         set(h_parent,'ZoomLevel',16.375);
         try
             geobasemap satellite
@@ -302,14 +308,17 @@ if flag_do_plots == 1
         end
 
         % Do plot
-        h_plot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
-        set(gca,'MapCenter',dataToPlot(end,1:2));
+        h_geoplot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+
+        % if ~isnan(dataToPlot(end,1:2))
+        %     set(gca,'MapCenter',dataToPlot(end,1:2));
+        % end
 
         % Fix attributes
         list_fieldNames = fieldnames(finalPlotFormat);
         for ith_field = 1:length(list_fieldNames)
             thisField = list_fieldNames{ith_field};
-            h_plot.(thisField) = finalPlotFormat.(thisField);
+            h_geoplot.(thisField) = finalPlotFormat.(thisField);
         end
     end
 end
