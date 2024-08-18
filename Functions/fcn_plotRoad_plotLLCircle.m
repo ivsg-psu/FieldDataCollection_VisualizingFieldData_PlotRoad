@@ -1,9 +1,9 @@
-function h_geoplot = fcn_plotRoad_plotLLCircle(LLcenter, radius, varargin)
+function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, varargin)
 %fcn_plotRoad_plotLLcircle    geoplots a circle
 % 
 % FORMAT:
 %
-%      h_geoplot = fcn_plotRoad_plotLLI(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num))
+%      [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLI(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num))
 %
 % INPUTS:  
 %
@@ -20,31 +20,33 @@ function h_geoplot = fcn_plotRoad_plotLLCircle(LLcenter, radius, varargin)
 %          * a format string, e.g. 'b-', that dictates the plot style.
 %          a colormap is created using this color value as 100%, with only
 %          one color output, and one plot at the radius specified.
-%          * a [1x3] color vector specifying the RGB ratios from 0 to 1
-%          a colormap is created using this value as 100%, to grey as 0%,
-%          8 levels. A radius is calculated for all 8 levels
+%          * a [1x3] color vector specifying the [R G B] ratios from 0 to 1
 %          * a structure whose subfields for the plot properties to change, for example:
 %            plotFormat.LineWideth = 3;
 %            plotFormat.MarkerSize = 10;
 %            plotFormat.Color = [1 0.5 0.5];
 %            A full list of properties can be found by examining the plot
 %            handle, for example: h_geoplot = plot(1:10); get(h_geoplot)
-%          If a color is specified, a colormap as with a [1x3] color vector
-%          - this supercedes any colormap.  If no color or colormap is
-%          specified, then the default current colormap color is used. If
-%          no color is specified, but a colormap is given, the colormap is
-%          used.
+%          If a color is specified, a colormap is created with the
+%          specified [1x3] color vector - this supercedes any colormap.  If
+%          no color or colormap is specified, then the default current
+%          colormap color is used. If no color is specified, but a colormap
+%          is given, the colormap is used.
 %
 %      colorMapStringOrMatrix: a string specifying the colormap for the
 %      plot, or a matrix of colors defining a colormap. The default is to
-%      use the current colormap. If a colorMapStringOrMatrix is given, then
-%      plot outputs are given with radii at each color
+%      use the current colormap. If a colormap is calculated (see
+%      plotFormat optiosn above), it is created using the given color value
+%      as 100%, to grey as 0%, using 8 levels. For a colormap matrix, a
+%      separate circle ring is calculated at a radii at each color, with
+%      the colors proportional to distance from the center.
 %
-%      maxColors: the maximum number of colors to use in a colormap to
-%      populate concentric circles. Most colormaps are 256 colors,
-%      producing a very dense ring set. By setting maxColors to a lower
-%      value, such as 64 or 32, faster plotting speeds can be achieved.
-%      Default is 64.
+%      maxColorsAngles: the maximum allowable number of colors and angles
+%      to use in a colormap to populate concentric circles; the number of
+%      "rings" produced will be min(maxColorsAngles(1),length(colorMap(:,1)). Most
+%      colormaps are 256 colors, producing a very dense ring set. By
+%      setting maxColors to a lower value, such as 64 or 32, faster
+%      plotting speeds can be achieved. The default maxColors value is 64.
 %
 %      fig_num: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
@@ -54,6 +56,16 @@ function h_geoplot = fcn_plotRoad_plotLLCircle(LLcenter, radius, varargin)
 %
 %      h_geoplot: the handle to the plotting results, with one handle per
 %      colormap entry.
+%
+%      AllLatData, AllLonData: a [RxA] matrix of Latitude or Longitude
+%      respectively, where R is the number of rings (one for each color of
+%      the colormap), and A are the angles of the circle.
+%
+%      AllXData, AllYData: a [RxA] matrix of the X and Y components of the
+%      ENU data,  respectively, where R is the number of rings (one for
+%      each color of the colormap), and A are the angles of the circle.
+%
+%      ringColors: a [Rx3] matrix specifying the color used for each ring
 %
 % DEPENDENCIES:
 %
@@ -178,11 +190,11 @@ if (4<=nargin)
 end
 
 % Does user want to specify maxColors?
-maxColors = 64;
+maxColorsAngles = 64;
 if (5<=nargin)
     temp = varargin{3};
     if ~isempty(temp)
-        maxColors = temp;
+        maxColorsAngles = temp;
     end
 end
 
@@ -237,7 +249,7 @@ end
 if 0 == flag_plot_many_colors
     colorMapStringOrMatrixToUse = colorToScale;
 elseif isempty(colorMapStringOrMatrixToUse)
-    ratios = linspace(0,1,maxColors)';
+    ratios = linspace(0,1,maxColorsAngles(1))';
 
     % Create transition into a grey, 
     fadeGrey = 0.5*[1 1 1];
@@ -245,13 +257,13 @@ elseif isempty(colorMapStringOrMatrixToUse)
 end
 
 % How many colors do we have?
-Ncolors = length(colorMapStringOrMatrixToUse(:,1)); 
-if Ncolors>maxColors
-    reducedIndicies = round(linspace(1,Ncolors,maxColors));
-    reducedColorMap = colorMapStringOrMatrixToUse(reducedIndicies,:);
-    Ncolors = maxColors;
+Rcolors = length(colorMapStringOrMatrixToUse(:,1)); 
+if Rcolors>maxColorsAngles(1)
+    reducedIndicies = round(linspace(1,Rcolors,maxColorsAngles(1)));
+    ringColors = colorMapStringOrMatrixToUse(reducedIndicies,:);
+    Rcolors = maxColorsAngles(1);
 else
-    reducedColorMap = colorMapStringOrMatrixToUse;
+    ringColors = colorMapStringOrMatrixToUse;
 end
 
 
@@ -280,21 +292,39 @@ ENU_center  = gps_object.WGSLLA2ENU(LLcenter(:,1), LLcenter(:,2), 0);
 %% Calculate each circle's coordinates
 
 % There is a circle for every color, but the radius gets larger
-radii = linspace(0,radius,Ncolors+1)';
+radii = linspace(0,radius,Rcolors+1)';
 
 % Drop the zero radius - this isn't useful
 radii = radii(2:end,1);
 
 % Generate theta values at every 4 degrees as a row vector (1xM)
-Mthetas = 91;
-theta = linspace(0, 2*pi, Mthetas); 
+Athetas = 91;
 
-% Generate X and Y data as N rows by M columns
-Xcircle = ones(Ncolors,Mthetas)*ENU_center(1,1) + radii*cos(theta);
-Ycircle = ones(Ncolors,Mthetas)*ENU_center(1,2) + radii*sin(theta);
+% Did user give a max angle value?
+if length(maxColorsAngles)>1
+    Athetas = maxColorsAngles(2)+1;
+end
 
-%% Initialize the output
-h_geoplot = nan(Ncolors,1);
+theta = linspace(0, 2*pi, Athetas); 
+
+% Generate X and Y data as R rows by A columns
+AllXData = ones(Rcolors,Athetas)*ENU_center(1,1) + radii*cos(theta);
+AllYData = ones(Rcolors,Athetas)*ENU_center(1,2) + radii*sin(theta);
+
+% Generate the LLA data
+AllLatData = nan(Rcolors,Athetas);
+AllLonData = nan(Rcolors,Athetas);
+
+for ith_color = 1:Rcolors
+    % Convert the ENU coordinates back into LLA coordinates
+    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]);
+    AllLatData(ith_color,:) = lla_coords(:,1)';
+    AllLonData(ith_color,:) = lla_coords(:,2)';
+end
+% AllLatData, AllLonData, AllXData, AllYData, ringColors
+
+%% Initialize the output handles
+h_geoplot = nan(Rcolors,1);
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -324,19 +354,16 @@ if flag_do_plots
     h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
     set(gca,'MapCenter',LLcenter(1,1:2));
 
-    for ith_color = Ncolors:-1:1
-
-        % Convert the ENU coordinates back into LLA coordinates
-        lla_coords = gps_object.ENU2WGSLLA([Xcircle(ith_color,:)' Ycircle(ith_color,:)' zeros(Mthetas,1)]);
+    for ith_color = Rcolors:-1:1
 
         % Append the color to the current plot format
         tempPlotFormat = plotFormat;
-        tempPlotFormat.Color = reducedColorMap(ith_color,:);
+        tempPlotFormat.Color = ringColors(ith_color,:);
 
         % Update the X and Y data to select only the points in this
         % color
-        X_data_selected = lla_coords(:,1);
-        Y_data_selected = lla_coords(:,2);
+        X_data_selected = AllLatData(ith_color,:)';
+        Y_data_selected = AllLonData(ith_color,:)';
 
         % Do the plotting
         h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));

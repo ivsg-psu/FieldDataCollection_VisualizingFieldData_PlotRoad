@@ -71,7 +71,7 @@ library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_Da
 
 
 %% Clear paths and folders, if needed
-if 1==1
+if 1==0
     clear flag_plotRoad_Folders_Initialized;
     fcn_INTERNAL_clearUtilitiesFromPathAndFolders;
 
@@ -164,7 +164,11 @@ h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
 title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
 
 % Check results
-assert(ishandle(h_plot));
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
+assert(all(ishandle(h_plot)));
 
 %% fcn_plotRoad_plotXYI
 % plots XY data with intensiy color mapping
@@ -183,7 +187,11 @@ h_plot = fcn_plotRoad_plotXYI(XYIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing user-defined color to produce colormap',fig_num), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(h_plot(:))));
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
+assert(all(ishandle(h_plot)))
 
 %% fcn_plotRoad_plotXYZ
 % plots XYZ data with user-defined formatting strings
@@ -201,7 +209,11 @@ h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
 title(sprintf('Example %.0d: showing basic plot string',fig_num), 'Interpreter','none');
 
 % Check results
-assert(ishandle(h_plot));
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
+assert(all(ishandle(h_plot)))
 
 
 
@@ -230,8 +242,13 @@ h_plot = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat),  (colormapValues), (fig_n
 title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
 good_indicies = ~isnan(h_plot);
 assert(all(ishandle(h_plot(good_indicies,1))));
+
 
 %% fcn_plotRoad_plotLL
 % geoplots Latitude and Longitude data with user-defined formatting strings
@@ -268,6 +285,13 @@ h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
 
 title(sprintf('Example %.0d: showing use of plotLL',fig_num), 'Interpreter','none');
 
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
+assert(ishandle(h_geoplot))
+
+
 %% fcn_plotRoad_plotLLI
 % geoplots Latitude and Longitude data with intensiy color mapping
 
@@ -302,6 +326,10 @@ h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing use of fcn_plotRoad_plotLLI',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Is a plot handle returned?
 good_indicies = find(~isnan(h_plot));
 assert(all(ishandle(h_plot(good_indicies,1))));
 
@@ -339,7 +367,9 @@ cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (cen
 title(sprintf('Example %.0d: basic rectangle',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
 assert(all(ishandle(fig_num)));
+
 assert(length(cornersXYZ(:,1))==5);
 assert(length(cornersXYZ(1,:))==2);
 assert(isequal(round(cornersXYZ,4),[...
@@ -367,7 +397,9 @@ cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (cen
 title(sprintf('Example %.0d: basic rectangle',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
 assert(all(ishandle(fig_num)));
+
 assert(length(cornersXYZ(:,1))==5*6);
 assert(length(cornersXYZ(1,:))==3);
 assert(isequal(round(cornersXYZ,4),[...
@@ -534,6 +566,9 @@ h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_
 title(sprintf('Fig %.0d: showing plot of entire cell array in ENU',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
 assert(all(ishandle(h_plot)));
 
 %% fcn_plotRoad_plotTraceLL
@@ -657,6 +692,9 @@ h_plot = fcn_plotRoad_plotTraceLL(LLA_positions_cell_array, (plotFormat), (flag_
 title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Interpreter','none');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
 assert(all(ishandle(h_plot)));
 
 %% fcn_plotRoad_plotTraces
@@ -708,6 +746,11 @@ fcn_plotRoad_plotTraces(...
     (flag_plot_headers_and_tailers),...
     (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
 
+% Was a figure created?
+assert(all(ishandle(LLA_fig_num)));
+assert(all(ishandle(ENU_fig_num)));
+assert(all(ishandle(STH_fig_num)));
+
 
 %% fcn_plotRoad_calcLaneBoundaries
 % calculates left and right lane boundaries by projecting a fixed distance from XYdata
@@ -732,6 +775,9 @@ projectionDistance = [];
 title(sprintf('Example of fcn_plotRoad_calcLaneBoundaries'), 'Interpreter','none','FontSize',12);
 subtitle(sprintf('File: %s',csvFile), 'Interpreter','none','FontSize',12);
 
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
 % Does the data have 2 columns?
 assert(length(leftLaneBoundary_XY(1,:))== 2)
 assert(length(rightLaneBoundary_XY(1,:))== 2)
@@ -743,7 +789,7 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
 assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(all(ishandle(fig_num)));
 
 %% fcn_plotRoad_calcLaneBoundingBox
 % generates polyshape bounding box of lane
@@ -763,7 +809,7 @@ boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rig
 title(sprintf('Example of fcn_plotRoad_calcLaneBoundingBox'), 'Interpreter','none','FontSize',12);
 
 % Was a figure was created?
-assert(ishandle(fig_num));
+assert(all(ishandle(fig_num)));
 
 % Does the boundingBoxPolyshape.Verticies have 2 columns?
 assert(length(boundingBoxPolyshape.Vertices(1,:))== 2);

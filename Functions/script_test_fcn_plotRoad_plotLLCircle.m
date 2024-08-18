@@ -26,20 +26,41 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
 plotFormat = [];
 colorMapStringOrMatrix = [];
-maxColors = [];
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+maxColorsAngles = [];
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing basic plotting');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
+Ncolors = 1;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% BASIC example 2 - specifying the color as a string
 fig_num = 2;
@@ -47,19 +68,41 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
 plotFormat = 'r';
 colorMapStringOrMatrix = [];
-maxColors = [];
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+maxColorsAngles = [];
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing color string');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
+
+Ncolors = 1;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
 
 
 
@@ -69,22 +112,42 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
 plotFormat = [];
 colorMapStringOrMatrix = hot;
-maxColors = [];
+maxColorsAngles = [];
 
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing color map');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
+Ncolors = 64;
+Nangles = 91;
 
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
 
 
 %% BASIC example 4 - specifying the linestyle
@@ -93,21 +156,42 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
 plotFormat = '--';
 colorMapStringOrMatrix = hot;
-maxColors = [];
+maxColorsAngles = [];
 
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing line style');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
+Ncolors = 64;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% BASIC example 5 - specifying the full plotFormat
 fig_num = 5;
@@ -115,7 +199,7 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
@@ -125,15 +209,36 @@ plotFormat.LineWidth = 1;
 plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = 'hot';
-maxColors = [];
+maxColorsAngles = [];
 
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing full formatted plotting');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
+Ncolors = 64;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
 
 
 %% BASIC example 6 - specifying the color as a fade-out
@@ -142,29 +247,50 @@ figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
 plotFormat = [0 0 1];
 colorMapStringOrMatrix = [];
-maxColors = [];
+maxColorsAngles = [];
 
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
 subtitle('Showing color fade-out');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
+Ncolors = 64;
+Nangles = 91;
 
-%% BASIC example 7 - showing an animation
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
+
+%% BASIC example 7 - changing maxColors
 fig_num = 7;
 figure(fig_num);
 clf;
 
 % Fill in data
-LL_center = [40.43073, -79.87261, 0];
+LLcenter = [40.43073, -79.87261, 0];
 radius = 1000; 
 
 % Test the function
@@ -177,27 +303,90 @@ plotFormat.LineWidth = 3;
 plotFormat.Marker = 'none';
 plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = colormapMatrix;
-maxColors = 64;
-h_geoplot = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColors), (fig_num));
+maxColorsAngles = 128;
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
 title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
-subtitle('Showing color fade-out');
+subtitle('Showing different max colors');
 
 % Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
 
-% Each of the figure handles now has data in them as XYZ. We save this
-% information to turn it off/on in plotting
-Nrings = length(h_geoplot);
-Nangles = length(length(h_geoplot(1).LatitudeData));
+Ncolors = 128;
+Nangles = 91;
 
-AllLatData = zeros(Nrings,Nangles);
-AllLonData = zeros(Nrings,Nangles);
-for ith_handle = 1:Nrings
-    AllLatData(ith_handle,:) = h_geoplot(ith_handle).LatitudeData;
-    AllLonData(ith_handle,:) = h_geoplot(ith_handle).LongitudeData;
-end
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
 
-%% Do the animation of expanding rings
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
+
+
+
+%% Example 8 - Do the animation of expanding rings
+fig_num = 8;
+figure(fig_num);
+clf;
+
+% Fill in data
+LLcenter = [40.43073, -79.87261, 0];
+radius = 1000; 
+
+% Test the function
+colormapMatrix = colormap('winter');
+colormapMatrix = flipud(colormapMatrix);
+
+clear plotFormat
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+plotFormat.Marker = 'none';
+plotFormat.MarkerSize = 10;
+colorMapStringOrMatrix = colormapMatrix;
+maxColorsAngles = 128;
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+subtitle('Showing animation of expanding circles');
+
+% Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
+assert(all(ishandle(h_geoplot(:))));
+
+Ncolors = 128;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
+
+
+Nrings = length(AllLatData(:,1));
+
 ringSkipInterval = Nrings/4;
 allNan = nan*AllLatData(1,:);
 
@@ -207,7 +396,7 @@ if 1==1
     patternOnOff = mod((1:Nrings)',ringSkipInterval)==(0);
     last_rings_on = find(patternOnOff);
 
-    while(1)        
+    while(timeIndex<1000)        
         timeIndex = timeIndex+1;
         this_index = mod(timeIndex,ringSkipInterval)+1; % This forces this_index to go from 1 to ringSkipInterval, repeatedly
         patternOnOff = mod((1:Nrings)',ringSkipInterval)==(this_index-1);
@@ -248,22 +437,153 @@ else
     end
 end
 
-%% Animate a "radar" view
-for timeIndex = 1:100
-    this_index = mod(timeIndex,Nangles)+1; % This forces this_index to go from 1 to Nangles, repeatedly
-    URHERE
-    for ith_handle = 1:Nrings-1
-        if 1==patternOnOff(ith_handle,1)
-            % Turn this ring on
-            set(h_geoplot(ith_handle),'LatitudeData',AllLatData(ith_handle,:),'LongitudeData', AllLonData(ith_handle,:));
-        else
-            % Turn the last on-ring off
-            set(h_geoplot(ith_handle),'LatitudeData',allNan,'LongitudeData', allNan);
-        end
+%% Example 9 - Animate a "radar" view with default output
+fig_num = 9;
+figure(fig_num);
+clf;
+
+% Fill in data
+LLcenter = [40.43073, -79.87261, 0];
+radius = 1000; 
+
+% Test the function
+colormapMatrix = colormap('winter');
+colormapMatrix = flipud(colormapMatrix);
+
+clear plotFormat
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+plotFormat.Marker = 'none';
+plotFormat.MarkerSize = 10;
+colorMapStringOrMatrix = colormapMatrix;
+maxColorsAngles = 128;
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+subtitle('Showing radar animation');
+
+% Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Were plot handles returned?
+assert(all(ishandle(h_geoplot(:))));
+
+Ncolors = 128;
+Nangles = 91;
+
+% Are the dimensions of Lat Long data correct?
+assert(Ncolors==length(AllLatData(:,1)));
+assert(Ncolors==length(AllLonData(:,1)));
+assert(Nangles==length(AllLonData(1,:)));
+assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
+
+% Are the dimension of X Y data correct?
+assert(Ncolors==length(AllXData(:,1)));
+assert(Ncolors==length(AllYData(:,1)));
+assert(length(AllXData(1,:))==length(AllYData(1,:)));
+assert(length(AllXData(1,:))==length(AllLatData(1,:)));
+
+% Are the dimensions of the ringColors correct?
+assert(isequal(size(ringColors),[Ncolors 3]));
+
+%%%%% Do animation
+Nfade = 2; 
+
+for timeIndex = 1:1000
+    tempLatData = nan(Nrings,Nangles);
+    tempLonData = nan(Nrings,Nangles);
+
+    % Fill in fade rings    
+    for ith_fade = 1:Nfade
+        change_index = mod(timeIndex+ith_fade,Nangles-1)+1; % This forces this_index to go from 1 to Nangles-1, repeatedly (note: last angle is a repeat of first)
+        tempLatData(:,change_index) = AllLatData(:,change_index);
+        tempLonData(:,change_index) = AllLonData(:,change_index);
     end
-    pause(0.0);
+
+    % Update all the plot handles
+    for ith_handle = 1:Nrings-1
+        set(h_geoplot(ith_handle),'LatitudeData',tempLatData(ith_handle,:),'LongitudeData', tempLonData(ith_handle,:));
+    end
+    
+    
+    
+    pause(0.02);
 end
 
+%% Example 10 - Animate a "radar" view with colormap
+fig_num = 10;
+figure(fig_num);
+clf;
+
+% Fill in data
+LLcenter = [40.43073, -79.87261, 0];
+radius = 1000; 
+
+% Test the function
+colormapMatrix = colormap('winter');
+colormapMatrix = flipud(colormapMatrix);
+
+clear plotFormat
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+plotFormat.Marker = 'none';
+plotFormat.MarkerSize = 10;
+colorMapStringOrMatrix = colormapMatrix;
+maxColorsAngles = [16 720];
+[~, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (-1));
+
+%%%%%% Plot by angles
+% NOTE: when plotting by angles, we only need the first and last point, as
+% radial projections are just lines
+Nangles = length(AllLatData(1,:));
+AllLatDataReduced = [LLcenter(1,1)*ones(1,Nangles); AllLatData(end,:)];
+AllLonDataReduced = [LLcenter(1,2)*ones(1,Nangles); AllLonData(end,:)];
+
+figure(fig_num);
+clf;
+
+Nplots = length(ringColors(:,1));
+h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
+set(gca,'MapCenter',LLcenter(1,1:2));
+
+h_colors = zeros(Nplots,1);
+for ith_angle = 1:Nplots
+
+    % Append the color to the current plot format
+    tempPlotFormat = plotFormat;
+    tempPlotFormat.Color = ringColors(Nplots - ith_angle + 1,:);
+
+    % Update the X and Y data to select only the points in this
+    % angle
+    X_data_selected = AllLatDataReduced(:,ith_angle);
+    Y_data_selected = AllLonDataReduced(:,ith_angle);
+
+    % Do the plotting
+    h_colors(ith_angle,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+end
+
+%%%%% Peform the animation
+angleSkipInterval = Nangles-1;
+allNanAngles = nan*AllLatData(:,1);
+NfadeColors = length(ringColors(:,1));
+
+if 1==1
+    % This "while" method shuts radii on/off using specific indicies. 
+    timeIndex = 0;
+    while(timeIndex<1000)          
+        timeIndex = timeIndex+1;
+        timeIndexEnd = timeIndex+NfadeColors;
+        indicies_on_raw = (timeIndex:timeIndexEnd)';
+        indicies_on = mod(indicies_on_raw,Nangles)+1;
+
+        % Change coordinates for rings that are on
+        for ith_angle = 1:NfadeColors
+            angle_to_change = indicies_on(ith_angle);
+            set(h_colors(ith_angle),'LatitudeData',AllLatDataReduced(:,angle_to_change),'LongitudeData', AllLonDataReduced(:,angle_to_change));
+        end
+        pause(0.02);
+    end
+end
 %% testing speed of function
 % Nothing to test - figure number is an argument
 
