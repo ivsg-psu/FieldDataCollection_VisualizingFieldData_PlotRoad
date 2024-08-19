@@ -294,6 +294,9 @@ if flag_do_plots == 1
     end
 
     if flag_plot_data
+        NplotPoints = length(dataToPlot(:,1));
+
+
         % make plots
         if formatting_type==1
             finalPlotFormat = fcn_plotRoad_extractFormatFromString(plotFormat, (-1));
@@ -305,6 +308,14 @@ if flag_do_plots == 1
             warning('on','backtrace');
             warning('An unkown input format is detected in the main code - throwing an error.')
             error('Unknown plot type')
+        end
+
+        % If plotting only one point, make sure point style is filled
+        if NplotPoints==1
+            if ~isfield(plotFormat,'Marker') || strcmp(plotFormat.Marker,'none')
+                finalPlotFormat.Marker = '.';
+                finalPlotFormat.LineStyle = 'none';
+            end
         end
 
         % Do plot

@@ -167,7 +167,7 @@ end
 %  |_|  |_|\__,_|_|_| |_|
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+NplotPoints = length(XYdata(:,1));
 
 % Initialize the output
 h_plot = 0;
@@ -211,6 +211,15 @@ if flag_do_plots
         warning('An unkown input format is detected in the main code - throwing an error.')
         error('Unknown plot type')
     end
+
+    % If plotting only one point, make sure point style is filled
+    if NplotPoints==1
+        if ~isfield(plotFormat,'Marker') || strcmp(plotFormat.Marker,'none')
+            finalPlotFormat.Marker = '.';
+            finalPlotFormat.LineStyle = 'none';
+        end
+    end
+
 
     % Do plot
     h_plot = plot(XYdata(:,1),XYdata(:,2));

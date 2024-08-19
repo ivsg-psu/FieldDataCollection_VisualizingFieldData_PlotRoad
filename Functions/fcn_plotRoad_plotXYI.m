@@ -3,7 +3,7 @@ function h_plot = fcn_plotRoad_plotXYI(XYIdata, varargin)
 % 
 % FORMAT:
 %
-%      h_plot = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMap), (fig_num))
+%      h_plot = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMapStringOrMatrix), (fig_num))
 %
 % INPUTS:  
 %
@@ -34,7 +34,7 @@ function h_plot = fcn_plotRoad_plotXYI(XYIdata, varargin)
 %          If no color is specified, but a colormap is given, the colormap
 %          is used.
 %
-%      colorMap: a string specifying the colormap for the plot, default is
+%      colorMapStringOrMatrix: a string specifying the colormap for the plot, default is
 %      to use the current colormap
 %
 %      fig_num: a figure number to plot results. If set to -1, skips any
@@ -151,14 +151,14 @@ if 2 <= nargin
 end
 
 
-% Does user want to specify colorMapToUse?
-colorMapToUse = [];
+% Does user want to specify colorMapStringOrMatrixToUse?
+colorMapStringOrMatrixToUse = [];
 if (1<=nargin)
     temp = varargin{2};
     if ~isempty(temp)
-        colorMapToUse = temp;
-        if ischar(colorMapToUse)
-            colorMapToUse = colormap(colorMapToUse);
+        colorMapStringOrMatrixToUse = temp;
+        if ischar(colorMapStringOrMatrixToUse)
+            colorMapStringOrMatrixToUse = colormap(colorMapStringOrMatrixToUse);
         end
     end
 end
@@ -199,8 +199,8 @@ else
     Idata = rawIdata;
 end
 
-% Check the colorMap
-if isempty(colorMapToUse)
+% Check the colorMapStringOrMatrix
+if isempty(colorMapStringOrMatrixToUse)
     if isfield(plotFormat,'Color')
         colorToScale = plotFormat.Color;
     else
@@ -213,11 +213,11 @@ if isempty(colorMapToUse)
     end
     ratios = linspace(0,1,8)';
 
-    colorMapToUse = (1-ratios)*colorToScale + ratios*[1 1 1];
+    colorMapStringOrMatrixToUse = (1-ratios)*colorToScale + ratios*[1 1 1];
 end
 
 % Reformat the XY data if line formats are given (not points)
-if isfield(plotFormat,'LineStyle')
+if isfield(plotFormat,'LineStyle') && NplotPoints>1
     X_dataPadded = [XYdata(1:end-1,1)'; XYdata(2:end,1)'; nan(1,NplotPoints-1)];
     Y_dataPadded = [XYdata(1:end-1,2)'; XYdata(2:end,2)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
@@ -234,7 +234,7 @@ else
 end
 
 % Initialize the output
-Ncolors = length(colorMapToUse(:,1));
+Ncolors = length(colorMapStringOrMatrixToUse(:,1));
 h_plot = nan(Ncolors,1);
 
 %% Plot the results (for debugging)?
@@ -259,7 +259,7 @@ if flag_do_plots
         if ~isempty(plotting_indicies)
             % Append the color to the current plot format
             tempPlotFormat = plotFormat;
-            tempPlotFormat.Color = colorMapToUse(ith_color,:);
+            tempPlotFormat.Color = colorMapStringOrMatrixToUse(ith_color,:);
 
             % Update the X and Y data to select only the points in this
             % color

@@ -3,7 +3,7 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 % 
 % FORMAT:
 %
-%      [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLI(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num))
+%      [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num))
 %
 % INPUTS:  
 %
@@ -75,7 +75,7 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 %
 %       See the script:
 % 
-%       script_test_fcn_plotRoad_plotLLI 
+%       script_test_fcn_plotRoad_plotLLCircle 
 %  
 %       for a full test suite.
 %
@@ -248,6 +248,7 @@ end
 % Is a fade-out needed?
 if 0 == flag_plot_many_colors
     colorMapStringOrMatrixToUse = colorToScale;
+    maxColorsAngles(1) = 1;
 elseif isempty(colorMapStringOrMatrixToUse)
     ratios = linspace(0,1,maxColorsAngles(1))';
 
@@ -257,15 +258,18 @@ elseif isempty(colorMapStringOrMatrixToUse)
 end
 
 % How many colors do we have?
-Rcolors = length(colorMapStringOrMatrixToUse(:,1)); 
-if Rcolors>maxColorsAngles(1)
-    reducedIndicies = round(linspace(1,Rcolors,maxColorsAngles(1)));
-    ringColors = colorMapStringOrMatrixToUse(reducedIndicies,:);
-    Rcolors = maxColorsAngles(1);
-else
-    ringColors = colorMapStringOrMatrixToUse;
-end
+% Rcolors = length(colorMapStringOrMatrixToUse(:,1)); 
+% if Rcolors>maxColorsAngles(1)
+%     reducedIndicies = round(linspace(1,Rcolors,maxColorsAngles(1)));
+%     ringColors = colorMapStringOrMatrixToUse(reducedIndicies,:);
+%     Rcolors = maxColorsAngles(1);
+% else
+%     ringColors = colorMapStringOrMatrixToUse;
+% end
 
+% Automatically convert to correct colorMap.
+ringColors = fcn_plotRoad_reduceColorMap(colorMapStringOrMatrixToUse, maxColorsAngles(1), -1);
+Rcolors = length(ringColors(:,1));
 
 %% Convert LLA data to ENU to perform radius calculations
 % Create a GPS object with the reference latitude, longitude, and altitude
