@@ -1,9 +1,9 @@
-function h_plot = fcn_plotRoad_plotXYI(XYIdata, varargin)
+function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 %fcn_plotRoad_plotXYI    plots XY data with intensiy color mapping
 % 
 % FORMAT:
 %
-%      h_plot = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMapStringOrMatrix), (fig_num))
+%      [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMapStringOrMatrix), (fig_num))
 %
 % INPUTS:  
 %
@@ -45,6 +45,9 @@ function h_plot = fcn_plotRoad_plotXYI(XYIdata, varargin)
 %
 %      h_plot: the handle to the plotting results, with one handle per
 %      colormap entry.
+%
+%     indiciesInEachPlot: a cell array for each colormap entry listing
+%     which indicies were plotted in that color
 %
 % DEPENDENCIES:
 %
@@ -186,6 +189,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 NplotPoints = length(XYIdata(:,1));
+indiciesPlotted = (1:NplotPoints)';
 
 % Check the user entries
 XYdata = XYIdata(:,1:2);
@@ -221,21 +225,26 @@ if isfield(plotFormat,'LineStyle') && NplotPoints>1
     X_dataPadded = [XYdata(1:end-1,1)'; XYdata(2:end,1)'; nan(1,NplotPoints-1)];
     Y_dataPadded = [XYdata(1:end-1,2)'; XYdata(2:end,2)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
+    indicies_dataPadded = [indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'];
+
 
     X_data = reshape(X_dataPadded,[],1);
     Y_data = reshape(Y_dataPadded,[],1);
     I_data = reshape(I_dataPadded,[],1);
+    indicies_data = reshape(indicies_dataPadded,[],1);
 else
     plotFormat.Marker = '.';
     plotFormat.LineStyle = 'none';
     X_data = XYdata(:,1);
     Y_data = XYdata(:,2);   
     I_data = Idata;
+    indicies_data = indiciesPlotted;
 end
 
 % Initialize the output
 Ncolors = length(colorMapStringOrMatrixToUse(:,1));
 h_plot = nan(Ncolors,1);
+indiciesInEachPlot{Ncolors} = [];
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,6 +277,9 @@ if flag_do_plots
 
             % Do the plotting
             h_plot(ith_color,1)  = fcn_plotRoad_plotXY([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+
+            % Save the indicies
+            indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);
         end
     end
     

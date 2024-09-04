@@ -42,7 +42,7 @@ function reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, 
 %
 %       See the script:
 %
-%       script_test_fcn_plotRoad_animateHandlesDataSlide
+%       script_test_fcn_plotRoad_reduceColorMap
 %
 %       for a full test suite.
 %

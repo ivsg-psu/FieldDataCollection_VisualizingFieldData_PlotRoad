@@ -47,11 +47,21 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = [];
 colorMap = [];
-h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
 
 % Check results
 assert(all(ishandle(h_plot(:))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    dataPlotted = get(h_plot(ith_handle),'LatitudeData');    
+    NumInPlot = length(dataPlotted);
+    assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+end
 
 
 %% BASIC example 2 - specifying the color
@@ -78,11 +88,21 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = 'r';
 colorMap = [];
-h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing user-defined color to produce colormap',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
 
 % Check results
 assert(all(ishandle(h_plot(:))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    dataPlotted = get(h_plot(ith_handle),'LatitudeData');    
+    NumInPlot = length(dataPlotted);
+    assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+end
 
 
 %% BASIC example 3 - specifying the colorMap
@@ -109,12 +129,24 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = [];
 colorMap = 'hot';
-h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing user-defined color map',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
 
 % Check results
 good_indicies = ~isnan(h_plot);
 assert(all(ishandle(h_plot(good_indicies,1))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    if ~isnan(h_plot(ith_handle))
+        dataPlotted = get(h_plot(ith_handle),'LatitudeData');
+        NumInPlot = length(dataPlotted);
+        assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+    end
+end
 
 
 
@@ -142,12 +174,24 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = '-';
 colorMap = 'hot';
-h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing use of a linestyle',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
 
 % Check results
 good_indicies = find(~isnan(h_plot));
 assert(all(ishandle(h_plot(good_indicies,1))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    if ~isnan(h_plot(ith_handle))
+        dataPlotted = get(h_plot(ith_handle),'LatitudeData');
+        NumInPlot = length(dataPlotted);
+        assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+    end
+end
 
 %% BASIC example 5 - specifying the full plotFormat
 fig_num = 5;
@@ -177,12 +221,24 @@ plotFormat.LineWidth = 3;
 plotFormat.Marker = '.';
 plotFormat.MarkerSize = 5;
 colorMap = 'hot';
-h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
 title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
 
 % Check results
 good_indicies = find(~isnan(h_plot));
 assert(all(ishandle(h_plot(good_indicies,1))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    if ~isnan(h_plot(ith_handle))
+        dataPlotted = get(h_plot(ith_handle),'LatitudeData');
+        NumInPlot = length(dataPlotted);
+        assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+    end
+end
 
 
 %% testing speed of function
@@ -221,7 +277,7 @@ tic;
 % Slow mode calculation
 for i=1:REPS
     tstart=tic;
-    h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+    [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
     telapsed=toc(tstart);
     minTimeSlow=min(telapsed,minTimeSlow);
 end
@@ -236,7 +292,7 @@ minTimeFast = Inf;
 tic;
 for i=1:REPS
     tstart = tic;
-    h_plot = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+    [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
     telapsed = toc(tstart);
     minTimeFast = min(telapsed,minTimeFast);
 end

@@ -1,9 +1,9 @@
-function h_geoplot = fcn_plotRoad_plotLLI(LLIdata, varargin)
+function [h_geoplot, indiciesInEachPlot] = fcn_plotRoad_plotLLI(LLIdata, varargin)
 %fcn_plotRoad_plotLLI    geoplots Latitude and Longitude data with intensiy color mapping
 % 
 % FORMAT:
 %
-%      h_geoplot = fcn_plotRoad_plotLLI(LLdata, (plotFormat), (colorMap), (fig_num))
+%      [h_geoplot, indiciesInEachPlot] = fcn_plotRoad_plotLLI(LLdata, (plotFormat), (colorMap), (fig_num))
 %
 % INPUTS:  
 %
@@ -45,6 +45,9 @@ function h_geoplot = fcn_plotRoad_plotLLI(LLIdata, varargin)
 %
 %      h_geoplot: the handle to the plotting results, with one handle per
 %      colormap entry.
+%
+%     indiciesInEachPlot: a cell array for each colormap entry listing
+%     which indicies were plotted in that color
 %
 % DEPENDENCIES:
 %
@@ -187,6 +190,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 NplotPoints = length(LLIdata(:,1));
+indiciesPlotted = (1:NplotPoints)';
 
 % Check the user entries
 LLdata = LLIdata(:,1:2);
@@ -232,21 +236,25 @@ if isfield(plotFormat,'LineStyle')
     Lat_dataPadded = [LLdata(1:end-1,1)'; LLdata(2:end,1)'; nan(1,NplotPoints-1)];
     Lon_dataPadded = [LLdata(1:end-1,2)'; LLdata(2:end,2)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
+    indicies_dataPadded = [indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'];
 
     Lat_data = reshape(Lat_dataPadded,[],1);
     Lon_data = reshape(Lon_dataPadded,[],1);
     I_data = reshape(I_dataPadded,[],1);
+    indicies_data = reshape(indicies_dataPadded,[],1);
 else
     plotFormat.Marker = '.';
     plotFormat.LineStyle = 'none';
     Lat_data = LLdata(:,1);
     Lon_data = LLdata(:,2);   
     I_data = Idata;
+    indicies_data = indiciesPlotted;
 end
 
 % Initialize the output
 Ncolors = length(colorMapToUse(:,1));
 h_geoplot = nan(Ncolors,1);
+indiciesInEachPlot{Ncolors} = [];
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -279,6 +287,9 @@ if flag_do_plots
 
             % Do the plotting
             h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+
+            % Save the indicies
+            indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);
         end
     end
     

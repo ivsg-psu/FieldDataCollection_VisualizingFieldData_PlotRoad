@@ -12,7 +12,8 @@ function h_geoplot = fcn_plotRoad_plotLL(varargin)
 %      LLdata: an [Nx2+] vector data to plot where N is the number of
 %      points, and there are 2 or more columns. Each row of data correspond
 %      to the [Latitude Longitude] coordinate of the point to plot in the
-%      1st and 2nd column.
+%      1st and 2nd column. If no data is given, it plots the reference
+%      coordinate location for the GPS origin.
 %
 %      plotFormat: one of the following:
 %      

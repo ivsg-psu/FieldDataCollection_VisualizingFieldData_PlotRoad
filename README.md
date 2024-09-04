@@ -58,6 +58,12 @@ Search for this, and you will find!
           <li><a href="#fcn_plotroad_plotll">fcn_plotRoad_plotLL - geoplots Latitude and Longitude data with user-defined formatting strings</li>
           <li><a href="#fcn_plotroad_plotlli">fcn_plotRoad_plotLLI - geoplots Latitude and Longitude data with intensiy color mapping</li>
         </ul>
+        <li><a href="#animation-functions">Animation Functions</li>
+        <ul>
+          <li><a href="#fcn_plotroad_animatehandlesonoff">fcn_plotRoad_animateHandlesOnOff - animates a list of handles by on/off</li>
+          <li><a href="#fcn_plotroad_animatehandlesdataslide">fcn_plotRoad_animateHandlesDataSlide - animates a list of handles by data sliding</li>
+          <li><a href="#fcn_plotroad_animateplot">fcn_plotRoad_animatePlot - creates animations of various plot types</li>
+        </ul>
         <li><a href="#supporting-functions">Supporting Functions</li>
         <ul>
           <li><a href="#fcn_plotroad_calcrectanglexyz">fcn_plotRoad_calcRectangleXYZ - finds the XY(Z) coordinates of a rectangle</li>
@@ -66,11 +72,9 @@ Search for this, and you will find!
           <li><a href="#fcn_plotroad_plottracell">fcn_plotRoad_plotTraceLL - plots LL components of LLA data as a trace</li>
           <li><a href="#fcn_plotroad_plottraces">fcn_plotRoad_plotTraces - plots traces in LLA, ENU, and/or STH coords given one of three formats, returning all formats</li>
           <li><a href="#fcn_plotroad_calclaneboundaries">fcn_plotRoad_calcLaneBoundaries - calculates left and right lane boundaries by projecting a fixed distance from XYdata</li>
-          <li><a href="#fcn_plotroad_calclaneboundingbox">fcn_plotRoad_calcLaneBoundingBox - generates polyshape bounding box of lane</li>                    
-          <li><a href="#fcn_plotroad_plotllcircle">fcn_plotRoad_plotLLcircle - geoplots a circle</li>   
-          <li><a href="#fcn_plotroad_animatehandlesonoff">fcn_plotRoad_animateHandlesOnOff - animates a list of handles by on/off</li>   
-          <li><a href="#fcn_plotroad_animatehandlesdataslide">fcn_plotRoad_animateHandlesDataSlide - animates a list of handles by data sliding</li>   
-          <li><a href="#fcn_plotroad_reducecolormap">fcn_plotRoad_reduceColorMap - produces a reduced colorMap matrix</li>                              
+          <li><a href="#fcn_plotroad_calclaneboundingbox">fcn_plotRoad_calcLaneBoundingBox - generates polyshape bounding box of lane</li>
+          <li><a href="#fcn_plotroad_plotllcircle">fcn_plotRoad_plotLLcircle - geoplots a circle</li>
+          <li><a href="#fcn_plotroad_reducecolormap">fcn_plotRoad_reduceColorMap - produces a reduced colorMap matrix</li>
         </ul>
       </ul>
     <li><a href="#usage">Usage Examples</a></li>
@@ -277,6 +281,111 @@ geoplots Latitude and Longitude data with intensiy color mapping
 
 ***
 
+### Animation functions
+
+#### **fcn_plotRoad_animateHandlesOnOff**
+
+animates a list of handles by on/off
+
+This function creates an animation of handles by turning selected plots
+on/off in sequence, creating the appearance of motion. If an array of
+handles is given in a sequence [h(1); h(2); h(3); ... etc], then when
+timeIndex is set to 1, then only h(1) is shown. When set to 2, then only
+h(2) is shown. When h(1)...h(M) are set up in sequence, the illusion of
+motion is created. A user-defined skipInterval can be given to create
+intervals other than 1 to 2 to 3. For example, a skip interval of 3 jumps
+from (1 and 4 and 7...) to (2 and 5 and 8... ) etc.
+
+ **FORMAT:**
+
+  ```Matlab
+  fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, (skipInterval), (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_animateHandlesOnOff.gif" alt="fcn_plotRoad_animateHandlesOnOff picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animateHandlesOnOff</figcaption>
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
+#### **fcn_plotRoad_animateHandlesDataSlide**
+
+animates a list of handles by data sliding
+
+This function creates an animation of handles by "sliding" data through
+the handles. For example, assume 4 data handles are given as
+handleList(1)...handleList(4), and each handle points to a plot of [1xN]
+data in X, and [1xN] data in Y, and Xdata and Ydata both contain
+matricies [KxN] which contain K timesteps of data in X and Y
+respectively, as rows. The code "slides" the data "up" into the handles
+such that, at the first time interval, handleList(4) is filled with the
+first row of X and Y data. At the second time interval, handleList(3) is
+filled with the first row, and handleList(4) is the second row. At the
+3rd time interval, handleList(2) is filled with the 1st row,
+handleList(3) the 2nd row, and handleList(4) the 3rd row. Etc. This
+"sliding" method allows formatting defined within the handle definitions
+to be applied repeatedly across a data set, creating the illusion of
+animation.
+
+ **FORMAT:**
+
+  ```Matlab
+  fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_animateHandlesDataSlide.gif" alt="fcn_plotRoad_animateHandlesDataSlide picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animateHandlesDataSlide</figcaption>
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
+#### **fcn_plotRoad_animatePlot**
+
+creates animations of various plot types
+
+ **FORMAT:**
+
+  ```Matlab
+  h_animatedPlot = fcn_plotRoad_animatePlot(plotTypeString, timeIndex, handleList, plotData, (plotFormat), (colorMap), (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotXY_follow.gif" alt="fcn_plotRoad_animatePlot_plotXY_follow picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotXY in follow mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotXY_global.gif" alt="fcn_plotRoad_animatePlot_plotXY_global picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotXY in global mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotXYI_follow.gif" alt="fcn_plotRoad_animatePlot_plotXYI_follow picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotXYI in follow mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotXYI_global.gif" alt="fcn_plotRoad_animatePlot_plotXYI_global picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotXYI in global mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotLL_follow.gif" alt="fcn_plotRoad_animatePlot_plotLL_follow picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotLL in follow mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotLL_global.gif" alt="fcn_plotRoad_animatePlot_plotLL_global picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotLL in global mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotLLI_follow.gif" alt="fcn_plotRoad_animatePlot_plotLLI_follow picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotLLI in follow mode</figcaption>
+
+  <img src=".\Images\fcn_plotRoad_animatePlot_plotLLI_global.gif" alt="fcn_plotRoad_animatePlot_plotLLI_global picture" width="500" height="400">
+  <figcaption>Example of fcn_plotRoad_animatePlot with PlotLLI in global mode</figcaption>
+
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
 ### Supporting functions
 
 #### **fcn_plotRoad_calcRectangleXYZ**
@@ -393,7 +502,6 @@ calculates left and right lane boundaries by projecting a fixed distance from XY
 
 ***
 
-
 #### **fcn_plotRoad_calcLaneBoundingBox**
 
 generates polyshape bounding box of lane
@@ -430,74 +538,6 @@ geoplots a circle
 
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
 
-
-***
-
-#### **fcn_plotRoad_animateHandlesOnOff**
-
-animates a list of handles by on/off
-
-This function creates an animation of handles by turning selected plots
-on/off in sequence, creating the appearance of motion. If an array of
-handles is given in a sequence [h(1); h(2); h(3); ... etc], then when
-timeIndex is set to 1, then only h(1) is shown. When set to 2, then only
-h(2) is shown. When h(1)...h(M) are set up in sequence, the illusion of
-motion is created. A user-defined skipInterval can be given to create
-intervals other than 1 to 2 to 3. For example, a skip interval of 3 jumps
-from (1 and 4 and 7...) to (2 and 5 and 8... ) etc.
-
-
- **FORMAT:**
-
-  ```Matlab
-  fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, (skipInterval), (fig_num))
-  ```
-
-<pre align="center">
-  <img src=".\Images\fcn_plotRoad_animateHandlesOnOff.gif" alt="fcn_plotRoad_animateHandlesOnOff picture" width="500" height="400">
-  <figcaption>Example of fcn_plotRoad_animateHandlesOnOff</figcaption>
-</pre>
-
-<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
-
-
-***
-
-#### **fcn_plotRoad_animateHandlesDataSlide**
-
-animates a list of handles by data sliding
-
-This function creates an animation of handles by "sliding" data through
-the handles. For example, assume 4 data handles are given as
-handleList(1)...handleList(4), and each handle points to a plot of [1xN]
-data in X, and [1xN] data in Y, and Xdata and Ydata both contain
-matricies [KxN] which contain K timesteps of data in X and Y
-respectively, as rows. The code "slides" the data "up" into the handles
-such that, at the first time interval, handleList(4) is filled with the
-first row of X and Y data. At the second time interval, handleList(3) is
-filled with the first row, and handleList(4) is the second row. At the
-3rd time interval, handleList(2) is filled with the 1st row,
-handleList(3) the 2nd row, and handleList(4) the 3rd row. Etc. This
-"sliding" method allows formatting defined within the handle definitions
-to be applied repeatedly across a data set, creating the illusion of
-animation.
-
-
- **FORMAT:**
-
-  ```Matlab
-  fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
-  ```
-
-<pre align="center">
-  <img src=".\Images\fcn_plotRoad_animateHandlesDataSlide.gif" alt="fcn_plotRoad_animateHandlesDataSlide picture" width="500" height="400">
-  <figcaption>Example of fcn_plotRoad_animateHandlesDataSlide</figcaption>
-</pre>
-
-<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
-
-
-
 ***
 
 #### **fcn_plotRoad_reduceColorMap**
@@ -515,7 +555,6 @@ NOTE: if the number of colors requested is larger than the original
 colormap, the colormap is streteched but NOT resampled so that the number
 of colors requested is always equal to the input Ncolors.
 
-
  **FORMAT:**
 
   ```Matlab
@@ -528,8 +567,6 @@ of colors requested is always equal to the input Ncolors.
 </pre>
 
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
-
-
 
 ***
 <!-- USAGE EXAMPLES -->
