@@ -67,6 +67,9 @@ function [h_geoplot, indiciesInEachPlot] = fcn_plotRoad_plotLLI(LLIdata, varargi
 % Revision history
 % 2024_08_12 - Sean Brennan
 % -- Created function by copying out of load script in Geometry library
+% 2024_09_12 - Sean Brennan
+% -- Bug fix on input arguments
+
 
 %% Debugging and Input checks
 
@@ -157,7 +160,7 @@ end
 
 % Does user want to specify colorMapToUse?
 colorMapToUse = [];
-if (1<=nargin)
+if (3<=nargin)
     temp = varargin{2};
     if ~isempty(temp)
         colorMapToUse = temp;
@@ -169,7 +172,7 @@ end
 
 % Does user want to specify fig_num?
 flag_do_plots = 0;
-if (0==flag_max_speed) &&  (2<=nargin)
+if (0==flag_max_speed) &&  (4<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
         fig_num = temp;
