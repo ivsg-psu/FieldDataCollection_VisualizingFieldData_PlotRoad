@@ -320,7 +320,12 @@ if flag_do_plots == 1
         end
 
         % Do plot
-        h_geoplot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+        if flag_make_new_plot && ~isempty(dataToPlot)
+            h_geoplot = h_tempGeoplot;
+            set(h_geoplot,'LatitudeData',dataToPlot(:,1)+offset_Lat, 'LongitudeData',dataToPlot(:,2)+offset_Lon,'LineStyle','-','Marker','none');
+        else
+            h_geoplot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+        end
 
         % if ~isnan(dataToPlot(end,1:2))
         %     set(gca,'MapCenter',dataToPlot(end,1:2));
