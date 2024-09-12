@@ -261,7 +261,7 @@ if flag_do_plots == 1
 
         % Plot the base station with a green star. This sets up the figure for
         % the first time, including the zoom into the test track area.
-        if isempty(dataToPlot) || length(dataToPlot(:,1))>1
+        if isempty(dataToPlot) % || length(dataToPlot(:,1))>1
             reference_latitude = 40.86368573;
             reference_longitude = -77.83592832;
             reference_altitude = 344.189;
