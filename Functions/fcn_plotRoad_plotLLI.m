@@ -295,7 +295,9 @@ if flag_do_plots
             indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);
         end
     end
-    
+    % Set the colormap, so that the colorbar is correct
+    colormap(gca,colorMapToUse);
+
 end % Ends check if plotting
 
 if flag_do_debug

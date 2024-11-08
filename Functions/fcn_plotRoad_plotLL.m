@@ -278,7 +278,8 @@ if flag_do_plots == 1
         else
             % h_tempGeoplot = geoplot(dataToPlot(1,1)+offset_Lat, dataToPlot(1,2)+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
             h_tempGeoplot = geoplot(nan, nan, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
-            set(gca,'MapCenter',dataToPlot(1,1:2));
+            firstNotNaNIndex = find(~isnan(dataToPlot(:,1)),1);
+            set(gca,'MapCenter',dataToPlot(firstNotNaNIndex,1:2));
         end
 
         h_parent =  get(h_tempGeoplot,'Parent');
