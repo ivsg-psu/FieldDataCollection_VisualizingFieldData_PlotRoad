@@ -235,7 +235,7 @@ if isempty(colorMapToUse)
 end
 
 % Reformat the XY data if line formats are given (not points)
-if isfield(plotFormat,'LineStyle')
+if isfield(plotFormat,'LineStyle') && ~strcmpi(plotFormat.LineStyle,'none')
     Lat_dataPadded = [LLdata(1:end-1,1)'; LLdata(2:end,1)'; nan(1,NplotPoints-1)];
     Lon_dataPadded = [LLdata(1:end-1,2)'; LLdata(2:end,2)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
@@ -295,9 +295,7 @@ if flag_do_plots
             indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);
         end
     end
-    % Set the colormap, so that the colorbar is correct
-    colormap(gca,colorMapToUse);
-
+    
 end % Ends check if plotting
 
 if flag_do_debug
