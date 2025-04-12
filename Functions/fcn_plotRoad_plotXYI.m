@@ -221,7 +221,7 @@ if isempty(colorMapStringOrMatrixToUse)
 end
 
 % Reformat the XY data if line formats are given (not points)
-if isfield(plotFormat,'LineStyle') && NplotPoints>1
+if isfield(plotFormat,'LineStyle') && NplotPoints>1  && ~strcmpi(plotFormat.LineStyle,'none')
     X_dataPadded = [XYdata(1:end-1,1)'; XYdata(2:end,1)'; nan(1,NplotPoints-1)];
     Y_dataPadded = [XYdata(1:end-1,2)'; XYdata(2:end,2)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
@@ -241,10 +241,18 @@ else
     indicies_data = indiciesPlotted;
 end
 
+
 % Initialize the output
 Ncolors = length(colorMapStringOrMatrixToUse(:,1));
 h_plot = nan(Ncolors,1);
 indiciesInEachPlot{Ncolors} = [];
+
+% Check to see if the markers are dynamically resized
+if isfield(plotFormat,'MarkerSize') && length(plotFormat.MarkerSize)==Ncolors
+    flag_resizeMarkers = 1;
+else
+    flag_resizeMarkers = 0;
+end
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,6 +277,11 @@ if flag_do_plots
             % Append the color to the current plot format
             tempPlotFormat = plotFormat;
             tempPlotFormat.Color = colorMapStringOrMatrixToUse(ith_color,:);
+
+            % Resize the markers?
+            if 1==flag_resizeMarkers
+                tempPlotFormat.MarkerSize = plotFormat.MarkerSize(ith_color);
+            end
 
             % Update the X and Y data to select only the points in this
             % color

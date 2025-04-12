@@ -118,7 +118,7 @@ title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Int
 good_indicies = ~isnan(h_plot);
 assert(all(ishandle(h_plot(good_indicies,1))));
 
-%% BASIC example 5 - specifying a reduced colormap (for speed)
+%% BASIC example 6 - specifying a reduced colormap (for speed)
 fig_num = 5;
 figure(fig_num);
 clf;
@@ -142,7 +142,97 @@ title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Int
 
 % Check results
 good_indicies = find(~isnan(h_plot));
+assert(all(ishandle(h_plot(good_indicies,1)))); %#ok<FNDSB>
+
+%% BASIC example 7 - changing marker size, same colorfig_num 
+fig_num = 7;
+figure(fig_num);
+clf;
+
+time = linspace(0,10,100)';
+XYZIdata = [time sin(time) 1/25*(time-5).^2  cos(time)];
+
+% Test the function
+clear plotFormat
+plotFormat.LineStyle = 'none';
+plotFormat.LineWidth = 5;
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+% colorMapString = 'turbo';
+
+% Reduce the colormap
+Ncolors = 40;
+% colorMapMatrix = colormap(colorMapString);
+% reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
+reducedColorMap = repmat([0 0 0.5],Ncolors,1);
+
+% Specify the sizes (must be same size as reducedColorMap)
+markerSizeMatrix = 2*(1:Ncolors)';
+plotFormat.MarkerSize = markerSizeMatrix;
+
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat),  (reducedColorMap), (fig_num));
+title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Check results
+good_indicies = find(~isnan(h_plot));
+assert(all(ishandle(h_plot(good_indicies,1)))); %#ok<FNDSB>
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    if ~isnan(h_plot(ith_handle))
+        dataPlotted = get(h_plot(ith_handle),'XData');
+        NumInPlot = length(dataPlotted);
+        assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+    end
+end
+
+%% BASIC example 99 - specifying the full plotFormat, including reduced color map and changing marker size 
+fig_num = 99;
+figure(fig_num);
+clf;
+
+time = linspace(0,10,100)';
+XYZIdata = [time sin(time) 1/25*(time-5).^2  cos(time)];
+
+% Test the function
+clear plotFormat
+plotFormat.LineStyle = 'none';
+plotFormat.LineWidth = 5;
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+colorMapString = 'turbo';
+
+% Reduce the colormap
+Ncolors = 40;
+colorMapMatrix = colormap(colorMapString);
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
+
+% Specify the sizes (must be same size as reducedColorMap)
+markerSizeMatrix = 2*(1:Ncolors)';
+plotFormat.MarkerSize = markerSizeMatrix;
+
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat),  (reducedColorMap), (fig_num));
+title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Check results
+good_indicies = find(~isnan(h_plot));
 assert(all(ishandle(h_plot(good_indicies,1))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    if ~isnan(h_plot(ith_handle))
+        dataPlotted = get(h_plot(ith_handle),'XData');
+        NumInPlot = length(dataPlotted);
+        assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+    end
+end
+
 
 %% testing speed of function
 

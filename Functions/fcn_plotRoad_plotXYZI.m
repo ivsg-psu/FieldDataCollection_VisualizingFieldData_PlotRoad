@@ -1,9 +1,9 @@
-function h_plot = fcn_plotRoad_plotXYZI(XYZIdata, varargin)
+function [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotXYZI(XYZIdata, varargin)
 %fcn_plotRoad_plotXYZI    plots XYZ data with intensiy color mapping
 % 
 % FORMAT:
 %
-%      h_plot = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat), (colorMap), (fig_num))
+%      [h_geoplot, indiciesInEachPlot] = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat), (colorMap), (fig_num))
 %
 % INPUTS:  
 %
@@ -45,6 +45,9 @@ function h_plot = fcn_plotRoad_plotXYZI(XYZIdata, varargin)
 %      h_plot: the handle to the plotting results, with one handle per
 %      colormap entry.
 %
+%     indiciesInEachPlot: a cell array for each colormap entry listing
+%     which indicies were plotted in that color
+%
 % DEPENDENCIES:
 %
 %      fcn_plotRoad_plotXYZ
@@ -53,7 +56,7 @@ function h_plot = fcn_plotRoad_plotXYZI(XYZIdata, varargin)
 %
 %       See the script:
 % 
-%       script_test_fcn_plotRoad_plotXY.m 
+%       script_test_fcn_plotRoad_plotXYZI.m 
 %  
 %       for a full test suite.
 %
@@ -223,6 +226,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 NplotPoints = length(XYZIdata(:,1));
+indiciesPlotted = (1:NplotPoints)';
 
 % Check the user entries
 XYZdata = XYZIdata(:,1:3);
@@ -254,16 +258,19 @@ if isempty(colorMapToUse)
 end
 
 % Reformat the XY data if line formats are given (not points)
-if isfield(plotFormat,'LineStyle')
+if isfield(plotFormat,'LineStyle') && NplotPoints>1 && ~strcmpi(plotFormat.LineStyle,'none')
     X_dataPadded = [XYZdata(1:end-1,1)'; XYZdata(2:end,1)'; nan(1,NplotPoints-1)];
     Y_dataPadded = [XYZdata(1:end-1,2)'; XYZdata(2:end,2)'; nan(1,NplotPoints-1)];
     Z_dataPadded = [XYZdata(1:end-1,3)'; XYZdata(2:end,3)'; nan(1,NplotPoints-1)];
     I_dataPadded = [Idata(1:end-1,1)'; Idata(1:end-1,1)'; Idata(1:end-1,1)'];
+    indicies_dataPadded = [indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'; indiciesPlotted(1:end-1,1)'];
+
 
     X_data = reshape(X_dataPadded,[],1);
     Y_data = reshape(Y_dataPadded,[],1);
     Z_data = reshape(Z_dataPadded,[],1);
     I_data = reshape(I_dataPadded,[],1);
+    indicies_data = reshape(indicies_dataPadded,[],1);
 else
     plotFormat.Marker = '.';
     plotFormat.LineStyle = 'none';
@@ -271,11 +278,20 @@ else
     Y_data = XYZdata(:,2);   
     Z_data = XYZdata(:,3);   
     I_data = Idata;
+    indicies_data = indiciesPlotted;
 end
 
 % Initialize the output
 Ncolors = length(colorMapToUse(:,1));
 h_plot = nan(Ncolors,1);
+indiciesInEachPlot{Ncolors} = [];
+
+% Check to see if the markers are dynamically resized
+if isfield(plotFormat,'MarkerSize') && length(plotFormat.MarkerSize)==Ncolors
+    flag_resizeMarkers = 1;
+else
+    flag_resizeMarkers = 0;
+end
 
 %% Plot the results (for debugging)?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -302,6 +318,11 @@ if flag_do_plots
             tempPlotFormat = plotFormat;
             tempPlotFormat.Color = colorMapToUse(ith_color,:);
 
+            % Resize the markers?
+            if 1==flag_resizeMarkers
+                tempPlotFormat.MarkerSize = plotFormat.MarkerSize(ith_color);
+            end
+
             % Update the X and Y data to select only the points in this
             % color
             X_data_selected = X_data(plotting_indicies,:);
@@ -310,6 +331,10 @@ if flag_do_plots
 
             % Do the plotting
             h_plot(ith_color,1)  = fcn_plotRoad_plotXYZ([X_data_selected Y_data_selected Z_data_selected], (tempPlotFormat), (fig_num));
+
+            % Save the indicies
+            indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);
+
         end
     end
     
