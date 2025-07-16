@@ -13,6 +13,7 @@ figure(fig_num);
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % Use defaults
 
 % Test the function
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
@@ -43,6 +44,7 @@ close(fig_num);
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % Use defaults
 
 % Test the function with empty figure number
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), ([]));
@@ -1254,6 +1256,7 @@ assert(ishandle(fig_num));
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % use default of 12 ft wide lane
 
 fig_num=[];
 REPS=5;

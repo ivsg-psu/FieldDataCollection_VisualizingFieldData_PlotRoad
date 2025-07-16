@@ -1,0 +1,1070 @@
+<strong> </strong><strong>Testing script: 1 of 20, test_fcn_plotRoad_animateHandlesDataSlide
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesDataSlide
+.....
+ans =
+
+     0
+
+
+ans =
+
+     0
+
+
+ans =
+
+     0
+
+
+ans =
+
+     0
+
+
+ans =
+
+     0
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8643
+      LongitudeData: -77.8311
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8643
+      LongitudeData: -77.8310
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8644
+      LongitudeData: -77.8309
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8644
+      LongitudeData: -77.8309
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8644
+      LongitudeData: -77.8308
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8645
+      LongitudeData: -77.8307
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8646
+      LongitudeData: -77.8307
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8646
+      LongitudeData: -77.8306
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8647
+      LongitudeData: -77.8306
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8647
+      LongitudeData: -77.8306
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8648
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8649
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8649
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8650
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8651
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8651
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8652
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8652
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8653
+      LongitudeData: -77.8305
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8653
+      LongitudeData: -77.8306
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8654
+      LongitudeData: -77.8306
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8655
+      LongitudeData: -77.8307
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8655
+      LongitudeData: -77.8307
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8656
+      LongitudeData: -77.8308
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8656
+      LongitudeData: -77.8308
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8657
+      LongitudeData: -77.8309
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8657
+      LongitudeData: -77.8310
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8657
+      LongitudeData: -77.8310
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8311
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8312
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8313
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8314
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8315
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8316
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> with properties:
+
+              Color: [1 1 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+       LatitudeData: 40.8658
+      LongitudeData: -77.8316
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+.
+Done script_test_fcn_plotRoad_animateHandlesDataSlide
+__________
+
+<strong> </strong><strong>Testing script: 2 of 20, test_fcn_plotRoad_animateHandlesOnOff
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesOnOff
+......
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animateHandlesOnOff/Example10_AnimateA_radar_ViewWithOne_beam_ and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'tempPlotFormat'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_animateHandlesOnOff', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animateHandlesOnOff.m', 245)" style="font-weight:bold">script_test_fcn_plotRoad_animateHandlesOnOff</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animateHandlesOnOff.m',245,0)">line 245</a>)
+        h_radar(ith_angle,1)  = fcn_plotRoad_plotLL([nan nan], (tempPlotFormat), (fig_num));
+================================================================================
+..
+Done script_test_fcn_plotRoad_animateHandlesOnOff
+__________
+
+Failure Summary:
+
+     Name                                                                                     Failed  Incomplete  Reason(s)
+    ========================================================================================================================
+     script_test_fcn_plotRoad_animateHandlesOnOff/Example10_AnimateA_radar_ViewWithOne_beam_    X         X       Errored.
+<strong> </strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+........
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/BASICExample7_PlotXYISpecifyingTheFullPlotFormat and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'Npoints'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 478)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',478,0)">line 478</a>)
+    time = linspace(0,10,Npoints)';
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/BASICExample8_PlotXYSpecifyingTheFullPlotFormat and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'Npoints'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 602)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',602,0)">line 602</a>)
+    time = linspace(0,10,Npoints)';
+================================================================================
+. .
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+Failure Summary:
+
+     Name                                                                                   Failed  Incomplete  Reason(s)
+    ======================================================================================================================
+     script_test_fcn_plotRoad_animatePlot/BASICExample7_PlotXYISpecifyingTheFullPlotFormat    X         X       Errored.
+    ----------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/BASICExample8_PlotXYSpecifyingTheFullPlotFormat     X         X       Errored.
+<strong> </strong><strong>Testing script: 4 of 20, test_fcn_plotRoad_breakArrayByNans
+
+</strong>Running script_test_fcn_plotRoad_breakArrayByNans
+.........
+
+Comparison of fcn_plotRoad_breakArrayByNans without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00069
+Slow mode fastest speed over all calls (seconds): 0.00010
+Fast mode average speed per call (seconds): 0.00033
+Fast mode fastest speed over all calls (seconds): 0.00005
+Average ratio of fast mode to slow mode (unitless): 2.091
+.
+Done script_test_fcn_plotRoad_breakArrayByNans
+__________
+
+<strong> </strong><strong>Testing script: 5 of 20, test_fcn_plotRoad_calcLaneBoundaries
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundaries
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundaries/test1_BasicEdgeCalculationExample_NoFigure and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundaries', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m', 18)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundaries</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m',18,0)">line 18</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    (fig_num));
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundaries/test1_BasicEdgeCalculationExample_NoFigure_1 and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundaries', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m', 48)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundaries</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m',48,0)">line 48</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    ([]));
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundaries/test900_AdvancedEdgeCalculationExample and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Undefined function 'fcn_geometry_calcOrthogonalVector' for input arguments of type 'double'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fcn_plotRoad_calcLaneBoundaries', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_calcLaneBoundaries.m', 155)" style="font-weight:bold">fcn_plotRoad_calcLaneBoundaries</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_calcLaneBoundaries.m',155,0)">line 155</a>)
+    unit_orthogonal_vectors = fcn_geometry_calcOrthogonalVector(tangential_vectors);
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundaries', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m', 1232)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundaries</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m',1232,0)">line 1232</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    (fig_num));
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundaries/SpeedTest and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundaries', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m', 1267)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundaries</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundaries.m',1267,0)">line 1267</a>)
+        [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+        (fig_num));
+================================================================================
+.
+Done script_test_fcn_plotRoad_calcLaneBoundaries
+__________
+
+Failure Summary:
+
+     Name                                                                                      Failed  Incomplete  Reason(s)
+    =========================================================================================================================
+     script_test_fcn_plotRoad_calcLaneBoundaries/test1_BasicEdgeCalculationExample_NoFigure      X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_calcLaneBoundaries/test1_BasicEdgeCalculationExample_NoFigure_1    X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_calcLaneBoundaries/test900_AdvancedEdgeCalculationExample          X         X       Errored.
+    -------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_calcLaneBoundaries/SpeedTest                                       X         X       Errored.
+<strong> </strong><strong>Testing script: 6 of 20, test_fcn_plotRoad_calcLaneBoundingBox
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundingBox
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundingBox/test1_BasicExample and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundingBox', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m', 15)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundingBox</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m',15,0)">line 15</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    (-1));
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundingBox/test2_BasicExample_NoFigure and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundingBox', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m', 47)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundingBox</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m',47,0)">line 47</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    (-1));
+================================================================================
+.
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_calcLaneBoundingBox/SpeedTest and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:UndefinedFunction'
+    --------------
+    Error Details:
+    --------------
+    Unrecognized function or variable 'projectionDistance'.
+    
+    Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script_test_fcn_plotRoad_calcLaneBoundingBox', 'D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m', 73)" style="font-weight:bold">script_test_fcn_plotRoad_calcLaneBoundingBox</a> (<a href="matlab: opentoline('D:\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_calcLaneBoundingBox.m',73,0)">line 73</a>)
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance),
+    (-1));
+================================================================================
+.
+Done script_test_fcn_plotRoad_calcLaneBoundingBox
+__________
+
+Failure Summary:
+
+     Name                                                                      Failed  Incomplete  Reason(s)
+    =========================================================================================================
+     script_test_fcn_plotRoad_calcLaneBoundingBox/test1_BasicExample             X         X       Errored.
+    ---------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_calcLaneBoundingBox/test2_BasicExample_NoFigure    X         X       Errored.
+    ---------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_calcLaneBoundingBox/SpeedTest                      X         X       Errored.
+<strong> </strong><strong>Testing script: 7 of 20, test_fcn_plotRoad_calcRectangleXYZ
+
+</strong>Running script_test_fcn_plotRoad_calcRectangleXYZ
+......
+
+Comparison of fcn_plotRoad_calcRectangleXYZ without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00125
+Slow mode fastest speed over all calls (seconds): 0.00016
+Fast mode average speed per call (seconds): 0.00076
+Fast mode fastest speed over all calls (seconds): 0.00009
+Average ratio of fast mode to slow mode (unitless): 1.650
+Fastest ratio of fast mode to slow mode (unitless): 1.737
+.
+Done script_test_fcn_plotRoad_calcRectangleXYZ
+__________
+
+<strong> </strong><strong>Testing script: 8 of 20, test_fcn_plotRoad_plotHeadTailLL
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailLL
+........
+Done script_test_fcn_plotRoad_plotHeadTailLL
+__________
+
+<strong> </strong><strong>Testing script: 9 of 20, test_fcn_plotRoad_plotHeadTailXY
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailXY
+.......
+Done script_test_fcn_plotRoad_plotHeadTailXY
+__________
+
+<strong> </strong><strong>Testing script: 10 of 20, test_fcn_plotRoad_plotLL
+
+</strong>Running script_test_fcn_plotRoad_plotLL
+.......... .
+
+Comparison of fcn_plotRoad_plotLL without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.65013
+Slow mode fastest speed over all calls (seconds): 0.57426
+Fast mode average speed per call (seconds): 0.70329
+Fast mode fastest speed over all calls (seconds): 0.40463
+Average ratio of fast mode to slow mode (unitless): 0.924
+Fastest ratio of fast mode to slow mode (unitless): 1.419
+.
+Done script_test_fcn_plotRoad_plotLL
+__________
+
+<strong> </strong><strong>Testing script: 11 of 20, test_fcn_plotRoad_plotLLCircle
+
+</strong>Running script_test_fcn_plotRoad_plotLLCircle
+.......... .
+Done script_test_fcn_plotRoad_plotLLCircle
+__________
+
+<strong> </strong><strong>Testing script: 12 of 20, test_fcn_plotRoad_plotLLI
+
+</strong>Running script_test_fcn_plotRoad_plotLLI
+........
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.01218
+Slow mode fastest speed over all calls (seconds): 0.00105
+Fast mode average speed per call (seconds): 0.00200
+Fast mode fastest speed over all calls (seconds): 0.00091
+Average ratio of fast mode to slow mode (unitless): 6.101
+Fastest ratio of fast mode to slow mode (unitless): 1.155
+.
+Done script_test_fcn_plotRoad_plotLLI
+__________
+
+<strong> </strong><strong>Testing script: 13 of 20, test_fcn_plotRoad_plotTraceLL
+
+</strong>Running script_test_fcn_plotRoad_plotTraceLL
+........
+Done script_test_fcn_plotRoad_plotTraceLL
+__________
+
+<strong> </strong><strong>Testing script: 14 of 20, test_fcn_plotRoad_plotTraceXY
+
+</strong>Running script_test_fcn_plotRoad_plotTraceXY
+.......
+Done script_test_fcn_plotRoad_plotTraceXY
+__________
+
+<strong> </strong><strong>Testing script: 15 of 20, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+.......... ....
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+<strong> </strong><strong>Testing script: 16 of 20, test_fcn_plotRoad_plotXY
+
+</strong>Running script_test_fcn_plotRoad_plotXY
+......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00081
+Slow mode fastest speed over all calls (seconds): 0.00018
+Fast mode average speed per call (seconds): 0.00135
+Fast mode fastest speed over all calls (seconds): 0.00017
+Average ratio of fast mode to slow mode (unitless): 0.597
+Fastest ratio of fast mode to slow mode (unitless): 1.041
+.
+Done script_test_fcn_plotRoad_plotXY
+__________
+
+<strong> </strong><strong>Testing script: 17 of 20, test_fcn_plotRoad_plotXYI
+
+</strong>Running script_test_fcn_plotRoad_plotXYI
+........
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00244
+Slow mode fastest speed over all calls (seconds): 0.00101
+Fast mode average speed per call (seconds): 0.00230
+Fast mode fastest speed over all calls (seconds): 0.00095
+Average ratio of fast mode to slow mode (unitless): 1.062
+Fastest ratio of fast mode to slow mode (unitless): 1.062
+.
+Done script_test_fcn_plotRoad_plotXYI
+__________
+
+<strong> </strong><strong>Testing script: 18 of 20, test_fcn_plotRoad_plotXYZ
+
+</strong>Running script_test_fcn_plotRoad_plotXYZ
+......
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00110
+Slow mode fastest speed over all calls (seconds): 0.00018
+Fast mode average speed per call (seconds): 0.00073
+Fast mode fastest speed over all calls (seconds): 0.00008
+Average ratio of fast mode to slow mode (unitless): 1.508
+Fastest ratio of fast mode to slow mode (unitless): 2.182
+.
+Done script_test_fcn_plotRoad_plotXYZ
+__________
+
+<strong> </strong><strong>Testing script: 19 of 20, test_fcn_plotRoad_plotXYZI
+
+</strong>Running script_test_fcn_plotRoad_plotXYZI
+.......... 
+
+Comparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00310
+Slow mode fastest speed over all calls (seconds): 0.00103
+Fast mode average speed per call (seconds): 0.00195
+Fast mode fastest speed over all calls (seconds): 0.00103
+Average ratio of fast mode to slow mode (unitless): 1.591
+Fastest ratio of fast mode to slow mode (unitless): 1.007
+.
+Done script_test_fcn_plotRoad_plotXYZI
+__________
+
+<strong> </strong><strong>Testing script: 20 of 20, test_fcn_plotRoad_reduceColorMap
+
+</strong>Running script_test_fcn_plotRoad_reduceColorMap
+....
+
+Comparison of fcn_plotRoad_reduceColorMap without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00129
+Slow mode fastest speed over all calls (seconds): 0.00024
+Fast mode average speed per call (seconds): 0.00103
+Fast mode fastest speed over all calls (seconds): 0.00012
+Average ratio of fast mode to slow mode (unitless): 1.252
+Fastest ratio of fast mode to slow mode (unitless): 22.467
+.
+Done script_test_fcn_plotRoad_reduceColorMap
+__________
+
+<strong> </strong><strong>Testing script: 2 of 20, test_fcn_plotRoad_animateHandlesOnOff
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesOnOff
+........
+Done script_test_fcn_plotRoad_animateHandlesOnOff
+__________
+
+<strong> </strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+.......... .
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+<strong> </strong><strong>Testing script: 4 of 20, test_fcn_plotRoad_breakArrayByNans
+
+</strong>Running script_test_fcn_plotRoad_breakArrayByNans
+.........
+
+Comparison of fcn_plotRoad_breakArrayByNans without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00032
+Slow mode fastest speed over all calls (seconds): 0.00010
+Fast mode average speed per call (seconds): 0.00030
+Fast mode fastest speed over all calls (seconds): 0.00005
+Average ratio of fast mode to slow mode (unitless): 1.070
+.
+Done script_test_fcn_plotRoad_breakArrayByNans
+__________
+
+<strong> </strong><strong>Testing script: 5 of 20, test_fcn_plotRoad_calcLaneBoundaries
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundaries
+....
+
+Comparison of fcn_plotCV2X_loadDataFromFile without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00180
+Slow mode fastest speed over all calls (seconds): 0.00018
+Fast mode average speed per call (seconds): 0.00122
+Fast mode fastest speed over all calls (seconds): 0.00012
+Average ratio of fast mode to slow mode (unitless): 1.475
+Fastest ratio of fast mode to slow mode (unitless): 47.547
+.
+Done script_test_fcn_plotRoad_calcLaneBoundaries
+__________
+
+<strong> </strong><strong>Testing script: 6 of 20, test_fcn_plotRoad_calcLaneBoundingBox
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundingBox
+...
+
+Comparison of fcn_plotRoad_calcLaneBoundingBox without speed setting (slow) and with speed setting (fast):
+N repetitions: 5
+Slow mode average speed per call (seconds): 0.00504
+Slow mode fastest speed over all calls (seconds): 0.00047
+Fast mode average speed per call (seconds): 0.00108
+Fast mode fastest speed over all calls (seconds): 0.00026
+Average ratio of fast mode to slow mode (unitless): 4.677
+Fastest ratio of fast mode to slow mode (unitless): 40.256
+.
+Done script_test_fcn_plotRoad_calcLaneBoundingBox
+__________
+

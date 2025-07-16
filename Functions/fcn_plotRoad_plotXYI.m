@@ -140,7 +140,7 @@ if 2 <= nargin
     input = varargin{1};
     if ~isempty(input)
         if ischar(input) && length(input)<=4
-            plotFormat = fcn_plotRoad_extractFormatFromString(input);
+            plotFormat = fcn_DebugTools_extractPlotFormatFromString(input,-1);
         elseif isnumeric(input)  % Numbers are a color style
             plotFormat.Color = input;
         elseif isstruct(input)  % Structures give properties

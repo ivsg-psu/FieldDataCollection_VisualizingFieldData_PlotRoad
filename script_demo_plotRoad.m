@@ -25,6 +25,15 @@
 % -- Added animatePlot function
 % 2024_09_26 - sbrennan@psu.edu
 % -- Updated function fcn_INTERNAL_clearUtilitiesFromPathAndFolders
+% 2025_07_15 - sbrennan@psu.edu
+% -- Deprecated fcn_plotRoad_extractFormatFromString to move this function
+%    % to fcn_DebugTools_extractPlotFormatFromString
+% -- Updated dependencies to DebugTools_v2025_07_15
+% -- Updated dependencies to PathClass_v2025_07_06
+% -- Updated dependencies to BreakDataIntoLaps_v2025_07_05
+% -- Removed call to geometry library
+% -- Cleaned some broken test scripts that were failing due to undeclared
+%    % variables
 
 
 %% To-Do list
@@ -44,14 +53,19 @@ clc
 clear library_name library_folders library_url
 
 ith_library = 1;
-library_name{ith_library}    = 'DebugTools_v2023_04_22';
+library_name{ith_library}    = 'DebugTools_v2025_07_15';
 library_folders{ith_library} = {'Functions','Data'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2023_04_22.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2025_07_15.zip';
 
 ith_library = ith_library+1;
-library_name{ith_library}    = 'PathClass_v2024_03_14';
+library_name{ith_library}    = 'PathClass_v2025_07_06';
 library_folders{ith_library} = {'Functions'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2024_03_14.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2025_07_06.zip';
+
+% ith_library = ith_library+1;
+% library_name{ith_library}    = 'PathClass_v2025_07_06';
+% library_folders{ith_library} = {'Functions'};
+% library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2025_07_06.zip';
 
 ith_library = ith_library+1;
 library_name{ith_library}    = 'GPSClass_v2023_06_29';
@@ -69,13 +83,13 @@ library_folders{ith_library} = {'Functions'};
 library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_GeomTools_FindCircleRadius/archive/refs/tags/FindCircleRadius_v2023_08_02.zip';
 
 ith_library = ith_library+1;
-library_name{ith_library}    = 'BreakDataIntoLaps_v2023_08_25';
+library_name{ith_library}    = 'BreakDataIntoLaps_v2025_07_05';
 library_folders{ith_library} = {'Functions'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_DataClean_BreakDataIntoLaps/archive/refs/tags/BreakDataIntoLaps_v2023_08_25.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_DataClean_BreakDataIntoLaps/archive/refs/tags/BreakDataIntoLaps_v2025_07_05.zip';
 
 
 %% Clear paths and folders, if needed
-if 1==0
+if 1==1
     clear flag_plotRoad_Folders_Initialized;
     fcn_INTERNAL_clearUtilitiesFromPathAndFolders;
 

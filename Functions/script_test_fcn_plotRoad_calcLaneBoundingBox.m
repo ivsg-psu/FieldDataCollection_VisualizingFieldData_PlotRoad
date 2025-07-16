@@ -12,6 +12,7 @@ figure(fig_num);
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % use default of 12 ft wide lane
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
 % Test the function
@@ -44,6 +45,8 @@ close(fig_num);
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % use default of 12 ft wide lane
+
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
 % Test the function
@@ -70,6 +73,8 @@ assert(0 == boundingBoxPolyshape.NumHoles)
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = []; % use default of 12 ft wide lane
+
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
 

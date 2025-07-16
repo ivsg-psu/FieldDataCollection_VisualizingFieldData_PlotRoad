@@ -241,6 +241,9 @@ set(gca,'MapCenter',LLcenter(1,1:2));
 h_radar = zeros(Nangles,1);
 for ith_angle = 1:Nangles
 
+    tempPlotFormat = plotFormat;
+    tempPlotFormat.Marker = '.';
+
     % Do the plotting
     h_radar(ith_angle,1)  = fcn_plotRoad_plotLL([nan nan], (tempPlotFormat), (fig_num));
 end

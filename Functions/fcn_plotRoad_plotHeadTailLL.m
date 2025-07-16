@@ -169,7 +169,7 @@ flag_do_plots = 1;
 
 % Convert user inputs into formats
 if formatting_type==1
-    finalPlotFormat = fcn_plotRoad_extractFormatFromString(plotFormat, (-1));
+    finalPlotFormat = fcn_DebugTools_extractPlotFormatFromString(plotFormat, (-1));
 elseif formatting_type==2
     finalPlotFormat.Color = plotFormat;
 elseif formatting_type==3

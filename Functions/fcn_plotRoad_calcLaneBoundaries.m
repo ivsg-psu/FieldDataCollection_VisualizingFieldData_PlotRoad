@@ -22,7 +22,8 @@ function [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoun
 %      Note: right projection distances are typically negative, keeping
 %      with positive transverse distances being to the left, to follow the
 %      right-hand-rule of cross products. If left empty, a distance is used
-%      in meters that is equivalent to producing a standard 12-foot lane.
+%      in meters that is equivalent to producing a standard 12-foot lane,
+%      e.g. 6 ft to either side.
 %
 %      fig_num: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
@@ -49,6 +50,8 @@ function [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoun
 % Revision History
 % 2024_08_16 S. Brennan
 % -- started writing function from fcn_PlotTestTrack similar function
+% 2025_07_15 by S. Brennan
+% -- removed call to geometry library to calculate ortho vectors
 
 %% Debugging and Input checks
 
@@ -150,9 +153,11 @@ tangential_vectors = diff(XYdata,1,1);
 % Repeat the last vector to make tangential vectors same length as input
 % data
 tangential_vectors = [tangential_vectors; tangential_vectors(end,:)];
+magTangentialVectors = sum(tangential_vectors.^2,2).^0.5;
+unitTangentialVectors = tangential_vectors./magTangentialVectors;
 
 % Find the normal vectors
-unit_orthogonal_vectors = fcn_geometry_calcOrthogonalVector(tangential_vectors);
+unit_orthogonal_vectors = unitTangentialVectors*[0 1; -1 0];
 
 % Find the left and right lanes. Left is positive in the orthogonal
 % direction.
