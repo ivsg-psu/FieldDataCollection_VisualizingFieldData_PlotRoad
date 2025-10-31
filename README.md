@@ -75,6 +75,7 @@ Search for this, and you will find!
           <li><a href="#fcn_plotroad_calclaneboundingbox">fcn_plotRoad_calcLaneBoundingBox - generates polyshape bounding box of lane</li>
           <li><a href="#fcn_plotroad_plotllcircle">fcn_plotRoad_plotLLcircle - geoplots a circle</li>
           <li><a href="#fcn_plotroad_reducecolormap">fcn_plotRoad_reduceColorMap - produces a reduced colorMap matrix</li>
+          <li><a href="#fcn_plotroad_zoomtoregion">fcn_plotRoad_zoomToRegion - zooms into a pre-specified region</li>
         </ul>
       </ul>
     <li><a href="#usage">Usage Examples</a></li>
@@ -567,6 +568,28 @@ of colors requested is always equal to the input Ncolors.
 </pre>
 
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+***
+
+#### **fcn_plotRoad_zoomToRegion**
+
+Zooms an existing geoaxes (current axes) to a predefined region (e.g., Pendulum) for a
+given scenario (e.g., Test Track)
+
+ **FORMAT:**
+
+  ```Matlab
+  fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+  ```
+
+<pre align="center">
+  <img src=".\Images\fcn_plotRoad_zoomToRegion.png" alt="fcn_plotRoad_zoomToRegion picture" width="800" height="400">
+  <figcaption>Example of fcn_plotRoad_reduceColorMap</figcaption>
+</pre>
+
+<p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
+
+
 
 ***
 <!-- USAGE EXAMPLES -->
