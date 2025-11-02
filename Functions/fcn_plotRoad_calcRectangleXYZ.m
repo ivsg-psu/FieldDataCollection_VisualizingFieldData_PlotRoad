@@ -57,7 +57,9 @@ function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargi
 % Revision history:
 % 2023_08_13 by S. Brennan, sbrennan@psu.edu
 % -- start writing function by heavily modifying version from PlotTestTrack
-
+% 2025_11_01 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
 
 
 %% Debugging and Input checks
@@ -65,8 +67,9 @@ function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargi
 % Check if flag_max_speed set. This occurs if the fig_num variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
+MAX_NARGIN = 5; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
-if (nargin==5 && isequal(varargin{end},-1))
+if (nargin== MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
     flag_check_inputs = 0; % Flag to perform input checking
     flag_max_speed = 1;
@@ -105,7 +108,16 @@ end
 if 0 == flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
-        narginchk(2,5);
+        narginchk(2,MAX_NARGIN);
+
+        % Check the XYdata input
+        fcn_DebugTools_checkInputsToFunctions(...
+            centerPointXYZ, '2or3column_of_numbers', [1 1]);
+
+        % Check the XYdata input
+        fcn_DebugTools_checkInputsToFunctions(...
+            LWH, '2or3column_of_numbers', [1 1]);
+
     end
 end
 

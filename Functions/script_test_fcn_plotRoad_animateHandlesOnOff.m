@@ -3,26 +3,45 @@
 % fcn_plotRoad_animateHandlesOnOff.m
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
-close all;
+% Revision history:
+% 
+% 2024_08_15 - S. Brennan
+% -- Wrote the code originally
+% 2025_10_31 - Aneesh Batchu
+% -- Updated the script to the latest format
 
-%% Basic Example
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTES: There are no plots in the debug section of the function. 
+
+%% Set up the workspace
+
+close all
+
+
+%% Code demos start here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   ____            _        ______                           _
-%  |  _ \          (_)      |  ____|                         | |
-%  | |_) | __ _ ___ _  ___  | |__  __  ____ _ _ __ ___  _ __ | | ___
-%  |  _ < / _` / __| |/ __| |  __| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \
-%  | |_) | (_| \__ \ | (__  | |____ >  < (_| | | | | | | |_) | |  __/
-%  |____/ \__,_|___/_|\___| |______/_/\_\__,_|_| |_| |_| .__/|_|\___|
-%                                                      | |
-%                                                      |_|
-% See: https://patorjk.com/software/taag/#p=display&f=Big&t=Basic%20Example
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
+%   _____                              ____   __    _____          _
+%  |  __ \                            / __ \ / _|  / ____|        | |
+%  | |  | | ___ _ __ ___   ___  ___  | |  | | |_  | |     ___   __| | ___
+%  | |  | |/ _ \ '_ ` _ \ / _ \/ __| | |  | |  _| | |    / _ \ / _` |/ _ \
+%  | |__| |  __/ | | | | | (_) \__ \ | |__| | |   | |___| (_) | (_| |  __/
+%  |_____/ \___|_| |_| |_|\___/|___/  \____/|_|    \_____\___/ \__,_|\___|
+%
+%
+% See: https://patorjk.com/software/taag/#p=display&f=Big&t=Demos%20Of%20Code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEMO figures start with 1
 
-%% Example 1 - simple points
-fig_num = 1;
-figure(fig_num);
-clf;
+close all;
+fprintf(1,'Figure: 1XXXX: DEMO cases\n');
+
+
+%% DEMO case: Showing animation of XYI plot (using simple points)
+
+fig_num = 10001; 
+titleString = sprintf('DEMO case: Showing animation of XYI plot (using simple points)');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 % Fill in data
 time = linspace(0,15,100)';
@@ -65,11 +84,72 @@ for timeIndex = 1:400
     pause(0.05);
 end
 
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
 
-%% Example 2 - line segments
-fig_num = 2;
-figure(fig_num);
-clf;
+%% DEMO case: Do an animation of expanding rings
+
+fig_num = 10002; 
+titleString = sprintf('DEMO case: Do an animation of expanding rings');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% Fill in data
+LLcenter = [40.43073, -79.87261, 0];
+radius = 1000; 
+
+colormapMatrix = colormap('winter');
+colormapMatrix = flipud(colormapMatrix);
+
+clear plotFormat
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+plotFormat.Marker = 'none';
+plotFormat.MarkerSize = 10;
+colorMapStringOrMatrix = colormapMatrix;
+maxColorsAngles = [128 45];
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+subtitle('Showing animation of expanding circles');
+
+%%%% Do the animation 
+Nrings = length(AllLatData(:,1));
+skipInterval = Nrings/4;
+
+for timeIndex = 1:200
+    fcn_plotRoad_animateHandlesOnOff(timeIndex, h_geoplot(1:end-1), AllLatData, AllLonData, skipInterval,-1);
+    pause(0.02);
+end
+
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
+
+%% Test cases start here. These are very simple, usually trivial
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  _______ ______  _____ _______ _____
+% |__   __|  ____|/ ____|__   __/ ____|
+%    | |  | |__  | (___    | | | (___
+%    | |  |  __|  \___ \   | |  \___ \
+%    | |  | |____ ____) |  | |  ____) |
+%    |_|  |______|_____/   |_| |_____/
+%
+%
+%
+% See: https://patorjk.com/software/taag/#p=display&f=Big&t=TESTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEST figures start with 2
+
+close all;
+fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
+
+%% Test case: Showing animation of XYI plot using line segments
+
+fig_num = 20001;
+titleString = sprintf('Test case: Showing animation of XYI plot using line segments');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 % Fill in data
 time = linspace(0,10,100)';
@@ -119,42 +199,16 @@ for timeIndex = 1:500
     pause(0.02);
 end
 
-%% Example 7 - Do an animation of expanding rings
-fig_num = 7;
-figure(fig_num);
-clf;
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
 
-% Fill in data
-LLcenter = [40.43073, -79.87261, 0];
-radius = 1000; 
 
-colormapMatrix = colormap('winter');
-colormapMatrix = flipud(colormapMatrix);
+%% Test case: Do an animation of expanding rings with different skip interval
 
-clear plotFormat
-plotFormat.LineStyle = '-';
-plotFormat.LineWidth = 3;
-plotFormat.Marker = 'none';
-plotFormat.MarkerSize = 10;
-colorMapStringOrMatrix = colormapMatrix;
-maxColorsAngles = [128 45];
-[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
-subtitle('Showing animation of expanding circles');
-
-%%%% Do the animation 
-Nrings = length(AllLatData(:,1));
-skipInterval = Nrings/4;
-
-for timeIndex = 1:200
-    fcn_plotRoad_animateHandlesOnOff(timeIndex, h_geoplot(1:end-1), AllLatData, AllLonData, skipInterval,-1);
-    pause(0.02);
-end
-
-%% Example 8 - Do an animation of expanding rings with different skip interval
-fig_num = 8;
-figure(fig_num);
-clf;
+fig_num = 20002;
+titleString = sprintf('Test case: Do an animation of expanding rings with different skip interval');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -200,10 +254,16 @@ for timeIndex = 1:200
     pause(0.02);
 end
 
-%% Example 10 - Animate a "radar" view with one "beam"
-fig_num = 10;
-figure(fig_num);
-clf;
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
+
+
+%% Test case: Animate a "radar" view with one "beam"
+
+fig_num = 20003;
+titleString = sprintf('Test case: Animate a "radar" view with one "beam"');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -258,6 +318,287 @@ for timeIndex = 1:100
     fcn_plotRoad_animateHandlesOnOff(timeIndex, h_radar, AllLatDataReduced, AllLonDataReduced, skipInterval,-1);
     pause(0.02);
 end
+
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
+
+%% Fast Mode Tests
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ______        _     __  __           _        _______        _
+% |  ____|      | |   |  \/  |         | |      |__   __|      | |
+% | |__ __ _ ___| |_  | \  / | ___   __| | ___     | | ___  ___| |_ ___
+% |  __/ _` / __| __| | |\/| |/ _ \ / _` |/ _ \    | |/ _ \/ __| __/ __|
+% | | | (_| \__ \ |_  | |  | | (_) | (_| |  __/    | |  __/\__ \ |_\__ \
+% |_|  \__,_|___/\__| |_|  |_|\___/ \__,_|\___|    |_|\___||___/\__|___/
+%
+%
+% See: http://patorjk.com/software/taag/#p=display&f=Big&t=Fast%20Mode%20Tests
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FAST Mode figures start with 8
+
+close all;
+fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
+fprintf(1,'Not applicable - only a plotting function\n');
+
+% %% Basic example - EMPTY FIGURE NUMBER 
+% 
+% fig_num = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
+% figure(fig_num); close(fig_num);
+% 
+% 
+% % Fill in data
+% time = linspace(0,15,100)';
+% ydata = sin(time);
+% intensity_raw = cos(time);
+% intensity = (intensity_raw - min(intensity_raw))/(max(intensity_raw) - min(intensity_raw)); 
+% 
+% % Test the function
+% colormapMatrix = colormap('winter');
+% 
+% clear plotFormat
+% plotFormat.LineStyle = '-';
+% plotFormat.LineWidth = 3;
+% plotFormat.Marker = '.';
+% plotFormat.MarkerSize = 30;
+% colorMapStringOrMatrix = colormapMatrix;
+% 
+% % Fill in the plot handles
+% h_plots = zeros(length(time),1);
+% for ith_plot = 1:length(time)
+%     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     h_plots(ith_plot) = temp(~isnan(temp));
+% end
+% 
+% % Resize the axis to full extent
+% axis auto;
+% 
+% % Freeze it in place
+% temp = axis;
+% axis(temp);
+% 
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% subtitle('Showing animation of XYI plot');
+% 
+% %%%% Do the animation
+% skipInterval = [];
+% for timeIndex = 1:200
+%     fcn_plotRoad_animateHandlesOnOff(timeIndex, h_plots, time, ydata, skipInterval,([]));
+%     pause(0.05);
+% end
+% 
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),fig_num));
+% 
+% 
+% %% Basic example - "-1" as FIGURE NUMBER
+% 
+% fig_num = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
+% figure(fig_num); close(fig_num);
+% 
+% % Fill in data
+% time = linspace(0,15,100)';
+% ydata = sin(time);
+% intensity_raw = cos(time);
+% intensity = (intensity_raw - min(intensity_raw))/(max(intensity_raw) - min(intensity_raw)); 
+% 
+% % Test the function
+% colormapMatrix = colormap('winter');
+% 
+% clear plotFormat
+% plotFormat.LineStyle = '-';
+% plotFormat.LineWidth = 3;
+% plotFormat.Marker = '.';
+% plotFormat.MarkerSize = 30;
+% colorMapStringOrMatrix = colormapMatrix;
+% 
+% % Fill in the plot handles
+% h_plots = zeros(length(time),1);
+% for ith_plot = 1:length(time)
+%     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     h_plots(ith_plot) = temp(~isnan(temp));
+% end
+% 
+% % Resize the axis to full extent
+% axis auto;
+% 
+% % Freeze it in place
+% temp = axis;
+% axis(temp);
+% 
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% subtitle('Showing animation of XYI plot');
+% 
+% %%%% Do the animation 
+% skipInterval = [];
+% for timeIndex = 1:200
+%  fcn_plotRoad_animateHandlesOnOff(timeIndex, h_plots, time, ydata, skipInterval,(-1));
+%     pause(0.05);
+% end
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),fig_num));
+% 
+% %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
+% 
+% fig_num = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
+% figure(fig_num); close(fig_num);
+% 
+% % Fill in data
+% time = linspace(0,15,100)';
+% ydata = sin(time);
+% intensity_raw = cos(time);
+% intensity = (intensity_raw - min(intensity_raw))/(max(intensity_raw) - min(intensity_raw)); 
+% 
+% % Test the function
+% colormapMatrix = colormap('winter');
+% 
+% clear plotFormat
+% plotFormat.LineStyle = '-';
+% plotFormat.LineWidth = 3;
+% plotFormat.Marker = '.';
+% plotFormat.MarkerSize = 30;
+% colorMapStringOrMatrix = colormapMatrix;
+% 
+% % Fill in the plot handles
+% h_plots = zeros(length(time),1);
+% for ith_plot = 1:length(time)
+%     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     h_plots(ith_plot) = temp(~isnan(temp));
+% end
+% 
+% % Resize the axis to full extent
+% axis auto;
+% 
+% % Freeze it in place
+% temp = axis;
+% axis(temp);
+% 
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% subtitle('Showing animation of XYI plot');
+% 
+% %%%% Do the animation 
+% skipInterval = [];
+% 
+% Niterations = 100;
+% 
+% % Do calculation without pre-calculation
+% tic;
+% for ith_test = 1:Niterations
+% 
+%     fcn_plotRoad_animateHandlesOnOff(Niterations, h_plots, time, ydata, skipInterval,([]));
+%     pause(0.05);
+% end
+% slow_method = toc;
+% 
+% % Do calculation with pre-calculation, FAST_MODE on
+% tic;
+% 
+% for ith_test = 1:Niterations
+% 
+%     fcn_plotRoad_animateHandlesOnOff(Niterations, h_plots, time, ydata, skipInterval,(-1));
+%     pause(0.05);
+% 
+% end
+% fast_method = toc;
+% 
+% % Make sure plot opened up
+% assert(isequal(get(gcf,'Number'),fig_num));
+% 
+% % Plot results as bar chart
+% figure(373737);
+% clf;
+% hold on;
+% 
+% X = categorical({'Normal mode','Fast mode'});
+% X = reordercats(X,{'Normal mode','Fast mode'}); % Forces bars to appear in this exact order, not alphabetized
+% Y = [slow_method fast_method ]*1000/Niterations;
+% bar(X,Y)
+% ylabel('Execution time (Milliseconds)')
+% 
+
+
+%% BUG cases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ____  _    _  _____
+% |  _ \| |  | |/ ____|
+% | |_) | |  | | |  __    ___ __ _ ___  ___  ___
+% |  _ <| |  | | | |_ |  / __/ _` / __|/ _ \/ __|
+% | |_) | |__| | |__| | | (_| (_| \__ \  __/\__ \
+% |____/ \____/ \_____|  \___\__,_|___/\___||___/
+%
+% See: http://patorjk.com/software/taag/#p=display&v=0&f=Big&t=BUG%20cases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% All bug case figures start with the number 9
+
+% close all;
+% fprintf(1,'Figure: 9XXXXXX: TEST mode cases\n');
+
+%% BUG
+
+%% Fail conditions
+if 1==0 
+
+    %% Should throw error because ydata is not a 1 column of numbers
+
+    fig_num = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
+    figure(fig_num); close(fig_num);
+
+
+    % Fill in data
+    time = linspace(0,15,100)';
+    ydata = sin(time);
+    intensity_raw = cos(time);
+    intensity = (intensity_raw - min(intensity_raw))/(max(intensity_raw) - min(intensity_raw));
+
+    % Test the function
+    colormapMatrix = colormap('winter');
+
+    clear plotFormat
+    plotFormat.LineStyle = '-';
+    plotFormat.LineWidth = 3;
+    plotFormat.Marker = '.';
+    plotFormat.MarkerSize = 30;
+    colorMapStringOrMatrix = colormapMatrix;
+
+    % Fill in the plot handles
+    h_plots = zeros(length(time),1);
+    for ith_plot = 1:length(time)
+        dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
+        temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+        h_plots(ith_plot) = temp(~isnan(temp));
+    end
+
+    % Resize the axis to full extent
+    axis auto;
+
+    % Freeze it in place
+    temp = axis;
+    axis(temp);
+
+    title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+    subtitle('Showing animation of XYI plot');
+
+    %%%% Do the animation
+    skipInterval = [];
+    for timeIndex = 1:200
+        fcn_plotRoad_animateHandlesOnOff(timeIndex, h_plots, time, [ydata,ydata], skipInterval,([]));
+        pause(0.05);
+    end
+
+
+end
+
+
 
 
 

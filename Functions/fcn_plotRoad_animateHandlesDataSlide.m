@@ -70,14 +70,18 @@ function fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydat
 % Revision history
 % 2024_08_19 - Sean Brennan
 % -- Created function by copying out of load script in Geometry library
+% 2025_10_31 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
 
 %% Debugging and Input checks
 
 % Check if flag_max_speed set. This occurs if the fig_num variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
+MAX_NARGIN = 6; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
-if (nargin==6 && isequal(varargin{end},-1))
+if (nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
     flag_check_inputs = 0; % Flag to perform input checking
     flag_max_speed = 1;
@@ -120,19 +124,23 @@ end
 if 0==flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
-        narginchk(4,6);
+        narginchk(4,MAX_NARGIN);
 
-        % % Check the points input to be length greater than or equal to 2
-        % fcn_DebugTools_checkInputsToFunctions(...
-        %     points, '2column_of_numbers',[2 3]);
-        %
-        % % Check the transverse_tolerance input is a positive single number
-        % fcn_DebugTools_checkInputsToFunctions(transverse_tolerance, 'positive_1column_of_numbers',1);
-        %
-        % % Check the station_tolerance input is a positive single number
-        % if ~isempty(station_tolerance)
-        %     fcn_DebugTools_checkInputsToFunctions(station_tolerance, 'positive_1column_of_numbers',1);
-        % end
+        % Check the timeIndex input 
+        fcn_DebugTools_checkInputsToFunctions(...
+            timeIndex, '1column_of_numbers',[1 1]);
+
+        % Check the handleList input 
+        fcn_DebugTools_checkInputsToFunctions(...
+            handleList, '1column_of_numbers');
+
+        % Check the Xdata input 
+        fcn_DebugTools_checkInputsToFunctions(...
+            Xdata, '1column_of_numbers');
+
+        % Check the points input 
+        fcn_DebugTools_checkInputsToFunctions(...
+            Ydata, '1column_of_numbers');
     end
 end
 
@@ -149,7 +157,7 @@ end
 % Does user want to specify fig_num?
 flag_do_plots = 0;
 fig_num = [];
-if (0==flag_max_speed) &&  (6<=nargin)
+if (0==flag_max_speed) &&  (MAX_NARGIN<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
         fig_num = temp;
@@ -219,7 +227,7 @@ if is_geoplot
         rawOldTimeIndicies = (timeIndex-(Nhandles+1)+1);
         oldTimeIndicies = rawOldTimeIndicies(rawOldTimeIndicies>0);
         this_index = mod(oldTimeIndicies-1,Ndatapoints)+1; % This forces this_index to go from 1 to Ndatapoints, repeatedly
-        fcn_plotRoad_plotLL([Xdata(this_index,:),Ydata(this_index,:)],afterPlotColor,fig_num)
+        fcn_plotRoad_plotLL([Xdata(this_index,:),Ydata(this_index,:)],afterPlotColor,fig_num);
     end
 else
     % Fix the axes
@@ -254,7 +262,7 @@ else
         rawOldTimeIndicies = (timeIndex-(Nhandles+1)+1);
         oldTimeIndicies = rawOldTimeIndicies(rawOldTimeIndicies>0);
         this_index = mod(oldTimeIndicies-1,Ndatapoints)+1; % This forces this_index to go from 1 to Ndatapoints, repeatedly
-        plot(Xdata(this_index,:),Ydata(this_index,:),'.','Color',afterPlotColor)
+        plot(Xdata(this_index,:),Ydata(this_index,:),'.','Color',afterPlotColor);
     end
 end
 

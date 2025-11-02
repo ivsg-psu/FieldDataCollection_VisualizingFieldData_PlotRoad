@@ -34,6 +34,13 @@
 % -- Removed call to geometry library
 % -- Cleaned some broken test scripts that were failing due to undeclared
 %    % variables
+% 2025_10_31 - Aneesh Batchu
+% -- Wrote the function "fcn_plotRoad_zoomToRegion" and the script
+% -- Checked the verification list 
+% 2025_11_02 - Aneesh Batchu
+% -- Checked the verification list to release the repo
+% -- Updated all the scripts, functions and demo script to the latest format
+% -- Ran the fucntion that runs all the scripts to check for errors. 
 
 
 %% To-Do list
@@ -161,12 +168,12 @@ setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
 % https://patorjk.com/software/taag/#p=display&f=Big&t=Core%20%20Functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
-%% fcn_plotRoad_plotXY
-% plots XY data with user-defined formatting
+%% fcn_plotRoad_plotXY: plots XY data with user-defined formatting
 
-fig_num = 1;
-figure(fig_num);
-clf;
+fig_num = 20001;
+titleString = sprintf('fcn_plotRoad_plotXY: plots XY data with user-defined formatting');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -188,12 +195,12 @@ assert(all(ishandle(fig_num)));
 % Is a plot handle returned?
 assert(all(ishandle(h_plot)));
 
-%% fcn_plotRoad_plotXYI
-% plots XY data with intensiy color mapping
+%% fcn_plotRoad_plotXYIZ: plots XY data with intensiy color mapping
 
-fig_num = 2;
-figure(fig_num);
-clf;
+fig_num = 20002;
+titleString = sprintf('fcn_plotRoad_plotXYI:  plots XY data with intensiy color mapping');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 time = linspace(0,10,100)';
 XYIdata = [time sin(time) cos(time)];
@@ -211,12 +218,13 @@ assert(all(ishandle(fig_num)));
 % Is a plot handle returned?
 assert(all(ishandle(h_plot)))
 
-%% fcn_plotRoad_plotXYZ
-% plots XYZ data with user-defined formatting strings
+%% fcn_plotRoad_plotXYZ: plots XYZ data with user-defined formatting strings
 
-fig_num = 3;
-figure(fig_num);
-clf;
+
+fig_num = 20003;
+titleString = sprintf('fcn_plotRoad_plotXYZ: plots XYZ data with user-defined formatting strings');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
@@ -235,12 +243,12 @@ assert(all(ishandle(h_plot)))
 
 
 
-%% fcn_plotRoad_plotXYZI
-% plots XYZ data with intensiy color mapping
+%% fcn_plotRoad_plotXYZI: plots XYZ data with intensiy color mapping
 
-fig_num = 4;
-figure(fig_num);
-clf;
+fig_num = 20004;
+titleString = sprintf('fcn_plotRoad_plotXYZI: plots XYZ data with intensiy color mapping');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 time = linspace(0,10,100)';
 XYZIdata = [time sin(time) 1/25*(time-5).^2  cos(time)];
@@ -268,12 +276,12 @@ good_indicies = ~isnan(h_plot);
 assert(all(ishandle(h_plot(good_indicies,1))));
 
 
-%% fcn_plotRoad_plotLL
-% geoplots Latitude and Longitude data with user-defined formatting strings
+%% fcn_plotRoad_plotLL: geoplots Latitude and Longitude data with user-defined formatting strings
 
-fig_num = 5;
-figure(fig_num);
-clf;
+fig_num = 20005;
+titleString = sprintf('fcn_plotRoad_plotLL: geoplots Latitude and Longitude data with user-defined formatting strings');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 
 % Now call the function again to plot data into an existing figure to check
@@ -310,12 +318,12 @@ assert(all(ishandle(fig_num)));
 assert(ishandle(h_geoplot))
 
 
-%% fcn_plotRoad_plotLLI
-% geoplots Latitude and Longitude data with intensiy color mapping
+%% fcn_plotRoad_plotLLI: geoplots Latitude and Longitude data with intensiy color mapping
 
-fig_num = 6;
-figure(fig_num);
-clf;
+fig_num = 20006;
+titleString = sprintf('fcn_plotRoad_plotLLI: geoplots Latitude and Longitude data with intensiy color mapping');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in data
 data3 = [
@@ -378,9 +386,11 @@ assert(all(ishandle(h_plot(good_indicies,1))));
 %
 % fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, (skipInterval), (fig_num))
 
-fig_num = 903;
-figure(fig_num);
-clf;
+fig_num = 20007;
+titleString = sprintf('fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
+
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -427,8 +437,7 @@ for timeIndex = 1:200
 end
 
 
-%% fcn_plotRoad_animateHandlesDataSlide
-% animates a list of handles by data sliding
+%% fcn_plotRoad_animateHandlesDataSlide: animates a list of handles by data sliding
 % 
 % This function creates an animation of handles by "sliding" data through
 % the handles. For example, assume 4 data handles are given as
@@ -452,9 +461,11 @@ end
 %
 %      fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
 
-fig_num = 905;
-figure(fig_num);
-clf;
+fig_num = 20008;
+titleString = sprintf('fcn_plotRoad_animateHandlesDataSlide: animates a list of handles by data sliding');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
+
 
 % Fill in some dummy data (East curve from scenario 1_1)
 
@@ -555,10 +566,12 @@ for timeIndex = 1:40
     pause(0.02);
 end
 
-%% fcn_plotRoad_animatePlot - plotLLI specifying the full plotFormat
-fig_num = 5;
-figure(fig_num);
-clf;
+%% fcn_plotRoad_animatePlot: plotLLI specifying the full plotFormat
+
+fig_num = 20009;
+titleString = sprintf('fcn_plotRoad_animatePlot: plotLLI specifying the full plotFormat');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -678,10 +691,12 @@ if 1==0
 end
 
 
-%% fcn_plotRoad_animatePlot - plotLL specifying the full plotFormat
-fig_num = 6;
-figure(fig_num);
-clf;
+%% fcn_plotRoad_animatePlot: plotLL specifying the full plotFormat
+
+fig_num = 20010;
+titleString = sprintf('fcn_plotRoad_animatePlot: plotLL specifying the full plotFormat');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -795,10 +810,12 @@ if 1==0
     end
 end
 
-%% fcn_plotRoad_animatePlot - plotXYI specifying the full plotFormat
-fig_num = 7;
-figure(fig_num);
-clf;
+%% fcn_plotRoad_animatePlot: plotXYI specifying the full plotFormat
+
+fig_num = 20011;
+titleString = sprintf('fcn_plotRoad_animatePlot: plotXYI specifying the full plotFormat');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -919,10 +936,12 @@ if 1==0
 end
 
 
-%% fcn_plotRoad_animatePlot - plotXY specifying the full plotFormat
-fig_num = 8;
-figure(fig_num);
-clf;
+%% fcn_plotRoad_animatePlot: plotXY specifying the full plotFormat
+
+fig_num = 20012;
+titleString = sprintf('fcn_plotRoad_animatePlot: plotXY specifying the full plotFormat');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -1052,10 +1071,11 @@ end
 %% fcn_plotRoad_calcRectangleXYZ in 2D
 % finds the XY(Z) corners of a rectangle
 % cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num))
-fig_num = 11;
-figure(fig_num);
-clf;
 
+fig_num = 20013;
+titleString = sprintf('fcn_plotRoad_calcRectangleXYZ: finds the XY(Z) corners of a rectangle');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
@@ -1079,12 +1099,12 @@ assert(isequal(round(cornersXYZ,4),[...
     0         0]));
 
 
-%% fcn_plotRoad_calcRectangleXYZ in 3D
-% finds the XY(Z) coordinates of a rectangle
+%% fcn_plotRoad_calcRectangleXYZ in 3D: finds the XY(Z) coordinates of a rectangle
 % cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num))
-fig_num = 12;
-figure(fig_num);
-clf;
+fig_num = 20014;
+titleString = sprintf('fcn_plotRoad_calcRectangleXYZ: finds the XY(Z) corners of a rectangle');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 
 centerPointXYZ = [0 0 0];
@@ -1135,9 +1155,13 @@ assert(isequal(round(cornersXYZ,4),[...
 
 
 
-%% fcn_plotRoad_breakArrayByNans% 
-% breaks data separated by nan into subdata
+%% fcn_plotRoad_breakArrayByNans: breaks data separated by nan into subdata
 % indicies_cell_array = fcn_plotRoad_breakArrayByNans(input_array, (fig_num))
+
+fig_num = 20015;
+titleString = sprintf('fcn_plotRoad_calcRectangleXYZ: breaks data separated by nan into subdata');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); close(fig_num)
 
 test_data = [1; 2; 3; 4; nan; 6; nan; 8; 9; nan(3,1)];
 indicies_cell_array = fcn_plotRoad_breakArrayByNans(test_data);
@@ -1145,14 +1169,14 @@ assert(isequal(indicies_cell_array{1},[1; 2; 3; 4]));
 assert(isequal(indicies_cell_array{2},6));
 assert(isequal(indicies_cell_array{3},[8; 9]));
 
-%% fcn_plotRoad_plotTraceXY
-% plots EN components of ENU data as a trace
+%% fcn_plotRoad_plotTraceXY: plots EN components of ENU data as a trace
 % h_plot = fcn_plotRoad_plotTraceXY(XYdata, (plotFormat), (flag_plot_headers_and_tailers), (fig_num))
 
 % Load the first marker cluster - call it by name
-fig_num = 13;
-figure(fig_num);
-clf;
+fig_num = 20016;
+titleString = sprintf('fcn_plotRoad_plotTraceXY:plots EN components of ENU data as a trace');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 plotFormat = [];
 flag_plot_headers_and_tailers = [];
@@ -1270,14 +1294,14 @@ assert(all(ishandle(fig_num)));
 
 assert(all(ishandle(h_plot)));
 
-%% fcn_plotRoad_plotTraceLL
-% plots LL components of LLA data as a trace
+%% fcn_plotRoad_plotTraceLL: plots LL components of LLA data as a trace
 % h_plot = fcn_plotRoad_plotTraceLL(LLdata, (plotFormat), (flag_plot_headers_and_tailers), (fig_num))
 
-% Load the first marker cluster - call it by name
-fig_num = 14;
-figure(fig_num);
-clf;
+
+fig_num = 20017;
+titleString = sprintf('fcn_plotRoad_plotTraceLL: plots LL components of LLA data as a trace');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 flag_plot_headers_and_tailers = 1;
 
@@ -1394,7 +1418,6 @@ title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Inter
 % Was a figure created?
 assert(all(ishandle(fig_num)));
 
-assert(all(ishandle(h_plot)));
 
 %% fcn_plotRoad_plotTraces
 % plots traces in LLA, ENU, and/or STH coords given one of three formats,
@@ -1408,6 +1431,12 @@ assert(all(ishandle(h_plot)));
 
 % input LLA coordinates and plot all traces
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
+
+
+fig_num = 20018;
+titleString = sprintf('fcn_plotRoad_calcLaneBoundaries: calculates left and right lane boundaries by projecting a fixed distance from XYdata');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 Trace_coordinates = 1.0e+02 *[
 
@@ -1432,9 +1461,9 @@ plotFormat.LineWidth = 3;
 
 
 input_coordinates_type = "LLA";
-LLA_fig_num = 1111;
-ENU_fig_num = 2222;
-STH_fig_num = 3333;
+LLA_fig_num = fig_num + 1073;
+ENU_fig_num = fig_num + 1074;
+STH_fig_num = fig_num;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -1451,14 +1480,13 @@ assert(all(ishandle(ENU_fig_num)));
 assert(all(ishandle(STH_fig_num)));
 
 
-%% fcn_plotRoad_calcLaneBoundaries
-% calculates left and right lane boundaries by projecting a fixed distance from XYdata
+%% fcn_plotRoad_calcLaneBoundaries: calculates left and right lane boundaries by projecting a fixed distance from XYdata
 % [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num))
 
-
-fig_num = 900;
-figure(fig_num);
-clf;
+fig_num = 20019;
+titleString = sprintf('fcn_plotRoad_calcLaneBoundaries: calculates left and right lane boundaries by projecting a fixed distance from XYdata');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Load data (from the following, in the plotCV2X library)
 % csvFile = 'TestTrack_PendulumRSU_InstallTest_OuterLane1_2024_08_09.csv'; % Path to your CSV file
@@ -1490,12 +1518,13 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 % Check that a figure was created
 assert(all(ishandle(fig_num)));
 
-%% fcn_plotRoad_calcLaneBoundingBox
-% generates polyshape bounding box of lane
+%% fcn_plotRoad_calcLaneBoundingBox: generates polyshape bounding box of lane
 % boundingBoxXY = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num))
 
-fig_num = 901;
-figure(fig_num);
+fig_num = 20020;
+titleString = sprintf('fcn_plotRoad_calcLaneBoundingBox: generates polyshape bounding box of lane');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -1521,12 +1550,14 @@ assert(1 == boundingBoxPolyshape.NumRegions)
 assert(0 == boundingBoxPolyshape.NumHoles)
 
 
-%% fcn_plotRoad_plotLLcircle    
-% geoplots a circle
+%% fcn_plotRoad_plotLLcircle: geoplots a circle
 % [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num))
-fig_num = 902;
-figure(fig_num);
-clf;
+
+fig_num = 20021;
+titleString = sprintf('fcn_plotRoad_plotLLcircle: geoplots a circle');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
+
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -1551,14 +1582,14 @@ Ncolors = 1;
 Nangles = 91;
 
 % Are the dimensions of Lat Long data correct?
-assert(Ncolors==length(AllLatData(:,1)));
-assert(Ncolors==length(AllLonData(:,1)));
+assert(isequal(Ncolors, length(AllLatData(:,1))));
+assert(isequal(Ncolors, length(AllLonData(:,1))));
 assert(Nangles==length(AllLonData(1,:)));
 assert(length(AllLatData(1,:))==length(AllLonData(1,:)));
 
 % Are the dimension of X Y data correct?
-assert(Ncolors==length(AllXData(:,1)));
-assert(Ncolors==length(AllYData(:,1)));
+assert(isequal(Ncolors, length(AllXData(:,1))));
+assert(isequal(Ncolors, length(AllYData(:,1))));
 assert(length(AllXData(1,:))==length(AllYData(1,:)));
 assert(length(AllXData(1,:))==length(AllLatData(1,:)));
 
@@ -1567,8 +1598,7 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 
 
-%% fcn_plotRoad_reduceColorMap 
-% produces a reduced colorMap matrix
+%% fcn_plotRoad_reduceColorMap: produces a reduced colorMap matrix
 %
 % This function creates a reduced-sized colorMap matrix from a given
 % colorMap matrix and a user-input number of colors to keep. The method of
@@ -1583,9 +1613,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 %
 %      reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (fig_num))
 
-fig_num = 904;
-figure(fig_num);
-clf;
+fig_num = 20022;
+titleString = sprintf('fcn_plotRoad_reduceColorMap: produces a reduced colorMap matrix');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
@@ -1603,6 +1634,60 @@ assert(all(ishandle(fig_num)));
 % Are the dimensions of Lat reducedColorMap correct?
 assert(Ncolors==length(reducedColorMap(:,1)));
 assert(3==length(reducedColorMap(1,:)));
+
+%% fcn_plotRoad_zoomToRegion: Zooms to a pre-specified region 
+
+fig_num = 20023;
+titleString = sprintf('Test case: fcn_plotRoad_zoomToRegion: Zooms to a pre-specified region ');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+
+% Fill in data
+data3 = [
+    -77.83108116099999,40.86426763900005,0
+    -77.83098509099995,40.86432365200005,0
+    -77.83093857199998,40.86435301300003,0
+    -77.83087253399998,40.86439877000004,0
+    -77.83080882499996,40.86444684500003,0
+    -77.83075077399997,40.86449883100005,0
+    -77.83069596999997,40.86455288200005,0
+    -77.83064856399994,40.86461089600004,0];
+
+% NOTE: above data is in BAD column order, so we
+% have to manually rearrange it.
+time = linspace(0,10,length(data3(:,1)))';
+LLIdata = [data3(:,2), data3(:,1), time];
+
+% Test the function
+clear plotFormat
+plotFormat.LineStyle = 'none';
+plotFormat.LineWidth = 3;
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 20;
+colorMapString = 'turbo';
+
+% Reduce the colormap
+Ncolors = 40;
+colorMapMatrix = colormap(colorMapString);
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
+
+[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+
+
+zoomScenario = 'Test Track';   % Test Scenario
+zoomRegion = 'Pendulum';  % Test Region
+zoom_level = 19;  % Zoom level
+
+% Zoom into region
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+
+title(sprintf('%s', titleString), 'Interpreter','none');
+
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
+
+
 
 %% Functions follow
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

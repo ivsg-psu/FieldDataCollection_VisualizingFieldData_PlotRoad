@@ -36,7 +36,7 @@ function boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundar
 % EXAMPLES:
 %
 %       See the script:
-%       script_test_fcn_plotRoad_calcLaneBoundaries
+%       script_test_fcn_plotRoad_calcLaneBoundingBox
 %
 % This function was written on 2024_08_16 by S. Brennan
 % Questions or comments? sbrennan@psu.edu
@@ -44,14 +44,18 @@ function boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundar
 % Revision History
 % 2024_08_16 S. Brennan
 % -- started writing function from fcn_PlotTestTrack similar function
+% 2025_10_31 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
 
 %% Debugging and Input checks
 
 % Check if flag_max_speed set. This occurs if the fig_num variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
+MAX_NARGIN = 3; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
-if (nargin==3 && isequal(varargin{end},-1))
+if (nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
     flag_check_inputs = 0; % Flag to perform input checking
     flag_max_speed = 1;
@@ -92,7 +96,15 @@ end
 if 0 == flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
-        narginchk(1,3);
+        narginchk(1,MAX_NARGIN);
+
+        % Check the XYdata input
+        fcn_DebugTools_checkInputsToFunctions(...
+            leftLaneBoundary_XY(~isnan(leftLaneBoundary_XY(:,1)),:), '2column_of_numbers');
+
+        % Check the XYdata input
+        fcn_DebugTools_checkInputsToFunctions(...
+            rightLaneBoundary_XY(~isnan(rightLaneBoundary_XY(:,1)),:), '2column_of_numbers');
 
     end
 end

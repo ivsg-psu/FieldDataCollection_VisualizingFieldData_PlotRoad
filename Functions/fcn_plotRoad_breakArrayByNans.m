@@ -37,14 +37,18 @@ function indicies_cell_array = fcn_plotRoad_breakArrayByNans(input_array, vararg
 % Revision history:
 % 2023_07_14 by S. Brennan
 % -- start writing function
+% 2025_11_01 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
 
 %% Debugging and Input checks
 
 % Check if flag_max_speed set. This occurs if the fig_num variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
+MAX_NARGIN = 2; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
-if (nargin==1)
+if (nargin == 1)%(nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
     flag_check_inputs = 0; % Flag to perform input checking
     flag_max_speed = 1;
@@ -85,7 +89,12 @@ end
 if 0 == flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
-        narginchk(1,2);
+        narginchk(1,MAX_NARGIN);
+
+        if isscalar(input_array)
+            error('input_array should be a vector')
+        end
+
     end
 end
 
@@ -124,7 +133,7 @@ if isempty(good_indicies)
     % There is nothing but Nans
     indicies_cell_array = {[]};
     return
-elseif length(good_indicies)==1
+elseif isequal(length(good_indicies),1)
     % Everything but 1 value is Nan
     indicies_cell_array = {good_indicies};
     return

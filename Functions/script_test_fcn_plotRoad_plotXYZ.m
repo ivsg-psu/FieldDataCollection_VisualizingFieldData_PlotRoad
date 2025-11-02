@@ -6,26 +6,37 @@
 % Revision history:
 % 2023_08_12
 % -- first write of the code
+% 2025_11_02 - Aneesh Batchu
+% -- Updated the script to the latest format
 
-%% Basic Example
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Set up the workspace
+
+close all
+
+%% Code demos start here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   ____            _        ______                           _
-%  |  _ \          (_)      |  ____|                         | |
-%  | |_) | __ _ ___ _  ___  | |__  __  ____ _ _ __ ___  _ __ | | ___
-%  |  _ < / _` / __| |/ __| |  __| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \
-%  | |_) | (_| \__ \ | (__  | |____ >  < (_| | | | | | | |_) | |  __/
-%  |____/ \__,_|___/_|\___| |______/_/\_\__,_|_| |_| |_| .__/|_|\___|
-%                                                      | |
-%                                                      |_|
-% See: https://patorjk.com/software/taag/#p=display&f=Big&t=Basic%20Example
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
-% function only plots, has no outputs
+%   _____                              ____   __    _____          _
+%  |  __ \                            / __ \ / _|  / ____|        | |
+%  | |  | | ___ _ __ ___   ___  ___  | |  | | |_  | |     ___   __| | ___
+%  | |  | |/ _ \ '_ ` _ \ / _ \/ __| | |  | |  _| | |    / _ \ / _` |/ _ \
+%  | |__| |  __/ | | | | | (_) \__ \ | |__| | |   | |___| (_) | (_| |  __/
+%  |_____/ \___|_| |_| |_|\___/|___/  \____/|_|    \_____\___/ \__,_|\___|
+%
+%
+% See: https://patorjk.com/software/taag/#p=display&f=Big&t=Demos%20Of%20Code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEMO figures start with 1
 
-%% BASIC example 1 - all defaults
-fig_num = 1;
-figure(fig_num);
-clf;
+close all;
+fprintf(1,'Figure: 1XXXX: DEMO cases\n');
+
+%% DEMO case: Plotting with all defaults
+
+fig_num = 10001; 
+titleString = sprintf('DEMO case: Showing plot of entire cell array)');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
@@ -38,11 +49,13 @@ title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','no
 % Check results
 assert(ishandle(h_plot));
 
+%% DEMO case: Plotting with basic plot string
 
-%% BASIC example 2 - basic plot string
-fig_num = 2;
-figure(fig_num);
-clf;
+fig_num = 10002; 
+titleString = sprintf('DEMO case: Plotting with basic plot string');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
@@ -55,11 +68,30 @@ title(sprintf('Example %.0d: showing basic plot string',fig_num), 'Interpreter',
 % Check results
 assert(ishandle(h_plot));
 
+%% Test cases start here. These are very simple, usually trivial
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  _______ ______  _____ _______ _____
+% |__   __|  ____|/ ____|__   __/ ____|
+%    | |  | |__  | (___    | | | (___
+%    | |  |  __|  \___ \   | |  \___ \
+%    | |  | |____ ____) |  | |  ____) |
+%    |_|  |______|_____/   |_| |_____/
+%
+%
+%
+% See: https://patorjk.com/software/taag/#p=display&f=Big&t=TESTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEST figures start with 2
 
-%% BASIC example 3 - color numbers
-fig_num = 3;
-figure(fig_num);
-clf;
+close all;
+fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
+%% Test case: color numbers
+
+fig_num = 20001; 
+titleString = sprintf('Test case: color numbers');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
@@ -72,11 +104,12 @@ title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','no
 % Check results
 assert(ishandle(h_plot));
 
+%% Test case: structure input
 
-%% BASIC example 4 - structure input
-fig_num = 3;
-figure(fig_num);
-clf;
+fig_num = 20002; 
+titleString = sprintf('Test case: structure input');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
@@ -94,59 +127,209 @@ title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','no
 % Check results
 assert(ishandle(h_plot));
 
-%% testing speed of function
 
+%% Fast Mode Tests
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ______        _     __  __           _        _______        _
+% |  ____|      | |   |  \/  |         | |      |__   __|      | |
+% | |__ __ _ ___| |_  | \  / | ___   __| | ___     | | ___  ___| |_ ___
+% |  __/ _` / __| __| | |\/| |/ _ \ / _` |/ _ \    | |/ _ \/ __| __/ __|
+% | | | (_| \__ \ |_  | |  | | (_) | (_| |  __/    | |  __/\__ \ |_\__ \
+% |_|  \__,_|___/\__| |_|  |_|\___/ \__,_|\___|    |_|\___||___/\__|___/
+%
+%
+% See: http://patorjk.com/software/taag/#p=display&f=Big&t=Fast%20Mode%20Tests
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FAST Mode figures start with 8
+
+close all;
+fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
+% fprintf(1, 'Plot function - No fast mode tests')
+
+%% Basic example - NO FIGURE
+
+fig_num = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
+figure(fig_num); close(fig_num);
 
 time = linspace(0,10,100)';
 XYZdata = [time sin(time) cos(time)];
 
 % Test the function
-clear plotFormat
-plotFormat.Color = [0 0.7 0];
-plotFormat.Marker = '.';
-plotFormat.MarkerSize = 10;
-plotFormat.LineStyle = '-';
-plotFormat.LineWidth = 3;
+plotFormat = [];
+h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
+
+% Make sure plot did NOT open up
+figHandles = get(groot, 'Children');
+assert(~any(figHandles==fig_num));
+
+%% Basic example - NO FIGURE
+
+fig_num = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
+figure(fig_num); close(fig_num);
+
+time = linspace(0,10,100)';
+XYZdata = [time sin(time) cos(time)];
+
+% Test the function
+plotFormat = [];
+h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
+
+% Make sure plot did NOT open up
+figHandles = get(groot, 'Children');
+assert(~any(figHandles==fig_num));
 
 
-% Speed Test Calculation
-fig_num=[];
-REPS=5; minTimeSlow=Inf;
+%% Compare speeds of pre-calculation versus post-calculation versus a fast variant
+
+fig_num = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
+figure(fig_num); close(fig_num);
+
+time = linspace(0,10,100)';
+XYZdata = [time sin(time) cos(time)];
+
+plotFormat = [];
+
+
+Niterations = 100;
+
+% Do calculation without pre-calculation
+tic;
+for ith_test = 1:Niterations
+
+    % Test the function
+    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
+
+end
+slow_method = toc;
+
+% Do calculation with pre-calculation, FAST_MODE on
 tic;
 
-% Slow mode calculation
-for i=1:REPS
-    tstart=tic;
-    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
-    telapsed=toc(tstart);
-    minTimeSlow=min(telapsed,minTimeSlow);
-end
-averageTimeSlow=toc/REPS;
-%slow mode END
+for ith_test = 1:Niterations
 
-% Fast Mode Calculation
-fig_num = -1;
-minTimeFast = Inf;
-tic;
-for i=1:REPS
-    tstart = tic;
-    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
-    telapsed = toc(tstart);
-    minTimeFast = min(telapsed,minTimeFast);
-end
-averageTimeFast = toc/REPS;
+    % Test the function
+    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
 
-% Display Console Comparison
-if 1==1
-    fprintf(1,'\n\nComparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):\n');
-    fprintf(1,'N repetitions: %.0d\n',REPS);
-    fprintf(1,'Slow mode average speed per call (seconds): %.5f\n',averageTimeSlow);
-    fprintf(1,'Slow mode fastest speed over all calls (seconds): %.5f\n',minTimeSlow);
-    fprintf(1,'Fast mode average speed per call (seconds): %.5f\n',averageTimeFast);
-    fprintf(1,'Fast mode fastest speed over all calls (seconds): %.5f\n',minTimeFast);
-    fprintf(1,'Average ratio of fast mode to slow mode (unitless): %.3f\n',averageTimeSlow/averageTimeFast);
-    fprintf(1,'Fastest ratio of fast mode to slow mode (unitless): %.3f\n',minTimeSlow/minTimeFast);
+
 end
-%Assertion on averageTime NOTE: Due to the variance, there is a chance that
-%the assertion will fail.
-assert(averageTimeFast<averageTimeSlow);
+fast_method = toc;
+
+% Plot results as bar chart
+figure(373737);
+clf;
+hold on;
+
+X = categorical({'Normal mode','Fast mode'});
+X = reordercats(X,{'Normal mode','Fast mode'}); % Forces bars to appear in this exact order, not alphabetized
+Y = [slow_method fast_method ]*1000/Niterations;
+bar(X,Y)
+ylabel('Execution time (Milliseconds)')
+
+% Make sure plot did NOT open up
+figHandles = get(groot, 'Children');
+assert(~any(figHandles==fig_num));
+
+%% BUG cases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ____  _    _  _____
+% |  _ \| |  | |/ ____|
+% | |_) | |  | | |  __    ___ __ _ ___  ___  ___
+% |  _ <| |  | | | |_ |  / __/ _` / __|/ _ \/ __|
+% | |_) | |__| | |__| | | (_| (_| \__ \  __/\__ \
+% |____/ \____/ \_____|  \___\__,_|___/\___||___/
+%
+% See: http://patorjk.com/software/taag/#p=display&v=0&f=Big&t=BUG%20cases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% All bug case figures start with the number 9
+
+% close all;
+% fprintf(1,'Figure: 9XXXXXX: TEST mode cases\n');
+
+%% BUG
+
+%% Fail conditions
+if 1==0
+
+    %% Should throw error because XYdata has only one column
+
+    fig_num = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
+    figure(fig_num); close(fig_num);
+
+    time = linspace(0,10,100)';
+    XYZdata = [time sin(time) cos(time)];
+
+    % Test the function
+    plotFormat = [];
+    h_plot = fcn_plotRoad_plotXYZ(XYZdata(:,1:2), (plotFormat), (fig_num));
+
+
+    % Make sure plot did NOT open up
+    figHandles = get(groot, 'Children');
+    assert(~any(figHandles==fig_num));
+
+end
+
+
+
+% %% testing speed of function
+% 
+% 
+% time = linspace(0,10,100)';
+% XYZdata = [time sin(time) cos(time)];
+% 
+% % Test the function
+% clear plotFormat
+% plotFormat.Color = [0 0.7 0];
+% plotFormat.Marker = '.';
+% plotFormat.MarkerSize = 10;
+% plotFormat.LineStyle = '-';
+% plotFormat.LineWidth = 3;
+% 
+% 
+% % Speed Test Calculation
+% fig_num=[];
+% REPS=5; minTimeSlow=Inf;
+% tic;
+% 
+% % Slow mode calculation
+% for i=1:REPS
+%     tstart=tic;
+%     h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
+%     telapsed=toc(tstart);
+%     minTimeSlow=min(telapsed,minTimeSlow);
+% end
+% averageTimeSlow=toc/REPS;
+% %slow mode END
+% 
+% % Fast Mode Calculation
+% fig_num = -1;
+% minTimeFast = Inf;
+% tic;
+% for i=1:REPS
+%     tstart = tic;
+%     h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
+%     telapsed = toc(tstart);
+%     minTimeFast = min(telapsed,minTimeFast);
+% end
+% averageTimeFast = toc/REPS;
+% 
+% % Display Console Comparison
+% if 1==1
+%     fprintf(1,'\n\nComparison of fcn_PlotTestTrack_plotTraceENU without speed setting (slow) and with speed setting (fast):\n');
+%     fprintf(1,'N repetitions: %.0d\n',REPS);
+%     fprintf(1,'Slow mode average speed per call (seconds): %.5f\n',averageTimeSlow);
+%     fprintf(1,'Slow mode fastest speed over all calls (seconds): %.5f\n',minTimeSlow);
+%     fprintf(1,'Fast mode average speed per call (seconds): %.5f\n',averageTimeFast);
+%     fprintf(1,'Fast mode fastest speed over all calls (seconds): %.5f\n',minTimeFast);
+%     fprintf(1,'Average ratio of fast mode to slow mode (unitless): %.3f\n',averageTimeSlow/averageTimeFast);
+%     fprintf(1,'Fastest ratio of fast mode to slow mode (unitless): %.3f\n',minTimeSlow/minTimeFast);
+% end
+% %Assertion on averageTime NOTE: Due to the variance, there is a chance that
+% %the assertion will fail.
+% assert(averageTimeFast<averageTimeSlow);

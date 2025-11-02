@@ -56,14 +56,18 @@ function h_plot = fcn_plotRoad_plotXYZ(XYZdata, varargin)
 % 2024_08_12 - Sean Brennan
 % -- Added structure rather than string type for plotFormat, especially as
 % this structure is already auto-generated in MATLAB
+% 2025_11_02 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
 
 %% Debugging and Input checks
 
 % Check if flag_max_speed set. This occurs if the fig_num variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
+MAX_NARGIN = 3; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
-if (nargin==3 && isequal(varargin{end},-1))
+if (nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
     flag_check_inputs = 0; % Flag to perform input checking
     flag_max_speed = 1;
@@ -106,19 +110,12 @@ end
 if 0==flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
-        narginchk(1,3);
+        narginchk(1,MAX_NARGIN);
 
-        % % Check the points input to be length greater than or equal to 2
-        % fcn_DebugTools_checkInputsToFunctions(...
-        %     points, '2column_of_numbers',[2 3]);
-        %
-        % % Check the transverse_tolerance input is a positive single number
-        % fcn_DebugTools_checkInputsToFunctions(transverse_tolerance, 'positive_1column_of_numbers',1);
-        %
-        % % Check the station_tolerance input is a positive single number
-        % if ~isempty(station_tolerance)
-        %     fcn_DebugTools_checkInputsToFunctions(station_tolerance, 'positive_1column_of_numbers',1);
-        % end
+        % Check the LLdata input
+        fcn_DebugTools_checkInputsToFunctions(...
+            XYZdata(~isnan(XYZdata(:,1)),:), '3column_of_numbers');
+
     end
 end
 
