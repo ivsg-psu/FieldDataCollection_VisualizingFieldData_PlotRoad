@@ -7,6 +7,10 @@
 % 
 % 2025_10_31 - Aneesh Batchu
 % -- Wrote the code originally
+% 2025_11_04 - S. Brennan
+% -- changed variable naming for consistency
+%    % * figNum to figNum
+%    % * zoom_level to zoomLevel
 
 
 
@@ -34,197 +38,197 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Zoom into BRIDGE region by using default settings
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Zoom into BRIDGE region by using default settings');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'Bridge';   % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Zoom into PENDULUM region by using default settings
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Zoom into PENDULUM region by using default settings');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'Pendulum';   % Test Region
-zoom_level = []; % Zoom level
+zoomLevel = []; % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% DEMO case: Zoom into VEHICLE DURABILITY COURSE region 
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: Zoom into VEHICLE DURABILITY COURSE region');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'VehicleDurabilityCourse';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% DEMO case: Zoom into NOMINAL SITE region 
 
-fig_num = 10004; 
+figNum = 10004; 
 titleString = sprintf('DEMO case: Zoom into NOMINAL SITE region');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'NominalSite';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Zoom into VEGETATION SITE ONE region 
 
-fig_num = 10005; 
+figNum = 10005; 
 titleString = sprintf('DEMO case: Zoom into VEGETATION SITE ONE region ');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'VegetationSiteOne';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Zoom into VEGETATION SITE TWO region
 
-fig_num = 10006; 
+figNum = 10006; 
 titleString = sprintf('DEMO case: Zoom into VEGETATION SITE TWO region');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'VegetationSiteTwo';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Zoom into CRASH TEST COURSE region 
 
-fig_num = 10007; 
+figNum = 10007; 
 titleString = sprintf('DEMO case: Zoom into CRASH TEST COURSE region');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'CrashTestCourse';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Zoom into VEHICLE HANDLING AREA region 
 
-fig_num = 10008; 
+figNum = 10008; 
 titleString = sprintf('DEMO case: Zoom into VEHICLE HANDLING AREA region');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Creates the plot with the focus on the test track, satellite view
-fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+fcn_plotRoad_plotLL(([]), ([]), (figNum));
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'VehicleHandlingArea';  % Test Region
-zoom_level = [];  % Zoom level
+zoomLevel = [];  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,10 +251,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Zoom into PENDULUM region by adjusting the zoom level (19) (Default = 21)
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Zoom into PENDULUM region by adjusting the zoom level (19) (Default = 21)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in data
@@ -282,27 +286,27 @@ Ncolors = 40;
 colorMapMatrix = colormap(colorMapString);
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
-[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (figNum));
 
 
 zoomScenario = 'Test Track';   % Test Scenario
 zoomRegion = 'Pendulum';  % Test Region
-zoom_level = 19;  % Zoom level
+zoomLevel = 19;  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test case: zoomScenario and zoomRegion are not case senstive
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: zoomScenario and zoomRegion are not case senstive');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in data
@@ -334,28 +338,28 @@ Ncolors = 40;
 colorMapMatrix = colormap(colorMapString);
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
-[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (figNum));
 
 
 zoomScenario = 'TeStTrAck';   % Test Scenario
 zoomRegion = 'PenDulUm';  % Test Region
-zoom_level = 19;  % Zoom level
+zoomLevel = 19;  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Test case: zoomScenario and zoomRegion can have any number of spaces
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: zoomScenario and zoomRegion can have any number of spaces');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in data
@@ -387,20 +391,20 @@ Ncolors = 40;
 colorMapMatrix = colormap(colorMapString);
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
-[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+[~, ~]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (figNum));
 
 
 zoomScenario = 'T est Trac k';   % Test Scenario
 zoomRegion = 'Pe nd ulum';  % Test Region
-zoom_level = 19;  % Zoom level
+zoomLevel = 19;  % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
 title(sprintf('%s', titleString), 'Interpreter','none');
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Fast Mode Tests
@@ -423,48 +427,48 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'Pendulum';   % Test Region
-zoom_level = []; % Zoom level
+zoomLevel = []; % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), ([]))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), ([]))
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'Pendulum';   % Test Region
-zoom_level = []; % Zoom level
+zoomLevel = []; % Zoom level
 
 % Zoom into region
-fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (-1))
+fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (-1))
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 zoomScenario = 'TestTrack';   % Test Scenario
 zoomRegion = 'Pendulum';   % Test Region
-zoom_level = []; % Zoom level
+zoomLevel = []; % Zoom level
 
 
 Niterations = 100;
@@ -474,7 +478,7 @@ tic;
 for ith_test = 1:Niterations
 
     % Zoom into region
-    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), ([]))
+    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), ([]))
 
 end
 slow_method = toc;
@@ -485,7 +489,7 @@ tic;
 for ith_test = 1:Niterations
 
     % Zoom into region
-    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (-1))
+    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (-1))
 
 end
 fast_method = toc;
@@ -503,7 +507,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -529,54 +533,54 @@ if 1==0
 
     %% Should throw error because zoomScenario is not a string
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     zoomScenario = 5;   % Test Scenario
     zoomRegion = 'Pendulum';   % Test Region
-    zoom_level = []; % Zoom level
+    zoomLevel = []; % Zoom level
 
     % Zoom into region
-    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
    %% Should throw error because zoomRegion is not a string
 
-    fig_num = 90002;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90002;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     zoomScenario = 'TestTrack';   % Test Scenario
     zoomRegion = 66;   % Test Region
-    zoom_level = []; % Zoom level
+    zoomLevel = []; % Zoom level
 
     % Zoom into region
-    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
     %% Should throw error because TestTrackPitt does not exist in scenarios
 
-    fig_num = 90003;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90003;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     zoomScenario = 'TestTrackPitt';   % Test Scenario
     zoomRegion = 'Pendulum';   % Test Region
-    zoom_level = []; % Zoom level
+    zoomLevel = []; % Zoom level
 
     % Zoom into region
-    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+    fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 
 end

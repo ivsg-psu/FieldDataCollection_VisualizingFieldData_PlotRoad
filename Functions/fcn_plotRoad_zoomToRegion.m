@@ -6,21 +6,31 @@ function fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, varargin)
 %
 % FORMAT:
 %
-%      fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoom_level), (fig_num))
+%      fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, (zoomLevel), (figNum))
 %
 % INPUTS:
 %
-%      zoomScenario: The scenario collection name (e.g., 'TestTrack').
+%      zoomScenario: The scenario collection name. 
+%         Options include:
+%            'TestTrack'
 %
-%      zoomRegion:   The specific region within the scenario
-%                    (e.g., 'Bridge', 'Pendulum', 'VegetationSiteOne', ...).
+%      zoomRegion:   The specific region within the scenario:
+%         Options include:
+%           'bridge' - Bridge region at the test track
+%           'pendulum' -  Large Impact Pendulum
+%           'vegetationsiteone' - a location with lots of vegetation near side of road
+%           'vegetationsitetwo' - another location with lots of vegetation near side of road
+%           'nominalsite' - a very 'average' part of the track, a plain road area with no special features
+%           'vehicledurabilitycourse' - northern durability course area
+%           'crashtestcourse' - location near crash testing facilities
+%           'vehiclehandlingarea' - the vehicle handling area%
 %
 % (OPTIONAL INPUTS)
 %
-%      zoom_level:   (scalar) Map zoom level to apply to the target region.
+%      zoomLevel:   (scalar) Map zoom level to apply to the target region.
 %                    Defaults to 21 if omitted or [].
 %
-%      fig_num:      (scalar) Figure number to target for plotting. If
+%      figNum:      (scalar) Figure number to target for plotting. If
 %                    provided, the function will attempt to use the current
 %                    axes from this figure and perform the zoom operation.
 %                    If set to -1, the function runs in "max speed" mode:
@@ -48,10 +58,15 @@ function fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, varargin)
 %
 % 2025_10_31 - Aneesh Batchu
 % -- Wrote this code originally
+% 2025_11_04 - S. Brennan
+% -- listed out the string input options explicitly in header
+% -- changed variable naming for consistency
+%    % * figNum to figNum
+%    % * zoom_level to zoomLevel
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 4; % The largest Number of argument inputs to the function
@@ -77,9 +92,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978; %#ok<NASGU>
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_fig_num = []; %#ok<NASGU>
+    debug_figNum = []; %#ok<NASGU>
 end
 
 
@@ -111,21 +126,21 @@ if 0==flag_max_speed
     end
 end
 
-% Does user want to specify Zoom Level?
-zoom_level = 21;
+% Does user want to specify zoomLevel?
+zoomLevel = 21;
 if (3<=nargin)
     temp = varargin{1};
     if ~isempty(temp)
-        zoom_level = temp;
+        zoomLevel = temp;
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) &&  (MAX_NARGIN<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -160,7 +175,7 @@ zoomRegion   = lower(strrep(zoomRegion, ' ', ''));
 
 if flag_do_plots
 
-    figure(fig_num);
+    figure(figNum);
     h_axis = gca; % Get current axis
 
 
@@ -173,48 +188,46 @@ if flag_do_plots
                 case {'bridge'} % Bridge region at the test track
 
                     % Bridge
-                    set(h_axis, 'MapCenter', [40.864162844376345 -77.837295866787045], 'ZoomLevel', zoom_level);
+                    set(h_axis, 'MapCenter', [40.864162844376345 -77.837295866787045], 'ZoomLevel', zoomLevel);
 
-                case {'pendulum'}
+                case {'pendulum'} 
 
                     % Large Impact Pendulum
-                    set(h_axis, 'MapCenter', [40.864488410607457 -77.830725795805066], 'ZoomLevel', zoom_level);
-
+                    set(h_axis, 'MapCenter', [40.864488410607457 -77.830725795805066], 'ZoomLevel', zoomLevel);
 
                 case {'vegetationsiteone'}
 
                     % Vegetation Site One
-                    set(h_axis, 'MapCenter', [40.865764389475238 -77.832054078189856], 'ZoomLevel', zoom_level);
+                    set(h_axis, 'MapCenter', [40.865764389475238 -77.832054078189856], 'ZoomLevel', zoomLevel);
 
 
                 case {'vegetationsitetwo'}
 
                     % Vegetation Site Two
-                    set(h_axis, 'MapCenter', [40.864106290029248 -77.831221734372292], 'ZoomLevel', zoom_level);
-
+                    set(h_axis, 'MapCenter', [40.864106290029248 -77.831221734372292], 'ZoomLevel', zoomLevel);
 
                 case {'nominalsite'}
 
                     %  Nominal Site
-                    set(h_axis, 'MapCenter', [40.865456805931245 -77.833832458903515], 'ZoomLevel', zoom_level);
-
+                    set(h_axis, 'MapCenter', [40.865456805931245 -77.833832458903515], 'ZoomLevel', zoomLevel);
 
                 case {'vehicledurabilitycourse'}
-                    
+              
+
                     % Vehicle Durablity Course
-                    set(h_axis, 'MapCenter', [40.865182810643333 -77.834382791104034], 'ZoomLevel', zoom_level);
+                    set(h_axis, 'MapCenter', [40.865182810643333 -77.834382791104034], 'ZoomLevel', zoomLevel);
 
 
                 case {'crashtestcourse'}
                     
                     % Crash Test Course
-                    set(h_axis, 'MapCenter', [40.863280121802759 -77.832867343010662], 'ZoomLevel', zoom_level);
+                    set(h_axis, 'MapCenter', [40.863280121802759 -77.832867343010662], 'ZoomLevel', zoomLevel);
 
 
                 case {'vehiclehandlingarea'}
 
                     % Vehicle Handling Area
-                    set(h_axis, 'MapCenter', [40.862841391967955 -77.834655820934302], 'ZoomLevel', zoom_level);
+                    set(h_axis, 'MapCenter', [40.862841391967955 -77.834655820934302], 'ZoomLevel', zoomLevel);
 
                 otherwise
                     error('Unrecognized test track region: %s',zoomRegion);

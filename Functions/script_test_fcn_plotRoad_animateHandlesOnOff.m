@@ -628,7 +628,7 @@ end
 % subtitle('Showing radar animation');
 % 
 % %%%%% Do animation
-% % Method: clear all the handles' data, then turn only some of them one in a
+% % Method: clear the handles' data, then turn only some of them one in a
 % % sequence that is given by timeIndex
 % Nfade = 2; 
 % 

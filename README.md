@@ -1,4 +1,3 @@
-
 # FieldDataCollection_VisualizingFieldData_PlotRoad
 
 <!--
@@ -589,8 +588,6 @@ given scenario (e.g., Test Track)
 
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
 
-
-
 ***
 <!-- USAGE EXAMPLES -->
 ### Usage
@@ -612,11 +609,11 @@ help fcn_fcnname
 for any function to view function details.
 
 NOTE: future versions are considering support for GeoJSON, TopoJSON, and ASCII STL syntax export, which allows direct visualization within GitHub as shown below. For more information, see:
-https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps
+<a href="https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps">https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps</a>
 
 or
 
-https://people.sc.fsu.edu/~jburkardt/data/stla/stla.html
+<a href="https://people.sc.fsu.edu/~jburkardt/data/stla/stla.html">https://people.sc.fsu.edu/~jburkardt/data/stla/stla.html</a>
 
 ```stl
 solid cube_corner
@@ -9337,6 +9334,7 @@ facet normal  0.153467E+00  0.987066E+00  0.463569E-01
 endfacet
  endsolid FLIRIS  
 ```
+
 <p align="right">(<a href="#fielddatacollection_visualizingfielddata_plotroad">Back to top</a>)</p>
 
 <!-- LICENSE -->

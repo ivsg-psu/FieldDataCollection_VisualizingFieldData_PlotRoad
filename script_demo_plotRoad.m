@@ -41,11 +41,27 @@
 % -- Checked the verification list to release the repo
 % -- Updated all the scripts, functions and demo script to the latest format
 % -- Ran the fucntion that runs all the scripts to check for errors. 
+% 2025_11_03 - Sean Brennan, sbrennan@psu.edu
+% -- added LargeData to .gitIgnore
+% -- deleted global variable commented out sections for FINDEDGE repo
+% -- Move fcn_plotRoad_breakArrayByNans out of this library, into Debug
+%    % * Deprecated fcn_plotRoad_breakArrayByNans
+% -- updated DebugTools_v2025_11_04c 
+% -- updated PathClass_v2025_08_03
+% -- updated script_test_all_functions with latest version 
+%    % * from DebugTools
+% -- updated fcn_plotRoad_zoomToRegion with minor edits
+% -- removed incorrect _PLOTCV2X_ global variable in:
+%    % * fcn_plotRoad_calcLaneBoundaries
+%    % * fcn_plotRoad_calcLaneBoundingBox
+% -- removed incorrect _PlotTestTrack_ global variable in: 
+%    % * fcn_plotRoad_calcRectangleXYZ
 
 
 %% To-Do list
-% 2024_08_13 - S. Brennan
-% -- Move fcn_plotRoad_breakArrayByNans out of this library, into Debug
+% 2025_11_04 - S. Brennan, sbrennan@psu.edu
+% -- add vehicle template plotting
+% -- add ability to plot contour plots over geoplots
 
 %% Prep the workspace
 close all
@@ -60,19 +76,19 @@ clc
 clear library_name library_folders library_url
 
 ith_library = 1;
-library_name{ith_library}    = 'DebugTools_v2025_07_15';
+library_name{ith_library}    = 'DebugTools_v2025_11_04c';
 library_folders{ith_library} = {'Functions','Data'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2025_07_15.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2025_11_04c.zip';
 
 ith_library = ith_library+1;
-library_name{ith_library}    = 'PathClass_v2025_07_06';
+library_name{ith_library}    = 'PathClass_v2025_08_03';
 library_folders{ith_library} = {'Functions'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2025_07_06.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2025_08_03.zip';
 
-% ith_library = ith_library+1;
-% library_name{ith_library}    = 'PathClass_v2025_07_06';
-% library_folders{ith_library} = {'Functions'};
-% library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_PathTools_PathClassLibrary/archive/refs/tags/PathClass_v2025_07_06.zip';
+ith_library = ith_library+1;
+library_name{ith_library}    = 'BreakDataIntoLaps_v2025_07_05';
+library_folders{ith_library} = {'Functions'};
+library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_DataClean_BreakDataIntoLaps/archive/refs/tags/BreakDataIntoLaps_v2025_07_05.zip';
 
 ith_library = ith_library+1;
 library_name{ith_library}    = 'GPSClass_v2023_06_29';
@@ -89,11 +105,6 @@ library_name{ith_library}    = 'FindCircleRadius_v2023_08_02';
 library_folders{ith_library} = {'Functions'};
 library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_GeomTools_FindCircleRadius/archive/refs/tags/FindCircleRadius_v2023_08_02.zip';
 
-ith_library = ith_library+1;
-library_name{ith_library}    = 'BreakDataIntoLaps_v2025_07_05';
-library_folders{ith_library} = {'Functions'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/FeatureExtraction_DataClean_BreakDataIntoLaps/archive/refs/tags/BreakDataIntoLaps_v2025_07_05.zip';
-
 
 %% Clear paths and folders, if needed
 if 1==1
@@ -107,7 +118,6 @@ if 1==1
     end
     marker_clusters_mat_filename = fullfile(cd,'Data','AllMarkerClusterData.mat'); %%%% not loading centerline data
     if exist(marker_clusters_mat_filename,'file')
-
         delete(marker_clusters_mat_filename);
     end
 
@@ -147,8 +157,6 @@ setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
 
 %% Set environment flags for input checking
 % These are values to set if we want to check inputs or do debugging
-% setenv('MATLABFLAG_FINDEDGE_FLAG_CHECK_INPUTS','1');
-% setenv('MATLABFLAG_FINDEDGE_FLAG_DO_DEBUG','1');
 setenv('MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS','1');
 setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
 

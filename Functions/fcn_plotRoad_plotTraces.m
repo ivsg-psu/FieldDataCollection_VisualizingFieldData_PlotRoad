@@ -10,7 +10,7 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %          (plotFormat),...
 %          (reference_unit_tangent_vector),...
 %          (flag_plot_headers_and_tailers),...
-%          (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+%          (LLA_figNum), (ENU_figNum), (STH_figNum));
 %
 % INPUTS:
 %
@@ -40,11 +40,11 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %       flag_plot_headers_and_tailers: set to 1 to plot the head/tail of
 %       the trace (default), and 0 to just plot the entire trace alone
 %
-%       LLA_fig_num: a figure number for the LLA plot
+%       LLA_figNum: a figure number for the LLA plot
 %
-%       ENU_fig_num: a figure number for the ENU plot
+%       ENU_figNum: a figure number for the ENU plot
 %
-%       STH_fig_num: a figure number for the STH plot
+%       STH_figNum: a figure number for the STH plot
 %
 % OUTPUTS:
 %
@@ -52,7 +52,7 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %
 % DEPENDENCIES:
 %
-%      fcn_plotRoad_breakArrayByNans
+%      fcn_DebugTools_breakArrayByNans
 %
 % EXAMPLES:
 %
@@ -81,10 +81,13 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 % 2025_11_01 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_04 - Sean Brennan
+% -- Deprecated fcn_plotRoad_breakArrayByNans
+%    % * changed to fcn_DebugTools_breakArrayByNans
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 8; % The largest Number of argument inputs to the function
@@ -110,9 +113,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,37 +182,37 @@ end
 
 flag_do_plots = 1;
 
-% Does user want to specify LLA_fig_num?
-LLA_fig_num = []; % Default
+% Does user want to specify LLA_figNum?
+LLA_figNum = []; % Default
 if 6<= nargin
     temp = varargin{4};
     if ~isempty(temp)
-        LLA_fig_num = temp;
+        LLA_figNum = temp;
     end
 end
 
-% Does user want to specify ENU_fig_num?
-ENU_fig_num = []; % Default is do not plot
+% Does user want to specify ENU_figNum?
+ENU_figNum = []; % Default is do not plot
 if 7<= nargin
     temp = varargin{5};
     if ~isempty(temp)
-        ENU_fig_num = temp;
+        ENU_figNum = temp;
     end
 end
 
-% Does user want to specify STH_fig_num?
-STH_fig_num = []; % Default is do not plot
+% Does user want to specify STH_figNum?
+STH_figNum = []; % Default is do not plot
 if 8<= nargin
     temp = varargin{6};
     if ~isempty(temp)
-        STH_fig_num = temp;
+        STH_figNum = temp;
     end
 end
 
 
 % If all are empty, default to LLA
-if isempty(LLA_fig_num) && isempty(ENU_fig_num) && isempty(STH_fig_num)
-    LLA_fig_num = 678532;
+if isempty(LLA_figNum) && isempty(ENU_figNum) && isempty(STH_figNum)
+    LLA_figNum = 678532;
 end
 
 % Setup figures if there is debugging
@@ -315,7 +318,7 @@ if flag_do_plots == 1
     % call a function to plot the traces
     fcn_INTERNAL_plotSingleTrace(plotFormat, ...
         LLA_positions_cell_array, ENU_positions_cell_array, ...
-        LLA_fig_num, ENU_fig_num, STH_fig_num, reference_unit_tangent_vector, flag_plot_headers_and_tailers);
+        LLA_figNum, ENU_figNum, STH_figNum, reference_unit_tangent_vector, flag_plot_headers_and_tailers);
 end
 
 if flag_do_debug
@@ -339,13 +342,13 @@ end % Ends main function for fcn_PLOTROAD_plotTraces
 %% fcn_INTERNAL_plotSingleTrace
 function fcn_INTERNAL_plotSingleTrace(plotFormat, ...
     LLA_positions_cell_array, ENU_positions_cell_array, ...
-    LLA_fig_num, ENU_fig_num, STH_fig_num, reference_unit_tangent_vector, flag_plot_headers_and_tailers)
+    LLA_figNum, ENU_figNum, STH_figNum, reference_unit_tangent_vector, flag_plot_headers_and_tailers)
 
 % LLA plot?
-if exist('LLA_fig_num','var') && ~isempty(LLA_fig_num)
+if exist('LLA_figNum','var') && ~isempty(LLA_figNum)
     if iscell(LLA_positions_cell_array)
         if ~isempty(LLA_positions_cell_array{1})
-            fcn_plotRoad_plotTraceLL(LLA_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (LLA_fig_num));
+            fcn_plotRoad_plotTraceLL(LLA_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (LLA_figNum));
 
             title(sprintf('LLA Trace geometry'));
         end
@@ -355,10 +358,10 @@ if exist('LLA_fig_num','var') && ~isempty(LLA_fig_num)
 end
 
 % ENU plot?
-if exist('ENU_fig_num','var') && ~isempty(ENU_fig_num)
+if exist('ENU_figNum','var') && ~isempty(ENU_figNum)
     if iscell(ENU_positions_cell_array)
         if ~isempty(ENU_positions_cell_array{1})
-            fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (ENU_fig_num));
+            fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (ENU_figNum));
             title(sprintf('ENU Trace geometry'));
         end
     else
@@ -370,7 +373,7 @@ end
 
 % tell the user that if they do not enter a reference_unit_tangent_vector
 % then the default will be used
-if exist('STH_fig_num','var') && ~isempty(STH_fig_num) && isempty(reference_unit_tangent_vector)
+if exist('STH_figNum','var') && ~isempty(STH_figNum) && isempty(reference_unit_tangent_vector)
     warning(['Missing the unit vector for plotting the STH coordinates, ' ...
         'so the default unit_vector is used.' ...
         'The default unit vector is for the ' ...
@@ -378,11 +381,11 @@ if exist('STH_fig_num','var') && ~isempty(STH_fig_num) && isempty(reference_unit
         '= [0.794630317120972   0.607093616431785];'])
 end
 
-if exist('STH_fig_num','var') && ~isempty(STH_fig_num) && exist('reference_unit_tangent_vector','var') && ~isempty(reference_unit_tangent_vector)
+if exist('STH_figNum','var') && ~isempty(STH_figNum) && exist('reference_unit_tangent_vector','var') && ~isempty(reference_unit_tangent_vector)
     for ith_array = 1:length(ENU_positions_cell_array)
         if ~isempty(ENU_positions_cell_array{ith_array})
             ST_positions = fcn_INTERNAL_convertXYtoST(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
-            fcn_plotRoad_plotTraceXY(ST_positions, (plotFormat), (flag_plot_headers_and_tailers), (STH_fig_num));
+            fcn_plotRoad_plotTraceXY(ST_positions, (plotFormat), (flag_plot_headers_and_tailers), (STH_figNum));
             title(sprintf('STH Trace geometry'));
             STH_trace = ST_positions;
         end
@@ -424,7 +427,8 @@ end
 
 % The data passed in may be separated into sections, separated by NaN
 % values. Here, we break them into sub-arrays
-indicies_cell_array = fcn_plotRoad_breakArrayByNans(ENU_data_with_nan);
+
+indicies_cell_array = fcn_DebugTools_breakArrayByNans(ENU_data_with_nan);
 ENU_positions_cell_array{length(indicies_cell_array)} = {};
 LLA_positions_cell_array{length(indicies_cell_array)} = {};
 for ith_array = 1:length(indicies_cell_array)
@@ -452,7 +456,7 @@ function ENU_points = fcn_INTERNAL_convertSTtoXY(ST_points,v_unit,varargin)
 %
 %      (OPTIONAL INPUTS)
 %     
-%      fig_num: a figure number to plot result
+%      figNum: a figure number to plot result
 %
 % OUTPUTS:
 %
@@ -478,7 +482,7 @@ function ENU_points = fcn_INTERNAL_convertSTtoXY(ST_points,v_unit,varargin)
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 flag_max_speed = 0;
@@ -503,9 +507,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -534,11 +538,11 @@ end
 
 
 flag_do_plots = 0; % Default to not plot
-fig_num = []; % Initialize the figure number to be empty
+figNum = []; % Initialize the figure number to be empty
 if 3 == nargin
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     else 
         % An empty figure number is given by user, so do not plot anything
@@ -556,7 +560,7 @@ flag_do_plots = 0;
 if (0==flag_max_speed) && (3<= nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -578,12 +582,12 @@ v_orthogonal = (rotation_matrix *v_unit')';
 
 % what is the vector to roate the points?
 Transform_point = [1  0]; % 90 degree line segment
-v_unit2 = fcn_INTERNAL_convertXYtoST(Transform_point,v_unit,fig_num);
+v_unit2 = fcn_INTERNAL_convertXYtoST(Transform_point,v_unit,figNum);
 
 station = ST_points(:,1);
 transverse = ST_points(:,2);
 % get the ENU_points
-ENU_points = fcn_INTERNAL_convertXYtoST(ST_points,v_unit2,fig_num);
+ENU_points = fcn_INTERNAL_convertXYtoST(ST_points,v_unit2,figNum);
 
 
 xEast = ENU_points(:,1);
@@ -596,7 +600,7 @@ if flag_do_plots == 1
     new_points_transverse = ENU_points + transverse_vector;
     new_points_station = ENU_points + station_vector;
 
-    figure(fig_num);
+    figure(figNum);
     hold on;
     grid on;
     xlabel('xEast [m]');
@@ -641,7 +645,7 @@ function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
 %
 % FORMAT:
 %
-%       fcn_INTERNAL_convertXYtoST(ENU_points, v_unit,fig_num)
+%       fcn_INTERNAL_convertXYtoST(ENU_points, v_unit,figNum)
 %
 % INPUTS:
 %      
@@ -651,7 +655,7 @@ function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
 %
 %      (OPTIONAL INPUTS)
 %     
-%      fig_num: a figure number to plot result
+%      figNum: a figure number to plot result
 %
 % OUTPUTS:
 %
@@ -677,7 +681,7 @@ function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 flag_max_speed = 0;
@@ -702,9 +706,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -733,11 +737,11 @@ end
 
 
 flag_do_plots = 0; % Default to not plot
-fig_num = []; % Initialize the figure number to be empty
+figNum = []; % Initialize the figure number to be empty
 if 3 == nargin
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     else 
         % An empty figure number is given by user, so do not plot anything
@@ -755,7 +759,7 @@ flag_do_plots = 0;
 if (0==flag_max_speed) && (3<= nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -781,7 +785,7 @@ yNorth = ENU_points(:,2);
 
 % if flag_make_new_plot == 1
 %     % plot xEast and yNorth
-%     figure(fig_num);
+%     figure(figNum);
 %     hold on;
 %     grid on;
 %     xlabel('xEast [m]')
@@ -805,7 +809,7 @@ if flag_do_plots == 1
     new_points_transverse = ENU_points + transverse_vector;
     new_points_station = ENU_points + station_vector;
 
-    figure(fig_num);
+    figure(figNum);
     hold on;
     grid on;
     xlabel('xEast [m]');

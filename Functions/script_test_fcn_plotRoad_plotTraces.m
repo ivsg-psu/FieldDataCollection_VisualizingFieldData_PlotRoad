@@ -9,6 +9,9 @@
 % -- changed the argument input to allow variable plot styles
 % 2025_11_01 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_04 - S. Brennan, sbrennan@psu.edu
+% -- changed variable naming for consistency:
+%    % fig_num to figNum
 
 
 %% Set up the workspace
@@ -35,10 +38,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 Trace_coordinates = 1.0e+02 * [
@@ -59,15 +62,15 @@ input_coordinates_type = "ENU";
 fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: input LLA coordinates and plot a trace in only LLA coordinates');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 Trace_coordinates = 1.0e+02 *[
 
@@ -87,14 +90,14 @@ input_coordinates_type = "LLA";
 fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% DEMO case: input STH coordinates and plot a trace in only LLA coordinates
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: input STH coordinates and plot a trace in only LLA coordinates');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 %
 Trace_coordinates = 1.0e+02 * [
@@ -113,7 +116,7 @@ input_coordinates_type = "STH";
 fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,10 +139,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: input ENU coordinates and plot a trace in only ENU
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: input ENU coordinates and plot a trace in only ENU');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
  
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
@@ -158,9 +161,9 @@ Trace_coordinates = 1.0e+02 * [
 ];
 
 input_coordinates_type = "ENU";
-LLA_fig_num =[];
-ENU_fig_num = fig_num;
-STH_fig_num = [];
+LLA_figNum =[];
+ENU_figNum = figNum;
+STH_figNum = [];
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -174,17 +177,17 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% Test case: input ENU coordinates and plot a trace in only STH
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: input ENU coordinates and plot a trace in only STH');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
  
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
@@ -205,9 +208,9 @@ Trace_coordinates = 1.0e+02 * [
 
 plotFormat = [];
 input_coordinates_type = "ENU";
-LLA_fig_num =[];
-ENU_fig_num = [];
-STH_fig_num = fig_num;
+LLA_figNum =[];
+ENU_figNum = [];
+STH_figNum = figNum;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -217,17 +220,17 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% Test case: input STH coordinates and plot a trace in only STH
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: input STH coordinates and plot a trace in only STH');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 Trace_coordinates = 1.0e+02 * [
@@ -246,9 +249,9 @@ Trace_coordinates = 1.0e+02 * [
 plotFormat = [];
 
 input_coordinates_type = "STH";
-LLA_fig_num =[];
-ENU_fig_num = [];
-STH_fig_num = fig_num;
+LLA_figNum =[];
+ENU_figNum = [];
+STH_figNum = figNum;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -257,17 +260,17 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num))
+assert(ishandle(figNum))
 
 %% Test case: input STH coordinates and plot a trace in only LLA
 
-fig_num = 20004;
+figNum = 20004;
 titleString = sprintf('Test case: input STH coordinates and plot a trace in only LLA');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 Trace_coordinates = 1.0e+02 * [
@@ -286,9 +289,9 @@ Trace_coordinates = 1.0e+02 * [
 
 plotFormat = [];
 input_coordinates_type = "STH";
-LLA_fig_num =fig_num;
-ENU_fig_num = [];
-STH_fig_num = [];
+LLA_figNum =figNum;
+ENU_figNum = [];
+STH_figNum = [];
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -297,17 +300,17 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num))
+assert(ishandle(figNum))
 
 %% Test case: input STH coordinates and plot a trace in only ENU
 
-fig_num = 20005;
+figNum = 20005;
 titleString = sprintf('Test case: input STH coordinates and plot a trace in only ENU');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 Trace_coordinates = 1.0e+02 * [
@@ -325,9 +328,9 @@ Trace_coordinates = 1.0e+02 * [
 
 plotFormat = [];
 input_coordinates_type = "STH";
-LLA_fig_num =[];
-ENU_fig_num = fig_num;
-STH_fig_num = [];
+LLA_figNum =[];
+ENU_figNum = figNum;
+STH_figNum = [];
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -336,18 +339,18 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num))
+assert(ishandle(figNum))
 
 %% Test case: input LLA coordinates and plot all traces
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
 
-fig_num = 20006;
+figNum = 20006;
 titleString = sprintf('Test case: input LLA coordinates and plot all traces');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 Trace_coordinates = 1.0e+02 *[
 
@@ -372,9 +375,9 @@ plotFormat.LineWidth = 3;
 
 
 input_coordinates_type = "LLA";
-LLA_fig_num = fig_num + 1073;
-ENU_fig_num = fig_num + 1074;
-STH_fig_num = fig_num;
+LLA_figNum = figNum + 1073;
+ENU_figNum = figNum + 1074;
+STH_figNum = figNum;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
@@ -383,17 +386,17 @@ fcn_plotRoad_plotTraces(...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
-    (LLA_fig_num), (ENU_fig_num), (STH_fig_num));
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
 
 % Check that a figure was created
-assert(ishandle(fig_num))
+assert(ishandle(figNum))
 
 %% Test case: Plot the electric poles on the test track
 
-fig_num = 20007;
+figNum = 20007;
 titleString = sprintf('Test case: Plot the electric poles on the test track');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % Power Pole by the garage, Height ~ 8 meters
 Trace_coordinates = [
@@ -408,7 +411,7 @@ input_coordinates_type = "ENU";
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -428,7 +431,7 @@ assert(~any(figHandles==fig_num));
 close all;
 fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 fprintf(1, 'Plot function - No fast mode tests')
-% NOTHING to test - plot requires fig_num input
+% NOTHING to test - plot requires figNum input
 
 
 %% BUG cases
@@ -458,7 +461,7 @@ if 1==0
 end
 
 %% testing speed of function
-% NOTHING to test - plot requires fig_num input 
+% NOTHING to test - plot requires figNum input 
 %
 % % load inputs
 % Trace_coordinates = [
@@ -475,7 +478,7 @@ end
 % flag_plot_headers_and_tailers =[];
 % flag_plot_points =[];
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; minTimeSlow=Inf;
 % tic;
 % %slow mode calculation - code copied from plotVehicleXYZ
@@ -483,7 +486,7 @@ end
 %     tstart=tic;
 %     fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
 %         plot_color,line_width,...
-%         fig_num,fig_num,fig_num,reference_unit_tangent_vector,...
+%         figNum,figNum,figNum,reference_unit_tangent_vector,...
 %         flag_plot_headers_and_tailers, flag_plot_points);
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
@@ -491,14 +494,14 @@ end
 % averageTimeSlow=toc/REPS;
 % %slow mode END
 % %Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
 %     fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
 %         plot_color,line_width,...
-%         fig_num,fig_num,fig_num,reference_unit_tangent_vector,...
+%         figNum,figNum,figNum,reference_unit_tangent_vector,...
 %         flag_plot_headers_and_tailers, flag_plot_points);
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
