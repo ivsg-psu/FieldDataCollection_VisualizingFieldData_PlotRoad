@@ -119,19 +119,19 @@ if 0==flag_max_speed
 
         % Check the timeIndex input 
         fcn_DebugTools_checkInputsToFunctions(...
-            timeIndex, '1column_of_numbers',[1 1]);
+            timeIndex(~isnan(timeIndex(:,1)),:), '1column_of_numbers',[1 1]);
 
         % Check the handleList input 
         fcn_DebugTools_checkInputsToFunctions(...
-            handleList, '1column_of_numbers');
+            handleList(~isnan(handleList(:,1)),:), '1column_of_numbers');
 
         % Check the Xdata input 
         fcn_DebugTools_checkInputsToFunctions(...
-            Xdata, '1column_of_numbers');
+            Xdata(~isnan(Xdata(:,1)),:), '1column_of_numbers');
 
         % Check the points input 
         fcn_DebugTools_checkInputsToFunctions(...
-            Ydata, '1column_of_numbers');
+            Ydata(~isnan(Ydata(:,1)),:), '1column_of_numbers');
         
     end
 end

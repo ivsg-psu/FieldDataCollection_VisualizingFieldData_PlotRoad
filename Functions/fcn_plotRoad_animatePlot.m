@@ -155,7 +155,7 @@ if 0==flag_max_speed
 
         % Check the plotData input 
         fcn_DebugTools_checkInputsToFunctions(...
-            plotData, '3column_of_numbers');
+            plotData(~isnan(plotData(:,1)),:), '3column_of_numbers');
 
     end
 end

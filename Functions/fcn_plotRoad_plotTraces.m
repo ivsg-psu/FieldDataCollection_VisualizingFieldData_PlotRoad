@@ -137,7 +137,7 @@ if 0 == flag_max_speed
 
         % Check the LLdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            Trace_coordinates, '2or3column_of_numbers');
+            Trace_coordinates(~isnan(Trace_coordinates(:,1)),:), '2or3column_of_numbers');
 
     end
 end

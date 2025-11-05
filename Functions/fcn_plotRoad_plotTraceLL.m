@@ -113,7 +113,7 @@ if flag_max_speed == 1
 
         % Check the LLdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            LLdata, '3column_of_numbers');
+            LLdata(~isnan(LLdata(:,1)),:), '3column_of_numbers');
 
     end
 end

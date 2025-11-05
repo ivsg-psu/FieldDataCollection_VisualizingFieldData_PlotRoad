@@ -56,6 +56,9 @@
 %    % * fcn_plotRoad_calcLaneBoundingBox
 % -- removed incorrect _PlotTestTrack_ global variable in: 
 %    % * fcn_plotRoad_calcRectangleXYZ
+% 2025_11_05 - Aneesh Batchu
+% -- Functions can handle NaN values in the inputs
+% -- Ran the script_test_all_fucntions.m 
 
 
 %% To-Do list
@@ -1538,6 +1541,7 @@ figure(fig_num); clf
 xData = linspace(-2,20,100)';
 yData = 2*xData+4;
 XYdata = [xData yData];
+projectionDistance = [];
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
 % Test the function

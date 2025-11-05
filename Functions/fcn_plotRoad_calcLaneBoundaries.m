@@ -108,7 +108,7 @@ if 0 == flag_max_speed
 
         % Check the XYdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            XYdata, '2column_of_numbers');
+            XYdata(~isnan(XYdata(:,1)),:), '2column_of_numbers');
 
     end
 end
