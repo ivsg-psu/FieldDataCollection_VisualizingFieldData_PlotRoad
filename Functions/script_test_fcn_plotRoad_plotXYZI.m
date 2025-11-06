@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_02 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -273,6 +275,31 @@ for ith_handle = 1:length(h_plot)
         assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
     end
 end
+
+%% Test case: Plotting when input data (XYZIdata) contains NaNs
+
+fig_num = 20008; 
+titleString = sprintf('Test case: Plotting when input data (XYZIdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% NaN matrix
+NaN_matrix = nan(5,4); 
+
+time = linspace(0,10,100)';
+XYZIdata_noNaNs = [time sin(time) 1/25*(time-5).^2  cos(time)];
+
+XYZIdata = [XYZIdata_noNaNs; NaN_matrix];
+
+% Test the function
+plotFormat = 'r';
+colorMapString = [];
+h_plot = fcn_plotRoad_plotXYZI(XYZIdata, (plotFormat),  (colorMapString), (fig_num));
+title(sprintf('Example %.0d: showing user-defined color to produce colormap',fig_num), 'Interpreter','none');
+
+% Check results
+assert(all(ishandle(h_plot(:))));
+
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

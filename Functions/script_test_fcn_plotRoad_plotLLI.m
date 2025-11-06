@@ -7,6 +7,8 @@
 % -- first write of the code
 % 2025_11_01 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -352,6 +354,53 @@ for ith_handle = 1:length(h_plot)
     end
 end
 
+%% Test case: Plotting when input data (LLIdata) contains NaNs
+
+fig_num = 20004; 
+titleString = sprintf('DEMO case:Plotting when input data (LLIdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% NaN matrix
+NaN_matrix = nan(5,3); 
+
+% Fill in data
+data3 = [
+    -77.83108116099999,40.86426763900005,0
+    -77.83098509099995,40.86432365200005,0
+    -77.83093857199998,40.86435301300003,0
+    -77.83087253399998,40.86439877000004,0
+    -77.83080882499996,40.86444684500003,0
+    -77.83075077399997,40.86449883100005,0
+    -77.83069596999997,40.86455288200005,0
+    -77.83064856399994,40.86461089600004,0];
+
+% NOTE: above data is in BAD column order, so we
+% have to manually rearrange it.
+time = linspace(0,10,length(data3(:,1)))';
+LLIdata_noNaNs = [data3(:,2), data3(:,1), time];
+
+LLIdata = [LLIdata_noNaNs; NaN_matrix]; 
+
+
+% Test the function
+plotFormat = [];
+colorMap = [];
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','none');
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Check results
+assert(all(ishandle(h_plot(:))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    dataPlotted = get(h_plot(ith_handle),'LatitudeData');    
+    NumInPlot = length(dataPlotted);
+    assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+end
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,6 +549,7 @@ ylabel('Execution time (Milliseconds)')
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
 assert(~any(figHandles==fig_num));
+close(figure(1))
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

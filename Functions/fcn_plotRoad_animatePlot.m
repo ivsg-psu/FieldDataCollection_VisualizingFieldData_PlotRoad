@@ -88,6 +88,8 @@ function h_animatedPlot = fcn_plotRoad_animatePlot(plotTypeString, timeIndex, h_
 % 2025_10_31 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -155,7 +157,7 @@ if 0==flag_max_speed
 
         % Check the plotData input 
         fcn_DebugTools_checkInputsToFunctions(...
-            plotData(~isnan(plotData(:,1)),:), '3column_of_numbers');
+            plotData, '3column_of_mixed');
 
     end
 end

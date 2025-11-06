@@ -83,9 +83,6 @@ assert(0 == boundingBoxPolyshape.NumHoles)
 close all;
 fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
-%% Test case: Advanced edge calculation example
-
-
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

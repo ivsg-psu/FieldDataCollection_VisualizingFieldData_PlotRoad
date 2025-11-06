@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_02 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -273,6 +275,43 @@ for ith_handle = 1:length(h_plot)
         assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
     end
 end
+
+%% Test case: Plotting when input data (XYIdata) contains NaNs
+
+fig_num = 20006; 
+titleString = sprintf('Test case: Plotting when input data (XYIdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% NaN matrix
+NaN_matrix = nan(5,3); 
+
+time = linspace(0,10,100)';
+XYIdata_noNaNs = [time sin(time) cos(time)];
+
+% Input data with NaNs
+XYIdata = [XYIdata_noNaNs; NaN_matrix]; 
+
+% Test the function
+plotFormat = 'r';
+colorMapString = [];
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotXYI(XYIdata, (plotFormat),  (colorMapString), (fig_num));
+title(sprintf('Example %.0d: showing user-defined color to produce colormap',fig_num), 'Interpreter','none');
+
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Check results
+assert(all(ishandle(h_plot(:))));
+
+% Check that the number of indicies matches the amount of data in the plot
+for ith_handle = 1:length(h_plot)
+    dataPlotted = get(h_plot(ith_handle),'XData');    
+    NumInPlot = length(dataPlotted);
+    assert(isequal(NumInPlot,length(indiciesInEachPlot{ith_handle})));
+end
+
 
 
 %% Fast Mode Tests

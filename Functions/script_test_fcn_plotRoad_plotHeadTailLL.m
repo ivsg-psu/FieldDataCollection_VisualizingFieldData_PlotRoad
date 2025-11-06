@@ -7,6 +7,9 @@
 % -- first write of the code
 % 2025_11_01 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
+
 
 %% Set up the workspace
 
@@ -265,6 +268,39 @@ h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
 fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
 
 title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_geoplot));
+
+%% Test case: Plotting when input data (LLdata) contains NaNs
+
+fig_num = 20004;
+titleString = sprintf('Test case: Plotting when input data (LLdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% Fill in data
+data3 = [
+    -77.83108116099999,40.86426763900005,0
+    -77.83098509099995,40.86432365200005,0
+    -77.83093857199998,40.86435301300003,0
+    -77.83087253399998,40.86439877000004,0
+    -77.83080882499996,40.86444684500003,0
+    -77.83075077399997,40.86449883100005,0
+    -77.83069596999997,40.86455288200005,0
+    -77.83064856399994,40.86461089600004,0
+    nan nan nan];
+
+% NOTE: above data is in BAD column order, so we
+% have to manually rearrange it.
+LLdata = [data3(:,2), data3(:,1), data3(:,3)];
+
+% Test the function
+plotFormat = 'y.-';
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+
+title(sprintf('Example %.0d: showing use of simple formatting string',fig_num), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));

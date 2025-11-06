@@ -10,8 +10,10 @@
 % -- Wrote the code originally
 % 2025_10_31 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
-% NOTES: There are no plots in the debug section of the function. 
+% NOTE: There are no plots in the debug section of the function. 
 
 %% Set up the workspace
 
@@ -277,6 +279,55 @@ end
 
 % Make sure plot opened up
 assert(isequal(get(gcf,'Number'),fig_num));
+
+
+%% Test case: Plotting when input data contains NaNs
+
+fig_num = 20001;
+titleString = sprintf('Test case: Plotting when input data contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% Fill in data
+Npoints = 200;
+time = linspace(0,15,Npoints)';
+ydata = sin(time);
+
+clear plotFormat
+plotFormat.Color = [0 0.7 0];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+
+% Fill in some plot handles by plotting the first Ncolor points
+Ncolors = 5;
+colorMapMatrix = colormap('turbo');
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
+h_plots = zeros(Ncolors,1);
+range=4;
+
+for ith_plot = 1:Ncolors
+    dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
+    plotFormat.Color = reducedColorMap(ith_plot,:);
+    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+end
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+subtitle('Showing animation of XY data');
+
+
+handleList = h_plots;
+Xdata = [time; NaN];
+Ydata = [ydata; NaN];
+afterPlotColor = [0.5 0.5 0.5];
+for timeIndex = 1:406
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    pause(0.02);
+end
+
+% Make sure plot opened up
+assert(isequal(get(gcf,'Number'),fig_num));
+
 
 
 %% Fast Mode Tests

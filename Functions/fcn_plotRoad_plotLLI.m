@@ -72,6 +72,8 @@ function [h_geoplot, indiciesInEachPlot] = fcn_plotRoad_plotLLI(LLIdata, varargi
 % 2025_11_01 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 
 %% Debugging and Input checks
@@ -128,7 +130,7 @@ if 0==flag_max_speed
 
         % Check the LLIdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            LLIdata(~isnan(LLIdata(:,1)),:), '3column_of_numbers');
+            LLIdata, '3column_of_mixed');
 
     end
 end

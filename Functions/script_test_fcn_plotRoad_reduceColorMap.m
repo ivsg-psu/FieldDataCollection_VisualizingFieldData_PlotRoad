@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_02 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -81,6 +83,33 @@ figure(fig_num); clf;
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
+
+% Reduce the colormap
+Ncolors = 400;
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (fig_num));
+
+% Check results
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Are the dimensions of Lat reducedColorMap correct?
+assert(Ncolors==length(reducedColorMap(:,1)));
+assert(3==length(reducedColorMap(1,:)));
+
+
+%% Test case: Plotting when input data (colorMapMatrix) contains NaNs
+
+fig_num = 20002; 
+titleString = sprintf('Test case: Plotting when input data (colorMapMatrix) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+
+% Fill in large colormap data
+colorMapMatrix_noNaNs = colormap('winter');
+
+colorMapMatrix = [colorMapMatrix_noNaNs; NaN NaN NaN]; 
+
 
 % Reduce the colormap
 Ncolors = 400;

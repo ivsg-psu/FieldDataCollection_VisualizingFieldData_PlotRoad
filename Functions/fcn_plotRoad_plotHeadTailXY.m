@@ -54,7 +54,8 @@ function fcn_plotRoad_plotHeadTailXY(XYdata, fig_num, varargin)
 % 2025_11_01 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
-
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -110,7 +111,7 @@ if 0==flag_max_speed
 
         % Check the XYdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            XYdata(~isnan(XYdata(:,1)),:), '2or3column_of_numbers');
+            XYdata, '2or3column_of_mixed');
 
 
     end

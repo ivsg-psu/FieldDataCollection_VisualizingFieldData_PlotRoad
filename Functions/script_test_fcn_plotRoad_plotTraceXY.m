@@ -9,7 +9,6 @@
 % 2025_11_02 - Aneesh Batchu
 % -- Updated the script to the latest format
 
-
 %% Set up the workspace
 
 close all
@@ -110,7 +109,7 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 fig_num = 20001;
 titleString = sprintf('Test case: showing plot_color');
 fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+figure(fig_num); clf;
 
 flag_plot_headers_and_tailers = 0;
 
@@ -139,7 +138,7 @@ assert(all(ishandle(h_plot)));
 fig_num = 20002;
 titleString = sprintf('Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3');
 fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+figure(fig_num); clf;
 
 flag_plot_headers_and_tailers = 1;
 
@@ -159,9 +158,6 @@ title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Inter
 
 % Check results
 assert(all(ishandle(h_plot)));
-
-
-
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

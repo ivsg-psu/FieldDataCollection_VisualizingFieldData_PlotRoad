@@ -100,11 +100,11 @@ if 0 == flag_max_speed
 
         % Check the XYdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            leftLaneBoundary_XY(~isnan(leftLaneBoundary_XY(:,1)),:), '2column_of_numbers');
+            leftLaneBoundary_XY, '2column_of_numbers');
 
         % Check the XYdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            rightLaneBoundary_XY(~isnan(rightLaneBoundary_XY(:,1)),:), '2column_of_numbers');
+            rightLaneBoundary_XY, '2column_of_numbers');
 
     end
 end

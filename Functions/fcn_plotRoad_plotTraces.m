@@ -84,6 +84,8 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 % 2025_11_04 - Sean Brennan
 % -- Deprecated fcn_plotRoad_breakArrayByNans
 %    % * changed to fcn_DebugTools_breakArrayByNans
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -137,7 +139,7 @@ if 0 == flag_max_speed
 
         % Check the LLdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            Trace_coordinates(~isnan(Trace_coordinates(:,1)),:), '2or3column_of_numbers');
+            Trace_coordinates, '2or3column_of_mixed');
 
     end
 end

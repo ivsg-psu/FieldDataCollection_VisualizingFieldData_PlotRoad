@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_01 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -1264,6 +1266,40 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Check that a figure was created
 assert(ishandle(fig_num));
+
+
+%% Test case: Plotting when input data (XYdata) contains NaNs
+
+fig_num = 20002; 
+titleString = sprintf('Test case: Plotting when input data (XYdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); close(fig_num);
+
+% Create data
+xData = linspace(-2,20,100)';
+yData = 2*xData+4;
+XYdata_noNaNs = [xData yData];
+
+XYdata = [XYdata_noNaNs; nan nan]; 
+
+projectionDistance = []; % Use defaults
+
+% Test the function
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+
+% Does the data have 2 columns?
+assert(length(leftLaneBoundary_XY(1,:))== 2)
+assert(length(rightLaneBoundary_XY(1,:))== 2)
+
+% Do both have same number of rows?
+assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
+
+% Do both have same number of rows as input data?
+assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
+
+% Check that a figure was created
+assert(ishandle(fig_num));
+
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

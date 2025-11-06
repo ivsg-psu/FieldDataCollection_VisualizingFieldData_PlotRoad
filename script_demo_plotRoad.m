@@ -59,6 +59,9 @@
 % 2025_11_05 - Aneesh Batchu
 % -- Functions can handle NaN values in the inputs
 % -- Ran the script_test_all_fucntions.m 
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options in functions to handle NaNs in the inputs
+% -- Added test cases with NaNs in the input data 
 
 
 %% To-Do list
@@ -79,9 +82,9 @@ clc
 clear library_name library_folders library_url
 
 ith_library = 1;
-library_name{ith_library}    = 'DebugTools_v2025_11_04c';
+library_name{ith_library}    = 'DebugTools_v2025_11_06';
 library_folders{ith_library} = {'Functions','Data'};
-library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2025_11_04c.zip';
+library_url{ith_library}     = 'https://github.com/ivsg-psu/Errata_Tutorials_DebugTools/archive/refs/tags/DebugTools_v2025_11_06.zip';
 
 ith_library = ith_library+1;
 library_name{ith_library}    = 'PathClass_v2025_08_03';
@@ -206,7 +209,7 @@ assert(all(ishandle(fig_num)));
 % Is a plot handle returned?
 assert(all(ishandle(h_plot)));
 
-%% fcn_plotRoad_plotXYIZ: plots XY data with intensiy color mapping
+%% fcn_plotRoad_plotXYI: plots XY data with intensiy color mapping
 
 fig_num = 20002;
 titleString = sprintf('fcn_plotRoad_plotXYI:  plots XY data with intensiy color mapping');
@@ -1170,15 +1173,15 @@ assert(isequal(round(cornersXYZ,4),[...
 % indicies_cell_array = fcn_plotRoad_breakArrayByNans(input_array, (fig_num))
 
 fig_num = 20015;
-titleString = sprintf('fcn_plotRoad_calcRectangleXYZ: breaks data separated by nan into subdata');
+titleString = sprintf('fcn_plotRoad_breakArrayByNans: fcn_plotRoad_breakArrayByNans is being deprecated. Use fcn_DebugTools_plotRoad_breakArrayByNansinstead. ');
 fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
 figure(fig_num); close(fig_num)
 
-test_data = [1; 2; 3; 4; nan; 6; nan; 8; 9; nan(3,1)];
-indicies_cell_array = fcn_plotRoad_breakArrayByNans(test_data);
-assert(isequal(indicies_cell_array{1},[1; 2; 3; 4]));
-assert(isequal(indicies_cell_array{2},6));
-assert(isequal(indicies_cell_array{3},[8; 9]));
+% test_data = [1; 2; 3; 4; nan; 6; nan; 8; 9; nan(3,1)];
+% indicies_cell_array = fcn_plotRoad_breakArrayByNans(test_data);
+% assert(isequal(indicies_cell_array{1},[1; 2; 3; 4]));
+% assert(isequal(indicies_cell_array{2},6));
+% assert(isequal(indicies_cell_array{3},[8; 9]));
 
 %% fcn_plotRoad_plotTraceXY: plots EN components of ENU data as a trace
 % h_plot = fcn_plotRoad_plotTraceXY(XYdata, (plotFormat), (flag_plot_headers_and_tailers), (fig_num))
@@ -1421,7 +1424,7 @@ LLA_positions_cell_array{5} = 1.0e+02 *[
     ];
 
 % Plot ENU cell array
-h_plot = fcn_plotRoad_plotTraceLL(LLA_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+fcn_plotRoad_plotTraceLL(LLA_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
 
 title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Interpreter','none');
 
@@ -1650,7 +1653,7 @@ assert(3==length(reducedColorMap(1,:)));
 %% fcn_plotRoad_zoomToRegion: Zooms to a pre-specified region 
 
 fig_num = 20023;
-titleString = sprintf('Test case: fcn_plotRoad_zoomToRegion: Zooms to a pre-specified region ');
+titleString = sprintf('fcn_plotRoad_zoomToRegion: Zooms to a pre-specified region ');
 fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
 figure(fig_num); clf;
 
@@ -1699,6 +1702,57 @@ title(sprintf('%s', titleString), 'Interpreter','none');
 % Make sure plot opened up
 assert(isequal(get(gcf,'Number'),fig_num));
 
+%% fcn_plotRoad_plotHeadTailXY: Plots head and tail of the XYdata
+
+fig_num = 20024;
+titleString = sprintf('Test case: Plot data with color numbers');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+time = linspace(0,10,100)';
+XYdata = [time sin(time)];
+
+% Test the function
+plotFormat = [1 0.4 1];
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
+fcn_plotRoad_plotHeadTailXY(XYdata, fig_num, plotFormat);
+
+title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_plot));
+
+%% fcn_plotRoad_plotLL: Plots head and tail of the LLdata
+
+fig_num = 20025;
+titleString = sprintf('Test case: Plot data with simple formatting string');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% Fill in data
+data3 = [
+    -77.83108116099999,40.86426763900005,0
+    -77.83098509099995,40.86432365200005,0
+    -77.83093857199998,40.86435301300003,0
+    -77.83087253399998,40.86439877000004,0
+    -77.83080882499996,40.86444684500003,0
+    -77.83075077399997,40.86449883100005,0
+    -77.83069596999997,40.86455288200005,0
+    -77.83064856399994,40.86461089600004,0];
+
+% NOTE: above data is in BAD column order, so we
+% have to manually rearrange it.
+LLdata = [data3(:,2), data3(:,1), data3(:,3)];
+
+% Test the function
+plotFormat = 'y.-';
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+
+title(sprintf('Example %.0d: showing use of simple formatting string',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_geoplot));
 
 
 %% Functions follow

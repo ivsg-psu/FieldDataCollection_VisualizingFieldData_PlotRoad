@@ -73,6 +73,8 @@ function fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydat
 % 2025_10_31 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -136,11 +138,11 @@ if 0==flag_max_speed
 
         % Check the Xdata input 
         fcn_DebugTools_checkInputsToFunctions(...
-            Xdata, '1column_of_numbers');
+            Xdata, '1column_of_mixed');
 
         % Check the points input 
         fcn_DebugTools_checkInputsToFunctions(...
-            Ydata, '1column_of_numbers');
+            Ydata, '1column_of_mixed');
     end
 end
 

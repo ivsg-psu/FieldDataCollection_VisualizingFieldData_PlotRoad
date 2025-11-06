@@ -52,6 +52,11 @@ function reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, 
 % Revision history
 % 2024_08_19 - Sean Brennan
 % -- Created function by copying out of load script in Geometry library
+% 2025_11_01 - Aneesh Batchu
+% -- Added MAX_NARGIN option to the function
+% -- Added debug tools to check the inputs
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -107,7 +112,7 @@ if 0==flag_max_speed
 
         % Check the XYZIdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            colorMapMatrix(~isnan(colorMapMatrix(:,1)),:), '3column_of_numbers');
+            colorMapMatrix, '3column_of_mixed');
 
     end
 end

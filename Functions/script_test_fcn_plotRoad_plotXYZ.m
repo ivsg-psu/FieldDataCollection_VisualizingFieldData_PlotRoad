@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_02 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -127,6 +129,34 @@ title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','no
 % Check results
 assert(ishandle(h_plot));
 
+%% Test case: Plotting when input data (XYZdata) contains NaNs
+
+fig_num = 20003; 
+titleString = sprintf('Test case: Plotting when input data (XYZdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% NaN matrix
+NaN_matrix = nan(5,3); 
+
+time = linspace(0,10,100)';
+XYZdata_noNaNs = [time sin(time) cos(time)];
+
+XYZdata = [XYZdata_noNaNs; NaN_matrix];
+
+% Test the function
+clear plotFormat
+plotFormat.Color = [0 0.7 0];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num));
+title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_plot));
+
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +188,7 @@ XYZdata = [time sin(time) cos(time)];
 
 % Test the function
 plotFormat = [];
-h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
+fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
@@ -175,7 +205,7 @@ XYZdata = [time sin(time) cos(time)];
 
 % Test the function
 plotFormat = [];
-h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
+fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
@@ -201,7 +231,7 @@ tic;
 for ith_test = 1:Niterations
 
     % Test the function
-    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
+   fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), ([]));
 
 end
 slow_method = toc;
@@ -212,7 +242,7 @@ tic;
 for ith_test = 1:Niterations
 
     % Test the function
-    h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
+    fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (-1));
 
 
 end

@@ -106,14 +106,14 @@ end
 % See: http://patorjk.com/software/taag/#p=display&f=Big&t=Inputs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-if flag_max_speed == 1
+if 0 == flag_max_speed
     if flag_check_inputs == 1
         % Are there the right number of inputs?
         narginchk(1,MAX_NARGIN);
 
-        % Check the LLdata input
-        fcn_DebugTools_checkInputsToFunctions(...
-            LLdata(~isnan(LLdata(:,1)),:), '3column_of_numbers');
+        % if ~iscell(LLdata)
+        %     error('LLdata should be a cell')
+        % end
 
     end
 end

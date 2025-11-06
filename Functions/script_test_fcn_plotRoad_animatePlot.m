@@ -9,6 +9,8 @@
 % -- first write of the code
 % 2025_10_31 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 
 %% Set up the workspace
@@ -754,6 +756,56 @@ if 1==0
 
         pause(0.02);
     end
+end
+
+% Was a figure created?
+assert(all(ishandle(fig_num)));
+
+% Check results
+assert(all(ishandle(h_animatedPlot(:))));
+
+%% Test case: Plotting when input data (plotData) contains NaNs
+
+fig_num = 20005; 
+titleString = sprintf('DEMO case: Plotting when input data (plotData) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% Fill in data
+% Check to see if XY data for the centerline of the original track lane was loaded earlier
+mat_filename = fullfile(cd,'Data','Centerline_OriginalTrackLane_InnerMarkerClusterCenterOfDoubleYellow.mat');
+if exist(mat_filename,'file')
+    load(mat_filename,'XY_data');
+end
+
+% Prep for GPS conversions
+% The true location of the track base station is [40.86368573°, -77.83592832°, 344.189 m].
+reference_latitude = 40.86368573;
+reference_longitude = -77.83592832;
+reference_altitude = 344.189;
+gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
+
+Npoints = length(XY_data(:,1));
+LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+
+% NaN matrix
+NaN_matrix = nan(5,3); 
+
+time = linspace(0,10,Npoints)';
+plotData_noNaNs = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+
+% plotData
+plotData = [plotData_noNaNs; NaN_matrix]; 
+
+% Test the function
+plotFormat = [];
+colorMap = [];
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (fig_num));
+title(sprintf('Example %.0d: showing animated plotLLI',fig_num), 'Interpreter','none');
+
+for ith_time = 1:100:length(plotData(:,1))
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (fig_num));
+    pause(0.02);
 end
 
 % Was a figure created?

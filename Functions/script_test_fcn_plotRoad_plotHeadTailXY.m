@@ -8,6 +8,8 @@
 % -- first write of the code
 % 2025_11_01 - Aneesh Batchu
 % -- Updated the script to the latest format
+% 2025_11_06 - Aneesh Batchu
+% -- Added a test case with NaNs in the input data
 
 %% Set up the workspace
 
@@ -138,6 +140,36 @@ title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','no
 % Check results
 assert(ishandle(h_plot));
 
+
+%% Test case: Plotting when input data (XYdata) contains NaNs
+
+fig_num = 20003;
+titleString = sprintf('Test case: Plotting when input data (XYdata) contains NaNs');
+fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
+figure(fig_num); clf;
+
+% NaN matrix
+NaN_matrix = nan(5,2); 
+
+time = linspace(0,10,100)';
+XYdata_noNaNs = [time sin(time)];
+
+XYdata = [XYdata_noNaNs; NaN_matrix];
+
+% Test the function
+clear plotFormat
+plotFormat.Color = [0 0.7 0];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
+fcn_plotRoad_plotHeadTailXY(XYdata, fig_num, plotFormat);
+
+title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+
+% Check results
+assert(ishandle(h_plot));
 
 
 %% Fast Mode Tests

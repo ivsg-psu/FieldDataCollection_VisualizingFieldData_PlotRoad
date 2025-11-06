@@ -70,6 +70,8 @@ function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 % 2025_11_02 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_06 - Aneesh Batchu
+% -- Modified debug options to handle NaNs in the inputs
 
 %% Debugging and Input checks
 
@@ -123,9 +125,9 @@ if 0==flag_max_speed
         % Are there the right number of inputs?
         narginchk(1,MAX_NARGIN);
 
-        % Check the LLdata input
+        % Check the XYIdata input
         fcn_DebugTools_checkInputsToFunctions(...
-            XYIdata(~isnan(XYIdata(:,1)),:), '3column_of_numbers');
+            XYIdata, '3column_of_mixed');
 
 
     end
