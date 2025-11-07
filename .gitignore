@@ -31,6 +31,9 @@ codegen/
 # Octave session info
 octave-workspace
 
+# MacOS files
+.DS_store*
+
 # Folders
 Utilities/
 LargeData/

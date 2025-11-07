@@ -63,6 +63,9 @@
 % -- Modified debug options in functions to handle NaNs in the inputs
 % -- Added test cases with NaNs in the input data 
 % -- Re-checked the verification list
+% 2025_11_06 - Aneesh Batchu
+% -- Re-checked the verification list for new release
+% -- Added updated script_test_all_functions
 
 %% To-Do list
 % 2025_11_04 - S. Brennan, sbrennan@psu.edu

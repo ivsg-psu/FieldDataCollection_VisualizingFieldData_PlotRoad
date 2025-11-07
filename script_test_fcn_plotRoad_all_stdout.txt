@@ -401,3 +401,404 @@ __________
 Done script_test_fcn_plotRoad_zoomToRegion
 __________
 
+
+SUMMARY OF FOUND FILES: 
+<strong>The following scripts were found that will be tested:
+</strong>	script_test_fcn_plotRoad_animateHandlesDataSlide.m
+	script_test_fcn_plotRoad_animateHandlesOnOff.m
+	script_test_fcn_plotRoad_animatePlot.m
+	script_test_fcn_plotRoad_calcLaneBoundaries.m
+	script_test_fcn_plotRoad_calcLaneBoundingBox.m
+	script_test_fcn_plotRoad_calcRectangleXYZ.m
+	script_test_fcn_plotRoad_plotHeadTailLL.m
+	script_test_fcn_plotRoad_plotHeadTailXY.m
+	script_test_fcn_plotRoad_plotLL.m
+	script_test_fcn_plotRoad_plotLLCircle.m
+	script_test_fcn_plotRoad_plotLLI.m
+	script_test_fcn_plotRoad_plotTraceLL.m
+	script_test_fcn_plotRoad_plotTraceXY.m
+	script_test_fcn_plotRoad_plotTraces.m
+	script_test_fcn_plotRoad_plotXY.m
+	script_test_fcn_plotRoad_plotXYI.m
+	script_test_fcn_plotRoad_plotXYZ.m
+	script_test_fcn_plotRoad_plotXYZI.m
+	script_test_fcn_plotRoad_reduceColorMap.m
+	script_test_fcn_plotRoad_zoomToRegion.m
+<strong>The following files were found, but do not seem to be repo functions or scripts:
+</strong><strong>	.DS_Store
+</strong>
+STARTING TESTS:
+<strong>   
+</strong><strong>Testing script: 1 of 20, test_fcn_plotRoad_animateHandlesDataSlide
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesDataSlide
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of simple points in XY
+.Figure 10002: DEMO case: Do an animation of line segments in XY
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Points in XY with trail
+.Figure 20002: Test case: geoplot XY with trail
+.Figure 20001: Test case: Plotting when input data contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesDataSlide
+__________
+
+<strong>   
+</strong><strong>Testing script: 2 of 20, test_fcn_plotRoad_animateHandlesOnOff
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesOnOff
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of XYI plot (using simple points)
+.Figure 10002: DEMO case: Do an animation of expanding rings
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Showing animation of XYI plot using line segments
+.Figure 20002: Test case: Do an animation of expanding rings with different skip interval
+.Figure 20003: Test case: Animate a "radar" view with one "beam"
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesOnOff
+__________
+
+<strong>   
+</strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: plotLLI with defaults
+.Figure 10002: DEMO case: plotLLI with defaults
+.Figure 10003: DEMO case: plotLLI specifying the colorMap, automating zoom
+.Figure 10004: DEMO case: plotLLI specifying the linestyle
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: plotLLI specifying the full plotFormat
+.Figure 20002: Test case: plotLL specifying the full plotFormat
+. Figure 20003: Test case: plotXYI specifying the full plotFormat
+.Figure 20004: Test case: plotXY specifying the full plotFormat
+.Figure 20005: DEMO case: Plotting when input data (plotData) contains NaNs
+.....
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+<strong>   
+</strong><strong>Testing script: 4 of 20, test_fcn_plotRoad_calcLaneBoundaries
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundaries
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Input array with one nan sequence inside
+.Figure 20002: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcLaneBoundaries
+__________
+
+<strong>   
+</strong><strong>Testing script: 5 of 20, test_fcn_plotRoad_calcLaneBoundingBox
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundingBox
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_calcLaneBoundingBox
+__________
+
+<strong>   
+</strong><strong>Testing script: 6 of 20, test_fcn_plotRoad_calcRectangleXYZ
+
+</strong>Running script_test_fcn_plotRoad_calcRectangleXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic rectangle, 2D
+.Figure 10002: DEMO case: Basic 2D rectangle, moved location
+.Figure 10003: DEMO case: Basic 2D rectangle, moved and rotated
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Basic 2D rectangle, moved and rotated and measured from back corner
+.Figure 20002: Test case: Basic 3D rectangle, moved and rotated and measured from back corner
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcRectangleXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 7 of 20, test_fcn_plotRoad_plotHeadTailLL
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plot data onto an empty figure
+.Figure 10002: DEMO case: Call the function with empty inputs
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with simple formatting string
+.Figure 20002: Test case: Plot data with user-given color vector
+.Figure 20003: Test case: Plot data with user-given color vector
+.Figure 20004: Test case: Plotting when input data (LLdata) contains NaNs
+. Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests
+.....
+Done script_test_fcn_plotRoad_plotHeadTailLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 8 of 20, test_fcn_plotRoad_plotHeadTailXY
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with color numbers
+.Figure 20002: Test case: Plot data with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests. .....
+Done script_test_fcn_plotRoad_plotHeadTailXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 9 of 20, test_fcn_plotRoad_plotLL
+
+</strong>Running script_test_fcn_plotRoad_plotLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: only opens and initializes plot
+.Figure 10002: DEMO case: all defaults, no data. Also opens and initializes plot
+.Figure 10003: DEMO case: ppens and inializes plot to the data point
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot LL data
+.Figure 20002: Test case: Plot data onto an existing figure
+.Figure 20003: Test case: Plot data with simple formatting string
+. Figure 20004: Test case: Plot data with user-given color vector
+.Figure 20005: Test case: Plot data with structure input
+.Figure 20005: Test case: Start of the PennDOT site 1 area
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests...
+Done script_test_fcn_plotRoad_plotLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 10 of 20, test_fcn_plotRoad_plotLLCircle
+
+</strong>Running script_test_fcn_plotRoad_plotLLCircle
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: specifying the full plotFormat
+.Figure 20003: Test case: Specifying the color as a fade-out
+. Figure 20004: Test case: Changing maxColors
+.Figure 20005: Test case: Animate a "radar" view with colormap
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.....
+Done script_test_fcn_plotRoad_plotLLCircle
+__________
+
+<strong>   
+</strong><strong>Testing script: 11 of 20, test_fcn_plotRoad_plotLLI
+
+</strong>Running script_test_fcn_plotRoad_plotLLI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: changing marker size, same color
+.Figure 20003: Test case: specifying the full plotFormat, including reduced color map and changing marker size 
+. Figure 20004: DEMO case:Plotting when input data (LLIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotLLI
+__________
+
+<strong>   
+</strong><strong>Testing script: 12 of 20, test_fcn_plotRoad_plotTraceLL
+
+</strong>Running script_test_fcn_plotRoad_plotTraceLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array
+.Figure 10002: DEMO case: Showing plot of entire cell array
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ....
+Done script_test_fcn_plotRoad_plotTraceLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 13 of 20, test_fcn_plotRoad_plotTraceXY
+
+</strong>Running script_test_fcn_plotRoad_plotTraceXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: showing plot_color
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ..
+Done script_test_fcn_plotRoad_plotTraceXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 14 of 20, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure 10002: DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
+.Figure 10003: DEMO case: input STH coordinates and plot a trace in only LLA coordinates
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: input ENU coordinates and plot a trace in only ENU
+.Figure 20002: Test case: input ENU coordinates and plot a trace in only STH
+.Figure 20003: Test case: input STH coordinates and plot a trace in only STH
+. Figure 20004: Test case: input STH coordinates and plot a trace in only LLA
+.Figure 20005: Test case: input STH coordinates and plot a trace in only ENU
+.Figure 20006: Test case: input LLA coordinates and plot all traces
+.Figure 20007: Test case: Plot the electric poles on the test track
+.Figure 20008: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests..... .
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+<strong>   
+</strong><strong>Testing script: 15 of 20, test_fcn_plotRoad_plotXY
+
+</strong>Running script_test_fcn_plotRoad_plotXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting with color numbers
+.Figure 20002: Test case: Plotting with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 16 of 20, test_fcn_plotRoad_plotXYI
+
+</strong>Running script_test_fcn_plotRoad_plotXYI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by changing marker size, same color
+.Figure 20005: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size
+. Figure 20006: Test case: Plotting when input data (XYIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYI
+__________
+
+<strong>   
+</strong><strong>Testing script: 17 of 20, test_fcn_plotRoad_plotXYZ
+
+</strong>Running script_test_fcn_plotRoad_plotXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: color numbers
+.Figure 20002: Test case: structure input
+.Figure 20003: Test case: Plotting when input data (XYZdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 18 of 20, test_fcn_plotRoad_plotXYZI
+
+</strong>Running script_test_fcn_plotRoad_plotXYZI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by specifying the full plotFormat
+.Figure 20005: Test case: Plotting by specifying a reduced colormap (for speed)
+. Figure 20006: Test case: Plotting by changing marker size, same colorfig_num
+.Figure 20007: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size 
+.Figure 20008: Test case: Plotting when input data (XYZIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZI
+__________
+
+<strong>   
+</strong><strong>Testing script: 19 of 20, test_fcn_plotRoad_reduceColorMap
+
+</strong>Running script_test_fcn_plotRoad_reduceColorMap
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Convert the "winter" colormap to 4 colors
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: convert the "winter" colormap to 400 colors (stretching)
+.Figure 20002: Test case: Plotting when input data (colorMapMatrix) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_reduceColorMap
+__________
+
+<strong>   
+</strong><strong>Testing script: 20 of 20, test_fcn_plotRoad_zoomToRegion
+
+</strong>Running script_test_fcn_plotRoad_zoomToRegion
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Zoom into BRIDGE region by using default settings
+.Figure 10002: DEMO case: Zoom into PENDULUM region by using default settings
+.Figure 10003: DEMO case: Zoom into VEHICLE DURABILITY COURSE region
+.Figure 10004: DEMO case: Zoom into NOMINAL SITE region
+.Figure 10005: DEMO case: Zoom into VEGETATION SITE ONE region 
+.Figure 10006: DEMO case: Zoom into VEGETATION SITE TWO region
+.Figure 10007: DEMO case: Zoom into CRASH TEST COURSE region
+. Figure 10008: DEMO case: Zoom into VEHICLE HANDLING AREA region
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Zoom into PENDULUM region by adjusting the zoom level (19) (Default = 21)
+.Figure 20002: Test case: zoomScenario and zoomRegion are not case senstive
+.Figure 20003: Test case: zoomScenario and zoomRegion can have any number of spaces
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty figNum
+.Figure: 80002: FAST mode, figNum=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_zoomToRegion
+__________
+
