@@ -62,7 +62,7 @@
 % 2025_11_06 - Aneesh Batchu
 % -- Modified debug options in functions to handle NaNs in the inputs
 % -- Added test cases with NaNs in the input data 
-
+% -- Re-checked the verification list
 
 %% To-Do list
 % 2025_11_04 - S. Brennan, sbrennan@psu.edu
@@ -113,7 +113,7 @@ library_url{ith_library}     = 'https://github.com/ivsg-psu/PathPlanning_GeomToo
 
 
 %% Clear paths and folders, if needed
-if 1==1
+if 1==0
     clear flag_plotRoad_Folders_Initialized;
     fcn_INTERNAL_clearUtilitiesFromPathAndFolders;
 
