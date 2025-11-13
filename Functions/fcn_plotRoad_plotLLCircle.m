@@ -88,6 +88,9 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 % 2025_11_01 - Aneesh Batchu
 % -- Added MAX_NARGIN option to the function
 % -- Added debug tools to check the inputs
+% 2025_11_13 - Sean Brennan
+% -- Bug fix due to LLA being shaped wrong, due to GPS library being out of
+%    % date previously
 
 %% Debugging and Input checks
 
@@ -294,6 +297,10 @@ gps_object = GPS(reference_latitude, reference_longitude, reference_altitude);
 
 % Find the ENU coordinates of the center of the circle
 ENU_center  = gps_object.WGSLLA2ENU(LLcenter(:,1), LLcenter(:,2), 0);
+% Make sure it's a row vector
+if size(ENU_center,2)==1 && size(ENU_center,1)>1
+    ENU_center = ENU_center';
+end
 
 %% Calculate each circle's coordinates
 
@@ -314,19 +321,22 @@ end
 theta = linspace(0, 2*pi, Athetas); 
 
 % Generate X and Y data as R rows by A columns
-AllXData = ones(Rcolors,Athetas)*ENU_center(1,1) + radii*cos(theta);
-AllYData = ones(Rcolors,Athetas)*ENU_center(1,2) + radii*sin(theta);
+AllXData = ones(Rcolors,Athetas)*ENU_center(1) + radii*cos(theta);
+AllYData = ones(Rcolors,Athetas)*ENU_center(2) + radii*sin(theta);
 
 % Generate the LLA data
 AllLatData = nan(Rcolors,Athetas);
 AllLonData = nan(Rcolors,Athetas);
 
+
 for ith_color = 1:Rcolors
     % Convert the ENU coordinates back into LLA coordinates
-    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]);
-    AllLatData(ith_color,:) = lla_coords(:,1)';
-    AllLonData(ith_color,:) = lla_coords(:,2)';
+    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]');
+    AllLatData(ith_color,:) = lla_coords(1,:)';
+    AllLonData(ith_color,:) = lla_coords(2,:)';
 end
+
+
 % AllLatData, AllLonData, AllXData, AllYData, ringColors
 
 %% Initialize the output handles

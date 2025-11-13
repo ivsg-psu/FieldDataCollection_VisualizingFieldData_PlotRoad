@@ -115,9 +115,13 @@ if 0==flag_max_speed
         narginchk(1,MAX_NARGIN);
 
         % Check the XYdata input
+        try
         fcn_DebugTools_checkInputsToFunctions(...
             XYdata, '2or3column_of_mixed');
-
+        catch
+            disp('stop here');
+            error;
+        end
 
     end
 end

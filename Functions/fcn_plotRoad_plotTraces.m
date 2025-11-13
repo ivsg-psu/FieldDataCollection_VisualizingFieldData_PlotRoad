@@ -421,9 +421,9 @@ gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % L
 if isempty(ENU_data_with_nan) && isempty(LLA_data_with_nan)
     error('At least one of the ENU or LLA data arrays must be filled.');
 elseif isempty(ENU_data_with_nan)
-    ENU_data_with_nan  = gps_object.WGSLLA2ENU(LLA_data_with_nan(:,1), LLA_data_with_nan(:,2), LLA_data_with_nan(:,3));
+    ENU_data_with_nan  = (gps_object.WGSLLA2ENU(LLA_data_with_nan(:,1), LLA_data_with_nan(:,2), LLA_data_with_nan(:,3)))';
 elseif isempty(LLA_data_with_nan)
-    LLA_data_with_nan =  gps_object.ENU2WGSLLA(ENU_data_with_nan');
+    LLA_data_with_nan =  (gps_object.ENU2WGSLLA(ENU_data_with_nan'))';
 end
 
 

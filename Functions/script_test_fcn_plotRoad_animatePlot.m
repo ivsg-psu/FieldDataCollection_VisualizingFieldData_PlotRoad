@@ -58,7 +58,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 
 time = linspace(0,10,Npoints)';
@@ -103,7 +103,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 
 
@@ -149,7 +149,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
 plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
@@ -203,7 +203,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
 plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
@@ -274,7 +274,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
 plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
@@ -405,7 +405,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
 plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
@@ -786,7 +786,7 @@ reference_altitude = 344.189;
 gps_object = GPS(reference_latitude,reference_longitude,reference_altitude); % Load the GPS class
 
 Npoints = length(XY_data(:,1));
-LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 % NaN matrix
 NaN_matrix = nan(5,3); 

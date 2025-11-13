@@ -802,3 +802,1875 @@ __________
 Done script_test_fcn_plotRoad_zoomToRegion
 __________
 
+<strong>Checking root folder:
+	C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad:
+</strong><strong></strong><strong>	Checking that there is 1 m-file in root folder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a demo file, script_demo_PlotRoad.m: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a README.md file: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Functions subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Data subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Documents subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Installer subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Images subfolder: </strong><strong>PASSED.
+</strong><strong>Checking main demo file:
+	script_demo_PlotRoad.m:
+</strong><strong>	Checking that it contains "Revision history": </strong><strong>FAILED.
+</strong><strong>	Checking that it contains "TO-DO": </strong><strong>FAILED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "fcn_DebugTools_autoInstallRepos": </strong><strong>PASSED.
+</strong>
+SUMMARY OF FOUND FILES: 
+<strong>The following scripts were found that will be tested:
+</strong><strong>	There are 20 total testable functions in this repo:
+</strong>	script_test_fcn_plotRoad_animateHandlesDataSlide.m
+	script_test_fcn_plotRoad_animateHandlesOnOff.m
+	script_test_fcn_plotRoad_animatePlot.m
+	script_test_fcn_plotRoad_calcLaneBoundaries.m
+	script_test_fcn_plotRoad_calcLaneBoundingBox.m
+	script_test_fcn_plotRoad_calcRectangleXYZ.m
+	script_test_fcn_plotRoad_plotHeadTailLL.m
+	script_test_fcn_plotRoad_plotHeadTailXY.m
+	script_test_fcn_plotRoad_plotLL.m
+	script_test_fcn_plotRoad_plotLLCircle.m
+	script_test_fcn_plotRoad_plotLLI.m
+	script_test_fcn_plotRoad_plotTraceLL.m
+	script_test_fcn_plotRoad_plotTraceXY.m
+	script_test_fcn_plotRoad_plotTraces.m
+	script_test_fcn_plotRoad_plotXY.m
+	script_test_fcn_plotRoad_plotXYI.m
+	script_test_fcn_plotRoad_plotXYZ.m
+	script_test_fcn_plotRoad_plotXYZI.m
+	script_test_fcn_plotRoad_reduceColorMap.m
+	script_test_fcn_plotRoad_zoomToRegion.m
+
+STARTING TESTS:
+<strong>   
+</strong><strong>Testing script: 1 of 20, test_fcn_plotRoad_animateHandlesDataSlide
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesDataSlide
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of simple points in XY
+{Operation terminated by user during <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animateHandlesDataSlide', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animateHandlesDataSlide.m', 72)" style="font-weight:bold">script_test_fcn_plotRoad_animateHandlesDataSlide</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animateHandlesDataSlide.m',72,0)">line 72</a>)
+
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.executeScriptLines', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\executeScriptLines.m', 12)" style="font-weight:bold">matlab.unittest.internal.executeScriptLines</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\executeScriptLines.m',12,0)">line 12</a>)
+    matlab.lang.internal.executeCodeBlock('caller',scriptName,double.empty(0,2),sectionStartLineNum,sectionEndLineNum);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.ScriptTestCaseProvider/evaluateTestSection', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m', 123)" style="font-weight:bold">matlab.unittest.internal.ScriptTestCaseProvider/evaluateTestSection</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m',123,0)">line 123</a>)
+            eval(['matlab.unittest.internal.assignSharedVariables(testCase__.TestData);', ...
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.ScriptTestCaseProvider/runTestSection', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m', 117)" style="font-weight:bold">matlab.unittest.internal.ScriptTestCaseProvider/runTestSection</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m',117,0)">line 117</a>)
+            provider.evaluateTestSection(testCase);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.ScriptTestCaseProvider>@(testCase)provider.runTestSection(testCase)', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m', 96)" style="font-weight:bold">matlab.unittest.internal.ScriptTestCaseProvider>@(testCase)provider.runTestSection(testCase)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\ext\+matlab\+unittest\+internal\ScriptTestCaseProvider.m',96,0)">line 96</a>)
+          testCase = prototype.copyFor(@(testCase) provider.runTestSection(testCase));
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.FunctionTestCase/test', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\FunctionTestCase.m', 73)" style="font-weight:bold">matlab.unittest.internal.FunctionTestCase/test</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\FunctionTestCase.m',73,0)">line 73</a>)
+            testCase.TestFcn(testCase);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/evaluateMethodCore', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1031)" style="font-weight:bold">matlab.unittest.TestRunner/evaluateMethodCore</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1031,0)">line 1031</a>)
+                    func(content);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/evaluateMethodsOnTestContent', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 972)" style="font-weight:bold">matlab.unittest.TestRunner/evaluateMethodsOnTestContent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',972,0)">line 972</a>)
+                    runner.evaluateMethodCore(method, content, arguments);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runTestMethodCore', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1147)" style="font-weight:bold">matlab.unittest.TestRunner/runTestMethodCore</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1147,0)">line 1147</a>)
+            runner.evaluateMethodsOnTestContent(method, testCase);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runTestCore', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1119)" style="font-weight:bold">matlab.unittest.TestRunner/runTestCore</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1119,0)">line 1119</a>)
+                    runner.runTestMethodCore;
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/repeatTest', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 567)" style="font-weight:bold">matlab.unittest.TestRunner/repeatTest</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',567,0)">line 567</a>)
+                    runner.runTestCore;
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runSharedTestCase', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 508)" style="font-weight:bold">matlab.unittest.TestRunner/runSharedTestCase</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',508,0)">line 508</a>)
+                    runner.repeatTest(usePlugins);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runTestClass', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1412)" style="font-weight:bold">matlab.unittest.TestRunner/runTestClass</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1412,0)">line 1412</a>)
+                runner.runSharedTestCase(runner.PluginData.runSharedTestCase);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runTestClass', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 430)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runTestClass</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',430,0)">line 430</a>)
+            nextOperator.runTestClass(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.testrunprogress.ConciseProgressPlugin/runTestClass', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\+testrunprogress\ConciseProgressPlugin.m', 68)" style="font-weight:bold">matlab.unittest.plugins.testrunprogress.ConciseProgressPlugin/runTestClass</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\+testrunprogress\ConciseProgressPlugin.m',68,0)">line 68</a>)
+            runTestClass@matlab.unittest.plugins.TestRunnerPlugin(plugin, pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runTestClass', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 430)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runTestClass</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',430,0)">line 430</a>)
+            nextOperator.runTestClass(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('sltest.plugins.TestManagerResultsPlugin/runTestClass', 'C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m', 148)" style="font-weight:bold">sltest.plugins.TestManagerResultsPlugin/runTestClass</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m',148,0)">line 148</a>)
+            plugin.runTestClass@matlab.unittest.plugins.TestRunnerPlugin(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1337)" style="font-weight:bold">matlab.unittest.TestRunner/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1337,0)">line 1337</a>)
+                    plugin.runTestClass(runner.PluginData.runTestClass);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 265)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',265,0)">line 265</a>)
+            nextOperator.runTestSuite(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.DiagnosticsOutputPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\DiagnosticsOutputPlugin.m', 161)" style="font-weight:bold">matlab.unittest.plugins.DiagnosticsOutputPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\DiagnosticsOutputPlugin.m',161,0)">line 161</a>)
+            runTestSuite@matlab.unittest.plugins.TestRunnerPlugin(plugin, pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 265)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',265,0)">line 265</a>)
+            nextOperator.runTestSuite(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.DiagnosticsRecordingPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\DiagnosticsRecordingPlugin.m', 208)" style="font-weight:bold">matlab.unittest.plugins.DiagnosticsRecordingPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\DiagnosticsRecordingPlugin.m',208,0)">line 208</a>)
+            plugin.runTestSuite@matlab.unittest.plugins.TestRunnerPlugin(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 265)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',265,0)">line 265</a>)
+            nextOperator.runTestSuite(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('sltest.plugins.TestManagerResultsPlugin/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m', 134)" style="font-weight:bold">sltest.plugins.TestManagerResultsPlugin/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m',134,0)">line 134</a>)
+            plugin.runTestSuite@matlab.unittest.plugins.TestRunnerPlugin(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/evaluateMethodOnPlugins', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 425)" style="font-weight:bold">matlab.unittest.TestRunner/evaluateMethodOnPlugins</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',425,0)">line 425</a>)
+                [varargout{1:nargout}] = plugin.(methodName)(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.SerialTestRunStrategy/runTestSuite', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\SerialTestRunStrategy.m', 36)" style="font-weight:bold">matlab.unittest.internal.SerialTestRunStrategy/runTestSuite</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\SerialTestRunStrategy.m',36,0)">line 36</a>)
+            runner.evaluateMethodOnPlugins("runTestSuite", pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.internal.SerialTestRunStrategy/runSession', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\SerialTestRunStrategy.m', 16)" style="font-weight:bold">matlab.unittest.internal.SerialTestRunStrategy/runSession</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+internal\SerialTestRunStrategy.m',16,0)">line 16</a>)
+            strategy.runTestSuite(runner,testSuiteRunPluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/runSession', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 1293)" style="font-weight:bold">matlab.unittest.TestRunner/runSession</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',1293,0)">line 1293</a>)
+            runner.TestRunStrategy.runSession(runner,pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.plugins.TestRunnerPlugin/runSession', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m', 228)" style="font-weight:bold">matlab.unittest.plugins.TestRunnerPlugin/runSession</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\+plugins\TestRunnerPlugin.m',228,0)">line 228</a>)
+            nextOperator.runSession(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('sltest.plugins.TestManagerResultsPlugin/runSession', 'C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m', 122)" style="font-weight:bold">sltest.plugins.TestManagerResultsPlugin/runSession</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\stm\stm\matlabunit\+sltest\+plugins\TestManagerResultsPlugin.m',122,0)">line 122</a>)
+            plugin.runSession@matlab.unittest.plugins.TestRunnerPlugin(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/evaluateMethodOnPlugins', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 425)" style="font-weight:bold">matlab.unittest.TestRunner/evaluateMethodOnPlugins</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',425,0)">line 425</a>)
+                [varargout{1:nargout}] = plugin.(methodName)(pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/doRunWithFcn', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 413)" style="font-weight:bold">matlab.unittest.TestRunner/doRunWithFcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',413,0)">line 413</a>)
+            runner.evaluateMethodOnPlugins(methodName, pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestRunner/run', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m', 297)" style="font-weight:bold">matlab.unittest.TestRunner/run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestRunner.m',297,0)">line 297</a>)
+            result = doRunWithFcn(runner, "runSession", pluginData);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('matlab.unittest.TestSuite/run', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestSuite.m', 564)" style="font-weight:bold">matlab.unittest.TestSuite/run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\testframework\unittest\core\+matlab\+unittest\TestSuite.m',564,0)">line 564</a>)
+            results = runner.run(suite);
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_all_functions', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_all_functions.m', 266)" style="font-weight:bold">script_test_all_functions</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_all_functions.m',266,0)">line 266</a>)
+    allResults{ith_testScript,1} = run(suite);} 
+script_demo_plotRoad
+	Skipping already installed library: DebugTools_v2025_11_13b
+	Copying function fcn_DebugTools_autoInstallRepos.m to Installer folder...Done.
+	Skipping already installed library: PathClass_v2025_11_13
+	Skipping already installed library: BreakDataIntoLaps_v2025_11_13
+	Skipping already installed library: GPSClass_v2023_06_29
+	Skipping already installed library: LineFitting_v2023_07_18
+	Skipping already installed library: FindCircleRadius_v2023_08_02
+<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',210,1)">210 </a>hard_coded_reference_unit_tangent_vector_outer_lanes   = [0.793033249943519   0.609178351949592];
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+Figure 20001: fcn_plotRoad_plotXY: plots XY data with user-defined formatting
+Figure 20002: fcn_plotRoad_plotXYI:  plots XY data with intensiy color mapping
+Figure 20003: fcn_plotRoad_plotXYZ: plots XYZ data with user-defined formatting strings
+Figure 20004: fcn_plotRoad_plotXYZI: plots XYZ data with intensiy color mapping
+Figure 20005: fcn_plotRoad_plotLL: geoplots Latitude and Longitude data with user-defined formatting strings
+Figure 20006: fcn_plotRoad_plotLLI: geoplots Latitude and Longitude data with intensiy color mapping
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+{Index in position 2 exceeds array bounds. Index must not exceed 1.
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotLLCircle', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m', 318)" style="font-weight:bold">fcn_plotRoad_plotLLCircle</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',318,0)">line 318</a>)
+AllYData = ones(Rcolors,Athetas)*ENU_center(1,2) + radii*sin(theta);
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_demo_plotRoad', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m', 489)" style="font-weight:bold">script_demo_plotRoad</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)">line 489</a>)
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));} 
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',318,0)
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',318,0)
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)
+ENU_center
+ENU_center =
+   1.0e+05 *
+   -1.7279
+   -0.4607
+   -0.0285
+if system_dependent('IsDebugMode')==1, dbquit all; end
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+            diffXYZ = R \ ENU;
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                reference_longitude, reference_altitude);
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotLLCircle', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m', 334)" style="font-weight:bold">fcn_plotRoad_plotLLCircle</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',334,0)">line 334</a>)
+    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)'
+    AllYData(ith_color,:)' zeros(Athetas,1)]);
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_demo_plotRoad', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m', 489)" style="font-weight:bold">script_demo_plotRoad</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)">line 489</a>)
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] =
+fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat),
+(colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+if system_dependent('IsDebugMode')==1, dbquit all; end
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+            diffXYZ = R \ ENU;
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                reference_longitude, reference_altitude);
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotLLCircle', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m', 334)" style="font-weight:bold">fcn_plotRoad_plotLLCircle</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',334,0)">line 334</a>)
+    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)'
+    AllYData(ith_color,:)' zeros(Athetas,1)]);
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_demo_plotRoad', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m', 489)" style="font-weight:bold">script_demo_plotRoad</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)">line 489</a>)
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] =
+fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat),
+(colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+
+opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotLLCircle.m',334,0)
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+lla_coords
+{Unrecognized function or variable 'lla_coords'.} 
+gps_object.ENU2WGSLLA([AllXData(ith_color,:)
+AllXData(ith_color,:)
+ans =
+   1.0e+05 *
+  Columns 1 through 7
+   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278
+  Columns 8 through 14
+   -1.7278   -1.7278   -1.7278   -1.7278   -1.7279   -1.7279   -1.7279
+  Columns 15 through 21
+   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279
+  Columns 22 through 28
+   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279
+  Columns 29 through 35
+   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279   -1.7279
+  Columns 36 through 42
+   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278   -1.7278
+  Columns 43 through 46
+   -1.7278   -1.7278   -1.7278   -1.7278
+AllXData(ith_color,:)'
+ans =
+   1.0e+05 *
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7279
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+   -1.7278
+AllYData(ith_color,:)'
+ans =
+   1.0e+04 *
+   -4.6069
+   -4.6067
+   -4.6066
+   -4.6065
+   -4.6064
+   -4.6064
+   -4.6063
+   -4.6062
+   -4.6062
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6062
+   -4.6062
+   -4.6063
+   -4.6064
+   -4.6065
+   -4.6066
+   -4.6067
+   -4.6068
+   -4.6069
+   -4.6070
+   -4.6071
+   -4.6072
+   -4.6073
+   -4.6074
+   -4.6075
+   -4.6075
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6075
+   -4.6074
+   -4.6074
+   -4.6073
+   -4.6072
+   -4.6071
+   -4.6070
+   -4.6069
+zeros(Athetas,1)
+ans =
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+     0
+[AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]
+ans =
+   1.0e+05 *
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7278   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4606         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4607         0
+   -1.7279   -0.4608         0
+   -1.7279   -0.4608         0
+   -1.7279   -0.4608         0
+   -1.7279   -0.4608         0
+   -1.7279   -0.4608         0
+   -1.7278   -0.4608         0
+   -1.7278   -0.4608         0
+   -1.7278   -0.4608         0
+   -1.7278   -0.4608         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+   -1.7278   -0.4607         0
+if system_dependent('IsDebugMode')==1, dbquit all; end
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+AllYData(ith_color,:)
+ans =
+   1.0e+04 *
+  Columns 1 through 7
+   -4.6069   -4.6067   -4.6066   -4.6065   -4.6064   -4.6064   -4.6063
+  Columns 8 through 14
+   -4.6062   -4.6062   -4.6061   -4.6061   -4.6061   -4.6061   -4.6061
+  Columns 15 through 21
+   -4.6061   -4.6062   -4.6062   -4.6063   -4.6064   -4.6065   -4.6066
+  Columns 22 through 28
+   -4.6067   -4.6068   -4.6069   -4.6070   -4.6071   -4.6072   -4.6073
+  Columns 29 through 35
+   -4.6074   -4.6075   -4.6075   -4.6076   -4.6076   -4.6076   -4.6076
+  Columns 36 through 42
+   -4.6076   -4.6076   -4.6076   -4.6075   -4.6074   -4.6074   -4.6073
+  Columns 43 through 46
+   -4.6072   -4.6071   -4.6070   -4.6069
+AllYData(ith_color,:)'
+ans =
+   1.0e+04 *
+   -4.6069
+   -4.6067
+   -4.6066
+   -4.6065
+   -4.6064
+   -4.6064
+   -4.6063
+   -4.6062
+   -4.6062
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6061
+   -4.6062
+   -4.6062
+   -4.6063
+   -4.6064
+   -4.6065
+   -4.6066
+   -4.6067
+   -4.6068
+   -4.6069
+   -4.6070
+   -4.6071
+   -4.6072
+   -4.6073
+   -4.6074
+   -4.6075
+   -4.6075
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6076
+   -4.6075
+   -4.6074
+   -4.6074
+   -4.6073
+   -4.6072
+   -4.6071
+   -4.6070
+   -4.6069
+if system_dependent('IsDebugMode')==1, dbquit all; end
+script_test_fcn_plotRoad_plotLLCircle
+Figure: 1XXXX: DEMO cases
+Figure 10001: DEMO case: Plotting with all defaults
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+stop here
+lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]');
+AllLatData(ith_color,:) = lla_coords(:,1)'
+{Unable to perform assignment because the size of the left side is 1-by-91 and
+the size of the right side is 1-by-3.} 
+whs lla_coords
+{Unrecognized function or variable 'whs'.} 
+whos lla_coords
+  Name            Size            Bytes  Class     Attributes
+
+  lla_coords      3x91             2184  double              
+
+        AllLatData(ith_color,:) = lla_coords(1,:)';
+        AllLonData(ith_color,:) = lla_coords(2,:)';
+if system_dependent('IsDebugMode')==1, dbquit all; end
+script_test_fcn_plotRoad_plotLLCircle
+Figure: 1XXXX: DEMO cases
+Figure 10001: DEMO case: Plotting with all defaults
+Figure 10002: DEMO case: Specifying the color as a string
+Figure 10003: DEMO case: specifying the colorMap
+Figure: 2XXXXXX: TEST mode cases
+Figure 20001: Test case: Specifying the linestyle
+Figure 20002: Test case: specifying the full plotFormat
+Figure 20003: Test case: Specifying the color as a fade-out
+Figure 20004: Test case: Changing maxColors
+Figure 20005: Test case: Animate a "radar" view with colormap
+Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode testsopentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\script_demo_plotRoad.m',489,0)
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+Figure 20007: fcn_plotRoad_animateHandlesOnOff: animates a list of handles by on/off
+script_test_all_functions
+<strong>Checking root folder:
+	C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad:
+</strong><strong></strong><strong>	Checking that there is 1 m-file in root folder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a demo file, script_demo_PlotRoad.m: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a README.md file: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Functions subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Data subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Documents subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Installer subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Images subfolder: </strong><strong>PASSED.
+</strong><strong>Checking main demo file:
+	script_demo_PlotRoad.m:
+</strong><strong>	Checking that it contains "Revision history": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "TO-DO": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "fcn_DebugTools_autoInstallRepos": </strong><strong>PASSED.
+</strong>
+SUMMARY OF FOUND FILES: 
+<strong>The following scripts were found that will be tested:
+</strong><strong>	There are 20 total testable functions in this repo:
+</strong>	script_test_fcn_plotRoad_animateHandlesDataSlide.m
+	script_test_fcn_plotRoad_animateHandlesOnOff.m
+	script_test_fcn_plotRoad_animatePlot.m
+	script_test_fcn_plotRoad_calcLaneBoundaries.m
+	script_test_fcn_plotRoad_calcLaneBoundingBox.m
+	script_test_fcn_plotRoad_calcRectangleXYZ.m
+	script_test_fcn_plotRoad_plotHeadTailLL.m
+	script_test_fcn_plotRoad_plotHeadTailXY.m
+	script_test_fcn_plotRoad_plotLL.m
+	script_test_fcn_plotRoad_plotLLCircle.m
+	script_test_fcn_plotRoad_plotLLI.m
+	script_test_fcn_plotRoad_plotTraceLL.m
+	script_test_fcn_plotRoad_plotTraceXY.m
+	script_test_fcn_plotRoad_plotTraces.m
+	script_test_fcn_plotRoad_plotXY.m
+	script_test_fcn_plotRoad_plotXYI.m
+	script_test_fcn_plotRoad_plotXYZ.m
+	script_test_fcn_plotRoad_plotXYZI.m
+	script_test_fcn_plotRoad_reduceColorMap.m
+	script_test_fcn_plotRoad_zoomToRegion.m
+
+STARTING TESTS:
+<strong>   
+</strong><strong>Testing script: 1 of 20, test_fcn_plotRoad_animateHandlesDataSlide
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesDataSlide
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of simple points in XY
+.Figure 10002: DEMO case: Do an animation of line segments in XY
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Points in XY with trail
+.Figure 20002: Test case: geoplot XY with trail
+.Figure 20001: Test case: Plotting when input data contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesDataSlide
+__________
+
+<strong>   
+</strong><strong>Testing script: 2 of 20, test_fcn_plotRoad_animateHandlesOnOff
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesOnOff
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of XYI plot (using simple points)
+.Figure 10002: DEMO case: Do an animation of expanding rings
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Showing animation of XYI plot using line segments
+.Figure 20002: Test case: Do an animation of expanding rings with different skip interval
+.Figure 20003: Test case: Animate a "radar" view with one "beam"
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesOnOff
+__________
+
+<strong>   
+</strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: plotLLI with defaults
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLIWithDefaults and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 61)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',61,0)">line 61</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.Figure 10002: DEMO case: plotLLI with defaults
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLIWithColor and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 106)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',106,0)">line 106</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.Figure 10003: DEMO case: plotLLI specifying the colorMap, automating zoom
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLISpecifyingTheColorMap_AutomatingZoom and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 152)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',152,0)">line 152</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.Figure 10004: DEMO case: plotLLI specifying the linestyle
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLISpecifyingTheLinestyle and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 206)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',206,0)">line 206</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: plotLLI specifying the full plotFormat
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/TestCase_PlotLLISpecifyingTheFullPlotFormat and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 277)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',277,0)">line 277</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.Figure 20002: Test case: plotLL specifying the full plotFormat
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/TestCase_PlotLLSpecifyingTheFullPlotFormat and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 408)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',408,0)">line 408</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+. Figure 20003: Test case: plotXYI specifying the full plotFormat
+.Figure 20004: Test case: plotXY specifying the full plotFormat
+.Figure 20005: DEMO case: Plotting when input data (plotData) contains NaNs
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_animatePlot/TestCase_PlottingWhenInputData_plotData_ContainsNaNs and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:dimagree'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+    Matrix dimensions must agree.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSXYZ', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 154)" style="font-weight:bold">GPS/ENU2WGSXYZ</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',154,0)">line 154</a>)
+                diffXYZ = R \ ENU;
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('GPS/ENU2WGSLLA', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m', 241)" style="font-weight:bold">GPS/ENU2WGSLLA</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FeatureExtraction\DataClean\BreakDataIntoLaps\Utilities\PathClass_v2025_08_03\OLD_CODE_TO_ADD\Code\GPS.m',241,0)">line 241</a>)
+                    XYZ = ENU2WGSXYZ(obj, ENU(:,i), reference_latitude,
+                    reference_longitude, reference_altitude);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_animatePlot', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m', 789)" style="font-weight:bold">script_test_fcn_plotRoad_animatePlot</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_animatePlot.m',789,0)">line 789</a>)
+    LLA_positions_matrix =  gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]);
+================================================================================
+.....
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+Failure Summary:
+
+     Name                                                                                       Failed  Incomplete  Reason(s)
+    ==========================================================================================================================
+     script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLIWithDefaults                            X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLIWithColor                               X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLISpecifyingTheColorMap_AutomatingZoom    X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/DEMOCase_PlotLLISpecifyingTheLinestyle                  X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/TestCase_PlotLLISpecifyingTheFullPlotFormat             X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/TestCase_PlotLLSpecifyingTheFullPlotFormat              X         X       Errored.
+    --------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_animatePlot/TestCase_PlottingWhenInputData_plotData_ContainsNaNs    X         X       Errored.
+<strong>   
+</strong><strong>Testing script: 4 of 20, test_fcn_plotRoad_calcLaneBoundaries
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundaries
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Input array with one nan sequence inside
+.Figure 20002: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcLaneBoundaries
+__________
+
+<strong>   
+</strong><strong>Testing script: 5 of 20, test_fcn_plotRoad_calcLaneBoundingBox
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundingBox
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_calcLaneBoundingBox
+__________
+
+<strong>   
+</strong><strong>Testing script: 6 of 20, test_fcn_plotRoad_calcRectangleXYZ
+
+</strong>Running script_test_fcn_plotRoad_calcRectangleXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic rectangle, 2D
+.Figure 10002: DEMO case: Basic 2D rectangle, moved location
+.Figure 10003: DEMO case: Basic 2D rectangle, moved and rotated
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Basic 2D rectangle, moved and rotated and measured from back corner
+.Figure 20002: Test case: Basic 3D rectangle, moved and rotated and measured from back corner
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcRectangleXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 7 of 20, test_fcn_plotRoad_plotHeadTailLL
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plot data onto an empty figure
+.Figure 10002: DEMO case: Call the function with empty inputs
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with simple formatting string
+.Figure 20002: Test case: Plot data with user-given color vector
+.Figure 20003: Test case: Plot data with user-given color vector
+.Figure 20004: Test case: Plotting when input data (LLdata) contains NaNs
+. Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests
+.....
+Done script_test_fcn_plotRoad_plotHeadTailLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 8 of 20, test_fcn_plotRoad_plotHeadTailXY
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with color numbers
+.Figure 20002: Test case: Plot data with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests. .....
+Done script_test_fcn_plotRoad_plotHeadTailXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 9 of 20, test_fcn_plotRoad_plotLL
+
+</strong>Running script_test_fcn_plotRoad_plotLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: only opens and initializes plot
+.Figure 10002: DEMO case: all defaults, no data. Also opens and initializes plot
+.Figure 10003: DEMO case: ppens and inializes plot to the data point
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot LL data
+.Figure 20002: Test case: Plot data onto an existing figure
+.Figure 20003: Test case: Plot data with simple formatting string
+. Figure 20004: Test case: Plot data with user-given color vector
+.Figure 20005: Test case: Plot data with structure input
+.Figure 20005: Test case: Start of the PennDOT site 1 area
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests...
+Done script_test_fcn_plotRoad_plotLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 10 of 20, test_fcn_plotRoad_plotLLCircle
+
+</strong>Running script_test_fcn_plotRoad_plotLLCircle
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: specifying the full plotFormat
+.Figure 20003: Test case: Specifying the color as a fade-out
+. Figure 20004: Test case: Changing maxColors
+.Figure 20005: Test case: Animate a "radar" view with colormap
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.....
+Done script_test_fcn_plotRoad_plotLLCircle
+__________
+
+<strong>   
+</strong><strong>Testing script: 11 of 20, test_fcn_plotRoad_plotLLI
+
+</strong>Running script_test_fcn_plotRoad_plotLLI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: changing marker size, same color
+.Figure 20003: Test case: specifying the full plotFormat, including reduced color map and changing marker size 
+. Figure 20004: DEMO case:Plotting when input data (LLIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotLLI
+__________
+
+<strong>   
+</strong><strong>Testing script: 12 of 20, test_fcn_plotRoad_plotTraceLL
+
+</strong>Running script_test_fcn_plotRoad_plotTraceLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array
+.Figure 10002: DEMO case: Showing plot of entire cell array
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ....
+Done script_test_fcn_plotRoad_plotTraceLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 13 of 20, test_fcn_plotRoad_plotTraceXY
+
+</strong>Running script_test_fcn_plotRoad_plotTraceXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: showing plot_color
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ..
+Done script_test_fcn_plotRoad_plotTraceXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 14 of 20, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/DEMOCase_InputENUCoordinatesAndPlotATraceInOnlyLLA_doNotSpecify and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 274)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',274,0)">line 274</a>)
+            fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+            Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 64)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',64,0)">line 64</a>)
+    fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+================================================================================
+.Figure 10002: DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
+.Figure 10003: DEMO case: input STH coordinates and plot a trace in only LLA coordinates
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/DEMOCase_InputSTHCoordinatesAndPlotATraceInOnlyLLACoordinates and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 297)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',297,0)">line 297</a>)
+            fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 112)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',112,0)">line 112</a>)
+    fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+================================================================================
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: input ENU coordinates and plot a trace in only ENU
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputENUCoordinatesAndPlotATraceInOnlyENU and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 274)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',274,0)">line 274</a>)
+            fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+            Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 168)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',168,0)">line 168</a>)
+    fcn_plotRoad_plotTraces(...
+================================================================================
+.Figure 20002: Test case: input ENU coordinates and plot a trace in only STH
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputENUCoordinatesAndPlotATraceInOnlySTH and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 274)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',274,0)">line 274</a>)
+            fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+            Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 211)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',211,0)">line 211</a>)
+    fcn_plotRoad_plotTraces(...
+================================================================================
+.Figure 20003: Test case: input STH coordinates and plot a trace in only STH
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlySTH and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 297)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',297,0)">line 297</a>)
+            fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 251)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',251,0)">line 251</a>)
+    fcn_plotRoad_plotTraces(...
+================================================================================
+. Figure 20004: Test case: input STH coordinates and plot a trace in only LLA
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlyLLA and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 297)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',297,0)">line 297</a>)
+            fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 291)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',291,0)">line 291</a>)
+    fcn_plotRoad_plotTraces(...
+================================================================================
+.Figure 20005: Test case: input STH coordinates and plot a trace in only ENU
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlyENU and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 297)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',297,0)">line 297</a>)
+            fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 330)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',330,0)">line 330</a>)
+    fcn_plotRoad_plotTraces(...
+================================================================================
+.Figure 20006: Test case: input LLA coordinates and plot all traces
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_InputLLACoordinatesAndPlotAllTraces and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MyFunction:fileNotFound'
+    --------------
+    Error Details:
+    --------------
+    Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotXY', 'fcn_plotRoad_plotXY.m', 118)" style="font-weight:bold">fcn_plotRoad_plotXY</a> (<a href="matlab: opentoline('fcn_plotRoad_plotXY.m',118,0)">line 118</a>)
+    The XYdata input must have no more than 3 columns.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraceXY>fcn_INTERNAL_plotData', 'fcn_plotRoad_plotTraceXY.m', 272)" style="font-weight:bold">fcn_plotRoad_plotTraceXY>fcn_INTERNAL_plotData</a> (<a href="matlab: opentoline('fcn_plotRoad_plotTraceXY.m',272,0)">line 272</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraceXY', 'fcn_plotRoad_plotTraceXY.m', 230)" style="font-weight:bold">fcn_plotRoad_plotTraceXY</a> (<a href="matlab: opentoline('fcn_plotRoad_plotTraceXY.m',230,0)">line 230</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_plotSingleTrace', 'fcn_plotRoad_plotTraces.m', 366)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_plotSingleTrace</a> (<a href="matlab: opentoline('fcn_plotRoad_plotTraces.m',366,0)">line 366</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'fcn_plotRoad_plotTraces.m', 321)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('fcn_plotRoad_plotTraces.m',321,0)">line 321</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'script_test_fcn_plotRoad_plotTraces.m', 377)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('script_test_fcn_plotRoad_plotTraces.m',377,0)">line 377</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('executeScriptLines', 'executeScriptLines.m', 12)" style="font-weight:bold">executeScriptLines</a> (<a href="matlab: opentoline('executeScriptLines.m',12,0)">line 12</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('ScriptTestCaseProvider/evaluateTestSection', 'ScriptTestCaseProvider.m', 123)" style="font-weight:bold">ScriptTestCaseProvider/evaluateTestSection</a> (<a href="matlab: opentoline('ScriptTestCaseProvider.m',123,0)">line 123</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('ScriptTestCaseProvider/runTestSection', 'ScriptTestCaseProvider.m', 117)" style="font-weight:bold">ScriptTestCaseProvider/runTestSection</a> (<a href="matlab: opentoline('ScriptTestCaseProvider.m',117,0)">line 117</a>)
+    
+    Error in
+    <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('ScriptTestCaseProvider>@(testCase)provider.runTestSection(testCase)', 'ScriptTestCaseProvider.m', 96)" style="font-weight:bold">ScriptTestCaseProvider>@(testCase)provider.runTestSection(testCase)</a> (<a href="matlab: opentoline('ScriptTestCaseProvider.m',96,0)">line
+    96</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/evaluateMethodCore', 'TestRunner.m', 1031)" style="font-weight:bold">TestRunner/evaluateMethodCore</a> (<a href="matlab: opentoline('TestRunner.m',1031,0)">line 1031</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/evaluateMethodsOnTestContent', 'TestRunner.m', 972)" style="font-weight:bold">TestRunner/evaluateMethodsOnTestContent</a> (<a href="matlab: opentoline('TestRunner.m',972,0)">line 972</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runTestMethodCore', 'TestRunner.m', 1147)" style="font-weight:bold">TestRunner/runTestMethodCore</a> (<a href="matlab: opentoline('TestRunner.m',1147,0)">line 1147</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runTestCore', 'TestRunner.m', 1119)" style="font-weight:bold">TestRunner/runTestCore</a> (<a href="matlab: opentoline('TestRunner.m',1119,0)">line 1119</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/repeatTest', 'TestRunner.m', 567)" style="font-weight:bold">TestRunner/repeatTest</a> (<a href="matlab: opentoline('TestRunner.m',567,0)">line 567</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runSharedTestCase', 'TestRunner.m', 508)" style="font-weight:bold">TestRunner/runSharedTestCase</a> (<a href="matlab: opentoline('TestRunner.m',508,0)">line 508</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runTestClass', 'TestRunner.m', 1412)" style="font-weight:bold">TestRunner/runTestClass</a> (<a href="matlab: opentoline('TestRunner.m',1412,0)">line 1412</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runTestClass', 'TestRunnerPlugin.m', 430)" style="font-weight:bold">TestRunnerPlugin/runTestClass</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',430,0)">line 430</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('ConciseProgressPlugin/runTestClass', 'ConciseProgressPlugin.m', 68)" style="font-weight:bold">ConciseProgressPlugin/runTestClass</a> (<a href="matlab: opentoline('ConciseProgressPlugin.m',68,0)">line 68</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runTestClass', 'TestRunnerPlugin.m', 430)" style="font-weight:bold">TestRunnerPlugin/runTestClass</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',430,0)">line 430</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestManagerResultsPlugin/runTestClass', 'TestManagerResultsPlugin.m', 148)" style="font-weight:bold">TestManagerResultsPlugin/runTestClass</a> (<a href="matlab: opentoline('TestManagerResultsPlugin.m',148,0)">line 148</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runTestSuite', 'TestRunner.m', 1337)" style="font-weight:bold">TestRunner/runTestSuite</a> (<a href="matlab: opentoline('TestRunner.m',1337,0)">line 1337</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runTestSuite', 'TestRunnerPlugin.m', 265)" style="font-weight:bold">TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',265,0)">line 265</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('DiagnosticsOutputPlugin/runTestSuite', 'DiagnosticsOutputPlugin.m', 161)" style="font-weight:bold">DiagnosticsOutputPlugin/runTestSuite</a> (<a href="matlab: opentoline('DiagnosticsOutputPlugin.m',161,0)">line 161</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runTestSuite', 'TestRunnerPlugin.m', 265)" style="font-weight:bold">TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',265,0)">line 265</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('DiagnosticsRecordingPlugin/runTestSuite', 'DiagnosticsRecordingPlugin.m', 208)" style="font-weight:bold">DiagnosticsRecordingPlugin/runTestSuite</a> (<a href="matlab: opentoline('DiagnosticsRecordingPlugin.m',208,0)">line 208</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runTestSuite', 'TestRunnerPlugin.m', 265)" style="font-weight:bold">TestRunnerPlugin/runTestSuite</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',265,0)">line 265</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestManagerResultsPlugin/runTestSuite', 'TestManagerResultsPlugin.m', 134)" style="font-weight:bold">TestManagerResultsPlugin/runTestSuite</a> (<a href="matlab: opentoline('TestManagerResultsPlugin.m',134,0)">line 134</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/evaluateMethodOnPlugins', 'TestRunner.m', 425)" style="font-weight:bold">TestRunner/evaluateMethodOnPlugins</a> (<a href="matlab: opentoline('TestRunner.m',425,0)">line 425</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('SerialTestRunStrategy/runTestSuite', 'SerialTestRunStrategy.m', 36)" style="font-weight:bold">SerialTestRunStrategy/runTestSuite</a> (<a href="matlab: opentoline('SerialTestRunStrategy.m',36,0)">line 36</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('SerialTestRunStrategy/runSession', 'SerialTestRunStrategy.m', 16)" style="font-weight:bold">SerialTestRunStrategy/runSession</a> (<a href="matlab: opentoline('SerialTestRunStrategy.m',16,0)">line 16</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/runSession', 'TestRunner.m', 1293)" style="font-weight:bold">TestRunner/runSession</a> (<a href="matlab: opentoline('TestRunner.m',1293,0)">line 1293</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunnerPlugin/runSession', 'TestRunnerPlugin.m', 228)" style="font-weight:bold">TestRunnerPlugin/runSession</a> (<a href="matlab: opentoline('TestRunnerPlugin.m',228,0)">line 228</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestManagerResultsPlugin/runSession', 'TestManagerResultsPlugin.m', 122)" style="font-weight:bold">TestManagerResultsPlugin/runSession</a> (<a href="matlab: opentoline('TestManagerResultsPlugin.m',122,0)">line 122</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/evaluateMethodOnPlugins', 'TestRunner.m', 425)" style="font-weight:bold">TestRunner/evaluateMethodOnPlugins</a> (<a href="matlab: opentoline('TestRunner.m',425,0)">line 425</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/doRunWithFcn', 'TestRunner.m', 413)" style="font-weight:bold">TestRunner/doRunWithFcn</a> (<a href="matlab: opentoline('TestRunner.m',413,0)">line 413</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestRunner/run', 'TestRunner.m', 297)" style="font-weight:bold">TestRunner/run</a> (<a href="matlab: opentoline('TestRunner.m',297,0)">line 297</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('TestSuite/run', 'TestSuite.m', 564)" style="font-weight:bold">TestSuite/run</a> (<a href="matlab: opentoline('TestSuite.m',564,0)">line 564</a>)
+    
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_all_functions', 'script_test_all_functions.m', 266)" style="font-weight:bold">script_test_all_functions</a> (<a href="matlab: opentoline('script_test_all_functions.m',266,0)">line 266</a>)
+================================================================================
+.Figure 20007: Test case: Plot the electric poles on the test track
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_PlotTheElectricPolesOnTheTestTrack and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 274)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',274,0)">line 274</a>)
+            fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+            Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 403)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',403,0)">line 403</a>)
+    [LLA_trace, ENU_trace, STH_trace] =
+    fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+================================================================================
+.Figure 20008: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+
+================================================================================
+<strong>Error occurred in script_test_fcn_plotRoad_plotTraces/TestCase_PlottingWhenInputData_Trace_coordinates_ContainsNaNs and it did not run to completion.</strong>
+    ---------
+    Error ID:
+    ---------
+    'MATLAB:badsubscript'
+    --------------
+    Error Details:
+    --------------
+    Index in position 1 exceeds array bounds. Index must not exceed 3.
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 439)" style="font-weight:bold">fcn_plotRoad_plotTraces>fcn_INTERNAL_prepDataForOutput</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',439,0)">line 439</a>)
+        LLA_positions_cell_array{ith_array} =
+        LLA_data_with_nan(current_indicies,:);
+    Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m', 274)" style="font-weight:bold">fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\fcn_plotRoad_plotTraces.m',274,0)">line 274</a>)
+            fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+            Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('script_test_fcn_plotRoad_plotTraces', 'C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m', 434)" style="font-weight:bold">script_test_fcn_plotRoad_plotTraces</a> (<a href="matlab: opentoline('C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions\script_test_fcn_plotRoad_plotTraces.m',434,0)">line 434</a>)
+    fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+================================================================================
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests..... .
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+Failure Summary:
+
+     Name                                                                                                 Failed  Incomplete  Reason(s)
+    ====================================================================================================================================
+     script_test_fcn_plotRoad_plotTraces/DEMOCase_InputENUCoordinatesAndPlotATraceInOnlyLLA_doNotSpecify    X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/DEMOCase_InputSTHCoordinatesAndPlotATraceInOnlyLLACoordinates      X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputENUCoordinatesAndPlotATraceInOnlyENU                 X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputENUCoordinatesAndPlotATraceInOnlySTH                 X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlySTH                 X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlyLLA                 X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputSTHCoordinatesAndPlotATraceInOnlyENU                 X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_InputLLACoordinatesAndPlotAllTraces                       X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_PlotTheElectricPolesOnTheTestTrack                        X         X       Errored.
+    ------------------------------------------------------------------------------------------------------------------------------------
+     script_test_fcn_plotRoad_plotTraces/TestCase_PlottingWhenInputData_Trace_coordinates_ContainsNaNs      X         X       Errored.
+<strong>   
+</strong><strong>Testing script: 15 of 20, test_fcn_plotRoad_plotXY
+
+</strong>Running script_test_fcn_plotRoad_plotXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting with color numbers
+.Figure 20002: Test case: Plotting with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 16 of 20, test_fcn_plotRoad_plotXYI
+
+</strong>Running script_test_fcn_plotRoad_plotXYI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by changing marker size, same color
+.Figure 20005: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size
+. Figure 20006: Test case: Plotting when input data (XYIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYI
+__________
+
+<strong>   
+</strong><strong>Testing script: 17 of 20, test_fcn_plotRoad_plotXYZ
+
+</strong>Running script_test_fcn_plotRoad_plotXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: color numbers
+.Figure 20002: Test case: structure input
+.Figure 20003: Test case: Plotting when input data (XYZdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 18 of 20, test_fcn_plotRoad_plotXYZI
+
+</strong>Running script_test_fcn_plotRoad_plotXYZI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by specifying the full plotFormat
+.Figure 20005: Test case: Plotting by specifying a reduced colormap (for speed)
+. Figure 20006: Test case: Plotting by changing marker size, same colorfig_num
+.Figure 20007: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size 
+.Figure 20008: Test case: Plotting when input data (XYZIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZI
+__________
+
+<strong>   
+</strong><strong>Testing script: 19 of 20, test_fcn_plotRoad_reduceColorMap
+
+</strong>Running script_test_fcn_plotRoad_reduceColorMap
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Convert the "winter" colormap to 4 colors
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: convert the "winter" colormap to 400 colors (stretching)
+.Figure 20002: Test case: Plotting when input data (colorMapMatrix) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_reduceColorMap
+__________
+
+<strong>   
+</strong><strong>Testing script: 20 of 20, test_fcn_plotRoad_zoomToRegion
+
+</strong>Running script_test_fcn_plotRoad_zoomToRegion
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Zoom into BRIDGE region by using default settings
+.Figure 10002: DEMO case: Zoom into PENDULUM region by using default settings
+.Figure 10003: DEMO case: Zoom into VEHICLE DURABILITY COURSE region
+.Figure 10004: DEMO case: Zoom into NOMINAL SITE region
+.Figure 10005: DEMO case: Zoom into VEGETATION SITE ONE region 
+.Figure 10006: DEMO case: Zoom into VEGETATION SITE TWO region
+.Figure 10007: DEMO case: Zoom into CRASH TEST COURSE region
+. Figure 10008: DEMO case: Zoom into VEHICLE HANDLING AREA region
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Zoom into PENDULUM region by adjusting the zoom level (19) (Default = 21)
+.Figure 20002: Test case: zoomScenario and zoomRegion are not case senstive
+.Figure 20003: Test case: zoomScenario and zoomRegion can have any number of spaces
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty figNum
+.Figure: 80002: FAST mode, figNum=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_zoomToRegion
+__________
+
+<strong>Checking root folder:
+	C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad\Functions:
+</strong><strong></strong><strong>	Checking that there is 1 m-file in root folder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a demo file, script_demo_PlotRoad.m: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a README.md file: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Functions subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Data subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Documents subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Installer subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Images subfolder: </strong><strong>PASSED.
+</strong><strong>Checking main demo file:
+	script_demo_PlotRoad.m:
+</strong><strong>	Checking that it contains "Revision history": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "TO-DO": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "fcn_DebugTools_autoInstallRepos": </strong><strong>PASSED.
+</strong>
+SUMMARY OF FOUND FILES: 
+<strong>The following scripts were found that will be tested:
+</strong><strong>	There are 20 total testable functions in this repo:
+</strong>	script_test_fcn_plotRoad_animateHandlesDataSlide.m
+	script_test_fcn_plotRoad_animateHandlesOnOff.m
+	script_test_fcn_plotRoad_animatePlot.m
+	script_test_fcn_plotRoad_calcLaneBoundaries.m
+	script_test_fcn_plotRoad_calcLaneBoundingBox.m
+	script_test_fcn_plotRoad_calcRectangleXYZ.m
+	script_test_fcn_plotRoad_plotHeadTailLL.m
+	script_test_fcn_plotRoad_plotHeadTailXY.m
+	script_test_fcn_plotRoad_plotLL.m
+	script_test_fcn_plotRoad_plotLLCircle.m
+	script_test_fcn_plotRoad_plotLLI.m
+	script_test_fcn_plotRoad_plotTraceLL.m
+	script_test_fcn_plotRoad_plotTraceXY.m
+	script_test_fcn_plotRoad_plotTraces.m
+	script_test_fcn_plotRoad_plotXY.m
+	script_test_fcn_plotRoad_plotXYI.m
+	script_test_fcn_plotRoad_plotXYZ.m
+	script_test_fcn_plotRoad_plotXYZI.m
+	script_test_fcn_plotRoad_reduceColorMap.m
+	script_test_fcn_plotRoad_zoomToRegion.m
+
+STARTING TESTS:
+<strong>   
+</strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: plotLLI with defaults
+.Figure 10002: DEMO case: plotLLI with defaults
+.Figure 10003: DEMO case: plotLLI specifying the colorMap, automating zoom
+.Figure 10004: DEMO case: plotLLI specifying the linestyle
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: plotLLI specifying the full plotFormat
+.Figure 20002: Test case: plotLL specifying the full plotFormat
+. Figure 20003: Test case: plotXYI specifying the full plotFormat
+.Figure 20004: Test case: plotXY specifying the full plotFormat
+.Figure 20005: DEMO case: Plotting when input data (plotData) contains NaNs
+.....
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+<strong>   
+</strong><strong>Testing script: 14 of 20, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure 10002: DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
+.Figure 10003: DEMO case: input STH coordinates and plot a trace in only LLA coordinates
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: input ENU coordinates and plot a trace in only ENU
+.Figure 20002: Test case: input ENU coordinates and plot a trace in only STH
+.Figure 20003: Test case: input STH coordinates and plot a trace in only STH
+. Figure 20004: Test case: input STH coordinates and plot a trace in only LLA
+.Figure 20005: Test case: input STH coordinates and plot a trace in only ENU
+.Figure 20006: Test case: input LLA coordinates and plot all traces
+.Figure 20007: Test case: Plot the electric poles on the test track
+.Figure 20008: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests..... .
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+<strong>Checking root folder:
+	C:\Users\snb10\Desktop\GitHubRepos\IVSG\FieldDataCollection\VisualizingFieldData\PlotRoad:
+</strong><strong></strong><strong>	Checking that there is 1 m-file in root folder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a demo file, script_demo_PlotRoad.m: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a README.md file: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Functions subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Data subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Documents subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Installer subfolder: </strong><strong>PASSED.
+</strong><strong>	Checking that there is a Images subfolder: </strong><strong>PASSED.
+</strong><strong>Checking main demo file:
+	script_demo_PlotRoad.m:
+</strong><strong>	Checking that it contains "Revision history": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "TO-DO": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG": </strong><strong>PASSED.
+</strong><strong>	Checking that it contains "fcn_DebugTools_autoInstallRepos": </strong><strong>PASSED.
+</strong>
+SUMMARY OF FOUND FILES: 
+<strong>The following scripts were found that will be tested:
+</strong><strong>	There are 20 total testable functions in this repo:
+</strong>	script_test_fcn_plotRoad_animateHandlesDataSlide.m
+	script_test_fcn_plotRoad_animateHandlesOnOff.m
+	script_test_fcn_plotRoad_animatePlot.m
+	script_test_fcn_plotRoad_calcLaneBoundaries.m
+	script_test_fcn_plotRoad_calcLaneBoundingBox.m
+	script_test_fcn_plotRoad_calcRectangleXYZ.m
+	script_test_fcn_plotRoad_plotHeadTailLL.m
+	script_test_fcn_plotRoad_plotHeadTailXY.m
+	script_test_fcn_plotRoad_plotLL.m
+	script_test_fcn_plotRoad_plotLLCircle.m
+	script_test_fcn_plotRoad_plotLLI.m
+	script_test_fcn_plotRoad_plotTraceLL.m
+	script_test_fcn_plotRoad_plotTraceXY.m
+	script_test_fcn_plotRoad_plotTraces.m
+	script_test_fcn_plotRoad_plotXY.m
+	script_test_fcn_plotRoad_plotXYI.m
+	script_test_fcn_plotRoad_plotXYZ.m
+	script_test_fcn_plotRoad_plotXYZI.m
+	script_test_fcn_plotRoad_reduceColorMap.m
+	script_test_fcn_plotRoad_zoomToRegion.m
+
+STARTING TESTS:
+<strong>   
+</strong><strong>Testing script: 1 of 20, test_fcn_plotRoad_animateHandlesDataSlide
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesDataSlide
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of simple points in XY
+.Figure 10002: DEMO case: Do an animation of line segments in XY
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Points in XY with trail
+.Figure 20002: Test case: geoplot XY with trail
+.Figure 20001: Test case: Plotting when input data contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesDataSlide
+__________
+
+<strong>   
+</strong><strong>Testing script: 2 of 20, test_fcn_plotRoad_animateHandlesOnOff
+
+</strong>Running script_test_fcn_plotRoad_animateHandlesOnOff
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing animation of XYI plot (using simple points)
+.Figure 10002: DEMO case: Do an animation of expanding rings
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Showing animation of XYI plot using line segments
+.Figure 20002: Test case: Do an animation of expanding rings with different skip interval
+.Figure 20003: Test case: Animate a "radar" view with one "beam"
+.Figure: 8XXXXXX: TEST mode cases
+Not applicable - only a plotting function
+. ....
+Done script_test_fcn_plotRoad_animateHandlesOnOff
+__________
+
+<strong>   
+</strong><strong>Testing script: 3 of 20, test_fcn_plotRoad_animatePlot
+
+</strong>Running script_test_fcn_plotRoad_animatePlot
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: plotLLI with defaults
+.Figure 10002: DEMO case: plotLLI with defaults
+.Figure 10003: DEMO case: plotLLI specifying the colorMap, automating zoom
+.Figure 10004: DEMO case: plotLLI specifying the linestyle
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: plotLLI specifying the full plotFormat
+.Figure 20002: Test case: plotLL specifying the full plotFormat
+. Figure 20003: Test case: plotXYI specifying the full plotFormat
+.Figure 20004: Test case: plotXY specifying the full plotFormat
+.Figure 20005: DEMO case: Plotting when input data (plotData) contains NaNs
+.....
+Done script_test_fcn_plotRoad_animatePlot
+__________
+
+<strong>   
+</strong><strong>Testing script: 4 of 20, test_fcn_plotRoad_calcLaneBoundaries
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundaries
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Input array with one nan sequence inside
+.Figure 20002: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcLaneBoundaries
+__________
+
+<strong>   
+</strong><strong>Testing script: 5 of 20, test_fcn_plotRoad_calcLaneBoundingBox
+
+</strong>Running script_test_fcn_plotRoad_calcLaneBoundingBox
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic edge calculation example
+.Figure: 2XXXXXX: TEST mode cases
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_calcLaneBoundingBox
+__________
+
+<strong>   
+</strong><strong>Testing script: 6 of 20, test_fcn_plotRoad_calcRectangleXYZ
+
+</strong>Running script_test_fcn_plotRoad_calcRectangleXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Basic rectangle, 2D
+.Figure 10002: DEMO case: Basic 2D rectangle, moved location
+.Figure 10003: DEMO case: Basic 2D rectangle, moved and rotated
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Basic 2D rectangle, moved and rotated and measured from back corner
+.Figure 20002: Test case: Basic 3D rectangle, moved and rotated and measured from back corner
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_calcRectangleXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 7 of 20, test_fcn_plotRoad_plotHeadTailLL
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plot data onto an empty figure
+.Figure 10002: DEMO case: Call the function with empty inputs
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with simple formatting string
+.Figure 20002: Test case: Plot data with user-given color vector
+.Figure 20003: Test case: Plot data with user-given color vector
+.Figure 20004: Test case: Plotting when input data (LLdata) contains NaNs
+. Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests
+.....
+Done script_test_fcn_plotRoad_plotHeadTailLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 8 of 20, test_fcn_plotRoad_plotHeadTailXY
+
+</strong>Running script_test_fcn_plotRoad_plotHeadTailXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot data with color numbers
+.Figure 20002: Test case: Plot data with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests. .....
+Done script_test_fcn_plotRoad_plotHeadTailXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 9 of 20, test_fcn_plotRoad_plotLL
+
+</strong>Running script_test_fcn_plotRoad_plotLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: only opens and initializes plot
+.Figure 10002: DEMO case: all defaults, no data. Also opens and initializes plot
+.Figure 10003: DEMO case: ppens and inializes plot to the data point
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plot LL data
+.Figure 20002: Test case: Plot data onto an existing figure
+.Figure 20003: Test case: Plot data with simple formatting string
+. Figure 20004: Test case: Plot data with user-given color vector
+.Figure 20005: Test case: Plot data with structure input
+.Figure 20005: Test case: Start of the PennDOT site 1 area
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests...
+Done script_test_fcn_plotRoad_plotLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 10 of 20, test_fcn_plotRoad_plotLLCircle
+
+</strong>Running script_test_fcn_plotRoad_plotLLCircle
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: specifying the full plotFormat
+.Figure 20003: Test case: Specifying the color as a fade-out
+. Figure 20004: Test case: Changing maxColors
+.Figure 20005: Test case: Animate a "radar" view with colormap
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.....
+Done script_test_fcn_plotRoad_plotLLCircle
+__________
+
+<strong>   
+</strong><strong>Testing script: 11 of 20, test_fcn_plotRoad_plotLLI
+
+</strong>Running script_test_fcn_plotRoad_plotLLI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Plotting with all defaults
+.Figure 10002: DEMO case: Specifying the color as a string
+.Figure 10003: DEMO case: specifying the colorMap
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: changing marker size, same color
+.Figure 20003: Test case: specifying the full plotFormat, including reduced color map and changing marker size 
+. Figure 20004: DEMO case:Plotting when input data (LLIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotLLI
+__________
+
+<strong>   
+</strong><strong>Testing script: 12 of 20, test_fcn_plotRoad_plotTraceLL
+
+</strong>Running script_test_fcn_plotRoad_plotTraceLL
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array
+.Figure 10002: DEMO case: Showing plot of entire cell array
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Specifying the linestyle
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ....
+Done script_test_fcn_plotRoad_plotTraceLL
+__________
+
+<strong>   
+</strong><strong>Testing script: 13 of 20, test_fcn_plotRoad_plotTraceXY
+
+</strong>Running script_test_fcn_plotRoad_plotTraceXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: showing plot_color
+.Figure 20002: Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests.. ..
+Done script_test_fcn_plotRoad_plotTraceXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 14 of 20, test_fcn_plotRoad_plotTraces
+
+</strong>Running script_test_fcn_plotRoad_plotTraces
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure 10002: DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
+.Figure 10003: DEMO case: input STH coordinates and plot a trace in only LLA coordinates
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: input ENU coordinates and plot a trace in only ENU
+.Figure 20002: Test case: input ENU coordinates and plot a trace in only STH
+.Figure 20003: Test case: input STH coordinates and plot a trace in only STH
+. Figure 20004: Test case: input STH coordinates and plot a trace in only LLA
+.Figure 20005: Test case: input STH coordinates and plot a trace in only ENU
+.Figure 20006: Test case: input LLA coordinates and plot all traces
+.Figure 20007: Test case: Plot the electric poles on the test track
+.Figure 20008: DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)
+.Figure: 8XXXXXX: TEST mode cases
+Plot function - No fast mode tests..... .
+Done script_test_fcn_plotRoad_plotTraces
+__________
+
+<strong>   
+</strong><strong>Testing script: 15 of 20, test_fcn_plotRoad_plotXY
+
+</strong>Running script_test_fcn_plotRoad_plotXY
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting with color numbers
+.Figure 20002: Test case: Plotting with structure input
+.Figure 20003: Test case: Plotting when input data (XYdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXY
+__________
+
+<strong>   
+</strong><strong>Testing script: 16 of 20, test_fcn_plotRoad_plotXYI
+
+</strong>Running script_test_fcn_plotRoad_plotXYI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by changing marker size, same color
+.Figure 20005: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size
+. Figure 20006: Test case: Plotting when input data (XYIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYI
+__________
+
+<strong>   
+</strong><strong>Testing script: 17 of 20, test_fcn_plotRoad_plotXYZ
+
+</strong>Running script_test_fcn_plotRoad_plotXYZ
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure 10002: DEMO case: Plotting with basic plot string
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: color numbers
+.Figure 20002: Test case: structure input
+.Figure 20003: Test case: Plotting when input data (XYZdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+. Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZ
+__________
+
+<strong>   
+</strong><strong>Testing script: 18 of 20, test_fcn_plotRoad_plotXYZI
+
+</strong>Running script_test_fcn_plotRoad_plotXYZI
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Showing plot of entire cell array)
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Plotting by specifying the color
+.Figure 20002: Test case: Plotting by specifying the colorMap
+.Figure 20003: Test case: Plotting by specifying the linestyle
+.Figure 20004: Test case: Plotting by specifying the full plotFormat
+.Figure 20005: Test case: Plotting by specifying a reduced colormap (for speed)
+. Figure 20006: Test case: Plotting by changing marker size, same colorfig_num
+.Figure 20007: Test case: Plotting by specifying the full plotFormat, including reduced color map and changing marker size 
+.Figure 20008: Test case: Plotting when input data (XYZIdata) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+.Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_plotXYZI
+__________
+
+<strong>   
+</strong><strong>Testing script: 19 of 20, test_fcn_plotRoad_reduceColorMap
+
+</strong>Running script_test_fcn_plotRoad_reduceColorMap
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Convert the "winter" colormap to 4 colors
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: convert the "winter" colormap to 400 colors (stretching)
+.Figure 20002: Test case: Plotting when input data (colorMapMatrix) contains NaNs
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty fig_num
+.Figure: 80002: FAST mode, fig_num=-1
+. Figure: 80003: FAST mode comparisons
+....
+Done script_test_fcn_plotRoad_reduceColorMap
+__________
+
+<strong>   
+</strong><strong>Testing script: 20 of 20, test_fcn_plotRoad_zoomToRegion
+
+</strong>Running script_test_fcn_plotRoad_zoomToRegion
+..Figure: 1XXXX: DEMO cases
+.Figure 10001: DEMO case: Zoom into BRIDGE region by using default settings
+.Figure 10002: DEMO case: Zoom into PENDULUM region by using default settings
+.Figure 10003: DEMO case: Zoom into VEHICLE DURABILITY COURSE region
+.Figure 10004: DEMO case: Zoom into NOMINAL SITE region
+.Figure 10005: DEMO case: Zoom into VEGETATION SITE ONE region 
+.Figure 10006: DEMO case: Zoom into VEGETATION SITE TWO region
+.Figure 10007: DEMO case: Zoom into CRASH TEST COURSE region
+. Figure 10008: DEMO case: Zoom into VEHICLE HANDLING AREA region
+.Figure: 2XXXXXX: TEST mode cases
+.Figure 20001: Test case: Zoom into PENDULUM region by adjusting the zoom level (19) (Default = 21)
+.Figure 20002: Test case: zoomScenario and zoomRegion are not case senstive
+.Figure 20003: Test case: zoomScenario and zoomRegion can have any number of spaces
+.Figure: 8XXXXXX: TEST mode cases
+.Figure: 80001: FAST mode, empty figNum
+.Figure: 80002: FAST mode, figNum=-1
+.Figure: 80003: FAST mode comparisons
+.. ..
+Done script_test_fcn_plotRoad_zoomToRegion
+__________
+
