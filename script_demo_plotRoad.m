@@ -226,6 +226,9 @@ setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
 % https://patorjk.com/software/taag/#p=display&f=Big&t=Core%20%20Functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
+
+disp('Welcome to the plotRoad library!')
+
 %% fcn_plotRoad_plotXY: plots XY data with user-defined formatting
 
 fig_num = 20001;
