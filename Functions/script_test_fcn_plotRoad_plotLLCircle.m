@@ -483,7 +483,7 @@ end
 
 close all;
 fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
-fprintf(1, 'Plot function - No fast mode tests')
+fprintf(1, 'Plot function - No fast mode tests\n')
 
 %% testing speed of function
 % Nothing to test - figure number is an argument

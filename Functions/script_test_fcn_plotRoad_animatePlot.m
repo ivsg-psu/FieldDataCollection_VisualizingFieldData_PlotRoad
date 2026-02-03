@@ -68,7 +68,7 @@ LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 % Test the function
 plotFormat = [];
@@ -114,7 +114,7 @@ LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 % Test the function
 plotFormat = 'r';
@@ -158,7 +158,7 @@ Npoints = length(XY_data(:,1));
 LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 % Test the function
 plotFormat = [];
@@ -212,7 +212,7 @@ Npoints = length(XY_data(:,1));
 LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 % Test the function
 plotFormat = '-';
@@ -283,7 +283,7 @@ Npoints = length(XY_data(:,1));
 LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 
 % Test the function
@@ -414,7 +414,7 @@ Npoints = length(XY_data(:,1));
 LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 
 time = linspace(0,10,Npoints)';
-plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 
 % Test the function
@@ -798,7 +798,7 @@ LLA_positions_matrix =  (gps_object.ENU2WGSLLA([XY_data zeros(Npoints,1)]'))';
 NaN_matrix = nan(5,3); 
 
 time = linspace(0,10,Npoints)';
-plotData_noNaNs = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+plotData_noNaNs = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
 % plotData
 plotData = [plotData_noNaNs; NaN_matrix]; 
@@ -870,7 +870,7 @@ if 1==0
 
 
     time = linspace(0,10,Npoints)';
-    plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
+    plotData = [LLA_positions_matrix(1,:)', LLA_positions_matrix(2,:)', sin(time)];
 
     % Test the function
     plotFormat = [];

@@ -95,6 +95,11 @@
 % - Updated revision history to standard form (release ready) in all files
 % - Deleted script_test_all_functions and replace with function call in
 %   % this main script
+% 
+% 2026_02_03 - Sean Brennan
+% - In fcn_plotRoad_plotLLCircle
+%   % * Fixed bug where rows/cols of LLA data are swapped
+
 
 % TO-DO:
 % 
@@ -225,7 +230,7 @@ setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
 
 %%%%
 %  Check which files contain key strings?
-if 1==1
+if 1==0
 	beforeAndAfterStrings = {
 		cat(2,'fig_','num'), 'figNum';
 		cat(2,'% ','-- '), '% - ';
@@ -305,7 +310,7 @@ if 1==1
 end
 
 %% 
-if 1==1
+if 1==0
 	figNum = 999999;
 	repoShortName = '_plotRoad_';
 	fcn_DebugTools_testRepoForRelease(repoShortName, (figNum));

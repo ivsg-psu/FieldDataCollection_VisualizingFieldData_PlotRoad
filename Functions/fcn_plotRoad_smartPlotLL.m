@@ -30,6 +30,10 @@ function h_geoplot = fcn_plotRoad_smartPlotLL(varargin)
 %            A full list of properties can be found by examining the plot
 %            handle, for example: h_plot = plot(1:10); get(h_plot)
 %
+%      handleName: a string that denotes the name of the LLcellZoomArray,
+%      which is used to index the plot handle so that the plot
+%      automatically updates the data without redrawing.
+%
 %      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
@@ -57,24 +61,28 @@ function h_geoplot = fcn_plotRoad_smartPlotLL(varargin)
 % 
 % 2026_02_02 by Sean Brennan, sbrennan@psu.edu
 % - First write of the code
+% 
+% 2026_02_03 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_plotRoad_smartPlotLL
+%   % * Added handleName input
+%   % * Allows storage of handles into UserData,
+%   %   % for automatic plot updating instead of redraw
 
 % TO-DO:
 % 
 % 2026_02_02 by Sean Brennan, sbrennan@psu.edu
-% - Need to add handle labels to allow storage of handles into UserData,
-%   for automatic plot updating instead of redraw
-% - Need to add bounding box limits on plotting to avoid updating objects
-%   not in current view
 % - Need to add custom zoom button capbilities to plots. See "is there a
 %   way to put a custom toolbar on a geoplot to allow user-specified plot
 %   modifications" in the copilot
+% - Need to add bounding box limits on plotting to avoid updating objects
+%   not in current view
 
 %% Debugging and Input checks
 
 % Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
-MAX_NARGIN = 3; % The largest Number of argument inputs to the function
+MAX_NARGIN = 4; % The largest Number of argument inputs to the function
 flag_max_speed = 0;
 if (nargin==MAX_NARGIN && isequal(varargin{end},-1))
     flag_do_debug = 0; % % % % Flag to plot the results for debugging
@@ -173,11 +181,24 @@ if 2 <= nargin
     end
 end
 
+% Check the handleName input
+% Default is to make handleName equal to string of LL of first data point
+handleName = [];
+if ~isempty(LLcellZoomArray)
+    firstData = sprintf('%.8f_%.8f',LLcellZoomArray{end,2}(1,1),LLcellZoomArray{end,2}(1,2));
+    handleName = firstData;
+end
+if 1 <= nargin
+    temp = varargin{3};
+    if ~isempty(temp)
+        handleName = temp;
+    end
+end
 
 % Default is to make a plot - this starts the plotting process
 flag_do_plots = 1;
 figNum = []; % Initialize the figure number to be empty
-if (0==flag_max_speed) && (3<= nargin)
+if (0==flag_max_speed) && (MAX_NARGIN<= nargin)
     temp = varargin{end};
     if ~isempty(temp)
         figNum = temp;
@@ -266,7 +287,7 @@ if flag_do_plots == 1
 
     if flag_make_new_plot
         %clf;
-        % set up new plot, clear the figure, and initialize the
+        % set up new plot, clear the figure, and initialize the axes
 
 
         % Plot the base station with a green star? This sets up the figure for
@@ -338,13 +359,38 @@ if flag_do_plots == 1
 		Nplotted = length(dataToPlot(:,1));
 		Ntotal = length(LLcellZoomArray{end,2}(:,1));
 
-        if flag_make_new_plot && ~isempty(dataToPlot)
-            h_geoplot = h_tempGeoplot;
-            set(h_geoplot,'LatitudeData',dataToPlot(:,1)+offset_Lat, 'LongitudeData',dataToPlot(:,2)+offset_Lon,'LineStyle','-','Marker','none');
+        % Check to see if the data has been plotted previously. If so, then
+        % handleName will match one of the existing values
+        existingHandles = get(gca,'UserData');
+        flagFoundExistingHandle = 0;
+        if ~isempty(existingHandles)            
+            allHandles = existingHandles.allHandles;
+            allHandleNames = existingHandles.handleNames;            
+            thisHandleIndex = find(strcmp(allHandleNames,handleName),1);
+            if ~isempty(thisHandleIndex)
+                flagFoundExistingHandle = 1;
+                thisHandle = allHandles{thisHandleIndex};
+            else
+                thisHandleIndex = length(allHandleNames)+1;              
+            end
         else
-            h_geoplot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+            allHandles = cell(1,1);
+            allHandleNames = cell(1,1);
+            thisHandleIndex = 1;
+        end
+
+        if flagFoundExistingHandle==0
+            if flag_make_new_plot && ~isempty(dataToPlot)
+                thisHandle = h_tempGeoplot;
+                set(thisHandle,'LatitudeData',dataToPlot(:,1)+offset_Lat, 'LongitudeData',dataToPlot(:,2)+offset_Lon,'LineStyle','-','Marker','none');
+            else
+                thisHandle = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
+            end
+        else
+            set(thisHandle,'LatitudeData',dataToPlot(:,1)+offset_Lat, 'LongitudeData',dataToPlot(:,2)+offset_Lon,'LineStyle','-','Marker','none');
         end
 		title(sprintf('Reduced plotting from %.0f to %.0f points',Ntotal,Nplotted));
+
 
         % if ~isnan(dataToPlot(end,1:2))
         %     set(gca,'MapCenter',dataToPlot(end,1:2));
@@ -355,10 +401,19 @@ if flag_do_plots == 1
 			list_fieldNames = fieldnames(finalPlotFormat);
 			for ith_field = 1:length(list_fieldNames)
 				thisField = list_fieldNames{ith_field};
-				h_geoplot.(thisField) = finalPlotFormat.(thisField);
+				thisHandle.(thisField) = finalPlotFormat.(thisField);
 			end
 		end
+
+        % Save the handle result for the next time the function is called
+        allHandles{thisHandleIndex,1} = thisHandle;
+        allHandleNames{thisHandleIndex,1} = handleName;
+        existingHandles.allHandles = allHandles;
+        existingHandles.handleNames = allHandleNames;
+        set(gca,'UserData',existingHandles);
+
     end
+
 end
 if flag_do_debug
     fprintf(1,'ENDING function: %s, in file: %s\n\n',st(1).name,st(1).file);

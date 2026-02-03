@@ -94,6 +94,10 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 % 2025_11_13 - Sean Brennan
 % - Bug fix due to LLA being shaped wrong, due to GPS library being out of
 %    % date previously
+% 
+% 2026_02_03 - Sean Brennan
+% - In fcn_plotRoad_plotLLCircle
+%   % * Fixed bug where rows/cols of LLA data are swapped
 
 % TO-DO:
 % 
@@ -319,29 +323,29 @@ radii = linspace(0,radius,Rcolors+1)';
 radii = radii(2:end,1);
 
 % Generate theta values at every 4 degrees as a row vector (1xM)
-Athetas = 91;
+numThetas = 91;
 
 % Did user give a max angle value?
 if length(maxColorsAngles)>1
-    Athetas = maxColorsAngles(2)+1;
+    numThetas = maxColorsAngles(2)+1;
 end
 
-theta = linspace(0, 2*pi, Athetas); 
+theta = linspace(0, 2*pi, numThetas); 
 
 % Generate X and Y data as R rows by A columns
-AllXData = ones(Rcolors,Athetas)*ENU_center(1) + radii*cos(theta);
-AllYData = ones(Rcolors,Athetas)*ENU_center(2) + radii*sin(theta);
+AllXData = ones(Rcolors,numThetas)*ENU_center(1) + radii*cos(theta);
+AllYData = ones(Rcolors,numThetas)*ENU_center(2) + radii*sin(theta);
 
 % Generate the LLA data
-AllLatData = nan(Rcolors,Athetas);
-AllLonData = nan(Rcolors,Athetas);
+AllLatData = nan(Rcolors,numThetas);
+AllLonData = nan(Rcolors,numThetas);
 
 
 for ith_color = 1:Rcolors
     % Convert the ENU coordinates back into LLA coordinates
-    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(Athetas,1)]');
-    AllLatData(ith_color,:) = lla_coords(1,:)';
-    AllLonData(ith_color,:) = lla_coords(2,:)';
+    lla_coords = gps_object.ENU2WGSLLA([AllXData(ith_color,:)' AllYData(ith_color,:)' zeros(numThetas,1)]');
+    AllLatData(ith_color,:) = lla_coords(:,1)';
+    AllLonData(ith_color,:) = lla_coords(:,2)';
 end
 
 

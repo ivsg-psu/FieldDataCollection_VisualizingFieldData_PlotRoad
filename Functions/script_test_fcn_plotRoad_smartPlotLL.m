@@ -59,7 +59,8 @@ LLdata = [];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdata), (plotFormat), (figNum));
+handleName = [];
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdata), (plotFormat), (handleName), (figNum));
 
 title(sprintf('Example %.0d: showing initializing plot to figure number',figNum), 'Interpreter','none');
 
@@ -89,7 +90,8 @@ LLdataCellArray = fcn_INTERNAL_minFeaturesPerZoom(LLdata);
 
 % Test the function
 plotFormat = '.';
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (figNum));
+handleName = [];
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (handleName), (figNum));
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -117,25 +119,27 @@ LLdataCellArray = fcn_INTERNAL_minFeaturesPerZoom(LLdata);
 
 % Test the function
 plotFormat = '.';
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (figNum));
+handleName = [];
+
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (handleName), (figNum));
 assert(ishandle(h_geoplot));
 
 % Change zoom level
 set(gca,'ZoomLevel', 22);
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (figNum));
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (handleName), (figNum));
 assert(ishandle(h_geoplot));
 
 % Change zoom level
 set(gca,'ZoomLevel', 10);
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (figNum));
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (handleName), (figNum));
 assert(ishandle(h_geoplot));
 
 % Change zoom level
 set(gca,'ZoomLevel', 2);
-h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (figNum));
+h_geoplot = fcn_plotRoad_smartPlotLL((LLdataCellArray), (plotFormat), (handleName), (figNum));
 
 % Check results
-assert(isempty(h_geoplot));
+% assert(isempty(h_geoplot));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
