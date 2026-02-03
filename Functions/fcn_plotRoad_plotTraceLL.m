@@ -3,7 +3,7 @@ function h_plot = fcn_plotRoad_plotTraceLL(LLdata, varargin)
 %
 % FORMAT:
 %
-%      h_plot = fcn_plotRoad_plotTraceLL(LLdata, (plotFormat), (flag_plot_headers_and_tailers), (fig_num))
+%      h_plot = fcn_plotRoad_plotTraceLL(LLdata, (plotFormat), (flag_plot_headers_and_tailers), (figNum))
 %
 % INPUTS:  
 %
@@ -31,7 +31,7 @@ function h_plot = fcn_plotRoad_plotTraceLL(LLdata, varargin)
 %      projections. For plots with more than 4, the segments at start and
 %      end define the head and tail (default is 1)
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -54,16 +54,23 @@ function h_plot = fcn_plotRoad_plotTraceLL(LLdata, varargin)
 % This function was written on 2023_08_14 by S. Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history:
-% 2023_08_14 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2023_08_14 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 4; % The largest Number of argument inputs to the function
@@ -89,9 +96,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,18 +150,18 @@ if 3 <= nargin
 end
 
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 1;
 flag_make_new_plot = 1; % Default to make a new plot, which will clear the plot and start a new plot
-fig_num = []; % Initialize the figure number to be empty
+figNum = []; % Initialize the figure number to be empty
 if 4 <= nargin
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
 
     else % An empty figure number is given by user, so we have to make one
         temp = figure;
-        fig_num = temp.Number;
+        figNum = temp.Number;
         flag_make_new_plot = 1;
     end
 end
@@ -162,9 +169,9 @@ end
 
 % Is the figure number still empty? If so, then we need to open a new
 % figure
-if flag_make_new_plot && isempty(fig_num)
+if flag_make_new_plot && isempty(figNum)
     temp = figure;
-    fig_num = temp.Number;
+    figNum = temp.Number;
     flag_make_new_plot = 1;
 end
 
@@ -203,14 +210,14 @@ h_plot = 0;
 %                           |___/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if flag_do_plots == 1
-    figure(fig_num);
+    figure(figNum);
 
     % Does the figure already have data?
     temp_fig_handle = gcf;
     if isempty(temp_fig_handle.Children)
         % Initialize the plot
         % which automatically plot the base station with a green star
-        h_geoplot = fcn_plotRoad_plotLL(([]), ([]), (fig_num));
+        h_geoplot = fcn_plotRoad_plotLL(([]), ([]), (figNum));
     end
 
     % Plot LLA results as cell? or as an array?
@@ -218,10 +225,10 @@ if flag_do_plots == 1
         h_plot = nan(length(LLdata),1);
         for ith_data = 1:length(LLdata)
             LLdata_to_plot = LLdata{ith_data};
-            h_plot(ith_data) = fcn_INTERNAL_plotData(LLdata_to_plot, plotFormat, flag_plot_headers_and_tailers, fig_num);
+            h_plot(ith_data) = fcn_INTERNAL_plotData(LLdata_to_plot, plotFormat, flag_plot_headers_and_tailers, figNum);
         end
     else
-        h_plot = fcn_INTERNAL_plotData(LLdata, plotFormat, flag_plot_headers_and_tailers, fig_num);
+        h_plot = fcn_INTERNAL_plotData(LLdata, plotFormat, flag_plot_headers_and_tailers, figNum);
     end
 
     
@@ -247,17 +254,17 @@ end % Ends main function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
 %% fcn_INTERNAL_plotData
-function h_plot = fcn_INTERNAL_plotData(LLdata_to_plot, plotFormat, flag_plot_headers_and_tailers, fig_num)
+function h_plot = fcn_INTERNAL_plotData(LLdata_to_plot, plotFormat, flag_plot_headers_and_tailers, figNum)
 
 % Initialize the output
 h_plot = nan;
 
 if ~isempty(LLdata_to_plot)
-    h_plot = fcn_plotRoad_plotLL(LLdata_to_plot, (plotFormat), (fig_num));
+    h_plot = fcn_plotRoad_plotLL(LLdata_to_plot, (plotFormat), (figNum));
 
     % Plot headers and tailers?
     if flag_plot_headers_and_tailers
-        fcn_plotRoad_plotHeadTailLL(LLdata_to_plot, fig_num, plotFormat);
+        fcn_plotRoad_plotHeadTailLL(LLdata_to_plot, figNum, plotFormat);
     end
 end
 end % Ends fcn_INTERNAL_plotData

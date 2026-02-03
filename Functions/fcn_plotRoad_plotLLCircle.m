@@ -3,7 +3,7 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 % 
 % FORMAT:
 %
-%      [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num))
+%      [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LL_center, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum))
 %
 % INPUTS:  
 %
@@ -48,7 +48,7 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 %      setting maxColors to a lower value, such as 64 or 32, faster
 %      plotting speeds can be achieved. The default maxColors value is 64.
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -82,19 +82,27 @@ function [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = f
 % This function was written on 2024_08_12 by Sean Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history
+% REVISION HISTORY
+% 
 % 2024_08_12 - Sean Brennan
-% -- Created function by copying out of load script in Geometry library
+% - Created function by copying out of load script in Geometry library
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+% 
 % 2025_11_13 - Sean Brennan
-% -- Bug fix due to LLA being shaped wrong, due to GPS library being out of
+% - Bug fix due to LLA being shaped wrong, due to GPS library being out of
 %    % date previously
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 6; % The largest Number of argument inputs to the function
@@ -120,9 +128,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978; %#ok<NASGU>
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_fig_num = []; %#ok<NASGU>
+    debug_figNum = []; %#ok<NASGU>
 end
 
 
@@ -203,12 +211,12 @@ if (5<=nargin)
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) &&  (6<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -367,7 +375,7 @@ if flag_do_plots
     end
 
     % Center plot on circle center
-    h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
+    h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (figNum));
     set(gca,'MapCenter',LLcenter(1,1:2));
 
     for ith_color = Rcolors:-1:1
@@ -382,7 +390,7 @@ if flag_do_plots
         Y_data_selected = AllLonData(ith_color,:)';
 
         % Do the plotting
-        h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+        h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (figNum));
     end
 
 

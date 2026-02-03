@@ -3,7 +3,7 @@ function h_plot = fcn_plotRoad_plotXYZ(XYZdata, varargin)
 % 
 % FORMAT:
 %
-%      h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (fig_num))
+%      h_plot = fcn_plotRoad_plotXYZ(XYZdata, (plotFormat), (figNum))
 %
 % INPUTS:  
 %
@@ -25,7 +25,7 @@ function h_plot = fcn_plotRoad_plotXYZ(XYZdata, varargin)
 %            A full list of properties can be found by examining the plot
 %            handle, for example: h_plot = plot(1:10); get(h_plot)
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -48,23 +48,33 @@ function h_plot = fcn_plotRoad_plotXYZ(XYZdata, varargin)
 % This function was written on 2024_08_05 by Sean Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history
+% REVISION HISTORY:
+% 
 % 2024_08_05 - Sean Brennan
-% -- Created function by copying out of load script in Geometry library
+% - Created function by copying out of load script in Geometry library
+% 
 % 2024_08_09 - Jiabao Zhao
-% -- Added format string as a optional input
+% - Added format string as a optional input
+% 
 % 2024_08_12 - Sean Brennan
-% -- Added structure rather than string type for plotFormat, especially as
-% this structure is already auto-generated in MATLAB
+% - Added structure rather than string type for plotFormat, especially as
+%   % this structure is already auto-generated in MATLAB
+% 
 % 2025_11_02 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Modified debug options to handle NaNs in the inputs
+% - Modified debug options to handle NaNs in the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 3; % The largest Number of argument inputs to the function
@@ -90,9 +100,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978; %#ok<NASGU>
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_fig_num = []; %#ok<NASGU>
+    debug_figNum = []; %#ok<NASGU>
 end
 
 
@@ -181,12 +191,12 @@ if 2 <= nargin
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) &&  (2<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -219,7 +229,7 @@ h_plot = 0;
 %                           |___/ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if flag_do_plots
-    temp_h = figure(fig_num);
+    temp_h = figure(figNum);
     flag_rescale_axis = 0;
     if isempty(get(temp_h,'Children'))
         flag_rescale_axis = 1;

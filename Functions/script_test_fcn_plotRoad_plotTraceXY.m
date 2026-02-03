@@ -3,11 +3,15 @@
 % This function was written on 2023_08_14 by S. Brennan, sbrennan@psu.edu
 
 
-% Revision history:
-% 2023_08_14 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 2023_08_14 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
 % 2025_11_02 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+
+% TO-DO:
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -34,10 +38,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 %% DEMO case: showing plot of entire cell array
 % Load the first marker cluster - call it by name
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Showing plot of entire cell array)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 plotFormat = [];
 flag_plot_headers_and_tailers = [];
@@ -45,9 +49,9 @@ flag_plot_headers_and_tailers = [];
 ENU_positions_cell_array = fcn_INTERNAL_loadData;
 
 % Plot ENU cell array
-h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
-title(sprintf('Fig %.0d: showing plot of entire cell array in ENU',fig_num), 'Interpreter','none');
+title(sprintf('Fig %.0d: showing plot of entire cell array in ENU',figNum), 'Interpreter','none');
 
 % Check results
 assert(all(ishandle(h_plot)));
@@ -56,10 +60,10 @@ assert(all(ishandle(h_plot)));
 %% DEMO case: showing plot of entire cell arra
 % Load the first marker cluster - call it by name
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Showing plot of entire cell array)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 plotFormat = [];
 flag_plot_headers_and_tailers = [];
@@ -70,7 +74,7 @@ for ith_data = 1:length(ENU_positions_cell_array)
     ENU_data_to_plot = ENU_positions_cell_array{ith_data};
 
     % Plot ENU cell array
-    h_plot = fcn_plotRoad_plotTraceXY(ENU_data_to_plot, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+    h_plot = fcn_plotRoad_plotTraceXY(ENU_data_to_plot, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
     
     % Check results
     assert(all(ishandle(h_plot)));
@@ -78,7 +82,7 @@ for ith_data = 1:length(ENU_positions_cell_array)
 
 end
 
-title(sprintf('Fig %.0d: showing plot of entire cell array in ENU',fig_num),'Interpreter','none');
+title(sprintf('Fig %.0d: showing plot of entire cell array in ENU',figNum),'Interpreter','none');
 
 % Check results
 assert(all(ishandle(h_plot)));
@@ -106,10 +110,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 %% Test case: showing plot_color
 % Load the first marker cluster - call it by name
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: showing plot_color');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 flag_plot_headers_and_tailers = 0;
 
@@ -124,9 +128,9 @@ plotFormat.LineWidth = 5;
 ENU_positions_cell_array = fcn_INTERNAL_loadData;
 
 % Plot ENU cell array
-h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
-title(sprintf('Fig %.0d: showing plot_color',fig_num), 'Interpreter','none');
+title(sprintf('Fig %.0d: showing plot_color',figNum), 'Interpreter','none');
 
 % Check results
 assert(all(ishandle(h_plot)));
@@ -135,10 +139,10 @@ assert(all(ishandle(h_plot)));
 %% Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3
 % Load the first marker cluster - call it by name
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: showing flag_plot_headers_and_tailers, otherwise same as Ex 3');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 flag_plot_headers_and_tailers = 1;
 
@@ -152,9 +156,9 @@ plotFormat.LineWidth = 5;
 ENU_positions_cell_array = fcn_INTERNAL_loadData;
 
 % Plot ENU cell array
-h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+h_plot = fcn_plotRoad_plotTraceXY(ENU_positions_cell_array, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
-title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',fig_num), 'Interpreter','none');
+title(sprintf('Fig %.0d: showing flag_plot_headers_and_tailers',figNum), 'Interpreter','none');
 
 % Check results
 assert(all(ishandle(h_plot)));

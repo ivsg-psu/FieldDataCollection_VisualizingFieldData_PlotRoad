@@ -3,7 +3,7 @@ function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 % 
 % FORMAT:
 %
-%      [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMapStringOrMatrix), (fig_num))
+%      [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, (plotFormat), (colorMapStringOrMatrix), (figNum))
 %
 % INPUTS:  
 %
@@ -29,7 +29,7 @@ function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 %            A full list of properties can be found by examining the plot
 %            handle, for example: h_plot = plot(1:10); get(h_plot)
 %          If a color is specified, a colormap is created using this value
-%          as 100%, to white as 0% - this supercedes any colormap.  If no
+%          as 100%, to white as 0% - This supercedes any colormap.  If no
 %          color or colormap is specified, then the default color is used.
 %          If no color is specified, but a colormap is given, the colormap
 %          is used.
@@ -37,7 +37,7 @@ function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 %      colorMapStringOrMatrix: a string specifying the colormap for the plot, default is
 %      to use the current colormap
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -64,18 +64,26 @@ function [h_plot, indiciesInEachPlot] = fcn_plotRoad_plotXYI(XYIdata, varargin)
 % This function was written on 2024_08_12 by Sean Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history
+% REVISION HISTORY:
+% 
 % 2024_08_12 - Sean Brennan
-% -- Created function by copying out of load script in Geometry library
+% - Created function by copying out of load script in Geometry library
+% 
 % 2025_11_02 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Modified debug options to handle NaNs in the inputs
+% - Modified debug options to handle NaNs in the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 4; % The largest Number of argument inputs to the function
@@ -101,9 +109,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978; %#ok<NASGU>
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_fig_num = []; %#ok<NASGU>
+    debug_figNum = []; %#ok<NASGU>
 end
 
 
@@ -166,12 +174,12 @@ if (1<=nargin)
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) &&  (2<=nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -289,7 +297,7 @@ if flag_do_plots
             Y_data_selected = Y_data(plotting_indicies,:);
 
             % Do the plotting
-            h_plot(ith_color,1)  = fcn_plotRoad_plotXY([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+            h_plot(ith_color,1)  = fcn_plotRoad_plotXY([X_data_selected Y_data_selected], (tempPlotFormat), (figNum));
 
             % Save the indicies
             indiciesInEachPlot{ith_color} = indicies_data(plotting_indicies,:);

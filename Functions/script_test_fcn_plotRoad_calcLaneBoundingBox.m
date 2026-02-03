@@ -3,9 +3,16 @@
 % fcn_plotRoad_calcLaneBoundingBox.m
 % This function was written on 2024_08_16 by S. Brennan, sbrennan@psu.edu
 
+% REVISION HISTORY:
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
-% -- Added an advanced example
+% - Updated the script to the latest format
+% - Added an advanced example
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -32,10 +39,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Basic edge calculation example
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Basic edge calculation example');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -47,11 +54,11 @@ projectionDistance = []; % Use defaults
 [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
 % Test the function
-boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num));
+boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (figNum));
 title(sprintf('Example of fcn_plotRoad_calcLaneBoundingBox'), 'Interpreter','none','FontSize',12);
 
 % Was a figure was created?
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 % Does the boundingBoxPolyshape.Verticies have 2 columns?
 assert(length(boundingBoxPolyshape.Vertices(1,:))== 2);
@@ -104,9 +111,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -131,14 +138,14 @@ assert(0 == boundingBoxPolyshape.NumHoles)
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -164,14 +171,14 @@ assert(0 == boundingBoxPolyshape.NumHoles)
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -232,7 +239,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -258,9 +265,9 @@ if 1==0
 
     %% Should throw error because leftLaneBoundary_XY does not have 2 column of numbers
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Create data
     xData = linspace(-2,20,100)';
@@ -272,7 +279,7 @@ if 1==0
     [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (-1));
 
     % Test the function
-    boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY(:,1), rightLaneBoundary_XY, (fig_num));
+    boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY(:,1), rightLaneBoundary_XY, (figNum));
 
     % Does the boundingBoxPolyshape.Verticies have 2 columns?
     assert(length(boundingBoxPolyshape.Vertices(1,:))== 2);
@@ -286,7 +293,7 @@ if 1==0
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
 
@@ -302,7 +309,7 @@ end
 % 
 % 
 % 
-% fig_num=[];
+% figNum=[];
 % REPS=5;
 % minTimeSlow=Inf;
 % maxTimeSlow=-Inf;
@@ -311,7 +318,7 @@ end
 % % Slow mode calculation - code copied from plotVehicleXYZ
 % for i=1:REPS
 %     tstart=tic;
-%     boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num));
+%     boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 %     maxTimeSlow=max(telapsed,maxTimeSlow);
@@ -320,12 +327,12 @@ end
 % % Slow mode END
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num));
+%     boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

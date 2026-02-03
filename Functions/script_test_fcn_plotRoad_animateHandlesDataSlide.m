@@ -4,15 +4,20 @@
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
 
-% Revision history:
+% REVISION HISTORY:
 % 
-% 2024_08_15 - S. Brennan
-% -- Wrote the code originally
+% 2024_08_15 by Sean Brennan, sbrennan@psu.edu
+% - Wrote the code originally
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
 
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 % NOTE: There are no plots in the debug section of the function. 
 
 %% Set up the workspace
@@ -40,10 +45,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Showing animation of simple points in XY 
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Showing animation of simple points in XY');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 time = linspace(0,15,100)';
@@ -57,9 +62,9 @@ h_plots = zeros(Ncolors,1);
 
 for ith_plot = 1:Ncolors
     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1)];
-    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (reducedColorMap(ith_plot,:)), (fig_num));
+    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (reducedColorMap(ith_plot,:)), (figNum));
 end
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 subtitle('Showing animation of XY data');
 
 %%%% Do the animation 
@@ -68,19 +73,19 @@ Xdata = time;
 Ydata = ydata;
 afterPlotColor = [];
 for timeIndex = 1:400
-    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (figNum))
     pause(0.02);
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Do an animation of line segments in XY
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Do an animation of line segments in XY');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 Npoints = 200;
@@ -104,9 +109,9 @@ range=4;
 for ith_plot = 1:Ncolors
     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
     plotFormat.Color = reducedColorMap(ith_plot,:);
-    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 end
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 subtitle('Showing animation of XY data');
 
 %%%% Do the animation 
@@ -115,12 +120,12 @@ Xdata = time;
 Ydata = ydata;
 afterPlotColor = [];
 for timeIndex = 1:406
-    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (figNum))
     pause(0.02);
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,10 +148,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Points in XY with trail
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Points in XY with trail');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 Npoints = 200;
@@ -170,9 +175,9 @@ range=4;
 for ith_plot = 1:Ncolors
     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
     plotFormat.Color = reducedColorMap(ith_plot,:);
-    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 end
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 subtitle('Showing animation of XY data');
 
 
@@ -181,19 +186,19 @@ Xdata = time;
 Ydata = ydata;
 afterPlotColor = [0.5 0.5 0.5];
 for timeIndex = 1:406
-    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (figNum))
     pause(0.02);
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test case: geoplot XY with trail
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: geoplot XY with trail');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in some dummy data (East curve from scenario 1_1)
@@ -262,9 +267,9 @@ range=4;
 for ith_plot = 1:Ncolors
     dataToPlot = [LLdata(ith_plot:ith_plot+range,1) LLdata(ith_plot:ith_plot+range,2)];
     plotFormat.Color = reducedColorMap(ith_plot,:);
-    h_geoplots(ith_plot) = fcn_plotRoad_plotLL(dataToPlot, (plotFormat), (fig_num));
+    h_geoplots(ith_plot) = fcn_plotRoad_plotLL(dataToPlot, (plotFormat), (figNum));
 end
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 subtitle('Showing geoplot animation of XY data');
 
 %%%% animate results
@@ -273,20 +278,20 @@ Xdata = LLdata(:,1);
 Ydata = LLdata(:,2);
 afterPlotColor = [1 1 0]; % Yellow
 for timeIndex = 1:40
-    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (figNum))
     pause(0.02);
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Test case: Plotting when input data contains NaNs
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Plotting when input data contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 Npoints = 200;
@@ -310,9 +315,9 @@ range=4;
 for ith_plot = 1:Ncolors
     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
     plotFormat.Color = reducedColorMap(ith_plot,:);
-    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+    h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 end
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 subtitle('Showing animation of XY data');
 
 
@@ -321,12 +326,12 @@ Xdata = [time; NaN];
 Ydata = [ydata; NaN];
 afterPlotColor = [0.5 0.5 0.5];
 for timeIndex = 1:406
-    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (fig_num))
+    fcn_plotRoad_animateHandlesDataSlide(timeIndex, handleList, Xdata, Ydata, (afterPlotColor), (figNum))
     pause(0.02);
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 
@@ -354,9 +359,9 @@ fprintf(1,'Not applicable - only a plotting function\n');
 
 % %% Basic example - EMPTY FIGURE NUMBER 
 % 
-% fig_num = 80001;
-% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % % Fill in data
 % Npoints = 200;
@@ -380,9 +385,9 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % for ith_plot = 1:Ncolors
 %     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
 %     plotFormat.Color = reducedColorMap(ith_plot,:);
-%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 % end
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XY data');
 % 
 % 
@@ -396,13 +401,13 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % end
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % %% Basic example - "-1" as FIGURE NUMBER
 % 
-% fig_num = 80002;
-% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % % Fill in data
 % Npoints = 200;
@@ -426,9 +431,9 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % for ith_plot = 1:Ncolors
 %     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
 %     plotFormat.Color = reducedColorMap(ith_plot,:);
-%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 % end
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XY data');
 % 
 % 
@@ -443,13 +448,13 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % 
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 % 
-% fig_num = 80003;
-% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % % Fill in data
 % Npoints = 200;
@@ -473,9 +478,9 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % for ith_plot = 1:Ncolors
 %     dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
 %     plotFormat.Color = reducedColorMap(ith_plot,:);
-%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+%     h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
 % end
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XY data');
 % 
 % 
@@ -508,7 +513,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % fast_method = toc;
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % % Plot results as bar chart
 % figure(373737);
@@ -545,9 +550,9 @@ if 1==0
 
     %% Should throw error because ydata is not a 1 column of numbers
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in data
     Npoints = 200;
@@ -571,9 +576,9 @@ if 1==0
     for ith_plot = 1:Ncolors
         dataToPlot = [time(ith_plot:ith_plot+range,1) ydata(ith_plot:ith_plot+range,1)];
         plotFormat.Color = reducedColorMap(ith_plot,:);
-        h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (fig_num));
+        h_plots(ith_plot) = fcn_plotRoad_plotXY(dataToPlot, (plotFormat), (figNum));
     end
-    title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',fig_num), 'Interpreter','none');
+    title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesDataSlide',figNum), 'Interpreter','none');
     subtitle('Showing animation of XY data');
 
 

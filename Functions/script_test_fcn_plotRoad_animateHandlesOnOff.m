@@ -3,13 +3,18 @@
 % fcn_plotRoad_animateHandlesOnOff.m
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
+% REVISION HISTORY:
 % 
-% 2024_08_15 - S. Brennan
-% -- Wrote the code originally
+% 2024_08_15 by Sean Brennan, sbrennan@psu.edu
+% - Wrote the code originally
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
 
+% TO-DO:
+%
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 % NOTES: There are no plots in the debug section of the function. 
 
 %% Set up the workspace
@@ -38,10 +43,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Showing animation of XYI plot (using simple points)
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Showing animation of XYI plot (using simple points)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 time = linspace(0,15,100)';
@@ -63,7 +68,7 @@ colorMapStringOrMatrix = colormapMatrix;
 h_plots = zeros(length(time),1);
 for ith_plot = 1:length(time)
     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
-    temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+    temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
     h_plots(ith_plot) = temp(~isnan(temp));
 end
 
@@ -74,7 +79,7 @@ axis auto;
 temp = axis;
 axis(temp);
 
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
 subtitle('Showing animation of XYI plot');
 
 %%%% Do the animation 
@@ -85,14 +90,14 @@ for timeIndex = 1:400
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% DEMO case: Do an animation of expanding rings
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Do an animation of expanding rings');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -108,9 +113,9 @@ plotFormat.Marker = 'none';
 plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = colormapMatrix;
 maxColorsAngles = [128 45];
-[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
 
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing animation of expanding circles');
 
 %%%% Do the animation 
@@ -123,7 +128,7 @@ for timeIndex = 1:200
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,10 +151,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Showing animation of XYI plot using line segments
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Showing animation of XYI plot using line segments');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 time = linspace(0,10,100)';
@@ -175,7 +180,7 @@ allDataY = zeros(length(time)-interval,interval+1);
 for ith_plot = 1:length(time)-interval
     range = (ith_plot:ith_plot+interval);
     dataToPlot = [time(range,1) ydata(range,1) intensity(ith_plot,1)*ones(interval+1,1)];    
-    temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+    temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
     h_plots(ith_plot) = temp(~isnan(temp));
 
     allDataX(ith_plot,:) = time(range,1)';
@@ -189,7 +194,7 @@ axis auto;
 temp = axis;
 axis(temp);
 
-title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
 subtitle('Showing animation of XYI plot');
 
 %%%% Do the animation 
@@ -200,15 +205,15 @@ for timeIndex = 1:500
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Test case: Do an animation of expanding rings with different skip interval
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: Do an animation of expanding rings with different skip interval');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -224,8 +229,8 @@ plotFormat.Marker = 'none';
 plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = colormapMatrix;
 maxColorsAngles = [128 45];
-[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, ~, ~, ~] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing animation of expanding circles');
 
 %%%% Do the animation 
@@ -255,15 +260,15 @@ for timeIndex = 1:200
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 
 %% Test case: Animate a "radar" view with one "beam"
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: Animate a "radar" view with one "beam"');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -290,11 +295,11 @@ Ncolors = length(ringColors(:,1));
 AllLatDataReduced = [LLcenter(1,1)*ones(1,Nangles); AllLatData(end,:)]';
 AllLonDataReduced = [LLcenter(1,2)*ones(1,Nangles); AllLonData(end,:)]';
 
-figure(fig_num);
+figure(figNum);
 clf;
 
 % Initialize the plot
-fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
+fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (figNum));
 set(gca,'MapCenter',LLcenter(1,1:2));
 
 % Create a list of handles filled with empty data
@@ -305,7 +310,7 @@ for ith_angle = 1:Nangles
     tempPlotFormat.Marker = '.';
 
     % Do the plotting
-    h_radar(ith_angle,1)  = fcn_plotRoad_plotLL([nan nan], (tempPlotFormat), (fig_num));
+    h_radar(ith_angle,1)  = fcn_plotRoad_plotLL([nan nan], (tempPlotFormat), (figNum));
 end
 
 %%%%% Peform the animation
@@ -320,7 +325,7 @@ for timeIndex = 1:100
 end
 
 % Make sure plot opened up
-assert(isequal(get(gcf,'Number'),fig_num));
+assert(isequal(get(gcf,'Number'),figNum));
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,9 +348,9 @@ fprintf(1,'Not applicable - only a plotting function\n');
 
 % %% Basic example - EMPTY FIGURE NUMBER 
 % 
-% fig_num = 80001;
-% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Fill in data
@@ -368,7 +373,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % h_plots = zeros(length(time),1);
 % for ith_plot = 1:length(time)
 %     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
-%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
 %     h_plots(ith_plot) = temp(~isnan(temp));
 % end
 % 
@@ -379,7 +384,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % temp = axis;
 % axis(temp);
 % 
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XYI plot');
 % 
 % %%%% Do the animation
@@ -391,14 +396,14 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % 
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % 
 % %% Basic example - "-1" as FIGURE NUMBER
 % 
-% fig_num = 80002;
-% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % % Fill in data
 % time = linspace(0,15,100)';
@@ -420,7 +425,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % h_plots = zeros(length(time),1);
 % for ith_plot = 1:length(time)
 %     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
-%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
 %     h_plots(ith_plot) = temp(~isnan(temp));
 % end
 % 
@@ -431,7 +436,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % temp = axis;
 % axis(temp);
 % 
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XYI plot');
 % 
 % %%%% Do the animation 
@@ -442,13 +447,13 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % end
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 % 
-% fig_num = 80003;
-% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % % Fill in data
 % time = linspace(0,15,100)';
@@ -470,7 +475,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % h_plots = zeros(length(time),1);
 % for ith_plot = 1:length(time)
 %     dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
-%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+%     temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
 %     h_plots(ith_plot) = temp(~isnan(temp));
 % end
 % 
@@ -481,7 +486,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % temp = axis;
 % axis(temp);
 % 
-% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+% title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
 % subtitle('Showing animation of XYI plot');
 % 
 % %%%% Do the animation 
@@ -510,7 +515,7 @@ fprintf(1,'Not applicable - only a plotting function\n');
 % fast_method = toc;
 % 
 % % Make sure plot opened up
-% assert(isequal(get(gcf,'Number'),fig_num));
+% assert(isequal(get(gcf,'Number'),figNum));
 % 
 % % Plot results as bar chart
 % figure(373737);
@@ -549,9 +554,9 @@ if 1==0
 
     %% Should throw error because ydata is not a 1 column of numbers
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
 
     % Fill in data
@@ -574,7 +579,7 @@ if 1==0
     h_plots = zeros(length(time),1);
     for ith_plot = 1:length(time)
         dataToPlot = [time(ith_plot,1) ydata(ith_plot,1) intensity(ith_plot,1)];
-        temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (fig_num));
+        temp = fcn_plotRoad_plotXYI(dataToPlot, (plotFormat), (colorMapStringOrMatrix), (figNum));
         h_plots(ith_plot) = temp(~isnan(temp));
     end
 
@@ -585,7 +590,7 @@ if 1==0
     temp = axis;
     axis(temp);
 
-    title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',fig_num), 'Interpreter','none');
+    title(sprintf('Example %.0d: fcn_plotRoad_animateHandlesOnOff',figNum), 'Interpreter','none');
     subtitle('Showing animation of XYI plot');
 
     %%%% Do the animation
@@ -604,8 +609,8 @@ end
 
 %% Example 9 - Animate a "radar" view with default output
 
-% fig_num = 9;
-% figure(fig_num);
+% figNum = 9;
+% figure(figNum);
 % clf;
 % 
 % % Fill in data
@@ -623,8 +628,8 @@ end
 % plotFormat.MarkerSize = 10;
 % colorMapStringOrMatrix = colormapMatrix;
 % maxColorsAngles = 128;
-% [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-% title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+% [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+% title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 % subtitle('Showing radar animation');
 % 
 % %%%%% Do animation

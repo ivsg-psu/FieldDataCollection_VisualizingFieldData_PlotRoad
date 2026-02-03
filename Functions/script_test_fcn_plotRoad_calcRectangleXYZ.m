@@ -3,11 +3,19 @@
 % fcn_plotRoad_calcRectangleXYZ.m
 
 
-% Revision history:
+% REVISION HISTORY:
+% 
 % 2023_08_13 by S. Brennan, sbrennan@psu.edu
-% -- start writing function by heavily modifying version from PlotTestTrack
+% - Start writing function by heavily modifying version from PlotTestTrack
+% 
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -33,21 +41,21 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Basic rectangle, 2D
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Basic rectangle, 2D');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
 yawAngle = [];
 centerOffsetLWH = [];
 
-cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
-title(sprintf('Example %.0d: Basic rectangle, 2D',fig_num), 'Interpreter','none');
+cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
+title(sprintf('Example %.0d: Basic rectangle, 2D',figNum), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 assert(length(cornersXYZ(:,1))==5);
 assert(length(cornersXYZ(1,:))==2);
 assert(isequal(round(cornersXYZ,4),[...
@@ -60,10 +68,10 @@ assert(isequal(round(cornersXYZ,4),[...
 
 %% DEMO case: Basic 2D rectangle, moved location
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Basic 2D rectangle, moved location');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 centerPointXYZ = [2 1];
@@ -71,11 +79,11 @@ LWH = [4 2];
 yawAngle = [];
 centerOffsetLWH = [];
 
-cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
-title(sprintf('Example %.0d: basic rectangle',fig_num), 'Interpreter','none');
+cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
+title(sprintf('Example %.0d: basic rectangle',figNum), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 assert(length(cornersXYZ(:,1))==5);
 assert(length(cornersXYZ(1,:))==2);
 assert(isequal(round(cornersXYZ,4),[...
@@ -87,10 +95,10 @@ assert(isequal(round(cornersXYZ,4),[...
 
 %% DEMO case: Basic 2D rectangle, moved and rotated
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: Basic 2D rectangle, moved and rotated');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 centerPointXYZ = [2 1];
@@ -98,11 +106,11 @@ LWH = [4 2];
 yawAngle = 45*pi/180;
 centerOffsetLWH = [];
 
-cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
-title(sprintf('Example %.0d: Basic 2D rectangle, moved and rotated',fig_num), 'Interpreter','none');
+cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
+title(sprintf('Example %.0d: Basic 2D rectangle, moved and rotated',figNum), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 assert(length(cornersXYZ(:,1))==5);
 assert(length(cornersXYZ(1,:))==2);
 assert(isequal(round(cornersXYZ,4),[...
@@ -133,21 +141,21 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Basic 2D rectangle, moved and rotated and measured from back corner
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Basic 2D rectangle, moved and rotated and measured from back corner');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
 yawAngle = 45*pi/180;
 centerOffsetLWH = [2 1];
 
-cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
-title(sprintf('Example %.0d: Basic 2D rectangle, moved and rotated and measured from back corner',fig_num), 'Interpreter','none');
+cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
+title(sprintf('Example %.0d: Basic 2D rectangle, moved and rotated and measured from back corner',figNum), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 assert(length(cornersXYZ(:,1))==5);
 assert(length(cornersXYZ(1,:))==2);
 assert(isequal(round(cornersXYZ,4),[...
@@ -160,21 +168,21 @@ assert(isequal(round(cornersXYZ,4),[...
 
 %% Test case: Basic 3D rectangle, moved and rotated and measured from back corner
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: Basic 3D rectangle, moved and rotated and measured from back corner');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 centerPointXYZ = [0 0 0];
 LWH = [4 2 1];
 yawAngle = 45*pi/180;
 centerOffsetLWH = [2 1 0.5];
 
-cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
-title(sprintf('Example %.0d: Basic 3D rectangle, moved and rotated and measured from back corner',fig_num), 'Interpreter','none');
+cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
+title(sprintf('Example %.0d: Basic 3D rectangle, moved and rotated and measured from back corner',figNum), 'Interpreter','none');
 
 % Check results
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 assert(length(cornersXYZ(:,1))==5*6);
 assert(length(cornersXYZ(1,:))==3);
 assert(isequal(round(cornersXYZ,4),[...
@@ -230,9 +238,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
@@ -254,14 +262,14 @@ assert(isequal(round(cornersXYZ,4),[...
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
@@ -282,13 +290,13 @@ assert(isequal(round(cornersXYZ,4),[...
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 centerPointXYZ = [0 0];
 LWH = [4 2];
@@ -341,7 +349,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -367,19 +375,19 @@ if 1==0
 
     %% Should throw error because centerPointXYZ must have at least 2 columns
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     centerPointXYZ = [0 0];
     LWH = [4 2];
     yawAngle = [];
     centerOffsetLWH = [];
 
-    cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ(:,1), LWH, (yawAngle), (centerOffsetLWH), (fig_num));
+    cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ(:,1), LWH, (yawAngle), (centerOffsetLWH), (figNum));
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 end
 % %% Testing speed mode
 % 
@@ -390,14 +398,14 @@ end
 % 
 % 
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; minTimeSlow=Inf;
 % tic;
 % 
 % % Slow mode calculation - code copied from plotVehicleXYZ
 % for i=1:REPS
 %     tstart=tic;
-%     cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
+%     cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 % end
@@ -405,12 +413,12 @@ end
 % % Slow mode END
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num));
+%     cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

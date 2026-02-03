@@ -12,7 +12,7 @@ function fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, v
 %
 % FORMAT:
 %
-%      fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, (skipInterval), (fig_num))
+%      fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, (skipInterval), (figNum))
 %
 % INPUTS:  
 %
@@ -35,7 +35,7 @@ function fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, v
 %      skipInterval: the interval between "on" handles. Default is to have
 %      only one handle on at a time, e.g. skipInterval = length(handleList)
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -58,16 +58,23 @@ function fcn_plotRoad_animateHandlesOnOff(timeIndex, handleList, Xdata, Ydata, v
 % This function was written on 2024_08_19 by Sean Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history
-% 2024_08_19 - S. Brennan
-% -- Created function by copying out of load script in Geometry library
+% REVISION HISTORY:
+% 
+% 2024_08_19 by Sean Brennan, sbrennan@psu.edu
+% - Created function by copying out of load script in Geometry library
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 6; % The largest Number of argument inputs to the function
@@ -93,9 +100,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978; %#ok<NASGU>
+    debug_figNum = 999978; %#ok<NASGU>
 else
-    debug_fig_num = []; %#ok<NASGU>
+    debug_figNum = []; %#ok<NASGU>
 end
 
 
@@ -147,12 +154,12 @@ if (5<=nargin)
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) &&  (MAX_NARGIN<=nargin)
     % temp = varargin{end};
     % if ~isempty(temp)
-    %     fig_num = temp;
+    %     figNum = temp;
     %     flag_do_plots = 1;
     % end
 end
@@ -248,7 +255,7 @@ if flag_do_plots
     % end
     % 
     % % Center plot on circle center
-    % h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
+    % h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (figNum));
     % set(gca,'MapCenter',LLcenter(1,1:2));
     % 
     % for ith_color = Rcolors:-1:1
@@ -263,7 +270,7 @@ if flag_do_plots
     %     Y_data_selected = AllLonData(ith_color,:)';
     % 
     %     % Do the plotting
-    %     h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+    %     h_geoplot(ith_color,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (figNum));
     % end
     % 
 

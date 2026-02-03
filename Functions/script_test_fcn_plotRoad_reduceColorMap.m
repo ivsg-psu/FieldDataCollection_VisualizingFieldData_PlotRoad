@@ -3,13 +3,20 @@
 % fcn_plotRoad_reduceColorMap
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
-% 2024_08_15 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2024_08_15 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_02 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 
 %% Set up the workspace
 
@@ -35,21 +42,21 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: convert the "winter" colormap to 4 colors
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Convert the "winter" colormap to 4 colors');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
 
 % Reduce the colormap
 Ncolors = 4;
-reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (fig_num));
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (figNum));
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Are the dimensions of Lat reducedColorMap correct?
 assert(Ncolors==length(reducedColorMap(:,1)));
@@ -75,10 +82,10 @@ close all;
 fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 %% Test case: convert the "winter" colormap to 400 colors (stretching)
 
-fig_num = 20001; 
+figNum = 20001; 
 titleString = sprintf('Test case: convert the "winter" colormap to 400 colors (stretching)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in large colormap data
@@ -86,11 +93,11 @@ colorMapMatrix = colormap('winter');
 
 % Reduce the colormap
 Ncolors = 400;
-reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (fig_num));
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (figNum));
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Are the dimensions of Lat reducedColorMap correct?
 assert(Ncolors==length(reducedColorMap(:,1)));
@@ -99,10 +106,10 @@ assert(3==length(reducedColorMap(1,:)));
 
 %% Test case: Plotting when input data (colorMapMatrix) contains NaNs
 
-fig_num = 20002; 
+figNum = 20002; 
 titleString = sprintf('Test case: Plotting when input data (colorMapMatrix) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 
 % Fill in large colormap data
@@ -113,11 +120,11 @@ colorMapMatrix = [colorMapMatrix_noNaNs; NaN NaN NaN];
 
 % Reduce the colormap
 Ncolors = 400;
-reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (fig_num));
+reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, (figNum));
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Are the dimensions of Lat reducedColorMap correct?
 assert(Ncolors==length(reducedColorMap(:,1)));
@@ -145,9 +152,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
@@ -162,14 +169,14 @@ assert(3==length(reducedColorMap(1,:)));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 close(figure(1))
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
@@ -184,14 +191,14 @@ assert(3==length(reducedColorMap(1,:)));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 close(figure(1))
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in large colormap data
 colorMapMatrix = colormap('winter');
@@ -236,7 +243,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 close(figure(1))
 
 %% BUG cases
@@ -263,16 +270,16 @@ if 1==0
 
     %% Should throw error because XYdata has only one column
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in large colormap data
     colorMapMatrix = colormap('winter');
 
     % Reduce the colormap
     Ncolors = 4;
-    reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix(:,1:2), Ncolors, (fig_num));
+    reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix(:,1:2), Ncolors, (figNum));
 
     % Are the dimensions of Lat reducedColorMap correct?
     assert(Ncolors==length(reducedColorMap(:,1)));
@@ -280,7 +287,7 @@ if 1==0
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
 
@@ -295,7 +302,7 @@ end
 % Ncolors = 4;
 % 
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; 
 % minTimeSlow=Inf;
 % maxTimeSlow=-Inf;
@@ -304,7 +311,7 @@ end
 % % Slow mode calculation
 % for i=1:REPS
 %     tstart=tic;
-%     reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, fig_num);
+%     reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, figNum);
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 %     maxTimeSlow=max(telapsed,maxTimeSlow);
@@ -315,12 +322,12 @@ end
 % close all;
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, fig_num);
+%     reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, figNum);
 % 
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);

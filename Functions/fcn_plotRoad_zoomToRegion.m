@@ -54,15 +54,21 @@ function fcn_plotRoad_zoomToRegion(zoomScenario, zoomRegion, varargin)
 % This function was written on 2025_10_31 by Aneesh Batchu
 % Questions or comments? abb6486@psu.edu
 
-% Revision History
+% REVISION HISTORY:
 %
 % 2025_10_31 - Aneesh Batchu
-% -- Wrote this code originally
-% 2025_11_04 - S. Brennan
-% -- listed out the string input options explicitly in header
-% -- changed variable naming for consistency
+% - Wrote this code originally
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+% - Listed out the string input options explicitly in header
+% - Changed variable naming for consistency
 %    % * figNum to figNum
 %    % * zoom_level to zoomLevel
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 

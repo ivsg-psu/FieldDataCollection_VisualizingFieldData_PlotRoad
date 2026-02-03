@@ -65,27 +65,38 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 % This function was written on 2024_03_23 by V. Wagh
 % Questions or comments? vbw5054@psu.edu
 
-% Revision history:
+% REVISION HISTORY:
+% 
 % 2024_03_23 by V. Wagh
-% -- start writing function from fcn_LoadWZ_plotTrace
+% - Start writing function from fcn_LoadWZ_plotTrace
+% 
 % 2024_03_28 by V.Wagh
-% -- added warning to ask user for unit vector for STH coordinates
-% -- changed the name of the function and the script
+% - Added warning to ask user for unit vector for STH coordinates
+% - Changed the name of the function and the script
+% 
 % 2024_08_14 - S Brennan
-% -- changed the argument input to allow variable plot styles
-% -- fixed the argument listing in the header comments (wrong order?!)
-% -- fixed where reference_unit_tangent_vector was not set correctly
-% -- fixed bug where figure number inputs are set wrong
-% -- fixed dependencies on plotTraceLL and plotTraceXY
-% -- fixed bug where STH unit vectors never plotting
+% - Changed the argument input to allow variable plot styles
+% - Fixed the argument listing in the header comments (wrong order?!)
+% - Fixed where reference_unit_tangent_vector was not set correctly
+% - Fixed bug where figure number inputs are set wrong
+% - Fixed dependencies on plotTraceLL and plotTraceXY
+% - Fixed bug where STH unit vectors never plotting
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+% 
 % 2025_11_04 - Sean Brennan
-% -- Deprecated fcn_plotRoad_breakArrayByNans
+% - Deprecated fcn_plotRoad_breakArrayByNans
 %    % * changed to fcn_DebugTools_breakArrayByNans
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Modified debug options to handle NaNs in the inputs
+% - Modified debug options to handle NaNs in the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
@@ -478,9 +489,9 @@ function ENU_points = fcn_INTERNAL_convertSTtoXY(ST_points,v_unit,varargin)
 % Questions or comments? vbw5054@psu.ed
 
 
-% Revision history:
+% REVISION HISTORY:
 % 2023_07_11 by V. Wagh
-% -- start writing function
+% - Start writing function
 
 %% Debugging and Input checks
 
@@ -677,9 +688,9 @@ function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
 % Questions or comments? vbw5054@psu.ed
 
 
-% Revision history:
+% REVISION HISTORY:
 % 2023_07_11 by V. Wagh
-% -- start writing function
+% - Start writing function
 
 %% Debugging and Input checks
 

@@ -3,7 +3,7 @@ function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargi
 %
 % FORMAT:
 %
-%       cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (fig_num))
+%       cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, (yawAngle), (centerOffsetLWH), (figNum))
 %
 % INPUTS:
 %
@@ -24,7 +24,7 @@ function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargi
 %      coordinates, if the centerPointXYZ is at the origin, then the
 %      rectangle's geometric center will be at centerOffsetLWH.
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -54,17 +54,24 @@ function cornersXYZ = fcn_plotRoad_calcRectangleXYZ(centerPointXYZ, LWH, varargi
 % This function was written on 2024_08_13 by S. Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision history:
+% REVISION HISTORY:
+% 
 % 2023_08_13 by S. Brennan, sbrennan@psu.edu
-% -- start writing function by heavily modifying version from PlotTestTrack
+% - Start writing function by heavily modifying version from PlotTestTrack
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 5; % The largest Number of argument inputs to the function
@@ -88,9 +95,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,12 +146,12 @@ if 4 <= nargin
     end
 end
 
-% Check to see if user specifies fig_num?
+% Check to see if user specifies figNum?
 flag_do_plots = 0;
 if (0==flag_max_speed) && (5<= nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -216,7 +223,7 @@ end
 % Plot rectangle in LLA
 if flag_do_plots == 1
     % check whether the figure already has data
-    temp_h = figure(fig_num);
+    temp_h = figure(figNum);
     flag_rescale_axis = 0;
     if isempty(get(temp_h,'Children'))
         flag_rescale_axis = 1;

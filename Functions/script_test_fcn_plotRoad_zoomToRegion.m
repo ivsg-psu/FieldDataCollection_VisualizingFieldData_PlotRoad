@@ -3,16 +3,19 @@
 % This function was written on 2025_10_31 by Aneesh Batchu, abb6486@psu.edu
 
 
-% Revision history:
+% REVISION HISTORY:
 % 
 % 2025_10_31 - Aneesh Batchu
-% -- Wrote the code originally
-% 2025_11_04 - S. Brennan
-% -- changed variable naming for consistency
+% - Wrote the code originally
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+% - Changed variable naming for consistency
 %    % * figNum to figNum
 %    % * zoom_level to zoomLevel
 
-
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 
 %% Set up the workspace
 

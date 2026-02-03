@@ -1,26 +1,30 @@
-function h_geoplot = fcn_plotRoad_plotLL(varargin)
-%fcn_plotRoad_plotLL   geoplots Latitude and Longitude data with user-defined formatting strings
+function h_geoplot = fcn_plotRoad_smartPlotLL(varargin)
+%fcn_plotRoad_smartPlotLL   geoplots Latitude and Longitude data with
+% user-defined formatting strings, using precalculated datasets that set
+% the data resolution for a given zoom level
 %
 % FORMAT:
 %
-%       h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum))
+%       h_geoplot = fcn_plotRoad_smartPlotLL((LLcellZoomArray), (plotFormat), (figNum))
 %
 % INPUTS:
 %
 %      (OPTIONAL INPUTS)
 %
-%      LLdata: an [Nx2+] vector data to plot where N is the number of
-%      points, and there are 2 or more columns. Each row of data correspond
-%      to the [Latitude Longitude] coordinate of the point to plot in the
-%      1st and 2nd column. If no data is given, it plots the reference
-%      coordinate location for the GPS origin.
+%      LLcellZoomArray: a list of cell arrays, each containing 201 internal
+%      cell arrays, each of these containing an [Nx2+] vector of data to
+%      plot where N is the number of points, and there are 2 or more
+%      columns. Each row of data correspond to the [Latitude Longitude]
+%      coordinate of the point to plot in the 1st and 2nd column. If no
+%      data is given, it plots the reference coordinate location for the
+%      GPS origin.
 %
 %      plotFormat: one of the following:
 %      
 %          * a format string, e.g. 'b-', that dictates the plot style
 %          * a [1x3] color vector specifying the RGB ratios from 0 to 1
 %          * a structure whose subfields for the plot properties to change, for example:
-%            plotFormat.LineWideth = 3;
+%            plotFormat.LineWidth = 3;
 %            plotFormat.MarkerSize = 10;
 %            plotFormat.Color = [1 0.5 0.5];
 %            A full list of properties can be found by examining the plot
@@ -42,31 +46,28 @@ function h_geoplot = fcn_plotRoad_plotLL(varargin)
 %
 %       See the script:
 %
-%       script_test_fcn_plotRoad_plotLL.m 
+%       script_test_fcn_plotRoad_smartPlotLL.m 
 %
 %       for a full test suite.
 %
-% This function was written on 2024_08_13 by S. Brennan
+% This function was written on 2026_02_02 by S. Brennan
 % Questions or comments? snb10@psu.edu
 
 % REVISION HISTORY:
 % 
-% 2024_08_13 by S. Brennan
-% - Created function by copying out of load script in Geometry library and
-%   % merging with similar code in PlotTestTrack library
-% 
-% 2024_08_16 by Sean Brennan, sbrennan@psu.edu
-% - Fixed bug where plot would not initialize due to gcf, changed to gca.
-% - Fixed bug where plot is not centered on plotted data when sites away
-%   % from the test track are plotted. Fixed this via:
-%   %      set(gca,'MapCenter',dataToPlot(end,1:2));
-% 
-% 2025_11_01 - Aneesh Batchu
-% - Added MAX_NARGIN option to the function
+% 2026_02_02 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
 
 % TO-DO:
 % 
-% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+% 2026_02_02 by Sean Brennan, sbrennan@psu.edu
+% - Need to add handle labels to allow storage of handles into UserData,
+%   for automatic plot updating instead of redraw
+% - Need to add bounding box limits on plotting to avoid updating objects
+%   not in current view
+% - Need to add custom zoom button capbilities to plots. See "is there a
+%   way to put a custom toolbar on a geoplot to allow user-specified plot
+%   modifications" in the copilot
 
 %% Debugging and Input checks
 
@@ -133,14 +134,14 @@ end
 
 % Check the data input
 flag_plot_data = 0; % Default is not to plot the data
-dataToPlot = [];
+LLcellZoomArray = [];
 if 1 <= nargin
     temp = varargin{1};
 
     % Check to see if data is being plotting. If it is not, then we
     % need to replot the figure
     if ~isempty(temp)
-        dataToPlot = temp;
+        LLcellZoomArray = temp;
         flag_plot_data = 1;
     else
         % No data is given - must be a new plot
@@ -218,6 +219,18 @@ end
 % Initialize the output
 h_geoplot = 0;
 
+reference_latitude = 40.86368573;
+reference_longitude = -77.83592832;
+reference_altitude = 344.189;
+MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE");
+MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE");
+MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE");
+if ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE)
+	reference_latitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE);
+	reference_longitude = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE);
+	reference_altitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE);
+end
+
 %% Any debugging?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   _____       _
@@ -233,8 +246,8 @@ h_geoplot = 0;
 if flag_do_plots == 1
     % check whether the figure already has data
     figure(figNum);
-    temp_fig_handle = gca;
-    if isempty(temp_fig_handle.Children)
+    temp_gca_handle = gca;
+    if isempty(temp_gca_handle.Children)
         flag_make_new_plot = 1;
     end
 
@@ -258,29 +271,17 @@ if flag_do_plots == 1
 
         % Plot the base station with a green star? This sets up the figure for
         % the first time, including the zoom into the test track area.
-        if isempty(dataToPlot) % || length(dataToPlot(:,1))>1
+        if isempty(LLcellZoomArray) % || length(dataToPlot(:,1))>1
             % PLOT STAR?
-
-			reference_latitude = 40.86368573;
-            reference_longitude = -77.83592832;
-            reference_altitude = 344.189;
-            MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE");
-            MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE");
-            MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE = getenv("MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE");
-            if ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE) && ~isempty(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE)
-                reference_latitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE);
-                reference_longitude = str2double(MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE);
-                reference_altitude  = str2double(MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE);
-            end
-
             h_tempGeoplot = geoplot(reference_latitude+offset_Lat, reference_longitude+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
 		else
 			% PLOT NO STAR?
 
             % h_tempGeoplot = geoplot(dataToPlot(1,1)+offset_Lat, dataToPlot(1,2)+offset_Lon, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
             h_tempGeoplot = geoplot(nan, nan, '*','Color',[0 1 0],'Linewidth',3,'Markersize',10);
-            firstNotNaNIndex = find(~isnan(dataToPlot(:,1)),1);
-            set(gca,'MapCenter',dataToPlot(firstNotNaNIndex,1:2));
+            % firstNotNaNIndex = find(~isnan(LLcellZoomArray(:,1)),1);
+            % set(gca,'MapCenter',LLcellZoomArray(firstNotNaNIndex,1:2));
+            set(gca,'MapCenter',[reference_latitude reference_longitude]);
         end
 
         h_parent =  get(h_tempGeoplot,'Parent');
@@ -298,7 +299,7 @@ if flag_do_plots == 1
 
 	% Plotting any data?
     if flag_plot_data
-        NplotPoints = length(dataToPlot(:,1));
+        NplotPoints = length(LLcellZoomArray(:,1));
 
 
         % make plots
@@ -315,7 +316,7 @@ if flag_do_plots == 1
         end
 
         % If plotting only one point, make sure point style is filled
-        if isscalar(dataToPlot)
+        if isscalar(LLcellZoomArray)
             if ~isfield(plotFormat,'Marker') || strcmp(plotFormat.Marker,'none')
                 finalPlotFormat.Marker = '.';
                 finalPlotFormat.LineStyle = 'none';
@@ -323,23 +324,40 @@ if flag_do_plots == 1
         end
 
         % Do plot
+		temp_gca_handle = gca;
+		currentZoom = get(temp_gca_handle,'ZoomLevel');
+		roundedCurrentZoom = round(currentZoom,3);
+		allZoomLevels = cell2mat(LLcellZoomArray(:,1));
+		closestZoomIndex = find(round(allZoomLevels,3)==roundedCurrentZoom,1);
+		if isempty(closestZoomIndex)
+			error('Unable to find a matching zoom index. Exiting.');
+		end
+
+		% Pull out the data to be plotted
+		dataToPlot = LLcellZoomArray{closestZoomIndex,2};
+		Nplotted = length(dataToPlot(:,1));
+		Ntotal = length(LLcellZoomArray{end,2}(:,1));
+
         if flag_make_new_plot && ~isempty(dataToPlot)
             h_geoplot = h_tempGeoplot;
             set(h_geoplot,'LatitudeData',dataToPlot(:,1)+offset_Lat, 'LongitudeData',dataToPlot(:,2)+offset_Lon,'LineStyle','-','Marker','none');
         else
             h_geoplot = geoplot(dataToPlot(:,1)+offset_Lat,dataToPlot(:,2)+offset_Lon);
         end
+		title(sprintf('Reduced plotting from %.0f to %.0f points',Ntotal,Nplotted));
 
         % if ~isnan(dataToPlot(end,1:2))
         %     set(gca,'MapCenter',dataToPlot(end,1:2));
-        % end
+		% end
 
-        % Fix attributes
-        list_fieldNames = fieldnames(finalPlotFormat);
-        for ith_field = 1:length(list_fieldNames)
-            thisField = list_fieldNames{ith_field};
-            h_geoplot.(thisField) = finalPlotFormat.(thisField);
-        end
+		% Fix attributes
+		if ~isempty(dataToPlot)
+			list_fieldNames = fieldnames(finalPlotFormat);
+			for ith_field = 1:length(list_fieldNames)
+				thisField = list_fieldNames{ith_field};
+				h_geoplot.(thisField) = finalPlotFormat.(thisField);
+			end
+		end
     end
 end
 if flag_do_debug

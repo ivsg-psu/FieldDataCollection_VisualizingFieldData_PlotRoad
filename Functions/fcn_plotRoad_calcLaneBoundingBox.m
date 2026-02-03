@@ -9,7 +9,7 @@ function boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundar
 %
 % FORMAT:
 %
-%      boundingBoxXY= fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (fig_num))
+%      boundingBoxXY= fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundary_XY, rightLaneBoundary_XY, (figNum))
 %
 % INPUTS:
 %
@@ -20,7 +20,7 @@ function boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundar
 %
 %      (OPTIONAL INPUTS)
 %
-%      fig_num: a figure number to plot results. If set to -1, skips any
+%      figNum: a figure number to plot results. If set to -1, skips any
 %      input checking or debugging, no figures will be generated, and sets
 %      up code to maximize speed.
 %
@@ -41,16 +41,23 @@ function boundingBoxPolyshape = fcn_plotRoad_calcLaneBoundingBox(leftLaneBoundar
 % This function was written on 2024_08_16 by S. Brennan
 % Questions or comments? sbrennan@psu.edu
 
-% Revision History
+% REVISION HISTORY:
+% 
 % 2024_08_16 S. Brennan
-% -- started writing function from fcn_PlotTestTrack similar function
+% - Started writing function from fcn_PlotTestTrack similar function
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Added MAX_NARGIN option to the function
-% -- Added debug tools to check the inputs
+% - Added MAX_NARGIN option to the function
+% - Added debug tools to check the inputs
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Debugging and Input checks
 
-% Check if flag_max_speed set. This occurs if the fig_num variable input
+% Check if flag_max_speed set. This occurs if the figNum variable input
 % argument (varargin) is given a number of -1, which is not a valid figure
 % number.
 MAX_NARGIN = 3; % The largest Number of argument inputs to the function
@@ -76,9 +83,9 @@ end
 if flag_do_debug
     st = dbstack; %#ok<*UNRCH>
     fprintf(1,'STARTING function: %s, in file: %s\n',st(1).name,st(1).file);
-    debug_fig_num = 999978;
+    debug_figNum = 999978;
 else
-    debug_fig_num = [];
+    debug_figNum = [];
 end
 %% check input arguments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,13 +126,13 @@ if (2 <= nargin)
     end
 end
 
-% Does user want to specify fig_num?
+% Does user want to specify figNum?
 flag_do_plots = 0;
-fig_num = []; % Initialize the figure number to be empty
+figNum = []; % Initialize the figure number to be empty
 if (0==flag_max_speed) && (3 <= nargin)
     temp = varargin{end};
     if ~isempty(temp)
-        fig_num = temp;
+        figNum = temp;
         flag_do_plots = 1;
     end
 end
@@ -172,7 +179,7 @@ boundingBoxPolyshape = polyshape(boundaryXY_noRepeats(:,1),boundaryXY_noRepeats(
 
 if flag_do_plots == 1
 
-    figure(fig_num);
+    figure(figNum);
     clf;
     hold on;
 
@@ -187,18 +194,18 @@ if flag_do_plots == 1
 
     % Create an empty plot in ENU format
     plotFormat.Color = [1 0 0];
-    fcn_plotRoad_plotTraceXY([nan nan], (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+    fcn_plotRoad_plotTraceXY([nan nan], (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
     % Bounding box in green
     plot(boundingBoxPolyshape,'FaceColor',[0 1 0],'EdgeColor',[0 1 0],'Linewidth',3);
 
     % Right is red
     plotFormat.Color = [1 0 0];
-    fcn_plotRoad_plotTraceXY(rightLaneBoundary_XY, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+    fcn_plotRoad_plotTraceXY(rightLaneBoundary_XY, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
     % Left is blue
     plotFormat.Color = [0 0 1];
-    fcn_plotRoad_plotTraceXY(leftLaneBoundary_XY, (plotFormat), (flag_plot_headers_and_tailers), (fig_num));
+    fcn_plotRoad_plotTraceXY(leftLaneBoundary_XY, (plotFormat), (flag_plot_headers_and_tailers), (figNum));
 
 end
 

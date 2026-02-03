@@ -3,14 +3,20 @@
 % This function was written on 2023_09_04 by S. Brennan, sbrennan@psu.edu
 
 
-% Revision history:
+% REVISION HISTORY:
 % 
-% 2023_09_04 - S. Brennan
-% -- first write of the code
+% 2023_09_04 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 
 %% Set up the workspace
@@ -38,10 +44,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: plotLLI with defaults 
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: plotLLI with defaults');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -67,26 +73,26 @@ plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
 % Test the function
 plotFormat = [];
 colorMap = [];
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (figNum));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
 
 %% DEMO case: plotLLI with color
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: plotLLI with defaults');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -113,26 +119,26 @@ plotData = [LLA_positions_matrix(:,1), LLA_positions_matrix(:,2), sin(time)];
 % Test the function
 plotFormat = 'r';
 colorMap = [];
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI with string color',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI with string color',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (figNum));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
 
 %% DEMO case: plotLLI specifying the colorMap, automating zoom
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: plotLLI specifying the colorMap, automating zoom');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -165,16 +171,16 @@ Ncolors = 20;
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI with colormap',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI with colormap',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -183,10 +189,10 @@ assert(all(ishandle(h_animatedPlot(:))));
 
 %% DEMO case: plotLLI specifying the linestyle
 
-fig_num = 10004; 
+figNum = 10004; 
 titleString = sprintf('DEMO case: plotLLI specifying the linestyle');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -218,16 +224,16 @@ colorMapMatrix = colormap('hot');
 Ncolors = 10;
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI with string color',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI with string color',figNum), 'Interpreter','none');
 
 for ith_time = 1:400:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -254,10 +260,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: plotLLI specifying the full plotFormat
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: plotLLI specifying the full plotFormat');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -295,17 +301,17 @@ Ncolors = 20;
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI specifying the full plotFormat',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI specifying the full plotFormat',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'ZoomLevel',20,'MapCenter',plotData(ith_time,1:2));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -317,13 +323,13 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotLLI_follow.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'ZoomLevel',18.5,'MapCenter',plotData(ith_time,1:2));
 
         % Create an animated gif
@@ -348,17 +354,17 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotLLI_global.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'ZoomLevelMode','auto','MapCenterMode','auto');
     entireZoom = get(gca,'ZoomLevel');
     entireCenter = get(gca,'MapCenter');
 
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'ZoomLevel',entireZoom,'MapCenter',entireCenter);
 
         % Create an animated gif
@@ -377,7 +383,7 @@ if 1==0
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -385,10 +391,10 @@ assert(all(ishandle(h_animatedPlot(:))));
 
 %% Test case: plotLL specifying the full plotFormat
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: plotLL specifying the full plotFormat');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -421,17 +427,17 @@ plotFormat.Color = [1 0 1];
 
 reducedColorMap = [];
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLL specifying the full plotFormat',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLL specifying the full plotFormat',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'ZoomLevel',20,'MapCenter',plotData(ith_time,1:2));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -443,13 +449,13 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotLL_follow.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'ZoomLevel',18.5,'MapCenter',plotData(ith_time,1:2));
 
         % Create an animated gif
@@ -474,17 +480,17 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotLL_global.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotLL', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'ZoomLevelMode','auto','MapCenterMode','auto');
     entireZoom = get(gca,'ZoomLevel');
     entireCenter = get(gca,'MapCenter');
 
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotLL', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'ZoomLevel',entireZoom,'MapCenter',entireCenter);
 
         % Create an animated gif
@@ -503,17 +509,17 @@ if 1==0
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
 
 %% Test case: plotXYI specifying the full plotFormat
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: plotXYI specifying the full plotFormat');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -552,17 +558,17 @@ Ncolors = 100;
 reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotXYI specifying the full plotFormat',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotXYI specifying the full plotFormat',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'XLim',plotData(ith_time,1)*[1 1]+[-100 100],'YLim',plotData(ith_time,2)*[1 1]+[-100 100]);
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -574,14 +580,14 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotXYI_follow.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-    title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat, in following mode',fig_num), 'Interpreter','none');
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+    title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat, in following mode',figNum), 'Interpreter','none');
 
     for ith_time = 1:100:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'XLim',plotData(ith_time,1)*[1 1]+[-100 100],'YLim',plotData(ith_time,2)*[1 1]+[-100 100]);
 
         % Create an animated gif
@@ -606,17 +612,17 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotXYI_global.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-    title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat, in global mode',fig_num), 'Interpreter','none');
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotXYI', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+    title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat, in global mode',figNum), 'Interpreter','none');
 
     entireAxis = axis;
 
 
     for ith_time = 1:100:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotXYI', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         axis(entireAxis);
 
         % Create an animated gif
@@ -635,17 +641,17 @@ if 1==0
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
 
 %% Test case: plotXY specifying the full plotFormat
 
-fig_num = 20004;
+figNum = 20004;
 titleString = sprintf('Test case: plotXY specifying the full plotFormat');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -679,17 +685,17 @@ plotFormat.Color = [1 0 1];
 
 reducedColorMap = [];
 
-h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotXY specifying the full plotFormat',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
     set(gca,'XLim',plotData(ith_time,1)*[1 1]+[-100 100],'YLim',plotData(ith_time,2)*[1 1]+[-100 100]);
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -701,13 +707,13 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotXY_follow.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         set(gca,'XLim',plotData(ith_time,1)*[1 1]+[-100 100],'YLim',plotData(ith_time,2)*[1 1]+[-100 100]);
 
         % Create an animated gif
@@ -732,15 +738,15 @@ if 1==0
     filename = 'fcn_plotRoad_animatePlot_plotXY_global.gif';
     flagFirstTime = 1;
 
-    figure(fig_num);
+    figure(figNum);
     clf;
 
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (fig_num));
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotXY', 0, [], plotData, (plotFormat), (reducedColorMap), (figNum));
     entireAxis = axis;
 
 
     for ith_time = 1:500:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotXY', ith_time, h_animatedPlot, plotData, (plotFormat), (reducedColorMap), (figNum));
         axis(entireAxis);
 
         % Create an animated gif
@@ -759,17 +765,17 @@ if 1==0
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
 
 %% Test case: Plotting when input data (plotData) contains NaNs
 
-fig_num = 20005; 
+figNum = 20005; 
 titleString = sprintf('DEMO case: Plotting when input data (plotData) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -800,16 +806,16 @@ plotData = [plotData_noNaNs; NaN_matrix];
 % Test the function
 plotFormat = [];
 colorMap = [];
-h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing animated plotLLI',fig_num), 'Interpreter','none');
+h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData, (plotFormat), (colorMap), (figNum));
+title(sprintf('Example %.0d: showing animated plotLLI',figNum), 'Interpreter','none');
 
 for ith_time = 1:100:length(plotData(:,1))
-    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (fig_num));
+    fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData, (plotFormat), (colorMap), (figNum));
     pause(0.02);
 end
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_animatedPlot(:))));
@@ -841,9 +847,9 @@ if 1==0
 
     %% Should throw error because plotData does not have 3 column of numbers
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in data
     % Check to see if XY data for the centerline of the original track lane was loaded earlier
@@ -869,16 +875,16 @@ if 1==0
     % Test the function
     plotFormat = [];
     colorMap = [];
-    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData(:,1:2), (plotFormat), (colorMap), (fig_num));
-    title(sprintf('Example %.0d: showing animated plotLLI',fig_num), 'Interpreter','none');
+    h_animatedPlot = fcn_plotRoad_animatePlot('plotLLI', 0, [], plotData(:,1:2), (plotFormat), (colorMap), (figNum));
+    title(sprintf('Example %.0d: showing animated plotLLI',figNum), 'Interpreter','none');
 
     for ith_time = 1:100:length(plotData(:,1))
-        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData(:,1:2), (plotFormat), (colorMap), (fig_num));
+        fcn_plotRoad_animatePlot('plotLLI', ith_time, h_animatedPlot, plotData(:,1:2), (plotFormat), (colorMap), (figNum));
         pause(0.02);
     end
 
     % Was a figure created?
-    assert(all(ishandle(fig_num)));
+    assert(all(ishandle(figNum)));
 
     % Check results
     assert(all(ishandle(h_animatedPlot(:))));

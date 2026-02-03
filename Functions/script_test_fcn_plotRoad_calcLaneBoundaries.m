@@ -3,13 +3,21 @@
 % fcn_plotRoad_calcLaneBoundaries.m
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
-% 2024_08_15 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2024_08_15 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -36,10 +44,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Basic edge calculation example
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Basic edge calculation example');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -48,7 +56,7 @@ XYdata = [xData yData];
 projectionDistance = []; % Use defaults
 
 % Test the function
-[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (figNum));
 
 % Does the data have 2 columns?
 assert(length(leftLaneBoundary_XY(1,:))== 2)
@@ -61,7 +69,7 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
 assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,10 +92,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Advanced edge calculation example
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Input array with one nan sequence inside');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % Load data (from the following, in the plotCV2X library)
 % csvFile = 'TestTrack_PendulumRSU_InstallTest_OuterLane1_2024_08_09.csv'; % Path to your CSV file
@@ -1250,7 +1258,7 @@ save(cat(2,'Data',filesep,'SampleCV2XData.mat'),'XYdata');
 % Test the function
 csvFile = 'TestTrack_PendulumRSU_InstallTest_OuterLane1_2024_08_09.csv'; % Path to your CSV file
 projectionDistance = [];
-[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (figNum));
 title(sprintf('Example of fcn_plotRoad_calcLaneBoundaries'), 'Interpreter','none','FontSize',12);
 subtitle(sprintf('File: %s',csvFile), 'Interpreter','none','FontSize',12);
 
@@ -1265,15 +1273,15 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
 assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 
 %% Test case: Plotting when input data (XYdata) contains NaNs
 
-fig_num = 20002; 
+figNum = 20002; 
 titleString = sprintf('Test case: Plotting when input data (XYdata) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -1285,7 +1293,7 @@ XYdata = [XYdata_noNaNs; nan nan];
 projectionDistance = []; % Use defaults
 
 % Test the function
-[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+[leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (figNum));
 
 % Does the data have 2 columns?
 assert(length(leftLaneBoundary_XY(1,:))== 2)
@@ -1298,7 +1306,7 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(rightLaneBoundary_XY(:,1)))
 assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Check that a figure was created
-assert(ishandle(fig_num));
+assert(ishandle(figNum));
 
 
 %% Fast Mode Tests
@@ -1321,9 +1329,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -1346,14 +1354,14 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -1376,13 +1384,13 @@ assert(length(leftLaneBoundary_XY(:,1)) == length(XYdata(:,1)))
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 % Create data
 xData = linspace(-2,20,100)';
@@ -1440,7 +1448,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1466,9 +1474,9 @@ if 1==0
 
     %% Should throw error because XYdata does not have 2 column of numbers
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Create data
     xData = linspace(-2,20,100)';
@@ -1477,7 +1485,7 @@ if 1==0
     projectionDistance = []; % Use defaults
 
     % Test the function
-    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata(:,1), (projectionDistance), (fig_num));
+    [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata(:,1), (projectionDistance), (figNum));
 
     % Does the data have 2 columns?
     assert(length(leftLaneBoundary_XY(1,:))== 2)
@@ -1492,7 +1500,7 @@ if 1==0
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
 
@@ -1504,7 +1512,7 @@ end
 % XYdata = [xData yData];
 % projectionDistance = []; % use default of 12 ft wide lane
 % 
-% fig_num=[];
+% figNum=[];
 % REPS=5;
 % minTimeSlow=Inf;
 % maxTimeSlow=-Inf;
@@ -1513,7 +1521,7 @@ end
 % % Slow mode calculation - code copied from plotVehicleXYZ
 % for i=1:REPS
 %     tstart=tic;
-%     [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+%     [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 %     maxTimeSlow=max(telapsed,maxTimeSlow);
@@ -1522,12 +1530,12 @@ end
 % % Slow mode END
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (fig_num));
+%     [leftLaneBoundary_XY, rightLaneBoundary_XY] = fcn_plotRoad_calcLaneBoundaries(XYdata, (projectionDistance), (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

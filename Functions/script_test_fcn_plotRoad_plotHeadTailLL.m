@@ -2,13 +2,20 @@
 % This is a script to exercise the function: fcn_plotRoad_plotHeadTailLL
 % This function was written on 2024_08_14 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
+% REVISION HISTORY:
+% 
 % 2024_08_14
-% -- first write of the code
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 
 
 %% Set up the workspace
@@ -40,10 +47,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 % the same way as a new figure.
 
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Plot data onto an empty figure');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in some dummy data (East curve from scenario 1_1)
 
@@ -96,10 +103,10 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing plotting of data',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing plotting of data',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -107,10 +114,10 @@ assert(ishandle(h_geoplot));
 
 %% DEMO case: Call the function with empty inputs
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Call the function with empty inputs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % call the function with empty inputs, but with a figure number,
 % and it should create the plot with
@@ -119,7 +126,7 @@ LLdata = [];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -143,10 +150,10 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing plotting of data on existing figure',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing plotting of data on existing figure',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -173,10 +180,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 
 %% Test case: Plot data with simple formatting string
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Plot data with simple formatting string');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -195,20 +202,20 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = 'y.-';
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing use of simple formatting string',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of simple formatting string',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: Plot data with user-given color vector
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: Plot data with user-given color vector');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -227,20 +234,20 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [0 1 0];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing use of color vector',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of color vector',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: Plot data with user-given color vector
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: Plot data with user-given color vector');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -264,20 +271,20 @@ plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of format structure',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: Plotting when input data (LLdata) contains NaNs
 
-fig_num = 20004;
+figNum = 20004;
 titleString = sprintf('Test case: Plotting when input data (LLdata) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -297,10 +304,10 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = 'y.-';
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailLL(LLdata, fig_num, plotFormat);
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailLL(LLdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing use of simple formatting string',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of simple formatting string',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -326,32 +333,32 @@ fprintf(1, 'Plot function - No fast mode tests\n')
 
 %% Basic example - NO FIGURE
 % 
-% fig_num = 80001;
-% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % 
 % %% Basic example - NO FIGURE
 % 
-% fig_num = 80002;
-% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 % 
-% fig_num = 80003;
-% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % Niterations = 100;
 % 
@@ -388,7 +395,7 @@ fprintf(1, 'Plot function - No fast mode tests\n')
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -414,9 +421,9 @@ if 1==0
 
     %% Should throw error because LLdata must have 3 columns
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in data
     data3 = [
@@ -436,10 +443,10 @@ if 1==0
     % Test the function
     plotFormat = [0 1 0];
     h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (-1));
-    fcn_plotRoad_plotHeadTailLL(LLdata(:,1:2), fig_num, plotFormat);
+    fcn_plotRoad_plotHeadTailLL(LLdata(:,1:2), figNum, plotFormat);
 
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 end

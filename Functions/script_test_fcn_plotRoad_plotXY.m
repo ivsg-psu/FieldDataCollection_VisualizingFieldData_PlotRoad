@@ -3,13 +3,21 @@
 % This function was written on 2023_08_12 by S. Brennan, sbrennan@psu.edu
 
 
-% Revision history:
+% REVISION HISTORY:
+% 
 % 2023_08_12
-% -- first write of the code
+% - First write of the code
+% 
 % 2025_11_02 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -35,36 +43,36 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Plotting with all defaults
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Showing plot of entire cell array)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
 
 % Test the function
 plotFormat = [];
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','none');
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+title(sprintf('Example %.0d: showing basic plotting',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
 
 %% DEMO case: Plotting with basic plot string
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Plotting with basic plot string)');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
 
 % Test the function
 plotFormat = 'r.-';
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-title(sprintf('Example %.0d: showing basic plot string',fig_num), 'Interpreter','none');
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+title(sprintf('Example %.0d: showing basic plot string',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
@@ -91,28 +99,28 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 %% Test case: Plotting with color numbers
 % Load the first marker cluster - call it by name
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Plotting with color numbers');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
 
 % Test the function
 plotFormat = [1 0.4 1];
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+title(sprintf('Example %.0d: showing  color numbers',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
 
 %% Test case: Plotting with structure input
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: Plotting with structure input');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -124,8 +132,8 @@ plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+title(sprintf('Example %.0d: showing  color numbers',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
@@ -133,10 +141,10 @@ assert(ishandle(h_plot));
 
 %% Test case: Plotting when input data (XYdata) contains NaNs
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: Plotting when input data (XYdata) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); close(fig_num);
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
 
 NaN_matrix = nan(5,2); 
 
@@ -154,8 +162,8 @@ plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+title(sprintf('Example %.0d: showing  color numbers',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
@@ -181,9 +189,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -200,14 +208,14 @@ fcn_plotRoad_plotXY(XYdata, (plotFormat), ([]));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -225,13 +233,13 @@ fcn_plotRoad_plotXY(XYdata, (plotFormat), (-1));
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -278,7 +286,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,9 +312,9 @@ if 1==0
 
     %% Should throw error because XYdata has only one column
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     time = linspace(0,10,100)';
     XYdata = [time sin(time)];
@@ -319,11 +327,11 @@ if 1==0
     plotFormat.LineStyle = '-';
     plotFormat.LineWidth = 3;
 
-    fcn_plotRoad_plotXY(XYdata(:,1), (plotFormat), (fig_num));
+    fcn_plotRoad_plotXY(XYdata(:,1), (plotFormat), (figNum));
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
 
@@ -343,14 +351,14 @@ end
 % 
 % 
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; minTimeSlow=Inf;
 % tic;
 % 
 % % Slow mode calculation
 % for i=1:REPS
 %     tstart=tic;
-%     h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
+%     h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 % end
@@ -360,12 +368,12 @@ end
 % close all;
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
+%     h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

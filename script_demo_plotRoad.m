@@ -16,59 +16,70 @@
 
 
 
-%% Revision history:
-% 2023_06_01 - sbrennan@psu.edu and vbw5054@psu.edu
-% -- First write of code using LOadWZ code as starter
-% 2023_08_10 - sbrennan@psu.edu
-% -- Changed name to PlotRoad to allow more flexibility for non-track plots
-% 2023_09_04 - sbrennan@psu.edu
-% -- Added animatePlot function
-% 2024_09_26 - sbrennan@psu.edu
-% -- Updated function fcn_INTERNAL_clearUtilitiesFromPathAndFolders
-% 2025_07_15 - sbrennan@psu.edu
-% -- Deprecated fcn_plotRoad_extractFormatFromString to move this function
+% REVISION HISTORY:
+% 
+% 2023_06_01 by Sean Brennan, sbrennan@psu.edu and vbw5054@psu.edu
+% - First write of code using LoadWZ code as starter
+%
+% 2023_08_10 by Sean Brennan, sbrennan@psu.edu
+% - Changed name to PlotRoad to allow more flexibility for non-track plots
+% 
+% 2023_09_04 by Sean Brennan, sbrennan@psu.edu
+% - Added animatePlot function
+% 
+% 2024_09_26 by Sean Brennan, sbrennan@psu.edu
+% - Updated function fcn_INTERNAL_clearUtilitiesFromPathAndFolders
+% 
+% 2025_07_15 by Sean Brennan, sbrennan@psu.edu
+% - Deprecated fcn_plotRoad_extractFormatFromString to move this function
 %    % to fcn_DebugTools_extractPlotFormatFromString
-% -- Updated dependencies to DebugTools_v2025_07_15
-% -- Updated dependencies to PathClass_v2025_07_06
-% -- Updated dependencies to BreakDataIntoLaps_v2025_07_05
-% -- Removed call to geometry library
-% -- Cleaned some broken test scripts that were failing due to undeclared
+% - Updated dependencies to DebugTools_v2025_07_15
+% - Updated dependencies to PathClass_v2025_07_06
+% - Updated dependencies to BreakDataIntoLaps_v2025_07_05
+% - Removed call to geometry library
+% - Cleaned some broken test scripts that were failing due to undeclared
 %    % variables
+% 
 % 2025_10_31 - Aneesh Batchu
-% -- Wrote the function "fcn_plotRoad_zoomToRegion" and the script
-% -- Checked the verification list 
+% - Wrote the function "fcn_plotRoad_zoomToRegion" and the script
+% - Checked the verification list 
+% 
 % 2025_11_02 - Aneesh Batchu
-% -- Checked the verification list to release the repo
-% -- Updated all the scripts, functions and demo script to the latest format
-% -- Ran the fucntion that runs all the scripts to check for errors. 
-% 2025_11_03 - Sean Brennan, sbrennan@psu.edu
-% -- added LargeData to .gitIgnore
-% -- deleted global variable commented out sections for FINDEDGE repo
-% -- Move fcn_plotRoad_breakArrayByNans out of this library, into Debug
+% - Checked the verification list to release the repo
+% - Updated all the scripts, functions and demo script to the latest format
+% - Ran the fucntion that runs all the scripts to check for errors. 
+% 
+% 2025_11_03 by Sean Brennan, sbrennan@psu.edu
+% - added LargeData to .gitIgnore
+% - deleted global variable commented out sections for FINDEDGE repo
+% - Move fcn_plotRoad_breakArrayByNans out of this library, into Debug
 %    % * Deprecated fcn_plotRoad_breakArrayByNans
-% -- updated DebugTools_v2025_11_04c 
-% -- updated PathClass_v2025_08_03
-% -- updated script_test_all_functions with latest version 
+% - updated DebugTools_v2025_11_04c 
+% - updated PathClass_v2025_08_03
+% - updated script_test_all_functions with latest version 
 %    % * from DebugTools
-% -- updated fcn_plotRoad_zoomToRegion with minor edits
-% -- removed incorrect _PLOTCV2X_ global variable in:
+% - updated fcn_plotRoad_zoomToRegion with minor edits
+% - removed incorrect _PLOTCV2X_ global variable in:
 %    % * fcn_plotRoad_calcLaneBoundaries
 %    % * fcn_plotRoad_calcLaneBoundingBox
-% -- removed incorrect _PlotTestTrack_ global variable in: 
+% - removed incorrect _PlotTestTrack_ global variable in: 
 %    % * fcn_plotRoad_calcRectangleXYZ
+% 
 % 2025_11_05 - Aneesh Batchu
-% -- Functions can handle NaN values in the inputs
-% -- Ran the script_test_all_fucntions.m 
+% - Functions can handle NaN values in the inputs
+% - Ran the script_test_all_fucntions.m 
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Modified debug options in functions to handle NaNs in the inputs
-% -- Added test cases with NaNs in the input data 
-% -- Re-checked the verification list
+% - Modified debug options in functions to handle NaNs in the inputs
+% - Added test cases with NaNs in the input data 
+% - Re-checked the verification list
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Re-checked the verification list for new release
-% -- Added updated script_test_all_functions
+% - Re-checked the verification list for new release
+% - Added updated script_test_all_functions
 % (new release) 
 %
-% 2025_11_13 - S. Brennan
+% 2025_11_13 by Sean Brennan, sbrennan@psu.edu
 % - set up auto-loading of dependencies using new DebugTools features
 % - updated script_test_all_functions
 % - updated header flags for clearing path, to do fast checking without
@@ -79,11 +90,17 @@
 %   % * hard-coded fixes but seems something is wrong with the GPS
 %   %   % conversions
 % (new release) 
+%
+% 2026_02_02 by Sean Brennan, sbrennan@psu.edu
+% - Updated revision history to standard form (release ready) in all files
+% - Deleted script_test_all_functions and replace with function call in
+%   % this main script
 
-%% TO-DO list
-% 2025_11_04 - S. Brennan, sbrennan@psu.edu
-% -- add vehicle template plotting
-% -- add ability to plot contour plots over geoplots
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+% - add vehicle template plotting
+% - add ability to plot contour plots over geoplots
 
 
 %% Prep the workspace
@@ -94,13 +111,16 @@ clc
 %% Make sure we are running out of root directory
 st = dbstack; 
 thisFile = which(st(1).file);
-[filepath,name,ext] = fileparts(thisFile);
+[filepath,~,~] = fileparts(thisFile);
 cd(filepath);
+
+%%% START OF STANDARD INSTALLER CODE %%%%%%%%%
 
 %% Clear paths and folders, if needed
 if 1==1
     clear flag_plotRoad_Folders_Initialized
 end
+
 if 1==0
     % Clean up data files
     traces_mat_filename = fullfile(cd,'Data','AllTracesData.mat'); %%%% not loading centerline data
@@ -111,8 +131,15 @@ if 1==0
     if exist(marker_clusters_mat_filename,'file')
         delete(marker_clusters_mat_filename);
     end
+end
 
+if 1==0
     fcn_INTERNAL_clearUtilitiesFromPathAndFolders;
+end
+
+if 1==0
+    % Resets all paths to factory default
+    restoredefaultpath;
 end
 
 %% Install dependencies
@@ -143,21 +170,9 @@ dependencyURLs{ith_repo} = 'https://github.com/ivsg-psu/PathPlanning_GeomTools_F
 dependencySubfolders{ith_repo} = {'Functions'};
 
 
-% ith_repo = ith_repo+1;
-% dependencyURLs{ith_repo} = 'https://github.com/ivsg-psu/PathPlanning_MapTools_MapGenClassLibrary';
-% dependencySubfolders{ith_repo} = {'Functions','testFixtures','GridMapGen'};
-% 
-% ith_repo = ith_repo+1;
-% dependencyURLs{ith_repo} = 'https://github.com/ivsg-psu/FieldDataCollection_VisualizingFieldData_PlotRoad';
-% dependencySubfolders{ith_repo} = {'Functions','Data'};
-% 
-% ith_repo = ith_repo+1;
-% dependencyURLs{ith_repo} = 'https://github.com/ivsg-psu/PathPlanning_GeomTools_GeomClassLibrary';
-% dependencySubfolders{ith_repo} = {'Functions','Data'};
-
 %% Do we need to set up the work space?
 if ~exist('flag_plotRoad_Folders_Initialized','var')
-
+    
     % Clear prior global variable flags
     clear global FLAG_*
 
@@ -181,16 +196,17 @@ if ~exist('flag_plotRoad_Folders_Initialized','var')
     flag_plotRoad_Folders_Initialized = 1;
 end
 
-%% Load hard-coded vectors
-% These are used to align key data to a local coordinate system wherein
-% that data is axis-aligned.
+%%% END OF STANDARD INSTALLER CODE %%%%%%%%%
 
-hard_coded_reference_unit_tangent_vector_outer_lanes   = [0.793033249943519   0.609178351949592];
-hard_coded_reference_unit_tangent_vector_LC_south_lane = [0.794630317120972   0.607093616431785];
+%% Set environment flags for input checking in Laps library
+% These are values to set if we want to check inputs or do debugging
+setenv('MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS','1');
+setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
 
 %% Set environment flags that define the ENU origin
 % This sets the "center" of the ENU coordinate system for all plotting
 % functions
+% Location for Test Track base station
 setenv('MATLABFLAG_PLOTROAD_REFERENCE_LATITUDE','40.86368573');
 setenv('MATLABFLAG_PLOTROAD_REFERENCE_LONGITUDE','-77.83592832');
 setenv('MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE','344.189');
@@ -200,32 +216,113 @@ setenv('MATLABFLAG_PLOTROAD_REFERENCE_ALTITUDE','344.189');
 % These are values to set if we are forcing image alignment via Lat and Lon
 % shifting, when doing geoplot. This is added because the geoplot images
 % are very, very slightly off at the test track, which is confusing when
-% plotting data above them.
+% plotting data
 setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LAT','-0.0000008');
 setenv('MATLABFLAG_PLOTROAD_ALIGNMATLABLLAPLOTTINGIMAGES_LON','0.0000054');
 
-
-%% Set environment flags for input checking
-% These are values to set if we want to check inputs or do debugging
-setenv('MATLABFLAG_PLOTROAD_FLAG_CHECK_INPUTS','1');
-setenv('MATLABFLAG_PLOTROAD_FLAG_DO_DEBUG','0');
+%% Check the repo for release
 
 
-%% Core Functions
+%%%%
+%  Check which files contain key strings?
+if 1==1
+	beforeAndAfterStrings = {
+		cat(2,'fig_','num'), 'figNum';
+		cat(2,'% ','-- '), '% - ';
+		'% Revision history', '% REVISION HISTORY:';
+		'% Revision History', '% REVISION HISTORY:';
+		' - S. Brennan', ' by Sean Brennan, sbrennan@psu.edu'
+		'% - a', '% - A';
+		'% - b', '% - B';
+		'% - c', '% - C';
+		'% - d', '% - D';
+		'% - e', '% - E';
+		'% - f', '% - F';		
+		'% - g', '% - G';
+		'% - h', '% - H';
+		'% - i', '% - I';
+		'% - j', '% - J';
+		'% - k', '% - K';
+		'% - l', '% - L';
+		'% - m', '% - M';
+		'% - n', '% - N';
+		'% - o', '% - O';
+		'% - p', '% - P';
+		'% - q', '% - Q';
+		'% - r', '% - R';
+		'% - s', '% - S';
+		'% - t', '% - T';
+		'% - u', '% - U';
+		'% - v', '% - V';
+		'% - w', '% - W';
+		'% - x', '% - X';
+		'% - y', '% - Y';
+		'% - z', '% - Z';
+		};
+
+% REVISION HISTORY:
+% TO-DO:
+
+	for ith_string = 1:size(beforeAndAfterStrings,1)
+		beforeString = beforeAndAfterStrings{ith_string,1};
+		afterString = beforeAndAfterStrings{ith_string,2};
+
+		eval(cat(2,'cl','c'));
+		functionsDirectoryQuery = fullfile(pwd,'Functions','*.*');
+		% Use the following instead, if wish to do subdirectories
+		% directoryQuery = fullfile(pwd,'Functions','**','*.*');
+
+		fileListFunctionsFolder = dir(functionsDirectoryQuery); %cat(2,'.',filesep,filesep,'script_test_fcn_*.m'));
+
+		% Filter out directories from the list
+		fileListFunctionsFolderNoDirectories = fileListFunctionsFolder(~[fileListFunctionsFolder.isdir]);
+
+		% Set a query string to search for. Separate it into parts so that this
+		% file does not show up on search list! :-)
+		queryString = beforeString;
+		flagsStringWasFoundInFilesRaw = fcn_DebugTools_directoryStringQuery(fileListFunctionsFolderNoDirectories, queryString, (-1));
+		% flagsStringWasFoundInFiles = fcn_INTERNAL_removeFromList(flagsStringWasFoundInFilesRaw, fileListFunctionsFolderNoDirectories,'script_test_all_functions');
+		
+		% Test for any changes
+		if sum(flagsStringWasFoundInFilesRaw)>0
+			fcn_DebugTools_directoryStringQuery(fileListFunctionsFolderNoDirectories, queryString, 1);
+			warning('A "%s" was found in one of the functions - see listing above.', queryString);
+
+			%%%%%
+			% Fix errors?
+			if 1==1
+				%%%% WARNING - USE THIS WITH CAUTION! %%%%%%%%%%%%
+				if 1==1
+					warning('Attempting replace of "%s" with "%s". Press any key to continue.', beforeString, afterString);
+					pause;
+					functionsDirectory = fullfile(pwd,'Functions');
+					fcn_DebugTools_replaceStringInDirectory(functionsDirectory, beforeString, afterString, ('fcn_plotRoad_'), (0));
+				end
+			end
+		end % Ends test for any changes
+
+	end % Ends for-loop through beforeAndAfterStrings
+end
+
+%% 
+if 1==1
+	figNum = 999999;
+	repoShortName = '_plotRoad_';
+	fcn_DebugTools_testRepoForRelease(repoShortName, (figNum));
+end
+%% Start of Demo Code
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   _____                  ______                _   _
-%  / ____|                |  ____|              | | (_)
-% | |     ___  _ __ ___   | |__ _   _ _ __   ___| |_ _  ___  _ __  ___
-% | |    / _ \| '__/ _ \  |  __| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
-% | |___| (_) | | |  __/  | |  | |_| | | | | (__| |_| | (_) | | | \__ \
-%  \_____\___/|_|  \___|  |_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
+%   _____ _             _            __   _____                          _____          _
+%  / ____| |           | |          / _| |  __ \                        / ____|        | |
+% | (___ | |_ __ _ _ __| |_    ___ | |_  | |  | | ___ _ __ ___   ___   | |     ___   __| | ___
+%  \___ \| __/ _` | '__| __|  / _ \|  _| | |  | |/ _ \ '_ ` _ \ / _ \  | |    / _ \ / _` |/ _ \
+%  ____) | || (_| | |  | |_  | (_) | |   | |__| |  __/ | | | | | (_) | | |___| (_) | (_| |  __/
+% |_____/ \__\__,_|_|   \__|  \___/|_|   |_____/ \___|_| |_| |_|\___/   \_____\___/ \__,_|\___|
 %
 %
-% See:
-% https://patorjk.com/software/taag/#p=display&f=Big&t=Core%20%20Functions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
-
+% See: http://patorjk.com/software/taag/#p=display&f=Big&t=Start%20of%20Demo%20Code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 disp('Welcome to the plotRoad library!')
 

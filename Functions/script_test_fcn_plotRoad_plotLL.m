@@ -3,11 +3,18 @@
 % This function was written on 2023_06_07 by S. Brennan, sbrennan@psu.edu
 % and Vaishnavi Wagh, vbw5054@psu.edu
 
-% Revision history:
-% 2023_06_07 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2023_06_07 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -33,10 +40,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: only opens and initializes plot
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: only opens and initializes plot');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % call the function with empty inputs, and it should create the plot with
 % the focus on the test track, satellite view
@@ -47,37 +54,37 @@ assert(ishandle(h_geoplot));
 
 %% DEMO case: all defaults, no data. Also opens and initializes plot
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: all defaults, no data. Also opens and initializes plot');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 LLdata = [];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing initializing plot to figure number',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing initializing plot to figure number',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% DEMO case: ppens and inializes plot to the data point
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: ppens and inializes plot to the data point');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 LLdata = [40.43073, -79.87261, 0];
 % LLdata = [40.86368573, -77.83592832, 0];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing initializing plot to figure number',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing initializing plot to figure number',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -107,10 +114,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 % if the figure has data inside it, and if not, it will prepare the figure
 % the same way as a new figure.
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Plot LL data');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in some dummy data (East curve from scenario 1_1)
 
@@ -163,19 +170,19 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing plotting of data',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing plotting of data',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: plot data onto an existing figure
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: Plot data onto an existing figure');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % call the function with empty inputs, but with a figure number,
 % and it should create the plot with
@@ -184,7 +191,7 @@ LLdata = [];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -208,19 +215,19 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing plotting of data on existing figure',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing plotting of data on existing figure',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: plot data with simple formatting string
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: Plot data with simple formatting string');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -239,19 +246,19 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = 'y.-';
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing use of simple formatting string',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of simple formatting string',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
 
 %% Test case: Plot data with user-given color vector
 
-fig_num = 20004;
+figNum = 20004;
 titleString = sprintf('Test case: Plot data with user-given color vector');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -270,9 +277,9 @@ LLdata = [data3(:,2), data3(:,1), data3(:,3)];
 
 % Test the function
 plotFormat = [0 1 0];
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 
-title(sprintf('Example %.0d: showing use of color vector',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of color vector',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -280,10 +287,10 @@ assert(ishandle(h_geoplot));
 
 %% Test case: Plot data with structure input
 
-fig_num = 20005;
+figNum = 20005;
 titleString = sprintf('Test case: Plot data with structure input');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 time = linspace(0,10,100)';
 XYdata = [time sin(time)];
@@ -295,20 +302,20 @@ plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
-h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (fig_num));
-fcn_plotRoad_plotHeadTailXY(XYdata, fig_num, plotFormat);
+h_plot = fcn_plotRoad_plotXY(XYdata, (plotFormat), (figNum));
+fcn_plotRoad_plotHeadTailXY(XYdata, figNum, plotFormat);
 
-title(sprintf('Example %.0d: showing  color numbers',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing  color numbers',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_plot));
 
 %% Test case: Start of the PennDOT site 1 area
 
-fig_num = 20005;
+figNum = 20005;
 titleString = sprintf('Test case: Start of the PennDOT site 1 area');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLdata = [
@@ -323,10 +330,10 @@ plotFormat.Marker = '.';
 plotFormat.MarkerSize = 10;
 plotFormat.LineStyle = '-';
 plotFormat.LineWidth = 3;
-h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 % set(gca,'MapCenter',LLdata(1,1:2));
 
-title(sprintf('Example %.0d: showing use of format structure',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of format structure',figNum), 'Interpreter','none');
 
 % Check results
 assert(ishandle(h_geoplot));
@@ -352,32 +359,32 @@ fprintf(1, 'Plot function - No fast mode tests')
 
 % %% Basic example - NO FIGURE
 % 
-% fig_num = 80001;
-% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % 
 % %% Basic example - NO FIGURE
 % 
-% fig_num = 80002;
-% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 % 
-% fig_num = 80003;
-% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % Niterations = 100;
 % 
@@ -414,7 +421,7 @@ fprintf(1, 'Plot function - No fast mode tests')
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -440,13 +447,13 @@ fprintf(1, 'Plot function - No fast mode tests')
 % 
 %     %% Should throw error because XYdata must have 2 columns
 % 
-%     fig_num = 90001;
-%     fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-%     figure(fig_num); close(fig_num);
+%     figNum = 90001;
+%     fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+%     figure(figNum); close(figNum);
 % 
 %     % Make sure plot did NOT open up
 %     figHandles = get(groot, 'Children');
-%     assert(~any(figHandles==fig_num));
+%     assert(~any(figHandles==figNum));
 % end
 
 
@@ -479,13 +486,13 @@ fprintf(1, 'Plot function - No fast mode tests')
 % labelText = 'Test of text';
 % 
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; minTimeSlow=Inf;
 % tic;
 % % Slow mode calculation - code copied from plotVehicleXYZ
 % for i=1:REPS
 %     tstart=tic;
-%     h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+%     h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 % end
@@ -495,12 +502,12 @@ fprintf(1, 'Plot function - No fast mode tests')
 % close all;
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (fig_num));
+%     h_geoplot = fcn_plotRoad_plotLL((LLdata), (plotFormat), (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

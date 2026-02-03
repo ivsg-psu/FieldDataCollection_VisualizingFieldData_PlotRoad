@@ -2,13 +2,21 @@
 % This is a script to exercise the function: fcn_plotRoad_plotLLI
 % This function was written on 2023_08_12 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
-% 2023_08_12 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2023_08_12 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+% 
 % 2025_11_06 - Aneesh Batchu
-% -- Added a test case with NaNs in the input data
+% - Added a test case with NaNs in the input data
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -34,10 +42,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Plotting with all defaults
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Plotting with all defaults');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -59,11 +67,11 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = [];
 colorMap = [];
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','none');
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
+title(sprintf('Example %.0d: showing basic plotting',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_plot(:))));
@@ -77,10 +85,10 @@ end
 
 %% DEMO case: Specifying the color as a string
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Specifying the color as a string');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -101,11 +109,11 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = 'r';
 colorMap = [];
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing user-defined color to produce colormap',fig_num), 'Interpreter','none');
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
+title(sprintf('Example %.0d: showing user-defined color to produce colormap',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_plot(:))));
@@ -120,10 +128,10 @@ end
 
 %% DEMO case: specifying the colorMap
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: specifying the colorMap');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -144,11 +152,11 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = [];
 colorMap = 'hot';
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing user-defined color map',fig_num), 'Interpreter','none');
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
+title(sprintf('Example %.0d: showing user-defined color map',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 good_indicies = ~isnan(h_plot);
@@ -189,10 +197,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 % if the figure has data inside it, and if not, it will prepare the figure
 % the same way as a new figure.
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Specifying the linestyle');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -213,11 +221,11 @@ LLIdata = [data3(:,2), data3(:,1), time];
 % Test the function
 plotFormat = '-';
 colorMap = 'hot';
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing use of a linestyle',fig_num), 'Interpreter','none');
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
+title(sprintf('Example %.0d: showing use of a linestyle',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 good_indicies = find(~isnan(h_plot));
@@ -234,10 +242,10 @@ end
 
 %% Test case: changing marker size, same color
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: changing marker size, same color');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -274,12 +282,12 @@ reducedColorMap = repmat([0 0 0.5],Ncolors,1);
 markerSizeMatrix = 2*(1:Ncolors)';
 plotFormat.MarkerSize = markerSizeMatrix;
 
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (figNum));
 set(gca,'MapCenter', [40.864567288895223 -77.830697913696483], 'ZoomLevel',19.5);
-title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of a complex plotFormat',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 good_indicies = find(~isnan(h_plot));
@@ -296,10 +304,10 @@ end
 
 %% Test case: specifying the full plotFormat, including reduced color map and changing marker size 
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: specifying the full plotFormat, including reduced color map and changing marker size ');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 data3 = [
@@ -334,12 +342,12 @@ reducedColorMap = fcn_plotRoad_reduceColorMap(colorMapMatrix, Ncolors, -1);
 markerSizeMatrix = 2*(1:Ncolors)';
 plotFormat.MarkerSize = markerSizeMatrix;
 
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (fig_num));
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (reducedColorMap), (figNum));
 set(gca,'MapCenter', [40.864567288895223 -77.830697913696483], 'ZoomLevel',19.5);
-title(sprintf('Example %.0d: showing use of a complex plotFormat',fig_num), 'Interpreter','none');
+title(sprintf('Example %.0d: showing use of a complex plotFormat',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 good_indicies = find(~isnan(h_plot));
@@ -356,10 +364,10 @@ end
 
 %% Test case: Plotting when input data (LLIdata) contains NaNs
 
-fig_num = 20004; 
+figNum = 20004; 
 titleString = sprintf('DEMO case:Plotting when input data (LLIdata) contains NaNs');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % NaN matrix
 NaN_matrix = nan(5,3); 
@@ -386,11 +394,11 @@ LLIdata = [LLIdata_noNaNs; NaN_matrix];
 % Test the function
 plotFormat = [];
 colorMap = [];
-[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
-title(sprintf('Example %.0d: showing basic plotting',fig_num), 'Interpreter','none');
+[h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
+title(sprintf('Example %.0d: showing basic plotting',figNum), 'Interpreter','none');
 
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Check results
 assert(all(ishandle(h_plot(:))));
@@ -423,9 +431,9 @@ fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
 
 %% Basic example - NO FIGURE
 
-fig_num = 80001;
-fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80001;
+fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in data
 data3 = [
@@ -451,14 +459,14 @@ colorMap = [];
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 
 %% Basic example - NO FIGURE
 
-fig_num = 80002;
-fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80002;
+fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in data
 data3 = [
@@ -484,13 +492,13 @@ colorMap = [];
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 
 %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 
-fig_num = 80003;
-fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-figure(fig_num); close(fig_num);
+figNum = 80003;
+fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+figure(figNum); close(figNum);
 
 % Fill in data
 data3 = [
@@ -548,7 +556,7 @@ ylabel('Execution time (Milliseconds)')
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
-assert(~any(figHandles==fig_num));
+assert(~any(figHandles==figNum));
 close(figure(1))
 
 %% BUG cases
@@ -575,9 +583,9 @@ if 1==0
 
     %% Should throw error because LLIdata must have 3 columns
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in data
     data3 = [
@@ -598,11 +606,11 @@ if 1==0
     % Test the function
     plotFormat = [];
     colorMap = [];
-    [~, ~]  = fcn_plotRoad_plotLLI(LLIdata(:,1:2), (plotFormat),  (colorMap), (fig_num));
+    [~, ~]  = fcn_plotRoad_plotLLI(LLIdata(:,1:2), (plotFormat),  (colorMap), (figNum));
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
 
@@ -636,14 +644,14 @@ end
 % colorMap = 'hot';
 % 
 % % Speed Test Calculation
-% fig_num=[];
+% figNum=[];
 % REPS=5; minTimeSlow=Inf;
 % tic;
 % 
 % % Slow mode calculation
 % for i=1:REPS
 %     tstart=tic;
-%     [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+%     [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
 %     telapsed=toc(tstart);
 %     minTimeSlow=min(telapsed,minTimeSlow);
 % end
@@ -652,12 +660,12 @@ end
 % 
 % 
 % % Fast Mode Calculation
-% fig_num = -1;
+% figNum = -1;
 % minTimeFast = Inf;
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (fig_num));
+%     [h_plot, indiciesInEachPlot]  = fcn_plotRoad_plotLLI(LLIdata, (plotFormat),  (colorMap), (figNum));
 %     telapsed = toc(tstart);
 %     minTimeFast = min(telapsed,minTimeFast);
 % end

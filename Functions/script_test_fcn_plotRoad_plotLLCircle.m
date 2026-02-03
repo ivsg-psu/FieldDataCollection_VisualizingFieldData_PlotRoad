@@ -3,11 +3,18 @@
 % fcn_plotRoad_calcLaneBoundaries.m
 % This function was written on 2024_08_15 by S. Brennan, sbrennan@psu.edu
 
-% Revision history:
-% 2024_08_15 - S. Brennan
-% -- first write of the code
+% REVISION HISTORY:
+% 
+% 2024_08_15 by Sean Brennan, sbrennan@psu.edu
+% - First write of the code
+% 
 % 2025_11_01 - Aneesh Batchu
-% -- Updated the script to the latest format
+% - Updated the script to the latest format
+
+% TO-DO:
+% 
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
+
 
 %% Set up the workspace
 
@@ -33,10 +40,10 @@ fprintf(1,'Figure: 1XXXX: DEMO cases\n');
 
 %% DEMO case: Plotting with all defaults
 
-fig_num = 10001; 
+figNum = 10001; 
 titleString = sprintf('DEMO case: Plotting with all defaults');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -46,13 +53,13 @@ radius = 1000;
 plotFormat = [];
 colorMapStringOrMatrix = [];
 maxColorsAngles = [];
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing basic plotting');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -77,10 +84,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% DEMO case: Specifying the color as a string
 
-fig_num = 10002; 
+figNum = 10002; 
 titleString = sprintf('DEMO case: Specifying the color as a string');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -90,13 +97,13 @@ radius = 1000;
 plotFormat = 'r';
 colorMapStringOrMatrix = [];
 maxColorsAngles = [];
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing color string');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -121,10 +128,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% DEMO case: specifying the colorMap
 
-fig_num = 10003; 
+figNum = 10003; 
 titleString = sprintf('DEMO case: specifying the colorMap');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -135,13 +142,13 @@ plotFormat = [];
 colorMapStringOrMatrix = hot;
 maxColorsAngles = [];
 
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing color map');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -189,10 +196,10 @@ fprintf(1,'Figure: 2XXXXXX: TEST mode cases\n');
 % if the figure has data inside it, and if not, it will prepare the figure
 % the same way as a new figure.
 
-fig_num = 20001;
+figNum = 20001;
 titleString = sprintf('Test case: Specifying the linestyle');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -203,13 +210,13 @@ plotFormat = '--';
 colorMapStringOrMatrix = hot;
 maxColorsAngles = [];
 
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing line style');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -234,10 +241,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% Test case: specifying the full plotFormat
 
-fig_num = 20002;
+figNum = 20002;
 titleString = sprintf('Test case: specifying the full plotFormat');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -252,13 +259,13 @@ plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = 'hot';
 maxColorsAngles = [];
 
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing full formatted plotting');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -283,10 +290,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% Test case: Specifying the color as a fade-out
 
-fig_num = 20003;
+figNum = 20003;
 titleString = sprintf('Test case: Specifying the color as a fade-out');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -297,13 +304,13 @@ plotFormat = [0 0 1];
 colorMapStringOrMatrix = [];
 maxColorsAngles = [];
 
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing color fade-out');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -328,10 +335,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% Test case: Changing maxColors
 
-fig_num = 20004;
+figNum = 20004;
 titleString = sprintf('Test case: Changing maxColors');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -348,13 +355,13 @@ plotFormat.Marker = 'none';
 plotFormat.MarkerSize = 10;
 colorMapStringOrMatrix = colormapMatrix;
 maxColorsAngles = 128;
-[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+[h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter, radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
 subtitle('Showing different max colors');
 
 % Check results
 % Was a figure created?
-assert(all(ishandle(fig_num)));
+assert(all(ishandle(figNum)));
 
 % Were plot handles returned?
 assert(all(ishandle(h_geoplot(:))));
@@ -380,10 +387,10 @@ assert(isequal(size(ringColors),[Ncolors 3]));
 
 %% Test case: Animate a "radar" view with colormap
 
-fig_num = 20005;
+figNum = 20005;
 titleString = sprintf('Test case: Animate a "radar" view with colormap');
-fprintf(1,'Figure %.0f: %s\n',fig_num, titleString);
-figure(fig_num); clf;
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
 
 % Fill in data
 LLcenter = [40.43073, -79.87261, 0];
@@ -409,11 +416,11 @@ Nangles = length(AllLatData(1,:));
 AllLatDataReduced = [LLcenter(1,1)*ones(1,Nangles); AllLatData(end,:)];
 AllLonDataReduced = [LLcenter(1,2)*ones(1,Nangles); AllLonData(end,:)];
 
-figure(fig_num);
+figure(figNum);
 clf;
 
 Nplots = length(ringColors(:,1));
-h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (fig_num));
+h_geoplot = fcn_plotRoad_plotLL((LLcenter(1,1:2)), (plotFormat), (figNum));
 set(gca,'MapCenter',LLcenter(1,1:2));
 
 h_colors = zeros(Nplots,1);
@@ -429,7 +436,7 @@ for ith_angle = 1:Nplots
     Y_data_selected = AllLonDataReduced(:,ith_angle);
 
     % Do the plotting
-    h_colors(ith_angle,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (fig_num));
+    h_colors(ith_angle,1)  = fcn_plotRoad_plotLL([X_data_selected Y_data_selected], (tempPlotFormat), (figNum));
 end
 
 %%%%% Peform the animation
@@ -483,32 +490,32 @@ fprintf(1, 'Plot function - No fast mode tests')
 
 % %% Basic example - NO FIGURE
 % 
-% fig_num = 80001;
-% fprintf(1,'Figure: %.0f: FAST mode, empty fig_num\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80001;
+% fprintf(1,'Figure: %.0f: FAST mode, empty figNum\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % 
 % %% Basic example - NO FIGURE
 % 
-% fig_num = 80002;
-% fprintf(1,'Figure: %.0f: FAST mode, fig_num=-1\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80002;
+% fprintf(1,'Figure: %.0f: FAST mode, figNum=-1\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 % 
 % %% Compare speeds of pre-calculation versus post-calculation versus a fast variant
 % 
-% fig_num = 80003;
-% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',fig_num);
-% figure(fig_num); close(fig_num);
+% figNum = 80003;
+% fprintf(1,'Figure: %.0f: FAST mode comparisons\n',figNum);
+% figure(figNum); close(figNum);
 % 
 % Niterations = 100;
 % 
@@ -545,7 +552,7 @@ fprintf(1, 'Plot function - No fast mode tests')
 % 
 % % Make sure plot did NOT open up
 % figHandles = get(groot, 'Children');
-% assert(~any(figHandles==fig_num));
+% assert(~any(figHandles==figNum));
 
 %% BUG cases
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -571,9 +578,9 @@ if 1==0
 
     %% Should throw error because LLcenter must have 3 columns
 
-    fig_num = 90001;
-    fprintf(1,'Figure: %.0f:Bug case\n',fig_num);
-    figure(fig_num); close(fig_num);
+    figNum = 90001;
+    fprintf(1,'Figure: %.0f:Bug case\n',figNum);
+    figure(figNum); close(figNum);
 
     % Fill in data
     LLcenter = [40.43073, -79.87261, 0];
@@ -583,8 +590,8 @@ if 1==0
     plotFormat = [];
     colorMapStringOrMatrix = [];
     maxColorsAngles = [];
-    [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter(:,1:2), radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (fig_num));
-    title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',fig_num), 'Interpreter','none');
+    [h_geoplot, AllLatData, AllLonData, AllXData, AllYData, ringColors] = fcn_plotRoad_plotLLCircle(LLcenter(:,1:2), radius, (plotFormat), (colorMapStringOrMatrix), (maxColorsAngles), (figNum));
+    title(sprintf('Example %.0d: fcn_plotRoad_plotLLCircle',figNum), 'Interpreter','none');
     subtitle('Showing basic plotting');
 
     % Check results
@@ -612,6 +619,6 @@ if 1==0
 
     % Make sure plot did NOT open up
     figHandles = get(groot, 'Children');
-    assert(~any(figHandles==fig_num));
+    assert(~any(figHandles==figNum));
 
 end
