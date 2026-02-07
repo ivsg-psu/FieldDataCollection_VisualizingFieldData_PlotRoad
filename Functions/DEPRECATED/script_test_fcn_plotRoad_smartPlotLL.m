@@ -6,6 +6,11 @@
 % 
 % 2026_02_02 by Sean Brennan, sbrennan@psu.edu
 % - First write of the code
+% 
+% 2026_02_07 by Sean Brennan, sbrennan@psu.edu
+% - In script_test_fcn_plotRoad_smartPlotLL
+%   % * Updated function calls from fcn_plotRoad+_minPixelLengthPerZoom
+%   %   to fcn_PlotZoom_minPixelLengthPerZoom
 
 % TO-DO:
 % 
@@ -75,7 +80,7 @@ fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 figure(figNum); clf;
 
 % Find the limits
-[~, ~, minDegPerPixelLon, ~] = fcn_plotRoad_minPixelLengthPerZoom;
+[~, ~, minDegPerPixelLon, ~] = fcn_PlotZoom_minPixelLengthPerZoom;
 
 longData = (-77.8349:-1*minDegPerPixelLon(end-2):-77.8369)';
 Npoints = length(longData);
@@ -104,7 +109,7 @@ fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 figure(figNum); clf;
 
 % Find the limits
-[zoomLevels, minMetersPerPixel, minDegPerPixelLon, minDegPerPixelLat] = fcn_plotRoad_minPixelLengthPerZoom;
+[zoomLevels, minMetersPerPixel, minDegPerPixelLon, minDegPerPixelLat] = fcn_PlotZoom_minPixelLengthPerZoom;
 
 longData = (-77.8349:-1*minDegPerPixelLon(end-2):-77.8369)';
 Npoints = length(longData);
@@ -283,7 +288,7 @@ gps_object = GPS(); % Initiate the class object for GPS
 % Use the class to convert LLA to ENU
 ENU_data = gps_object.WGSLLA2ENU(LLdata(:,1), LLdata(:,2), LLdata(:,1)*0);
 
-[zoomLevels, minMetersPerPixel] = fcn_plotRoad_minPixelLengthPerZoom;
+[zoomLevels, minMetersPerPixel] = fcn_PlotZoom_minPixelLengthPerZoom;
 Nzooms = length(zoomLevels);
 LLdataCellArray = cell(Nzooms,2);
 for ith_zoom = 1:Nzooms

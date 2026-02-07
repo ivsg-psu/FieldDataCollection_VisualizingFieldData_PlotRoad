@@ -1,4 +1,24 @@
 function h_geoplot = fcn_plotRoad_smartPlotLL(varargin)
+
+
+MATLABFLAG_PLOTROAD_WARN_SMARTPLOTLL = getenv("MATLABFLAG_PLOTROAD_WARN_SMARTPLOTLL");
+flagShowWarning = 0;
+if isempty(MATLABFLAG_PLOTROAD_WARN_SMARTPLOTLL) 
+   flagShowWarning = 1;
+else
+    if strcmp('1',MATLABFLAG_PLOTROAD_WARN_SMARTPLOTLL)
+        flagShowWarning = 1;
+    end
+end
+
+if 1==1 % flagShowWarning
+    warning('on','backtrace');
+    warning(['fcn_plotRoad_smartPlotLL is being deprecated. ' ...
+        'Use fcn_PlotZoom_zoomPlotLL instead.']);
+    setenv('MATLABFLAG_PLOTROAD_WARN_SMARTPLOTLL','0');
+end
+
+
 %fcn_plotRoad_smartPlotLL   geoplots Latitude and Longitude data with
 % user-defined formatting strings, using precalculated datasets that set
 % the data resolution for a given zoom level

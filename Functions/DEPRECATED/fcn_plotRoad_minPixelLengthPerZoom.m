@@ -1,4 +1,23 @@
 function [zoomLevels, minMetersPerPixel, minDegPerPixelLon, minDegPerPixelLat] = fcn_plotRoad_minPixelLengthPerZoom(varargin)
+
+
+MATLABFLAG_PLOTROAD_WARN_MINPIXELLENGTHPERZOOM = getenv("MATLABFLAG_PLOTROAD_WARN_MINPIXELLENGTHPERZOOM");
+flagShowWarning = 0;
+if isempty(MATLABFLAG_PLOTROAD_WARN_MINPIXELLENGTHPERZOOM) 
+   flagShowWarning = 1;
+else
+    if strcmp('1',MATLABFLAG_PLOTROAD_WARN_MINPIXELLENGTHPERZOOM)
+        flagShowWarning = 1;
+    end
+end
+
+if 1==1 % flagShowWarning
+    warning('on','backtrace');
+    warning(['fcn_plotRoad_minPixelLengthPerZoom is being deprecated. ' ...
+        'Use fcn_PlotZoom_minPixelLengthPerZoom instead.']);
+    setenv('MATLABFLAG_PLOTROAD_WARN_MINPIXELLENGTHPERZOOM','0');
+end
+
 %%fcn_plotRoad_minPixelLengthPerZoom   minimum ground length (m) per pixel for zooms 0:1/8:25
 %
 % This function returns the minimum ground length represented by one pixel
