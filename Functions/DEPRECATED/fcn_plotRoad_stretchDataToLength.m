@@ -1,4 +1,23 @@
 function [stretchedXYdata, indicesUsed] = fcn_plotRoad_stretchDataToLength(minLength, XYdata, varargin)
+
+MATLABFLAG_PLOTROAD_WARN_STRETCHDATATOLENGTH = getenv("MATLABFLAG_PLOTROAD_WARN_STRETCHDATATOLENGTH");
+flagShowWarning = 0;
+if isempty(MATLABFLAG_PLOTROAD_WARN_STRETCHDATATOLENGTH) 
+   flagShowWarning = 1;
+else
+    if strcmp('1',MATLABFLAG_PLOTROAD_WARN_STRETCHDATATOLENGTH)
+        flagShowWarning = 1;
+    end
+end
+
+if 1==1 % flagShowWarning
+    warning('on','backtrace');
+    warning(['fcn_plotRoad_stretchDataToLength is being deprecated. ' ...
+        'Use fcn_PlotZoom_stretchDataToLength instead.']);
+    setenv('MATLABFLAG_PLOTROAD_WARN_STRETCHDATATOLENGTH','0');
+end
+
+
 % Stretches data until all edges are at least as large as minLength. Achieves stretching by
 % removing interior points, grouping points toward side of smaller length.
 % Repeats until data edges all pass requirements, or until data disappears.

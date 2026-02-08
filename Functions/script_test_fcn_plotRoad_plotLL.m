@@ -70,7 +70,7 @@ title(sprintf('Example %.0d: showing initializing plot to figure number',figNum)
 % Check results
 assert(ishandle(h_geoplot));
 
-%% DEMO case: ppens and inializes plot to the data point
+%% DEMO case: opens and inializes plot to the data point
 
 figNum = 10003; 
 titleString = sprintf('DEMO case: ppens and inializes plot to the data point');
