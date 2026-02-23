@@ -102,6 +102,11 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %   % * Fixed bug where LLA data output trace is a cell type, not matrix,
 %   %   % for ENU inputs
 %   % * Fixed bug where STH data output is missing height column
+%
+% 2026_02_23 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_plotRoad_plotTraces
+%   % * Fixed bug where NaN separated values are not passed out correctly
+% 
 
 % TO-DO:
 % 
@@ -280,32 +285,36 @@ if input_coordinates_type == "LLA"
     ENU_data_with_nan = [];
     [ENU_positions_cell_array, LLA_positions_cell_array] = ...
         fcn_INTERNAL_prepDataForOutput(ENU_data_with_nan,Trace_coordinates);
+	ENU_trace = fcn_INTERNAL_collapseCellToVector(ENU_positions_cell_array', 1);
 
-    ENU_trace = ENU_positions_cell_array{1};
-
-    % get STH
-    for ith_array = 1:length(ENU_positions_cell_array)
-        if ~isempty(ENU_positions_cell_array{ith_array})
-            STH_trace = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
-        end
-    end
+	% get STH
+	STH_positions_cell_array = cell(length(ENU_positions_cell_array),1);
+	for ith_array = 1:length(ENU_positions_cell_array)
+		if ~isempty(ENU_positions_cell_array{ith_array})
+			STH_positions_cell_array{ith_array,1} = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
+		end
+	end
+	STH_trace = fcn_INTERNAL_collapseCellToVector(STH_positions_cell_array, 1); 
 
 elseif input_coordinates_type == "ENU"
 
     ENU_trace = Trace_coordinates;
+
     % get LLA
     LLA_data_with_nan = [];
     [ENU_positions_cell_array, LLA_positions_cell_array] = ...
         fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
+    LLA_trace = fcn_INTERNAL_collapseCellToVector(LLA_positions_cell_array', 1);
 
-    LLA_trace = LLA_positions_cell_array{1};
 
-    % get STH
-    for ith_array = 1:length(ENU_positions_cell_array)
-        if ~isempty(ENU_positions_cell_array{ith_array})
-            STH_trace = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
-        end
-    end
+	% get STH
+	STH_positions_cell_array = cell(length(ENU_positions_cell_array),1);
+	for ith_array = 1:length(ENU_positions_cell_array)
+		if ~isempty(ENU_positions_cell_array{ith_array})
+			STH_positions_cell_array{ith_array,1} = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
+		end
+	end
+	STH_trace = fcn_INTERNAL_collapseCellToVector(STH_positions_cell_array, 1); 
 
 elseif input_coordinates_type == "STH"
 
@@ -323,8 +332,7 @@ elseif input_coordinates_type == "STH"
     LLA_data_with_nan = [];
     [ENU_positions_cell_array, LLA_positions_cell_array] = ...
         fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
-
-    LLA_trace = LLA_positions_cell_array{1};
+    LLA_trace = fcn_INTERNAL_collapseCellToVector(LLA_positions_cell_array', 1);
 
 end
 
@@ -368,6 +376,32 @@ end % Ends main function for fcn_PLOTROAD_plotTraces
 %
 % See: https://patorjk.com/software/taag/#p=display&f=Big&t=Functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
+
+%% fcn_INTERNAL_collapseCellToVector
+function outputVector = fcn_INTERNAL_collapseCellToVector(cellArrayWithManyColumns, columnToCollapse)
+% Takes a cell array input and merges outputs of a given column, col, with
+% values separated by nan, into an output vector
+% Inputs:
+%  cellArrayWithManyColumns - cell array
+%  columnToCollapse - column to merge
+
+if nargin<2, columnToCollapse = 1; end
+colData = cellArrayWithManyColumns(:,columnToCollapse);
+
+% Build concatenation with NaNs between non-empty rows
+n = numel(colData);
+seps = repmat({[nan nan nan]}, n-1, 1);
+parts = cell(2*n-1,1);
+parts(1:2:end,1) = colData;
+parts(2:2:end,1) = seps;
+% remove trailing empty parts and possible leading/trailing NaNs
+parts = parts(~cellfun(@isempty, parts));
+outputVector = vertcat(parts{:});
+% optionally remove NaN at ends if any
+if ~isempty(outputVector) && isnan(outputVector(1)), outputVector(1)=[]; end
+if ~isempty(outputVector) && isnan(outputVector(end)), outputVector(end)=[]; end
+end % fcn_INTERNAL_collapseCellToVector
+
 
 %% fcn_INTERNAL_plotSingleTrace
 function fcn_INTERNAL_plotSingleTrace(plotFormat, ...

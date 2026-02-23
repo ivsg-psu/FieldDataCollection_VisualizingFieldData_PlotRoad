@@ -111,6 +111,14 @@
 %   % * Fixed assertions to agree even with NaN values
 %
 % (new release) 
+%
+% 2026_02_23 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_plotRoad_plotTraces
+%   % * Fixed bug where NaN separated values are not passed out correctly
+% - In script_test_fcn_plotRoad_plotTraces
+%   % * Added test cases for NaN separated values
+%
+% (new release) 
 
 % TO-DO:
 % 

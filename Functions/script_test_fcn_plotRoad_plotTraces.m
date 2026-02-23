@@ -31,7 +31,10 @@
 %   % * Fixed bug where LLA data output trace is a cell type, not matrix,
 %   %   % for ENU inputs
 %   % * Fixed bug where STH data output is missing height column
-
+% 
+% 2026_02_23 by Sean Brennan, sbrennan@psu.edu, sbrennan@psu.edu
+% - In script_test_fcn_plotRoad_plotTraces
+%   % * Added test cases for NaN separated values
 
 % TO-DO:
 % 
@@ -744,7 +747,7 @@ assert(~any(figHandles==figNum));
 %% Test case: Plotting when input data (Trace_coordinates) contains NaNs
 
 figNum = 20008; 
-titleString = sprintf('DEMO case: Input ENU coordinates and plot a trace in only LLA (do not specify any figure number)');
+titleString = sprintf('DEMO case: Plotting when input data (Trace_coordinates) contains NaNs');
 fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
 figure(figNum); close(figNum);
 
@@ -795,6 +798,218 @@ else
 	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
 end
 
+
+%% Test case: Plotting when ENU input data (Trace_coordinates) contains NaN separated values
+
+figNum = 20009; 
+titleString = sprintf('DEMO case: Plotting when ENU input data (Trace_coordinates) contains NaN separated values');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); close(figNum);
+
+% FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
+Trace_coordinates = 1.0e+02 * [
+
+-0.681049494040000  -1.444101004200000   0.225959982543000
+-0.635840916402000  -1.480360972130000   0.225959615156000
+-0.591458020164000  -1.513620272760000   0.225949259327000
+-0.526826099435000  -1.557355626820000   0.226468769561000
+nan nan nan
+-0.455230413850000  -1.601954836740000   0.226828212563000
+-0.378844266810000  -1.644026018910000   0.227087638509000
+-0.302039949257000  -1.680678797970000   0.227207090339000
+nan nan nan
+-0.217481846757000  -1.715315663660000   0.227336509752000
+-0.141767378277000  -1.742610853740000   0.227585981357000
+-0.096035753167200  -1.756950994360000   0.227825672033000
+];
+
+input_coordinates_type = "ENU";
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+%% Test case: Plotting when LLA input data (Trace_coordinates) contains NaN separated values
+% FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
+
+figNum = 20010;
+titleString = sprintf('Test case: Plotting when LLA input data (Trace_coordinates) contains NaN separated values');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
+
+Trace_coordinates = 1.0e+02 *[
+
+0.408623854107731  -0.778367360663248   3.667869999985497
+0.408623527614556  -0.778366824471459   3.667869999850096
+0.408623228140075  -0.778366298073317   3.667860000095597
+nan nan nan
+0.408622834336925  -0.778365531515185   3.668379999958485
+0.408622432755178  -0.778364682365638   3.668739999760671
+0.408622053936209  -0.778363776401051   3.669000000069386
+0.408621723905615  -0.778362865478155   3.669120000111036
+nan nan nan
+0.408621412026466  -0.778361862594228   3.669249999930642
+0.408621166253217  -0.778360964599280   3.669500000276769
+0.408621037130544  -0.778360422209667   3.669740000166511
+];
+
+clear plotFormat
+plotFormat.Color = [1 1 1];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+
+
+input_coordinates_type = "LLA";
+LLA_figNum = figNum + 1073;
+ENU_figNum = figNum + 1074;
+STH_figNum = figNum;
+reference_unit_tangent_vector =[];
+flag_plot_headers_and_tailers =[];
+
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
+    Trace_coordinates, input_coordinates_type,...
+    (plotFormat),...
+    (reference_unit_tangent_vector),...
+    (flag_plot_headers_and_tailers),...
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); 
+elseif strcmp(input_coordinates_type,'ENU') %#ok<UNRCH>
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+%% Test case: Plotting when STH input data (Trace_coordinates) contains NaN separated values
+% FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
+
+figNum = 20011;
+titleString = sprintf('Test case: Plotting when STH input data (Trace_coordinates) contains NaN separated values');
+fprintf(1,'Figure %.0f: %s\n',figNum, titleString);
+figure(figNum); clf;
+
+Trace_coordinates = 1.0e+02 * [
+    -1.417887076590627  -0.734065638611450
+    -1.403976165265653  -0.790324747332070
+    -1.388899679423392  -0.843698168878688
+	nan nan
+    -1.364092650055747  -0.917689233677463
+    -1.334276443299194  -0.996594401662616
+    -1.299118841207131  -1.076398980722342
+    -1.260339470150470  -1.152151801052434
+	nan nan
+    -1.214174858471968  -1.231009988940817
+    -1.170580581946491  -1.298665344937900
+    -1.142946654037681  -1.337823833081837
+    ];
+
+clear plotFormat
+plotFormat.Color = [1 1 1];
+plotFormat.Marker = '.';
+plotFormat.MarkerSize = 10;
+plotFormat.LineStyle = '-';
+plotFormat.LineWidth = 3;
+
+
+input_coordinates_type = "STH";
+LLA_figNum = figNum;
+ENU_figNum = [];
+STH_figNum = [];
+reference_unit_tangent_vector =[];
+flag_plot_headers_and_tailers =[];
+
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
+    Trace_coordinates, input_coordinates_type,...
+    (plotFormat),...
+    (reference_unit_tangent_vector),...
+    (flag_plot_headers_and_tailers),...
+    (LLA_figNum), (ENU_figNum), (STH_figNum));
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)+1); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)+1); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)+1); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU') 
+	assert(isequaln(ENU_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace(:,1:2),Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type); %#ok<UNRCH>
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -812,7 +1027,7 @@ end
 
 close all;
 fprintf(1,'Figure: 8XXXXXX: TEST mode cases\n');
-fprintf(1, 'Plot function - No fast mode tests')
+fprintf(1, 'Plot function - No fast mode tests.\n')
 % NOTHING to test - plot requires figNum input
 
 
