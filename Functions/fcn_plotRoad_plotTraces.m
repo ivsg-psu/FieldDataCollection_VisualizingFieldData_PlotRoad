@@ -48,7 +48,9 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 %
 % OUTPUTS:
 %
-%       (none)
+%       LLA_trace: an Nx2 or Nx3 output of the LLA values
+%       ENU_trace: an Nx2 or Nx3 output of the ENU values
+%       STH_trace: an Nx2 or Nx3 output of the STH values
 %
 % DEPENDENCIES:
 %
@@ -74,7 +76,7 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 % - Added warning to ask user for unit vector for STH coordinates
 % - Changed the name of the function and the script
 % 
-% 2024_08_14 - S Brennan
+% 2024_08_14 by Sean Brennan, sbrennan@psu.edu
 % - Changed the argument input to allow variable plot styles
 % - Fixed the argument listing in the header comments (wrong order?!)
 % - Fixed where reference_unit_tangent_vector was not set correctly
@@ -86,12 +88,20 @@ function [LLA_trace, ENU_trace, STH_trace]  = fcn_plotRoad_plotTraces(...
 % - Added MAX_NARGIN option to the function
 % - Added debug tools to check the inputs
 % 
-% 2025_11_04 - Sean Brennan
+% 2025_11_04 by Sean Brennan, sbrennan@psu.edu
 % - Deprecated fcn_plotRoad_breakArrayByNans
 %    % * changed to fcn_DebugTools_breakArrayByNans
 % 
 % 2025_11_06 - Aneesh Batchu
 % - Modified debug options to handle NaNs in the inputs
+%
+% 2026_02_22 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_plotRoad_plotTraces
+%   % * Fixed header formatting
+%   % * Fixed incorrect output listing
+%   % * Fixed bug where LLA data output trace is a cell type, not matrix,
+%   %   % for ENU inputs
+%   % * Fixed bug where STH data output is missing height column
 
 % TO-DO:
 % 
@@ -246,6 +256,11 @@ end
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Check Trace_coordinates input. If only 2 columns, add zero 3rd column
+if size(Trace_coordinates,2)==2
+	Trace_coordinates = [Trace_coordinates 0*Trace_coordinates(:,1)];
+end
+
 % steps
 % 1. if given trace coordinates are in LLA, convert to ENU and STH
 %    if given trace coordinates are in ENU, convert to LLA and STH
@@ -271,8 +286,7 @@ if input_coordinates_type == "LLA"
     % get STH
     for ith_array = 1:length(ENU_positions_cell_array)
         if ~isempty(ENU_positions_cell_array{ith_array})
-            ST_positions = fcn_INTERNAL_convertXYtoST(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
-            STH_trace = ST_positions;
+            STH_trace = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
         end
     end
 
@@ -284,13 +298,12 @@ elseif input_coordinates_type == "ENU"
     [ENU_positions_cell_array, LLA_positions_cell_array] = ...
         fcn_INTERNAL_prepDataForOutput(Trace_coordinates,LLA_data_with_nan);
 
-    LLA_trace = LLA_positions_cell_array;
+    LLA_trace = LLA_positions_cell_array{1};
 
     % get STH
     for ith_array = 1:length(ENU_positions_cell_array)
         if ~isempty(ENU_positions_cell_array{ith_array})
-            ST_positions = fcn_INTERNAL_convertXYtoST(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
-            STH_trace = ST_positions;
+            STH_trace = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
         end
     end
 
@@ -301,8 +314,12 @@ elseif input_coordinates_type == "STH"
     % find ENU coordinates from ST coordiantes
     ENU_trace = fcn_INTERNAL_convertSTtoXY(STH_trace(:,1:2),reference_unit_tangent_vector);
 
-    % find LLA
-    ENU_trace_3_cols = [ENU_trace ENU_trace(:,1)*0];
+	% find LLA
+	if size(ENU_trace,2)==2
+		ENU_trace_3_cols = [ENU_trace ENU_trace(:,1)*0];
+	else
+		ENU_trace_3_cols = ENU_trace(:,1:3);
+	end
     LLA_data_with_nan = [];
     [ENU_positions_cell_array, LLA_positions_cell_array] = ...
         fcn_INTERNAL_prepDataForOutput(ENU_trace_3_cols,LLA_data_with_nan);
@@ -397,7 +414,7 @@ end
 if exist('STH_figNum','var') && ~isempty(STH_figNum) && exist('reference_unit_tangent_vector','var') && ~isempty(reference_unit_tangent_vector)
     for ith_array = 1:length(ENU_positions_cell_array)
         if ~isempty(ENU_positions_cell_array{ith_array})
-            ST_positions = fcn_INTERNAL_convertXYtoST(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
+            ST_positions = fcn_INTERNAL_convertENUtoSTH(ENU_positions_cell_array{ith_array}(:,1:2),reference_unit_tangent_vector);
             fcn_plotRoad_plotTraceXY(ST_positions, (plotFormat), (flag_plot_headers_and_tailers), (STH_figNum));
             title(sprintf('STH Trace geometry'));
             STH_trace = ST_positions;
@@ -595,12 +612,12 @@ v_orthogonal = (rotation_matrix *v_unit')';
 
 % what is the vector to roate the points?
 Transform_point = [1  0]; % 90 degree line segment
-v_unit2 = fcn_INTERNAL_convertXYtoST(Transform_point,v_unit,figNum);
+v_unit2 = fcn_INTERNAL_convertENUtoSTH(Transform_point,v_unit,figNum);
 
 station = ST_points(:,1);
 transverse = ST_points(:,2);
 % get the ENU_points
-ENU_points = fcn_INTERNAL_convertXYtoST(ST_points,v_unit2,figNum);
+ENU_points = fcn_INTERNAL_convertENUtoSTH(ST_points,v_unit2,figNum);
 
 
 xEast = ENU_points(:,1);
@@ -650,19 +667,20 @@ end % Ends main function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%§
 
 
-function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
-%% fcn_INTERNAL_convertXYtoST
+function STH_points = fcn_INTERNAL_convertENUtoSTH(ENU_points,v_unit,varargin)
+%% fcn_INTERNAL_convertENUtoSTH
 % Takes xEast and yNorth points in the ENU coordinates and used them as an
 % input to give the station ( distance from origin in the direction of
 % travel) and transvers (distance from origin in the orthogonal direction) 
 %
 % FORMAT:
 %
-%       fcn_INTERNAL_convertXYtoST(ENU_points, v_unit,figNum)
+%       STH_points = fcn_INTERNAL_convertENUtoSTH(ENU_points, v_unit,figNum)
 %
 % INPUTS:
 %      
-%      ENU_points : [xEast, yNorth] X and Y ENU coordinates in [Nx2] format
+%      ENU_points : [xEast, yNorth, (zUp)] X and Y and Z ENU
+%      coordinates in [Nx2] or [Nx3] formats
 % 
 %      v_unit: unit vector in direction of travel 
 %
@@ -672,7 +690,7 @@ function ST_points = fcn_INTERNAL_convertXYtoST(ENU_points,v_unit,varargin)
 %
 % OUTPUTS:
 %
-%      ST_points : [station, transverse] ENU coordinates in [Nx2] format
+%      STH_points : [station, transverse, height] ENU coordinates in [Nx3] format
 %
 % DEPENDENCIES:
 %
@@ -790,11 +808,22 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 rotation_matrix = [0 -1; 1 0];
+
+if size(v_unit,2)>2
+	v_unit = v_unit(:,1:2);
+end
+
 v_orthogonal = (rotation_matrix *v_unit')';
 
 % define the origin : origin of ENU coordinates
 xEast = ENU_points(:,1);
 yNorth = ENU_points(:,2);
+
+if size(ENU_points,2)==2
+	zUp = 0*xEast;
+else
+	zUp = ENU_points(:,3);
+end
 
 % if flag_make_new_plot == 1
 %     % plot xEast and yNorth
@@ -813,7 +842,7 @@ transverse = sum(ENU_points.*(ones_vector*v_orthogonal),2);
 station = sum(ENU_points.*(ones_vector*v_unit),2);
 
 % Push to the output
-ST_points = [station, transverse];
+STH_points = [station, transverse, zUp];
 
 % plot results?
 if flag_do_plots == 1

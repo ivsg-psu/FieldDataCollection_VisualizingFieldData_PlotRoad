@@ -19,6 +19,19 @@
 % 
 % 2025_11_06 - Aneesh Batchu
 % - Added a test case with NaNs in the input data
+% 
+% 2026_02_22 by Sean Brennan, sbrennan@psu.edu, sbrennan@psu.edu
+% - In script_test_fcn_plotRoad_plotTraces
+%   % * Added output argument testing
+%   % * Fixed incorrect input call sizes (STH)
+%   % * Fixed assertions to agree even with NaN values
+% - In fcn_plotRoad_plotTraces
+%   % * Fixed header formatting
+%   % * Fixed incorrect output listing
+%   % * Fixed bug where LLA data output trace is a cell type, not matrix,
+%   %   % for ENU inputs
+%   % * Fixed bug where STH data output is missing height column
+
 
 % TO-DO:
 % 
@@ -71,7 +84,39 @@ Trace_coordinates = 1.0e+02 * [
 ];
 
 input_coordinates_type = "ENU";
-fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% % Make sure plot opened up
+% assert(isequaln(get(gcf,'Number'),figNum));
 
 %% DEMO case: input LLA coordinates and plot a trace in only LLA coordinates
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
@@ -96,7 +141,40 @@ Trace_coordinates = 1.0e+02 *[
 ];
 
 input_coordinates_type = "LLA";
-fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); 
+elseif strcmp(input_coordinates_type,'ENU') %#ok<UNRCH>
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% % Make sure plot opened up
+% assert(isequaln(get(gcf,'Number'),figNum));
+
 
 %% DEMO case: input STH coordinates and plot a trace in only LLA coordinates
 
@@ -118,8 +196,42 @@ Trace_coordinates = 1.0e+02 * [
     -1.170580581946491  -1.298665344937900
     -1.142946654037681  -1.337823833081837
     ];
+Trace_coordinates(:,3) = Trace_coordinates(:,1)*0;
 input_coordinates_type = "STH";
-fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type); %#ok<UNRCH>
+end
+
+
+% % Make sure plot opened up
+% assert(isequaln(get(gcf,'Number'),figNum));
+
 
 %% Test cases start here. These are very simple, usually trivial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,15 +287,46 @@ hard_coded_reference_unit_tangent_vector_LC_south_lane = [0.794630317120972   0.
 
 plotFormat = [];
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum));
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+
 
 %% Test case: input ENU coordinates and plot a trace in only STH
 
@@ -218,15 +361,46 @@ reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum));
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+
 
 %% Test case: input STH coordinates and plot a trace in only STH
 
@@ -248,7 +422,7 @@ Trace_coordinates = 1.0e+02 * [
     -1.170580581946491  -1.298665344937900
     -1.142946654037681  -1.337823833081837
     ];
-
+Trace_coordinates(:,3) = Trace_coordinates(:,1)*0;
 plotFormat = [];
 
 input_coordinates_type = "STH";
@@ -258,15 +432,46 @@ STH_figNum = figNum;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum))
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type); %#ok<UNRCH>
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+
 
 %% Test case: input STH coordinates and plot a trace in only LLA
 
@@ -288,7 +493,7 @@ Trace_coordinates = 1.0e+02 * [
     -1.170580581946491  -1.298665344937900
     -1.142946654037681  -1.337823833081837
     ];
-
+Trace_coordinates(:,3) = Trace_coordinates(:,1)*0;
 
 plotFormat = [];
 input_coordinates_type = "STH";
@@ -298,15 +503,46 @@ STH_figNum = [];
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum))
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type); %#ok<UNRCH>
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
+
 
 %% Test case: input STH coordinates and plot a trace in only ENU
 
@@ -328,7 +564,7 @@ Trace_coordinates = 1.0e+02 * [
     -1.170580581946491  -1.298665344937900
     -1.142946654037681  -1.337823833081837
     ];
-
+Trace_coordinates(:,3) = Trace_coordinates(:,1)*0;
 plotFormat = [];
 input_coordinates_type = "STH";
 LLA_figNum =[];
@@ -337,15 +573,45 @@ STH_figNum = [];
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum))
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type); %#ok<UNRCH>
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
 
 %% Test case: input LLA coordinates and plot all traces
 % FieldMeasurements_OriginalTrackLane_OuterMarkerClusterSolidWhite_1
@@ -384,15 +650,45 @@ STH_figNum = figNum;
 reference_unit_tangent_vector =[];
 flag_plot_headers_and_tailers =[];
 
-fcn_plotRoad_plotTraces(...
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(...
     Trace_coordinates, input_coordinates_type,...
     (plotFormat),...
     (reference_unit_tangent_vector),...
     (flag_plot_headers_and_tailers),...
     (LLA_figNum), (ENU_figNum), (STH_figNum));
 
-% Check that a figure was created
-assert(ishandle(figNum))
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); 
+elseif strcmp(input_coordinates_type,'ENU') %#ok<UNRCH>
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') 
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
+
+
+% Make sure plot opened up
+assert(isequaln(get(gcf,'Number'),figNum));
+
 
 %% Test case: Plot the electric poles on the test track
 
@@ -411,6 +707,34 @@ Trace_coordinates = [
 
 input_coordinates_type = "ENU";
 [LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
 
 % Make sure plot did NOT open up
 figHandles = get(groot, 'Children');
@@ -441,7 +765,35 @@ nan nan nan
 ];
 
 input_coordinates_type = "ENU";
-fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+[LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type);
+
+sgtitle(titleString, 'Interpreter','none');
+
+% Check variable types
+assert(isnumeric(LLA_trace));
+assert(isnumeric(ENU_trace));
+assert(isnumeric(STH_trace));
+
+% Check variable sizes
+assert(size(LLA_trace,1)==size(Trace_coordinates,1)-1); 
+assert(size(LLA_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(ENU_trace,1)==size(Trace_coordinates,1)); 
+assert(size(ENU_trace,2)==size(Trace_coordinates,2)); 
+
+assert(size(STH_trace,1)==size(Trace_coordinates,1)-1); 
+assert(size(STH_trace,2)==size(Trace_coordinates,2)); 
+
+% Check variable values
+if strcmp(input_coordinates_type,'LLA')
+	assert(isequaln(LLA_trace,Trace_coordinates)); %#ok<UNRCH>
+elseif strcmp(input_coordinates_type,'ENU')
+	assert(isequaln(ENU_trace,Trace_coordinates));
+elseif strcmp(input_coordinates_type,'STH') %#ok<UNRCH>
+	assert(isequaln(STH_trace,Trace_coordinates));
+else
+	error('Unrecognized input_coordinates_type: %s', input_coordinates_type);
+end
 
 %% Fast Mode Tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -514,7 +866,7 @@ end
 % %slow mode calculation - code copied from plotVehicleXYZ
 % for i=1:REPS
 %     tstart=tic;
-%     fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
+%     [LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
 %         plot_color,line_width,...
 %         figNum,figNum,figNum,reference_unit_tangent_vector,...
 %         flag_plot_headers_and_tailers, flag_plot_points);
@@ -529,7 +881,7 @@ end
 % tic;
 % for i=1:REPS
 %     tstart = tic;
-%     fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
+%     [LLA_trace, ENU_trace, STH_trace] = fcn_plotRoad_plotTraces(Trace_coordinates, input_coordinates_type,...
 %         plot_color,line_width,...
 %         figNum,figNum,figNum,reference_unit_tangent_vector,...
 %         flag_plot_headers_and_tailers, flag_plot_points);

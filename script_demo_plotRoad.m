@@ -96,10 +96,21 @@
 % - Deleted script_test_all_functions and replace with function call in
 %   % this main script
 % 
-% 2026_02_03 - Sean Brennan
+% 2026_02_03 by Sean Brennan, sbrennan@psu.edu
 % - In fcn_plotRoad_plotLLCircle
 %   % * Fixed bug where rows/cols of LLA data are swapped
-
+% 
+% 2026_02_22 by Sean Brennan, sbrennan@psu.edu
+% - In fcn_plotRoad_plotLLCircle
+%   % * Fixed bug where rows/cols of LLA data are swapped
+%
+% 2026_02_22 by Sean Brennan, sbrennan@psu.edu, sbrennan@psu.edu
+% - In script_test_fcn_plotRoad_plotTraces
+%   % * Added output argument testing
+%   % * Fixed incorrect input call sizes (STH)
+%   % * Fixed assertions to agree even with NaN values
+%
+% (new release) 
 
 % TO-DO:
 % 
